@@ -562,6 +562,10 @@
   components:
   - type: Sprite
     state: dough-pastry
+  - type: Construction # Frontier
+    graph: NFDonut
+    node: start
+    defaultTarget: donut # DEN - tooltip hint
 
 - type: entity
   name: pastry base
@@ -687,6 +691,9 @@
   - type: SliceableFood
     count: 12
     slice: FoodButterSlice
+  - type: Tag # Frontier
+    tags:
+    - NFButterStick
 
 - type: entity
   parent: [SolutionVeryTiny, FoodBakingMixableBase]

@@ -61,6 +61,9 @@
       - sweet
   - type: Sprite
     state: plain
+  - type: Construction # DEN - this is a construction node
+    graph: NFDonut
+    node: donut
 
 - type: entity
   parent: FoodDonutFruitBase
@@ -72,6 +75,9 @@
       - jelly
   - type: Sprite
     state: jelly-plain
+  - type: Construction # DEN - this is a construction node
+    graph: JellyDonut
+    node: donut
 
 # Donuts
 
