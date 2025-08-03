@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects.Effects.Solution;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
@@ -26,7 +27,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
 
-public abstract class SharedBloodstreamSystem : EntitySystem
+public abstract partial class SharedBloodstreamSystem : EntitySystem // DEN: Make partial
 {
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
@@ -55,6 +56,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BloodstreamComponent, MetabolismExclusionEvent>(OnMetabolismExclusion);
+
+        SubscribeLocalEvent<BloodstreamComponent, ExaminedEvent>(OnExamined); // DEN
     }
 
     public override void Update(float frameTime)

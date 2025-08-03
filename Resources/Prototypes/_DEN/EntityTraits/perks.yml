@@ -1,0 +1,9 @@
+- type: entityTrait
+  id: BloodExaminer
+  name: trait-blood-examiner-name
+  description: trait-blood-examiner-desc
+  category: Perks
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: BloodExaminer
