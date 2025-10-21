@@ -121,7 +121,7 @@
   name: theatrical performances crate
   description: Contains a moth cloak, barber scissors, maid uniform, clown and mime attributes, and other performance charms.
   components:
-  - type: EntityTableContainerFill
+  - type: EntityTableContainerFill # TODO: Costume bundles
     containers:
       entity_storage: !type:AllSelector
         children:

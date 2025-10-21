@@ -1,6 +1,6 @@
 - type: vendingMachineInventory
   id: AutoDrobeInventory
-  startingInventory:
+  startingInventory: # TODO: Costume bundles
     ClothingHeadHatJester: 1
     ClothingUniformJumpsuitJester: 1
     ClothingHeadHatJesterAlt: 1
