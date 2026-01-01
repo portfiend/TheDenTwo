@@ -21,6 +21,7 @@
     # DEN Strt: plushie additions
     - id: PlushieAzalea
     - id: PlushieOvinia
+    - id: PlushieWhistler
     - !type:GroupSelector
       children:
       - id: PlushieTeddyBear

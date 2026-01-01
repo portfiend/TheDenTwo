@@ -381,6 +381,8 @@
         orGroup: GiftPool
       - id: PlushieOvinia
         orGroup: GiftPool
+      - id: PlushieWhistler
+        orGroup: GiftPool
       - id: PlushieTeddyBear
         orGroup: GiftPool
       - id: PlushieTeddyBearRecolorableRandom
