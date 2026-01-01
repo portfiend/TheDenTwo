@@ -37,6 +37,7 @@
 
 - type: entity
   abstract: true
+  parent: BaseSqueakyToy
   id: BasePlushieWithoutStash
   components:
   - type: PhysicalComposition
