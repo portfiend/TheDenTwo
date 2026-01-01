@@ -7,24 +7,18 @@
   - type: Sprite
     sprite: _DEN/Objects/Fun/oviniaplushie.rsi
     state: icon
-  - type: EmitSoundOnUse
-    sound:
-      collection: OviniaPlushieSounds
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnActivate
-    sound:
-      collection: OviniaPlushieSounds
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: OviniaPlushieSounds
-  - type: MeleeWeapon
-    soundHit:
-      collection: OviniaPlushieSounds
-  - type: Edible
-    useSound:
-      collection: OviniaPlushieSounds
+  # TODO: Readd ovinia sounds
+  # - type: EmitSoundOnUse
+  #   sound: &OviniaPlushieSound
+  #     collection: OviniaPlushieSounds
+  # - type: EmitSoundOnActivate
+  #   sound: *OviniaPlushieSound
+  # - type: EmitSoundOnTrigger
+  #   sound: *OviniaPlushieSound
+  # - type: MeleeWeapon
+  #   soundHit: *OviniaPlushieSound
+  # - type: Edible
+  #   useSound: *OviniaPlushieSound
   - type: FoodSequenceElement
     entries:
       CottonBurger: OviniaPlushie
