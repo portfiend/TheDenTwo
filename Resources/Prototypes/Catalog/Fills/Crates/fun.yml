@@ -18,6 +18,25 @@
     - id: PlushieArachind
     - id: PlushiePenguin
     - id: PlushieVulp
+    # DEN Strt: plushie additions
+    - id: PlushieAzalea
+    - id: PlushieOvinia
+    - !type:GroupSelector
+      children:
+      - id: PlushieTeddyBear
+      - id: PlushieTeddyBearRecolorableRandom
+    - !type:GroupSelector
+      children:
+      - id: SqueakySmileyGuy
+      - id: SqueakySmileyGuyRandom
+      - id: SqueakySmileyBall
+      - id: SqueakySmileyBallRandom
+        weight: 0.3 # rare color variant...
+    - !type:GroupSelector
+      children:
+      - id: PlushieAlienGerm
+      - id: PlushieAlienGermMini
+    # DEN End
     - !type:GroupSelector
       children:
       - id: PlushieBee

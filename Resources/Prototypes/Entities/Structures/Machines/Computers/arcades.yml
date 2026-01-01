@@ -156,6 +156,17 @@
     - WeaponWaterPistol
     - WhoopieCushion
     - Whistle
+    # DEN Start: Toy additions
+    - PlushieAzalea
+    - PlushieOvinia
+    - PlushieTeddyBear
+    - PlushieTeddyBearRecolorableRandom
+    - SqueakySmileyGuy
+    - SqueakySmileyGuyRandom
+    - SqueakySmileyBall
+    - PlushieAlienGerm
+    - PlushieAlienGermMini
+    # End DEN
   - type: WiresPanel
   - type: Wires
     layoutId: Arcade
