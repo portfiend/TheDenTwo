@@ -1,0 +1,68 @@
+- type: palette
+  id: PlasticToy
+  name: bright toy
+  colors:
+    red: "#c54630"
+    orange: "#e96c32"
+    tangerine: "#f1a532"
+    yellow: "#ede74e"
+    lime: "#9ee023"
+    green: "#0dad1a"
+    mint: "#51e0aa"
+    cyan: "#3cdde9"
+    light blue: "#1990e0"
+    blue: "#314ada"
+    purple: "#813cd1"
+    magenta: "#d41ecb"
+    pink: "#ee90c7"
+    rose: "#e65b6e"
+    white: "#e2e2de"
+    light gray: "#a4abb4"
+    dark gray: "#747a80"
+    black: "#494b52"
+
+# a lot of neutral, light colors, and pastels
+# inspired by real yarn/fabric colors
+- type: palette
+  id: Teddybear
+  name: teddy bear
+  colors:
+    hickory: "#9d6854"
+    buoy: "#f96237"
+    tangerine twist: "#fe7f3c"
+    sweet potato: "#f29131"
+    sand dunes: "#cc9975"
+    canvas: "#eacfb5"
+    semolina: "#fed173"
+    sunny day: "#fbcb49"
+    ghee: "#f7eb73"
+    vanilla cream: "#fffbe5"
+    electric lime: "#a5ee31"
+    lawn: "#5fb766"
+    turf: "#9ee3af"
+    tidewater: "#01c4b4"
+    wave: "#98e1df"
+    great reef: "#0dbbf0"
+    wisp: "#dbe2e7"
+    blue steel: "#819eb7"
+    chambray: "#adc6e3"
+    true blue: "#3476dd"
+    royal purple: "#a367e7"
+    french lilac: "#d5c6e3"
+    sweet valley: "#fb85b9"
+    dusty pink: "#d89da7"
+    bistro: "#f37872"
+    snow: "#e2dedf"
+    light gray: "#afb2b4"
+    dark gray: "#777879"
+    black: "#333335"
+
+- type: palette
+  id: TeddybearAccent
+  name: teddy bear accent
+  colors:
+    white: "#ffffff"
+    canvas: "#eacfb5"
+    vanilla cream: "#fffbe5"
+    snow: "#e2dedf"
+    light gray: "#d6d6d6"

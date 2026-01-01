@@ -1,0 +1,48 @@
+- type: foodSequenceElement
+  id: AlienGermPlushie
+  name: food-sequence-cotton-burger-content-plushie-alien-germ
+  sprites:
+  - sprite: _DEN/Objects/Fun/ufoplushie.rsi
+    state: icon
+
+- type: foodSequenceElement
+  id: AlienGermMiniPlushie
+  name: food-sequence-cotton-burger-content-plushie-alien-germ
+  sprites:
+  - sprite: _DEN/Objects/Fun/ufoplushie.rsi
+    state: small
+
+- type: foodSequenceElement
+  id: HeartInsertPlushie
+  name: food-sequence-cotton-burger-content-plushie-heart-insert
+  sprites:
+  - sprite: _DEN/Objects/Fun/teddybear.rsi
+    state: plush_heart
+
+- type: foodSequenceElement
+  id: TeddyBearPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-teddy-bear
+  sprites:
+  - sprite: _DEN/Objects/Fun/teddybear.rsi
+    state: teddybear
+
+# SPECIES PLUSHIES
+
+- type: foodSequenceElement
+  id: OviniaPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-ovinia
+  sprites:
+  - sprite: _DEN/Objects/Fun/oviniaplushie.rsi
+    state: icon
+
+# SELF-INSERT PLUSHIES
+
+- type: foodSequenceElement
+  id: AzaleaPlushie # got permission from june -port
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-azalea
+  sprites:
+  - sprite: _DEN/Objects/Fun/azaleaplushie.rsi
+    state: icon
