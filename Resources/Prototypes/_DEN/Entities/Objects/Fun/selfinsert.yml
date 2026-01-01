@@ -19,7 +19,7 @@
 
 # @ daggeran, approved by Jenn, added by @SubspaceEmber
 - type: entity
-  parent: PlushieShadowkin
+  parent: BasePlushie
   id: PlushieWhistler
   name: whistler plushie
   description: A plushie of a certain green shadowkin. Very soft and plush. You swear you hear it wurble when you turn your back.
