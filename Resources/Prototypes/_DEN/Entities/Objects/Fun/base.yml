@@ -1,0 +1,64 @@
+# A squeaky toy is just a toy that squeaks. Plushies have stashes and are made of cloth.
+# A "squeaky toy" could be, for example, a rubber container filled with slime, or foam, or whatever.
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseSqueakyToy
+  components:
+  - type: EmitSoundOnUse
+    sound: &BasePlushieSound
+      collection: ToySqueak
+      params:
+        volume: -4
+  - type: EmitSoundOnActivate
+    sound: *BasePlushieSound
+  - type: EmitSoundOnCollide
+    sound: *BasePlushieSound
+  - type: EmitSoundOnLand
+    sound: *BasePlushieSound
+  - type: EmitSoundOnTrigger
+    sound: *BasePlushieSound
+  - type: UseDelay
+    delay: 3.0
+  - type: MeleeWeapon
+    attackRate: 0.333
+    wideAnimationRotation: 180
+    soundHit: *BasePlushieSound
+    damage:
+      types:
+        Blunt: 0
+    hidden: true
+  - type: StaticPrice
+    price: 5
+  - type: Tag
+    tags:
+    - Payload
+
+- type: entity
+  abstract: true
+  id: BasePlushieWithoutStash
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound: *BasePlushieSound
+    delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Tag
+    tags:
+    - Payload
+    - ClothMade
+
+- type: entity
+  abstract: true
+  parent: [BasePlushieWithoutStash, BaseStash]
+  id: BasePlushie

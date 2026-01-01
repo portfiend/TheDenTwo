@@ -2,54 +2,9 @@
 
 ## Plushies
 
-- type: entity
-  abstract: true
-  parent: [BaseItem, BaseStash]
-  id: BasePlushie
-  components:
-  - type: EmitSoundOnUse
-    sound: &BasePlushieSound
-      collection: ToySqueak
-      params:
-        volume: -4
-  - type: EmitSoundOnActivate
-    sound: *BasePlushieSound
-  - type: EmitSoundOnCollide
-    sound: *BasePlushieSound
-  - type: EmitSoundOnLand
-    sound: *BasePlushieSound
-  - type: EmitSoundOnTrigger
-    sound: *BasePlushieSound
-  - type: UseDelay
-    delay: 3.0
-  - type: MeleeWeapon
-    attackRate: 0.333
-    wideAnimationRotation: 180
-    soundHit: *BasePlushieSound
-    damage:
-      types:
-        Blunt: 0
-    hidden: true
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: StaticPrice
-    price: 5
-  - type: Edible
-    requiresSpecialDigestion: true
-    useSound: *BasePlushieSound
-    delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-  - type: Tag
-    tags:
-    - Payload
-    - ClothMade
+# DEN: BasePlushie prototype has been moved from this file to:
+#   Resources/Prototypes/_DEN/Entities/Objects/Fun/base.yml
+# (This is so that I can keep the anchor tag consistent there)
 
 - type: entity
   parent: BasePlushie
