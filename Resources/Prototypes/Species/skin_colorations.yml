@@ -1,7 +1,7 @@
 - type: skinColoration
   id: Hues
   strategy: !type:ClampedHsvColoration
-    value: [0.175, 1]
+    value: [0, 1] # DEN: Remove lower limit for skin tone brightness
 
 - type: skinColoration
   id: TintedHues
@@ -21,7 +21,7 @@
   strategy: !type:HumanTonedSkinColoration {}
 
 - type: skinColoration
-  id: VulpkaninColors
+  id: VulpkaninColors # DEN note: UNUSED
   strategy: !type:ClampedHslColoration
     saturation: [0.0, 0.60]
     lightness: [0.2, 0.9]
