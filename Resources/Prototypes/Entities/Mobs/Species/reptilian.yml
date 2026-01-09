@@ -100,6 +100,10 @@
           32:
             sprite: Mobs/Species/Reptilian/displacement.rsi
             state: mask
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-reptilian
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

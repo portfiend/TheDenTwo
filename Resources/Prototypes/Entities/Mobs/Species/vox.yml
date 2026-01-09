@@ -211,6 +211,10 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-vox
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

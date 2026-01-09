@@ -27,6 +27,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-human
+  # End DEN
 
 
 - type: entity

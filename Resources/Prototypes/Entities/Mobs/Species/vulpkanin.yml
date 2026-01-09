@@ -170,6 +170,10 @@
           32:
             sprite: Mobs/Species/Vulpkanin/displacement.rsi
             state: belt
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-vulpkanin
+  # End DEN
 
 - type: entity
   parent: [BaseSpeciesDummy]

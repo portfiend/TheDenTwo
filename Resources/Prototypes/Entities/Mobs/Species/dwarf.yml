@@ -61,6 +61,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-dwarf
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

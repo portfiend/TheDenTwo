@@ -114,6 +114,10 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-diona
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

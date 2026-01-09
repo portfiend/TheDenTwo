@@ -121,6 +121,10 @@
   - type: Inventory
     templateId: arachnid
     speciesId: arachnid
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-arachnid
+  # End DEN
 
 
 - type: entity

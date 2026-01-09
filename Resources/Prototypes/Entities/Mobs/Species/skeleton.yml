@@ -128,6 +128,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-skeleton
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

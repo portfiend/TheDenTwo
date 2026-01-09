@@ -176,6 +176,10 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-moth
+  # End DEN
 
 - type: entity
   parent: BaseSpeciesDummy

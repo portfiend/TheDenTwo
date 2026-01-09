@@ -56,6 +56,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-gingerbread
+  # End DEN
 
 
 - type: entity
