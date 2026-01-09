@@ -29,7 +29,7 @@
             state: jumpsuit-female
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-human
+    baseLabel: physiology-description-species-base-human
   # End DEN
 
 

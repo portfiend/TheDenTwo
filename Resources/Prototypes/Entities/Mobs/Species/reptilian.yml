@@ -102,7 +102,7 @@
             state: mask
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-reptilian
+    baseLabel: physiology-description-species-base-reptilian
   # End DEN
 
 - type: entity

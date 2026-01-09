@@ -63,7 +63,7 @@
             state: jumpsuit-female
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-dwarf
+    baseLabel: physiology-description-species-base-dwarf
   # End DEN
 
 - type: entity

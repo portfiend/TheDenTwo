@@ -178,7 +178,7 @@
             state: shoes
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-moth
+    baseLabel: physiology-description-species-base-moth
   # End DEN
 
 - type: entity

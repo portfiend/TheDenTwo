@@ -2,18 +2,29 @@ physiology-description-examine-text = {CAPITALIZE(SUBJECT($target))} {CONJUGATE-
 physiology-description-examine-physiology = {$base}
 physiology-description-examine-physiology-prefix = {$prefix} {$base}
 
-# wizden species
-physiology-description-species-arachnid = arachnid
-physiology-description-species-diona = diona
-physiology-description-species-dwarf = dwarven
-physiology-description-species-gingerbread = cookie
-physiology-description-species-human = humanoid
-physiology-description-species-moth = moth
-physiology-description-species-reptilian = reptilian
-physiology-description-species-skeleton = skeletal
-physiology-description-species-slime = slimeperson
-physiology-description-species-vox = vox
-physiology-description-species-vulpkanin = vulpkanin
+# SPECIES BASES
 
-# den species
+## wizden species
+physiology-description-species-base-arachnid = arachnid
+physiology-description-species-base-diona = diona
+physiology-description-species-base-dwarf = dwarven
+physiology-description-species-base-gingerbread = cookie
+physiology-description-species-base-human = humanoid
+physiology-description-species-base-moth = moth
+physiology-description-species-base-reptilian = reptilian
+physiology-description-species-base-skeleton = skeletal
+physiology-description-species-base-slime = slime
+physiology-description-species-base-vox = vox
+physiology-description-species-base-vulpkanin = vulpkanin
+
+## den species
 # TODO
+
+# SPECIES PREFIXES
+# TODO
+physiology-description-species-prefix-human-canid = canid
+physiology-description-species-prefix-human-felinid = felinid
+physiology-description-species-prefix-human-kitsune = kitsune
+physiology-description-species-prefix-human-oni = oni
+
+physiology-description-species-prefix-reptilian-dragon = draconic

@@ -130,7 +130,7 @@
         type: StrippableBoundUserInterface
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-skeleton
+    baseLabel: physiology-description-species-base-skeleton
   # End DEN
 
 - type: entity

@@ -116,7 +116,7 @@
   - type: Rootable
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-diona
+    baseLabel: physiology-description-species-base-diona
   # End DEN
 
 - type: entity

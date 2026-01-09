@@ -120,7 +120,7 @@
             state: jumpsuit-female
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-slime
+    baseLabel: physiology-description-species-base-slime
   # End DEN
 
 - type: entity

@@ -58,7 +58,7 @@
             state: jumpsuit-female
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-gingerbread
+    baseLabel: physiology-description-species-base-gingerbread
   # End DEN
 
 

@@ -172,7 +172,7 @@
             state: belt
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-vulpkanin
+    baseLabel: physiology-description-species-base-vulpkanin
   # End DEN
 
 - type: entity

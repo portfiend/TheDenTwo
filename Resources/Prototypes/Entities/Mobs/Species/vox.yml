@@ -213,7 +213,7 @@
           state: hand_r
   # DEN start
   - type: PhysiologyDescription
-    baseLabel: physiology-description-species-vox
+    baseLabel: physiology-description-species-base-vox
   # End DEN
 
 - type: entity
