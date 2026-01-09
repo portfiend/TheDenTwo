@@ -23,25 +23,30 @@ public sealed partial class PhysiologyDescriptionComponent : Component
     /// <summary>
     /// A label for the base physiology of an entity; e.g. "humanoid", "reptilian", "moth".
     /// </summary>
-    [DataField] public LocId BaseLabel = null;
+    [DataField(required: true)]
+    public LocId BaseLabel = default!;
 
     /// <summary>
     /// A label for the "morph" or variant of an entity; e.g. "felinid" humanoid, "draconic" reptilian.
     /// </summary>
-    [DataField] public LocId? PrefixLabel = null;
+    [DataField]
+    public LocId? PrefixLabel = null;
 
     /// <summary>
     /// The text displayed on this entity's examine tooltip.
     /// </summary>
-    [DataField] public LocId ExamineText = "physiology-description-examine-text";
+    [DataField]
+    public LocId ExamineText = "physiology-description-examine-text";
 
     /// <summary>
     /// The descriptor for an entity without a prefix.
     /// </summary>
-    [DataField] public LocId BasePhysiologyDescriptor = "physiology-description-examine-physiology";
+    [DataField]
+    public LocId BasePhysiologyDescriptor = "physiology-description-examine-physiology";
 
     /// <summary>
     /// The descriptor for an entity with a prefix.
     /// </summary>
-    [DataField] public LocId PrefixedPhysiologyDescriptor = "physiology-description-examine-physiology-prefix";
+    [DataField]
+    public LocId PrefixedPhysiologyDescriptor = "physiology-description-examine-physiology-prefix";
 }
