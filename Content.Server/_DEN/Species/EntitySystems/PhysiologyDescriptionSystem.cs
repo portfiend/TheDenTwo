@@ -1,6 +1,7 @@
 using Content.Shared._DEN.Species.Components;
 using Content.Shared._DEN.Species.EntitySystems;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 
 #pragma warning disable IDE1006 // Naming Styles
 namespace Content.Server._DEN.Species.EntitySystems;
@@ -29,7 +30,10 @@ public sealed partial class PhysiologyDescriptionSystem : SharedPhysiologyDescri
             : Loc.GetString(comp.BasePhysiologyDescriptor,
                 ("base", baseLabel));
 
-        var examineText = Loc.GetString(comp.ExamineText, ("physiology", physiologyLabel));
-        args.AddMarkup(examineText);
+        var examineText = Loc.GetString(comp.ExamineText,
+            ("target", Identity.Entity(ent.Owner, EntityManager)),
+            ("physiology", physiologyLabel));
+
+        args.PushMarkup(examineText);
     }
 }
