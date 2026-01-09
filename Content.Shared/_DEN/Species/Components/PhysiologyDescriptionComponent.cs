@@ -1,7 +1,6 @@
-
-#pragma warning disable IDE1006 // Naming Styles
 using Content.Shared._DEN.Species.EntitySystems;
 
+#pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Species.Components;
 #pragma warning restore IDE1006 // Naming Styles
 
