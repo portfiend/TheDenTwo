@@ -1,0 +1,9 @@
+﻿- type: marking
+  id: VulpEarWolf
+  bodyPart: HeadTop
+  groupWhitelist: [ Vulpkanin ] # DEN - update for nubody
+  sprites:
+  - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: wolf
+  - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: wolf-inner
