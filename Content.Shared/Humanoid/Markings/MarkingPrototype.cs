@@ -14,17 +14,11 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("bodyPart", required: true)]
         public HumanoidVisualLayers BodyPart { get; private set; } = default!;
 
-        [DataField("markingCategory", required: true)]
-        public MarkingCategories MarkingCategory { get; private set; } = default!;
-
-        [DataField("speciesRestriction")]
-        public List<string>? SpeciesRestrictions { get; private set; }
+        [DataField]
+        public List<ProtoId<MarkingsGroupPrototype>>? GroupWhitelist;
 
         [DataField("sexRestriction")]
         public Sex? SexRestriction { get; private set; }
-
-        [DataField("followSkinColor")]
-        public bool FollowSkinColor { get; private set; } = false;
 
         [DataField("forcedColoring")]
         public bool ForcedColoring { get; private set; } = false;
@@ -45,25 +39,6 @@ namespace Content.Shared.Humanoid.Markings
         public Marking AsMarking()
         {
             return new Marking(ID, Sprites.Count);
-        }
-
-        /// <summary>
-        /// Gets the locale ID of this marking.
-        /// </summary>
-        public LocId GetNameLocale()
-        {
-            return $"marking-{ID}";
-        }
-
-        /// <summary>
-        /// Gets the localized name of this marking.
-        /// </summary>
-        /// <remarks>
-        /// This shows up in the list of markings in the marking picker.
-        /// </remarks>
-        public string GetName()
-        {
-            return Loc.GetString(GetNameLocale());
         }
     }
 }
