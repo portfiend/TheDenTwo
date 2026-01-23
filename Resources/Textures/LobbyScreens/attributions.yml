@@ -57,3 +57,64 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
   source: "https://github.com/space-wizards/space-station-14"
+
+# DEN NAMESPACE STUFF
+- files: ["thesix.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "wallflowerghost on discord" #Den exclusive on request, please abide by the artist's wishes
+  source: "https://github.com/wallflowerghost"
+
+- files: ["thetrip.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "leonardo_dabepis on discord" #Den
+  source: "https://tapas.io/series/Mesmers"
+
+- files: ["denos.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "justani on discord" #Den
+  source: "https://justani.uwu.ai/"
+
+- files: ["KAASI_DOSHI.webp"]
+  license: "CC-BY-SA-4.0"
+  copyright: "GooseyTeeth"
+  source: "https://x.com/GooseyTeeth/status/1841546854049145155/photo/1" # 18+ content is posted on this account
+
+- files: ["NO-RO.webp"]
+  license: "CC-BY-SA-4.0"
+  copyright: "GooseyTeeth"
+  source: "https://x.com/GooseyTeeth/status/1841546854049145155/photo/1" # 18+ content is posted on this account
+
+- files: ["lurkinginthedark.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "trashycinder on discord" #Den
+  source: "https://www.instagram.com/trashy.cinder"
+
+- files: ["iansecured.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "trashycinder on discord" #Den
+  source: "https://www.instagram.com/trashy.cinder"
+
+- files: ["imwiththescienceteam.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "TKSParadox on discord" #Den
+  source: "https://www.instagram.com/the_kansas_paradox?igsh=ZDJoa3JtdGE4MXIy"
+
+- files: ["averageepishenanigans.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Skweekers on discord / Bsky" #Den
+  source: "https://bsky.app/profile/skweekers.bsky.social" # 18+ content is posted on this account
+
+- files: ["ntmonthlyfashionmagazine.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "justani on discord" #Den
+  source: "https://justani.uwu.ai/"
+
+- files: ["plushpuddle.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "wolfio on discord" #Den
+  source: "https://github.com/TheOneTrueWolfio"
+
+- files: ["thatcoolbar.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "wallflowerghost on discord" #Den exclusive on request, please abide by the artist's wishes
+  source: "https://github.com/wallflowerghost"

@@ -173,6 +173,10 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-slime
+  # End DEN
 
 - type: entity
   parent: OrganBase

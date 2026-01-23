@@ -182,6 +182,10 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-skeleton
+  # End DEN
 
 - type: entity
   parent: OrganBase

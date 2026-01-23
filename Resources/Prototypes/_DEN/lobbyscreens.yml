@@ -1,0 +1,69 @@
+# Den's Lobby Screens File
+# Please put Den-exclusive lobby screens here.
+# If adding a new art, remember to put the artist credit in lobby-state-background.ftl
+
+- type: lobbyBackground
+  id: DenOS
+  background: /Textures/LobbyScreens/denos.webp
+  title: lobby-state-background-denos-title
+  artist: lobby-state-background-denos-artist
+
+- type: lobbyBackground
+  id: TheSix
+  background: /Textures/LobbyScreens/thesix.webp
+  title: lobby-state-background-thesix-title
+  artist: lobby-state-background-thesix-artist
+
+- type: lobbyBackground
+  id: TheTrip
+  background: /Textures/LobbyScreens/thetrip.webp
+  title: lobby-state-background-thetrip-title
+  artist: lobby-state-background-thetrip-artist
+
+- type: lobbyBackground
+  id: KaasiDoshi
+  background: /Textures/LobbyScreens/KAASI_DOSHI.webp
+  title: lobby-state-background-KAASI_DOSHI-title
+  artist: lobby-state-background-KAASI_DOSHI-artist
+
+- type: lobbyBackground
+  id: No-Ro
+  background: /Textures/LobbyScreens/NO-RO.webp
+  title: lobby-state-background-NO-RO-title
+  artist: lobby-state-background-NO-RO-artist
+
+- type: lobbyBackground
+  id: IanSecured
+  background: /Textures/LobbyScreens/iansecured.webp
+  title: lobby-state-background-iansecured-title
+  artist: lobby-state-background-iansecured-artist
+
+- type: lobbyBackground
+  id: ImWithTheScienceTeam
+  background: /Textures/LobbyScreens/imwiththescienceteam.webp
+  title: lobby-state-background-imwiththescienceteam-title
+  artist: lobby-state-background-imwiththescienceteam-artist
+
+- type: lobbyBackground
+  id: AverageEpiShenanigans
+  background: /Textures/LobbyScreens/averageepishenanigans.webp
+  title: lobby-state-background-averageepishenanigans-title
+  artist: lobby-state-background-averageepishenanigans-artist
+
+- type: lobbyBackground
+  id: NTMonthlyFashionMagazine
+  background: /Textures/LobbyScreens/ntmonthlyfashionmagazine.webp
+  title: lobby-state-background-ntmonthlyfashionmagazine-title
+  artist: lobby-state-background-ntmonthlyfashionmagazine-artist
+
+- type: lobbyBackground
+  id: PlushPuddle
+  background: /Textures/LobbyScreens/plushpuddle.webp
+  title: lobby-state-background-plushpuddle-title
+  artist: lobby-state-background-plushpuddle-artist
+
+- type: lobbyBackground
+  id: ThatCoolBar
+  background: /Textures/LobbyScreens/thatcoolbar.webp
+  title: lobby-state-background-thatcoolbar-title
+  artist: lobby-state-background-thatcoolbar-artist

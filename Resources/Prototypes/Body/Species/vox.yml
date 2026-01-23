@@ -248,6 +248,10 @@
     damage:
       types:
         Slash: 5 # Reduce?
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-vox
+  # End DEN
 
 - type: entity
   parent: OrganBase

@@ -66,6 +66,10 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-dwarf
+  # End DEN
 
 - type: entity
   parent: OrganBase
