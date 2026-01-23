@@ -76,6 +76,10 @@
           - MobLayer
   - type: TypingIndicator
     proto: gingerbread
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-gingerbread
+  # End DEN
 
 - type: entity
   parent: OrganBase

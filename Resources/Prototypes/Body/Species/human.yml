@@ -87,6 +87,10 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-human
+  # End DEN
 
 - type: entity
   parent: OrganBase

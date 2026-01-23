@@ -166,6 +166,10 @@
       295: 0.8
       285: 0.7
   - type: Wagging
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-reptilian
+  # End DEN
 
 - type: entity
   parent: OrganBase

@@ -137,6 +137,10 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-arachnid
+  # End DEN
 
 - type: entity
   parent: OrganBase

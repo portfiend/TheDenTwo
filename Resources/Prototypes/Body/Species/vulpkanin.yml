@@ -137,6 +137,10 @@
     heatingCoefficient: 1.2
     coolingCoefficient: 0.3
   # DEN - remove vulpkanin jump ability
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-vulpkanin
+  # End DEN
 
 - type: entity
   parent: OrganBase

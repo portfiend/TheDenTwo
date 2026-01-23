@@ -170,6 +170,10 @@
     allowedStates:
     - Dead
   - type: Rootable
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-diona
+  # End DEN
 
 - type: entity
   parent: OrganBase
