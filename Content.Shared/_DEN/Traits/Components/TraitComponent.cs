@@ -1,0 +1,17 @@
+using Content.Shared._DEN.Traits.EntitySystems;
+using Content.Shared._DEN.Traits.TraitFunctions;
+
+#pragma warning disable IDE1006 // Naming Styles
+namespace Content.Shared._DEN.Traits.Components;
+#pragma warning restore IDE1006 // Naming Styles
+
+/// <summary>
+/// A container for trait entities, allowing traits to hold their own components and state.
+/// </summary>
+[RegisterComponent]
+[Access(typeof(SharedTraitSystem))]
+public sealed partial class TraitComponent : Component
+{
+    [DataField]
+    public IReadOnlyList<ITraitFunction> TraitFunctions = [];
+}
