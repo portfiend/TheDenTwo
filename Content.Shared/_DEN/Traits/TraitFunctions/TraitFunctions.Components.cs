@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 
@@ -5,7 +6,7 @@ using Robust.Shared.Serialization.Manager;
 namespace Content.Shared._DEN.Traits.TraitFunctions;
 #pragma warning restore IDE1006 // Naming Styles
 
-[Serializable]
+[UsedImplicitly]
 public sealed partial class AddComponentTrait : ITraitFunction
 {
     [DataField(required: true)]
