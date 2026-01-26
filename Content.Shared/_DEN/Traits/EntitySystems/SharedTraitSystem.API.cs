@@ -1,6 +1,5 @@
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._DEN.Traits.Components;
+using Content.Shared._DEN.Traits.Prototypes;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -10,41 +9,49 @@ namespace Content.Shared._DEN.Traits.EntitySystems;
 
 public abstract partial class SharedTraitSystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     [PublicAPI]
-    public bool TryAddTraitEntity(EntityUid target,
-        EntProtoId traitProto,
+    public bool TryAddTrait(EntityUid target,
+        ProtoId<EntityTraitPrototype> trait,
         [NotNullWhen(true)] out EntityUid? traitEntity)
     {
         traitEntity = null;
 
-        EnsureComp<TraitHolderComponent>(target);
-
-        if (!PredictedTrySpawnInContainer(traitProto,
-            target,
-            TraitHolderComponent.ContainerId,
-            out var trait))
+        if (!_prototypeManager.TryIndex(trait, out var traitProto)
+            || traitProto.Entity == null)
             return false;
 
-        if (!_traitQuery.HasComp(trait))
-        {
-            var traitString = ToPrettyString(trait);
-            var targetString = ToPrettyString(target);
-            Debug.Fail($"Trait {traitString} was added to {targetString}, but it lacks a TraitComponent!");
-            return false;
-        }
+        if (TryAddTraitEntity(target, traitProto.Entity.Value, out var entity))
+            traitEntity = entity;
 
-        traitEntity = trait;
-        return true;
+        return traitEntity != null;
     }
 
     [PublicAPI]
-    public bool TryRemoveTraitEntity(EntityUid target,
-        EntProtoId traitProto)
+    public bool TryGetTraitEntity(EntityUid target,
+        ProtoId<EntityTraitPrototype> trait,
+        [NotNullWhen(true)] out EntityUid? traitEntity)
     {
-        if (!TryGetTraitEntity(target, traitProto, out var traitEntity))
+        traitEntity = null;
+
+        if (!_prototypeManager.TryIndex(trait, out var traitProto)
+            || traitProto.Entity == null)
             return false;
 
-        PredictedQueueDel(traitEntity);
-        return true;
+        if (TryGetTraitEntity(target, traitProto.Entity.Value, out var entity))
+            traitEntity = entity;
+
+        return traitEntity != null;
+    }
+
+    [PublicAPI]
+    public bool TryRemoveTrait(EntityUid target, ProtoId<EntityTraitPrototype> trait)
+    {
+        if (!_prototypeManager.TryIndex(trait, out var traitProto)
+            || traitProto.Entity == null)
+            return false;
+
+        return TryRemoveTraitEntity(target, traitProto.Entity.Value);
     }
 }

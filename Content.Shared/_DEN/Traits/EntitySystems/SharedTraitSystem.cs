@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DEN.Traits.Components;
@@ -58,5 +59,41 @@ public abstract partial class SharedTraitSystem : EntitySystem
         }
 
         return false;
+    }
+
+    public bool TryAddTraitEntity(EntityUid target,
+        EntProtoId traitProto,
+        [NotNullWhen(true)] out EntityUid? traitEntity)
+    {
+        traitEntity = null;
+
+        EnsureComp<TraitHolderComponent>(target);
+
+        if (!PredictedTrySpawnInContainer(traitProto,
+            target,
+            TraitHolderComponent.ContainerId,
+            out var trait))
+            return false;
+
+        if (!_traitQuery.HasComp(trait))
+        {
+            var traitString = ToPrettyString(trait);
+            var targetString = ToPrettyString(target);
+            Debug.Fail($"Trait {traitString} was added to {targetString}, but it lacks a TraitComponent!");
+            return false;
+        }
+
+        traitEntity = trait;
+        return true;
+    }
+
+    public bool TryRemoveTraitEntity(EntityUid target,
+        EntProtoId traitProto)
+    {
+        if (!TryGetTraitEntity(target, traitProto, out var traitEntity))
+            return false;
+
+        PredictedQueueDel(traitEntity);
+        return true;
     }
 }
