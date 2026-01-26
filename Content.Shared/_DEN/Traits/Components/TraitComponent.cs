@@ -14,4 +14,7 @@ public sealed partial class TraitComponent : Component
 {
     [DataField]
     public IReadOnlyList<ITraitFunction> TraitFunctions = [];
+
+    [DataField]
+    public EntityUid? Holder = null;
 }

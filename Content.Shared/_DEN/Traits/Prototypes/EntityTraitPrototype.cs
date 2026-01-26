@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DEN.Traits.Prototypes;
 #pragma warning restore IDE1006 // Naming Styles
 
+[Prototype]
 public sealed partial class EntityTraitPrototype : IPrototype
 {
     [ViewVariables]
