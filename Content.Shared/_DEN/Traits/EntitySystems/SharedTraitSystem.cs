@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DEN.Traits.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 #pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Traits.EntitySystems;
@@ -79,8 +80,7 @@ public abstract partial class SharedTraitSystem : EntitySystem
         {
             var traitString = ToPrettyString(trait);
             var targetString = ToPrettyString(target);
-            Debug.Fail($"Trait {traitString} was added to {targetString}, but it lacks a TraitComponent!");
-            return false;
+            throw new DebugAssertException($"Trait {traitString} was added to {targetString}, but it lacks a TraitComponent!");
         }
 
         traitEntity = trait;
