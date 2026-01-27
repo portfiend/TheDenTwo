@@ -9,7 +9,7 @@
     components:
     - PhysiologyDescription
   functions:
-  - !type:ModifyPhysiologyDescriptor
+  - !type:ModifyPhysiologyDescriptorTrait
       prefixText: physiology-description-species-prefix-human-canid
 
 - type: entityTrait
@@ -18,7 +18,7 @@
     components:
     - PhysiologyDescription
   functions:
-  - !type:ModifyPhysiologyDescriptor
+  - !type:ModifyPhysiologyDescriptorTrait
       prefixText: physiology-description-species-prefix-human-felinid
 
 - type: entityTrait
@@ -27,7 +27,7 @@
     components:
     - PhysiologyDescription
   functions:
-  - !type:ModifyPhysiologyDescriptor
+  - !type:ModifyPhysiologyDescriptorTrait
       prefixText: physiology-description-species-prefix-human-kitsune
 
 - type: entityTrait
@@ -36,5 +36,5 @@
     components:
     - PhysiologyDescription
   functions:
-  - !type:ModifyPhysiologyDescriptor
+  - !type:ModifyPhysiologyDescriptorTrait
       prefixText: physiology-description-species-prefix-human-oni

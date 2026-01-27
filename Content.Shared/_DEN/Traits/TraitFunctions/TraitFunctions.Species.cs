@@ -9,7 +9,7 @@ namespace Content.Shared._DEN.Traits.TraitFunctions;
 #pragma warning restore IDE1006 // Naming Styles
 
 [UsedImplicitly]
-public sealed partial class ModifyPhysiologyDescriptor : ITraitFunction
+public sealed partial class ModifyPhysiologyDescriptorTrait : ITraitFunction
 {
     [DataField] public LocId BaseText = string.Empty;
     [DataField] public LocId? PrefixText = string.Empty;
