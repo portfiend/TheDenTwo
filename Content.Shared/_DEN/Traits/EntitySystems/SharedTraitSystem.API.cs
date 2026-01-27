@@ -3,7 +3,6 @@ using Content.Shared._DEN.Traits.Components;
 using Content.Shared._DEN.Traits.Prototypes;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 
 #pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Traits.EntitySystems;
@@ -11,9 +10,6 @@ namespace Content.Shared._DEN.Traits.EntitySystems;
 
 public abstract partial class SharedTraitSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
-
     /// <summary>
     /// Adds a trait to a given target by entityTrait prototype ID.
     /// </summary>
@@ -28,7 +24,7 @@ public abstract partial class SharedTraitSystem
     {
         traitEntity = null;
 
-        if (!_prototypeManager.TryIndex(trait, out var traitProto))
+        if (!_prototypeManager.TryIndex(trait, out var traitProto) || !CanAddTrait(target, traitProto))
             return false;
 
         var entity = Spawn();
@@ -86,6 +82,36 @@ public abstract partial class SharedTraitSystem
             return false;
 
         PredictedQueueDel(traitEntity);
+        return true;
+    }
+
+    /// <summary>
+    /// Checks whether or not this trait prototype can be added to an entity.
+    /// </summary>
+    /// <param name="target">The entity to add the trait to.</param>
+    /// <param name="trait">The trait prototype to use.</param>
+    /// <returns>Whether or not the trait can be added.</returns>
+    [PublicAPI]
+    public bool CanAddTrait(EntityUid target, ProtoId<EntityTraitPrototype> trait)
+    {
+        if (!_prototypeManager.TryIndex(trait, out var traitProto))
+            return false;
+
+        return CanAddTrait(target, traitProto);
+    }
+
+    /// <summary>
+    /// Checks whether or not this trait prototype can be added to an entity.
+    /// </summary>
+    /// <param name="target">The entity to add the trait to.</param>
+    /// <param name="traitProto">The trait prototype to use.</param>
+    /// <returns>Whether or not the trait can be added.</returns>
+    [PublicAPI]
+    public bool CanAddTrait(EntityUid target, EntityTraitPrototype traitProto)
+    {
+        if (!_whitelist.CheckBoth(target, blacklist: traitProto.Blacklist, whitelist: traitProto.Whitelist))
+            return false;
+
         return true;
     }
 }

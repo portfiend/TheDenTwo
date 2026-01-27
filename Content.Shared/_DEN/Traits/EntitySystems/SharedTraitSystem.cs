@@ -2,8 +2,12 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DEN.Traits.Components;
+using Content.Shared._DEN.Traits.Prototypes;
+using Content.Shared.Whitelist;
+using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 #pragma warning disable IDE1006 // Naming Styles
@@ -13,6 +17,9 @@ namespace Content.Shared._DEN.Traits.EntitySystems;
 public abstract partial class SharedTraitSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private EntityQuery<TraitHolderComponent> _holderQuery;
     private EntityQuery<TraitComponent> _traitQuery;
