@@ -48,11 +48,13 @@ public abstract partial class SharedPhysiologyDescriptionSystem : EntitySystem
     public void SetBaseText(Entity<PhysiologyDescriptionComponent> ent, LocId descriptor)
     {
         ent.Comp.BaseLabel = descriptor;
+        Dirty(ent);
     }
 
     [PublicAPI]
     public void SetPrefixText(Entity<PhysiologyDescriptionComponent> ent, LocId? descriptor)
     {
         ent.Comp.PrefixLabel = descriptor;
+        Dirty(ent);
     }
 }

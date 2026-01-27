@@ -1,4 +1,5 @@
 using Content.Shared._DEN.Species.EntitySystems;
+using Robust.Shared.GameStates;
 
 #pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Species.Components;
@@ -15,37 +16,37 @@ namespace Content.Shared._DEN.Species.Components;
 /// Ideally, species should be designed so that the base species mob has a base label representing the species,
 /// and then the prefix is provided by a "morph trait".
 /// </remarks>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedPhysiologyDescriptionSystem))]
 public sealed partial class PhysiologyDescriptionComponent : Component
 {
     /// <summary>
     /// A label for the base physiology of an entity; e.g. "humanoid", "reptilian", "moth".
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public LocId BaseLabel = default!;
 
     /// <summary>
     /// A label for the "morph" or variant of an entity; e.g. "felinid" humanoid, "draconic" reptilian.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public LocId? PrefixLabel = null;
 
     /// <summary>
     /// The text displayed on this entity's examine tooltip.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public LocId ExamineText = "physiology-description-examine-text";
 
     /// <summary>
     /// The descriptor for an entity without a prefix.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public LocId BasePhysiologyDescriptor = "physiology-description-examine-physiology";
 
     /// <summary>
     /// The descriptor for an entity with a prefix.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public LocId PrefixedPhysiologyDescriptor = "physiology-description-examine-physiology-prefix";
 }
