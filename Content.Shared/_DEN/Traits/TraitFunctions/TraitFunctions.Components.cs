@@ -9,9 +9,18 @@ namespace Content.Shared._DEN.Traits.TraitFunctions;
 [UsedImplicitly]
 public sealed partial class AddComponentTrait : ITraitFunction
 {
+    /// <summary>
+    /// Component definitions to add to the entity.
+    /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components { get; private set; } = [];
 
+    /// <summary>
+    /// Whether or not the components on the entity should be replaced entirely upon adding this trait.
+    /// </summary>
+    /// <remarks>
+    /// This can be destructive if the trait is later removed.
+    /// </remarks>
     [DataField]
     public bool RemoveExisting = false;
 

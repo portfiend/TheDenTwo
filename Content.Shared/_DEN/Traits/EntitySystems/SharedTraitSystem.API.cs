@@ -14,6 +14,13 @@ public abstract partial class SharedTraitSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
 
+    /// <summary>
+    /// Adds a trait to a given target by entityTrait prototype ID.
+    /// </summary>
+    /// <param name="target">The entity to receive the trait.</param>
+    /// <param name="trait">The trait to add.</param>
+    /// <param name="traitEntity">The entity representing the trait.</param>
+    /// <returns>If the trait was successfully added to the entity.</returns>
     [PublicAPI]
     public bool TryAddTrait(EntityUid target,
         ProtoId<EntityTraitPrototype> trait,
@@ -35,6 +42,13 @@ public abstract partial class SharedTraitSystem
         return traitEntity != null;
     }
 
+    /// <summary>
+    /// Gets the entity associated with a given trait by the trait prototype ID.
+    /// </summary>
+    /// <param name="target">The entity holding the trait.</param>
+    /// <param name="trait">The trait prototype.</param>
+    /// <param name="traitEntity">The entity representing the trait.</param>
+    /// <returns>Whether or not the trait entity was successfully retrieved.</returns>
     [PublicAPI]
     public bool TryGetTraitEntity(EntityUid target,
         ProtoId<EntityTraitPrototype> trait,
@@ -59,6 +73,12 @@ public abstract partial class SharedTraitSystem
         return false;
     }
 
+    /// <summary>
+    /// Attempts to delete a trait from an entity by trait prototype ID.
+    /// </summary>
+    /// <param name="target">The entity whose trait needs to be removed.</param>
+    /// <param name="trait">The trait prototype to remove.</param>
+    /// <returns>Whether or not the trait was successfully removed.</returns>
     [PublicAPI]
     public bool TryRemoveTrait(EntityUid target, ProtoId<EntityTraitPrototype> trait)
     {

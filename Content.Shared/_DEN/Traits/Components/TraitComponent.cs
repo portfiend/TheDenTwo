@@ -15,6 +15,9 @@ namespace Content.Shared._DEN.Traits.Components;
 [Access(typeof(SharedTraitSystem))]
 public sealed partial class TraitComponent : Component
 {
+    /// <summary>
+    /// A list of functions associated with this trait. These are applied when the trait is activated.
+    /// </summary>
     [DataField]
     public IReadOnlyList<ITraitFunction> TraitFunctions = new List<ITraitFunction>();
 
