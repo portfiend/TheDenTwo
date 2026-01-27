@@ -12,8 +12,7 @@ public sealed partial class AddComponentTrait : ITraitFunction
     /// <summary>
     /// Component definitions to add to the entity.
     /// </summary>
-    [DataField(required: true)]
-    public ComponentRegistry Components { get; private set; } = [];
+    [DataField(required: true)] public ComponentRegistry Components { get; private set; } = [];
 
     /// <summary>
     /// Whether or not the components on the entity should be replaced entirely upon adding this trait.
@@ -21,11 +20,9 @@ public sealed partial class AddComponentTrait : ITraitFunction
     /// <remarks>
     /// This can be destructive if the trait is later removed.
     /// </remarks>
-    [DataField]
-    public bool RemoveExisting = false;
+    [DataField] public bool RemoveExisting = false;
 
-    [ViewVariables]
-    public List<IComponent>? AddedComponents = null;
+    [ViewVariables] public List<IComponent>? AddedComponents = null;
 
     public void OnTraitAdded(EntityUid owner, EntityManager entityManager)
     {

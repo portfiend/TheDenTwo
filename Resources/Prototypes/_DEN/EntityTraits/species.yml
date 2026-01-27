@@ -1,0 +1,40 @@
+# NOTE!! These are currently JUST descriptors.
+# TODO: Add species morph mechanics
+
+## Human
+
+- type: entityTrait
+  id: SpeciesMorphHumanCanid
+  whitelist:
+    components:
+    - PhysiologyDescription
+  functions:
+  - !type:ModifyPhysiologyDescriptor
+      prefixText: physiology-description-species-prefix-human-canid
+
+- type: entityTrait
+  id: SpeciesMorphHumanFelinid
+  whitelist:
+    components:
+    - PhysiologyDescription
+  functions:
+  - !type:ModifyPhysiologyDescriptor
+      prefixText: physiology-description-species-prefix-human-felinid
+
+- type: entityTrait
+  id: SpeciesMorphHumanKitsune
+  whitelist:
+    components:
+    - PhysiologyDescription
+  functions:
+  - !type:ModifyPhysiologyDescriptor
+      prefixText: physiology-description-species-prefix-human-kitsune
+
+- type: entityTrait
+  id: SpeciesMorphHumanOni
+  whitelist:
+    components:
+    - PhysiologyDescription
+  functions:
+  - !type:ModifyPhysiologyDescriptor
+      prefixText: physiology-description-species-prefix-human-oni
