@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Traits.TraitFunctions;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -26,12 +27,6 @@ public sealed partial class EntityTraitPrototype : IPrototype
     public LocId? Description { get; private set; }
 
     /// <summary>
-    /// The trait entity that corresponds to this trait.
-    /// </summary>
-    [DataField]
-    public EntProtoId? Entity { get; private set; } = null;
-
-    /// <summary>
     /// Don't apply this trait to entities this whitelist IS NOT valid for.
     /// </summary>
     [DataField]
@@ -54,4 +49,10 @@ public sealed partial class EntityTraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// A list of functions associated with this trait.
+    /// </summary>
+    [DataField("functions")]
+    public List<ITraitFunction> TraitFunctions = new();
 }

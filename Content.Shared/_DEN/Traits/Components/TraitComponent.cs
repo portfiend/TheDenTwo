@@ -1,5 +1,8 @@
+using System.Reflection;
 using Content.Shared._DEN.Traits.EntitySystems;
+using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared._DEN.Traits.TraitFunctions;
+using Robust.Shared.Prototypes;
 
 #pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Traits.Components;
@@ -13,8 +16,11 @@ namespace Content.Shared._DEN.Traits.Components;
 public sealed partial class TraitComponent : Component
 {
     [DataField]
-    public IReadOnlyList<ITraitFunction> TraitFunctions = [];
+    public IReadOnlyList<ITraitFunction> TraitFunctions = new List<ITraitFunction>();
 
-    [DataField]
+    [ViewVariables]
     public EntityUid? Holder = null;
+
+    [ViewVariables]
+    public ProtoId<EntityTraitPrototype>? Prototype = null;
 }

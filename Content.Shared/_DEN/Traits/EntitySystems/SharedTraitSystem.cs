@@ -85,61 +85,10 @@ public abstract partial class SharedTraitSystem : EntitySystem
             function.OnTraitRemoved(ent.Comp.Holder.Value, EntityManager);
     }
 
-    private bool TryGetTraitEntity(EntityUid target,
-        EntProtoId traitProto,
-        [NotNullWhen(true)] out EntityUid? traitEntity)
+    private bool TryAddTraitEntity(EntityUid target, EntityUid traitEntity)
     {
-        traitEntity = null;
-
-        if (!_holderQuery.TryComp(target, out var holder))
-            return false;
-
-        foreach (var trait in holder.Traits?.ContainedEntities ?? [])
-        {
-            var meta = MetaData(trait);
-
-            if (meta.EntityPrototype is null || meta.EntityPrototype != traitProto)
-                continue;
-
-            traitEntity = trait;
-            return true;
-        }
-
-        return false;
-    }
-
-    public bool TryAddTraitEntity(EntityUid target,
-        EntProtoId traitProto,
-        [NotNullWhen(true)] out EntityUid? traitEntity)
-    {
-        traitEntity = null;
-
-        EnsureComp<TraitHolderComponent>(target);
-
-        if (!PredictedTrySpawnInContainer(traitProto,
-            target,
-            TraitHolderComponent.ContainerId,
-            out var trait))
-            return false;
-
-        if (!_traitQuery.HasComp(trait))
-        {
-            var traitString = ToPrettyString(trait);
-            var targetString = ToPrettyString(target);
-            throw new DebugAssertException($"Trait {traitString} was added to {targetString}, but it lacks a TraitComponent!");
-        }
-
-        traitEntity = trait;
-        return true;
-    }
-
-    public bool TryRemoveTraitEntity(EntityUid target,
-        EntProtoId traitProto)
-    {
-        if (!TryGetTraitEntity(target, traitProto, out var traitEntity))
-            return false;
-
-        PredictedQueueDel(traitEntity);
-        return true;
+        var holder = EnsureComp<TraitHolderComponent>(target);
+        return holder.Traits is { } container
+            && _container.Insert(traitEntity, container);
     }
 }
