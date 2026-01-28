@@ -4,7 +4,7 @@
 ## Human
 
 - type: entityTrait
-  id: SpeciesMorphHumanCanid
+  id: MorphHumanCanid
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -14,7 +14,7 @@
       prefixText: physiology-description-species-prefix-human-canid
 
 - type: entityTrait
-  id: SpeciesMorphHumanFelinid
+  id: MorphHumanFelinid
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -24,7 +24,7 @@
       prefixText: physiology-description-species-prefix-human-felinid
 
 - type: entityTrait
-  id: SpeciesMorphHumanKitsune
+  id: MorphHumanKitsune
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -34,7 +34,7 @@
       prefixText: physiology-description-species-prefix-human-kitsune
 
 - type: entityTrait
-  id: SpeciesMorphHumanOni
+  id: MorphHumanOni
   allowedSpecies: [Human]
   whitelist:
     components:
