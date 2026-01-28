@@ -5,6 +5,7 @@
 
 - type: entityTrait
   id: SpeciesMorphHumanCanid
+  allowedSpecies: [Human]
   whitelist:
     components:
     - PhysiologyDescription
@@ -14,6 +15,7 @@
 
 - type: entityTrait
   id: SpeciesMorphHumanFelinid
+  allowedSpecies: [Human]
   whitelist:
     components:
     - PhysiologyDescription
@@ -23,6 +25,7 @@
 
 - type: entityTrait
   id: SpeciesMorphHumanKitsune
+  allowedSpecies: [Human]
   whitelist:
     components:
     - PhysiologyDescription
@@ -32,6 +35,7 @@
 
 - type: entityTrait
   id: SpeciesMorphHumanOni
+  allowedSpecies: [Human]
   whitelist:
     components:
     - PhysiologyDescription

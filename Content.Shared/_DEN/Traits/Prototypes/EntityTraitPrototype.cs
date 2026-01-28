@@ -1,4 +1,5 @@
 using Content.Shared._DEN.Traits.TraitFunctions;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -49,6 +50,13 @@ public sealed partial class EntityTraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
+
+    /// <summary>
+    /// A list of species that allowed to take this trait. If null, then all species may take it.
+    /// TODO: Replace with a more robust "requirement" system.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>>? AllowedSpecies = null;
 
     /// <summary>
     /// A list of functions associated with this trait.
