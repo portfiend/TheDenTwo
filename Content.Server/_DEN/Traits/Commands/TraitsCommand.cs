@@ -15,7 +15,7 @@ public sealed partial class TraitsCommand : ToolshedCommand
     private TraitSystem? _traits;
 
     [CommandImplementation("add")]
-    public EntityUid? Add([PipedArgument] EntityUid @target, ProtoId<EntityTraitPrototype> trait)
+    public EntityUid Add([PipedArgument] EntityUid @target, ProtoId<EntityTraitPrototype> trait)
     {
         _traits ??= GetSys<TraitSystem>();
         _traits.TryAddTrait(@target, trait, out var _);
@@ -23,7 +23,7 @@ public sealed partial class TraitsCommand : ToolshedCommand
     }
 
     [CommandImplementation("remove")]
-    public EntityUid? Remove([PipedArgument] EntityUid @target, ProtoId<EntityTraitPrototype> trait)
+    public EntityUid Remove([PipedArgument] EntityUid @target, ProtoId<EntityTraitPrototype> trait)
     {
         _traits ??= GetSys<TraitSystem>();
         _traits.TryRemoveTrait(@target, trait);
