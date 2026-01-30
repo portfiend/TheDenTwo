@@ -1,14 +1,4 @@
 - type: entityTrait
-  id: Pacifist
-  name: trait-pacifist-name
-  description: trait-pacifist-desc
-  category: Quirks
-  functions:
-  - !type:AddComponentTrait
-      components:
-      - type: Pacified
-
-- type: entityTrait
   id: LightweightDrunk
   name: trait-lightweight-name
   description: trait-lightweight-desc
@@ -20,6 +10,16 @@
         boozeStrengthMultiplier: 2
 
 - type: entityTrait
+  id: Pacifist
+  name: trait-pacifist-name
+  description: trait-pacifist-desc
+  category: Quirks
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Pacified
+
+- type: entityTrait
   id: Snoring
   name: trait-snoring-name
   description: trait-snoring-desc
@@ -28,3 +28,17 @@
   - !type:AddComponentTrait
       components:
       - type: Snoring
+
+- type: trait
+  id: Synthetic
+  name: trait-synth-name
+  description: trait-synth-desc
+  category: Quirks
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Synth
+      - type: IonStormNotifier
+      - type: DamagedSiliconAccent
+        enableChargeCorruption: false
+        damageAtMaxCorruption: 100
