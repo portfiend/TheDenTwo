@@ -20,6 +20,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared;
 using YamlDotNet.RepresentationModel;
+using Content.Shared._DEN.Traits.Prototypes;
 
 namespace Content.Shared.Preferences
 {
@@ -54,7 +55,8 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Enabled traits.
         /// </summary>
-        [DataField]
+        [DataField("obsoleteTraitPreferences")]
+        [Obsolete("Use _entityTraitPreferences")] // DEN
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
 
         /// <summary>
@@ -119,6 +121,7 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// <see cref="_traitPreferences"/>
         /// </summary>
+        [Obsolete("Use EntityTraitPreferences")] // DEN
         public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
         /// <summary>
@@ -128,6 +131,7 @@ namespace Content.Shared.Preferences
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
 
+        [Obsolete("Use the EntityTraitPrototype-based constructor instead")] // DEN
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -185,7 +189,8 @@ namespace Content.Shared.Preferences
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
-                new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
+                // new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences), // DEN
+                new HashSet<ProtoId<EntityTraitPrototype>>(other.EntityTraitPreferences), // DEN
                 new Dictionary<string, RoleLoadout>(other.Loadouts))
         {
         }
@@ -398,6 +403,7 @@ namespace Content.Shared.Preferences
             };
         }
 
+        [Obsolete("Use WithTraitPreference")] // DEN
         public HumanoidCharacterProfile WithTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
             // null category is assumed to be default.
@@ -446,6 +452,7 @@ namespace Content.Shared.Preferences
             };
         }
 
+        [Obsolete("Use WithoutEntityTraitPreference")] // DEN
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences);
@@ -477,7 +484,8 @@ namespace Content.Shared.Preferences
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
-            if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
+            // if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false; // DEN
+            if (!_entityTraitPreferences.SequenceEqual(other._entityTraitPreferences)) return false; // den
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
@@ -603,9 +611,11 @@ namespace Content.Shared.Preferences
                 .Where(id => prototypeManager.TryIndex(id, out var antag) && antag.SetPreference)
                 .ToList();
 
-            var traits = TraitPreferences
-                         .Where(prototypeManager.HasIndex)
-                         .ToList();
+            // var traits = TraitPreferences
+            //              .Where(prototypeManager.HasIndex)
+            //              .ToList(); // DEN
+
+            var traits = EntityTraitPreferences.Where(prototypeManager.HasIndex).ToList(); // DEN
 
             Name = name;
             FlavorText = flavortext;
@@ -627,8 +637,11 @@ namespace Content.Shared.Preferences
             _antagPreferences.Clear();
             _antagPreferences.UnionWith(antags);
 
-            _traitPreferences.Clear();
-            _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+            // _traitPreferences.Clear(); // DEN
+            // _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager)); // DEN
+
+            _entityTraitPreferences.Clear(); // DEN
+            _entityTraitPreferences.UnionWith(GetValidEntityTraits(traits, prototypeManager)); // DEN
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -656,6 +669,7 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Takes in an IEnumerable of traits and returns a List of the valid traits.
         /// </summary>
+        [Obsolete("Use GetValidEntityTraits instead")] // DEN
         public List<ProtoId<TraitPrototype>> GetValidTraits(IEnumerable<ProtoId<TraitPrototype>> traits, IPrototypeManager protoManager)
         {
             // Track points count for each group.
@@ -724,7 +738,8 @@ namespace Content.Shared.Preferences
             var hashCode = new HashCode();
             hashCode.Add(_jobPriorities);
             hashCode.Add(_antagPreferences);
-            hashCode.Add(_traitPreferences);
+            // hashCode.Add(_traitPreferences); // DEN
+            hashCode.Add(_entityTraitPreferences); // DEN
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
