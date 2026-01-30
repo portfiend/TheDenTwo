@@ -7,6 +7,14 @@
       - type: ActiveReagentGrinder
 
 - type: entityTrait
+  id: DebugStunned
+  characterEditorSelectable: false
+  functions:
+  - !type:ApplyStatusEffectTrait
+    statusEffects:
+    - StatusEffectStunned
+
+- type: entityTrait
   id: DebugSpawnCrowbars
   characterEditorSelectable: false
   functions:
