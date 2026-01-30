@@ -1,0 +1,132 @@
+## Vision traits
+
+- type: entityTrait
+  id: Blindness
+  name: trait-blindness-name
+  description: trait-blindness-desc
+  category: Disabilities
+  whitelist:
+    components:
+    - Blindable
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: PermanentBlindness
+  - !type:SpawnWithGearTrait
+      gear:
+      - WhiteCane
+
+- type: entityTrait
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: BlackAndWhiteOverlay
+
+- type: entityTrait
+  id: PoorVision
+  name: trait-poor-vision-name
+  description: trait-poor-vision-desc
+  category: Disabilities
+  whitelist:
+    components:
+      - Blindable
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: PermanentBlindness
+        blindness: 4
+  - !type:SpawnWithGearTrait
+      gear:
+      - ClothingEyesGlasses
+
+## Miscellaneous
+
+- type: entityTrait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  functions:
+  - !type:ApplyStatusEffectTrait
+    statusEffects:
+    - StatusEffectHemophiliaTrait
+
+- type: entityTrait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  category: Disabilities
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: ImpairedMobility
+  - !type:SpawnWithGearTrait
+      gear:
+      - OffsetCane
+
+- type: entityTrait
+  id: Muted
+  name: trait-muted-name
+  description: trait-muted-desc
+  category: Disabilities
+  blacklist:
+    components:
+      - BorgChassis
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Muted
+
+- type: entityTrait
+  id: Narcolepsy
+  name: trait-narcolepsy-name
+  description: trait-narcolepsy-desc
+  category: Disabilities
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Narcolepsy
+        maxTimeBetweenIncidents: 600
+        minTimeBetweenIncidents: 300
+        maxDurationOfIncident: 30
+        minDurationOfIncident: 10
+
+- type: entityTrait
+  id: PainNumbness
+  name: trait-painnumbness-name
+  description: trait-painnumbness-desc
+  category: Disabilities
+  functions:
+  - !type:ApplyStatusEffectTrait
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
+
+- type: entityTrait
+  id: Paracusia
+  name: trait-paracusia-name
+  description: trait-paracusia-desc
+  category: Disabilities
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Paracusia
+        minTimeBetweenIncidents: 0.1
+        maxTimeBetweenIncidents: 300
+        maxSoundDistance: 7
+        sounds:
+          collection: Paracusia
+
+- type: entityTrait
+  id: Unrevivable
+  name: trait-unrevivable-name
+  description: trait-unrevivable-desc
+  category: Disabilities
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: Unrevivable
+        cloneable: true

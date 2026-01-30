@@ -1,0 +1,136 @@
+- type: entityTrait
+  id: Accentless
+  name: trait-accentless-name
+  description: trait-accentless-desc
+  category: SpeechTraits
+  cost: 2
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: Accentless
+      removes:
+      - type: LizardAccent
+      - type: MothAccent
+      - type: ReplacementAccent
+        accent: dwarf
+
+# 1 cost
+
+- type: entityTrait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
+- type: entityTrait
+  id: FrenchAccent
+  name: trait-french-name
+  description: trait-french-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: FrenchAccent
+
+- type: entityTrait
+  id: GermanAccent
+  name: trait-german-name
+  description: trait-german-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: GermanAccent
+
+- type: entityTrait
+  id: ItalianAccent
+  name: trait-italian-name
+  description: trait-italian-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: ReplacementAccent
+      accent: italian
+
+- type: entityTrait
+  id: Liar
+  name: trait-liar-name
+  description: trait-liar-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: ReplacementAccent
+      accent: liar
+
+- type: entityTrait
+  id: PirateAccent
+  name: trait-pirate-accent-name
+  description: trait-pirate-accent-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: PirateAccent
+
+- type: entityTrait
+  id: SouthernAccent
+  name: trait-southern-name
+  description: trait-southern-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: SouthernAccent
+
+- type: entityTrait
+  id: SpanishAccent
+  name: trait-spanish-name
+  description: trait-spanish-desc
+  category: SpeechTraits
+  cost: 1
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: SpanishAccent
+
+# 2 cost
+
+- type: entityTrait
+  id: FrontalLisp
+  name: trait-frontal-lisp-name
+  description: trait-frontal-lisp-desc
+  category: SpeechTraits
+  cost: 2
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: FrontalLisp
+
+- type: entityTrait
+  id: SocialAnxiety
+  name: trait-socialanxiety-name
+  description: trait-socialanxiety-desc
+  category: SpeechTraits
+  cost: 2
+  functions:
+  - !type:AddComponentTrait
+    components:
+    - type: StutteringAccent
+      matchRandomProb: 0.1
+      fourRandomProb: 0
+      threeRandomProb: 0
+      cutRandomProb: 0
