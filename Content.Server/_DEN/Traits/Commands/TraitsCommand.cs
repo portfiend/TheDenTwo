@@ -1,5 +1,7 @@
+using System.Linq;
 using Content.Server._DEN.Traits.EntitySystems;
 using Content.Server.Administration;
+using Content.Shared._DEN.Traits.Components;
 using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;
@@ -28,5 +30,14 @@ public sealed partial class TraitsCommand : ToolshedCommand
         _traits ??= GetSys<TraitSystem>();
         _traits.TryRemoveTrait(@target, trait);
         return @target;
+    }
+
+    [CommandImplementation("get")]
+    public List<ProtoId<EntityTraitPrototype>> Get([PipedArgument] EntityUid @target)
+    {
+        _traits ??= GetSys<TraitSystem>();
+        _traits.TryGetTraits(@target, out var traits);
+
+        return traits ?? new();
     }
 }

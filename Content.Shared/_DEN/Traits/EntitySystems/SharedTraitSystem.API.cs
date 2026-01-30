@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._DEN.Traits.Components;
 using Content.Shared._DEN.Traits.Prototypes;
 using JetBrains.Annotations;
@@ -82,6 +83,34 @@ public abstract partial class SharedTraitSystem
             return false;
 
         PredictedQueueDel(traitEntity);
+        return true;
+    }
+
+    /// <summary>
+    /// Get all the trait prototypes of an entity.
+    /// </summary>
+    /// <param name="target">The entity to get trait prototypes of.</param>
+    /// <param name="traits">The entity trait prototypes this entity has.</param>
+    /// <returns>Returns true if the entity has traits and they were successfully retrieved.</returns>
+    [PublicAPI]
+    public bool TryGetTraits(EntityUid target, [NotNullWhen(true)] out List<ProtoId<EntityTraitPrototype>>? traits)
+    {
+        traits = null;
+
+        if (!_holderQuery.TryComp(target, out var holder))
+            return false;
+
+        var traitEntities = holder.Traits?.ContainedEntities;
+        if (traitEntities == null)
+            return false;
+
+        traits = new List<ProtoId<EntityTraitPrototype>>();
+        foreach (var ent in traitEntities)
+        {
+            if (_traitQuery.TryComp(ent, out var trait) && trait.Prototype is not null)
+                traits.Add(trait.Prototype.Value);
+        }
+
         return true;
     }
 
