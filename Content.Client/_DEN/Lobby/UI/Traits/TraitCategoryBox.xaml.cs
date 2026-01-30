@@ -52,9 +52,10 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
             var selector = new EntityTraitSelector(trait);
             selector.Preference = _profile?.EntityTraitPreferences.Contains(trait.ID) == true;
-            _selectors.Add(selector);
-
             selector.PreferenceChanged += p => { OnPreferenceChanged(selector, p); };
+
+            _selectors.Add(selector);
+            InnerList.AddChild(selector);
         }
     }
 
