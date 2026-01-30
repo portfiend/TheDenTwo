@@ -1,25 +1,24 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using Content.Shared.Humanoid.Prototypes;
+using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared.Preferences;
-using Content.Shared.Traits;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Roles;
+namespace Content.Shared._DEN.Roles;
 
 /// <summary>
-/// Requires a character to have, or not have, certain traits
+/// Requires a character to have, or not have, certain entity traits
 /// </summary>
 [UsedImplicitly]
 [Serializable, NetSerializable]
-[Obsolete("Use EntityTraitsRequirement instead")] // DEN
-public sealed partial class TraitsRequirement : JobRequirement
+public sealed partial class EntityTraitsRequirement : JobRequirement
 {
     [DataField(required: true)]
-    public HashSet<ProtoId<TraitPrototype>> Traits = new();
+    public HashSet<ProtoId<EntityTraitPrototype>> Traits = new();
 
     public override bool Check(IEntityManager entManager,
         IPrototypeManager protoManager,
@@ -47,7 +46,7 @@ public sealed partial class TraitsRequirement : JobRequirement
             //at least one of
             foreach (var trait in Traits)
             {
-                if (profile.TraitPreferences.Contains(trait))
+                if (profile.EntityTraitPreferences.Contains(trait))
                     return true;
             }
             return false;
@@ -58,7 +57,7 @@ public sealed partial class TraitsRequirement : JobRequirement
 
             foreach (var trait in Traits)
             {
-                if (profile.TraitPreferences.Contains(trait))
+                if (profile.EntityTraitPreferences.Contains(trait))
                     return false;
             }
         }
