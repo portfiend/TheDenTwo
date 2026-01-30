@@ -68,10 +68,10 @@ public sealed partial class TraitCategoryBox : BoxContainer
         {
             CategoryMaxTraitLabel.Visible = true;
             CategoryMaxTraitLabel.Text = Loc.GetString("humanoid-profile-editor-trait-count-hint",
-                ("current", SelectedTraits),
+                ("current", TotalCost),
                 ("max", category.MaxTraitPoints));
 
-            var tooManySelected = category.MaxTraitPoints > TotalCost + SelectedTraits;
+            var tooManySelected = TotalCost > category.MaxTraitPoints;
             foreach (var selector in _selectors)
                 selector.SetInvalid(tooManySelected);
         }
