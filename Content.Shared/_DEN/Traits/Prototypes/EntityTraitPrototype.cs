@@ -63,4 +63,10 @@ public sealed partial class EntityTraitPrototype : IPrototype
     /// </summary>
     [DataField("functions")]
     public List<ITraitFunction> TraitFunctions = new();
+
+    /// <summary>
+    /// Whether or not this trait can be selected in the character editor.
+    /// </summary>
+    [DataField("characterEditorSelectable")]
+    public bool Selectable = true;
 }
