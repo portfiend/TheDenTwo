@@ -1,0 +1,19 @@
+<BoxContainer xmlns="https://spacestation14.io"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    Orientation="Vertical">
+
+    <Label Name="CategoryHeaderLabel"
+        Visible="False"
+        Margin="0 10 0 0">
+        <Label.StyleClasses>
+            <system:String>LabelHeading</system:String>
+        </Label.StyleClasses>
+    </Label>
+
+    <BoxContainer Name="InnerList" Orientation="Vertical"/>
+
+    <Label Name="CategoryMaxTraitLabel"
+        Visible="False"
+        FontColorOverride="Gray" />
+
+</BoxContainer>
