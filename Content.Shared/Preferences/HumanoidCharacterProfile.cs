@@ -615,7 +615,11 @@ namespace Content.Shared.Preferences
             //              .Where(prototypeManager.HasIndex)
             //              .ToList(); // DEN
 
-            var traits = EntityTraitPreferences.Where(prototypeManager.HasIndex).ToList(); // DEN
+            var traits = EntityTraitPreferences
+                .Where(t => prototypeManager.TryIndex(t, out var trait)
+                    && trait.Selectable
+                    && (trait.AllowedSpecies is null || trait.AllowedSpecies.Contains(Species)))
+                .ToList(); // DEN
 
             Name = name;
             FlavorText = flavortext;
