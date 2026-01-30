@@ -1,0 +1,23 @@
+- type: entityTrait
+  id: DebugJittery
+  characterEditorSelectable: false
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: ActiveReagentGrinder
+
+- type: entityTrait
+  id: DebugSpawnCrowbars
+  characterEditorSelectable: false
+  functions:
+  - !type:SpawnWithGearTrait
+      deleteGearWhenRemoved: true
+      gear:
+      - Crowbar
+      - Crowbar
+      - Crowbar
+      - Crowbar
+      - Crowbar
+      - Crowbar
+      - Crowbar
+      - Crowbar
