@@ -1,8 +1,10 @@
 - type: traitCategory
   id: SpeciesMorphs
   name: trait-category-species-morphs
+  priority: -20
   maxTraitPoints: 1
 
 - type: traitCategory
   id: SpeciesSpecific
+  priority: -10
   name: trait-category-species-specific

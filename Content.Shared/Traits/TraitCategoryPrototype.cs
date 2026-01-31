@@ -25,4 +25,10 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// </summary>
     [DataField]
     public int? MaxTraitPoints;
+
+    /// <summary>
+    /// DEN: The order that this category displays in the character editor UI.
+    /// </summary>
+    [DataField]
+    public int Priority = 0;
 }

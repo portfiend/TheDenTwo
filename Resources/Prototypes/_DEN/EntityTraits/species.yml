@@ -9,6 +9,7 @@
   description: trait-morph-human-canid-desc
   category: SpeciesMorphs
   allowedSpecies: [Human]
+  cost: 1
   whitelist:
     components:
     - PhysiologyDescription
@@ -22,6 +23,7 @@
   description: trait-morph-human-felinid-desc
   category: SpeciesMorphs
   allowedSpecies: [Human]
+  cost: 1
   whitelist:
     components:
     - PhysiologyDescription
@@ -35,6 +37,7 @@
   description: trait-morph-human-kitsune-desc
   category: SpeciesMorphs
   allowedSpecies: [Human]
+  cost: 1
   whitelist:
     components:
     - PhysiologyDescription
@@ -48,6 +51,7 @@
   description: trait-morph-human-oni-desc
   category: SpeciesMorphs
   allowedSpecies: [Human]
+  cost: 1
   whitelist:
     components:
     - PhysiologyDescription

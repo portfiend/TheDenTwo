@@ -23,7 +23,10 @@ public sealed partial class HumanoidProfileEditor
             return;
         }
 
-        var traitGroups = GetTraitCategories(traits);
+        var traitGroups = GetTraitCategories(traits)
+            .OrderBy(p => p.Key == TraitCategoryPrototype.Default ? 0
+                : _prototypeManager.Index<TraitCategoryPrototype>(p.Key).Priority);
+
         foreach (var (categoryId, traitProtos) in traitGroups)
         {
             var categoryBox = GetTraitCategoryBox(categoryId, traitProtos);
