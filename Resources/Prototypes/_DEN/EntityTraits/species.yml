@@ -5,6 +5,8 @@
 
 - type: entityTrait
   id: MorphHumanCanid
+  name: trait-morph-human-canid-name
+  description: trait-morph-human-canid-desc
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -15,6 +17,8 @@
 
 - type: entityTrait
   id: MorphHumanFelinid
+  name: trait-morph-human-felinid-name
+  description: trait-morph-human-felinid-desc
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -25,6 +29,8 @@
 
 - type: entityTrait
   id: MorphHumanKitsune
+  name: trait-morph-human-kitsune-name
+  description: trait-morph-human-kitsune-desc
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -35,6 +41,8 @@
 
 - type: entityTrait
   id: MorphHumanOni
+  name: trait-morph-human-oni-name
+  description: trait-morph-human-oni-desc
   allowedSpecies: [Human]
   whitelist:
     components:

@@ -1,5 +1,6 @@
 - type: entityTrait
   id: DebugJittery
+  name: trait-debug-jittery-name
   characterEditorSelectable: false
   functions:
   - !type:AddComponentTrait
@@ -8,6 +9,7 @@
 
 - type: entityTrait
   id: DebugStunned
+  name: trait-debug-stunned-name
   characterEditorSelectable: false
   functions:
   - !type:ApplyStatusEffectTrait
@@ -16,6 +18,7 @@
 
 - type: entityTrait
   id: DebugSpawnCrowbars
+  name: trait-debug-spawn-crowbars-name
   characterEditorSelectable: false
   functions:
   - !type:SpawnWithGearTrait
