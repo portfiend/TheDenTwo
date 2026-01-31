@@ -29,7 +29,7 @@
       components:
       - type: Snoring
 
-- type: trait
+- type: entityTrait
   id: Synthetic
   name: trait-synth-name
   description: trait-synth-desc
