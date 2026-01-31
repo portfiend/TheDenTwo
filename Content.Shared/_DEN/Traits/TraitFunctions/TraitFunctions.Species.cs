@@ -11,11 +11,11 @@ namespace Content.Shared._DEN.Traits.TraitFunctions;
 [UsedImplicitly]
 public sealed partial class ModifyPhysiologyDescriptorTrait : ITraitFunction
 {
-    [DataField] public LocId BaseText = string.Empty;
-    [DataField] public LocId? PrefixText = string.Empty;
+    [DataField] public string BaseText = string.Empty;
+    [DataField] public string? PrefixText = string.Empty;
 
-    [ViewVariables] public LocId OldBaseText = string.Empty;
-    [ViewVariables] public LocId? OldPrefixText = string.Empty;
+    [ViewVariables] public string OldBaseText = string.Empty;
+    [ViewVariables] public string? OldPrefixText = string.Empty;
 
     public void OnTraitAdded(EntityUid owner, EntityManager entityManager)
     {
