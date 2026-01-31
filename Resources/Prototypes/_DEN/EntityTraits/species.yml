@@ -7,6 +7,7 @@
   id: MorphHumanCanid
   name: trait-morph-human-canid-name
   description: trait-morph-human-canid-desc
+  category: SpeciesMorphs
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -19,6 +20,7 @@
   id: MorphHumanFelinid
   name: trait-morph-human-felinid-name
   description: trait-morph-human-felinid-desc
+  category: SpeciesMorphs
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -31,6 +33,7 @@
   id: MorphHumanKitsune
   name: trait-morph-human-kitsune-name
   description: trait-morph-human-kitsune-desc
+  category: SpeciesMorphs
   allowedSpecies: [Human]
   whitelist:
     components:
@@ -43,6 +46,7 @@
   id: MorphHumanOni
   name: trait-morph-human-oni-name
   description: trait-morph-human-oni-desc
+  category: SpeciesMorphs
   allowedSpecies: [Human]
   whitelist:
     components:

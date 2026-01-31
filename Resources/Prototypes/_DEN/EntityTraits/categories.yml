@@ -1,0 +1,8 @@
+- type: traitCategory
+  id: SpeciesMorphs
+  name: trait-category-species-morphs
+  maxTraitPoints: 1
+
+- type: traitCategory
+  id: SpeciesSpecific
+  name: trait-category-species-specific
