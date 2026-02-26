@@ -1,4 +1,5 @@
-﻿using Content.Shared.Chemistry.Reagent;
+﻿using Content.Shared._DEN.Kitchen.Prototypes;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
@@ -51,13 +52,13 @@ namespace Content.Shared.Kitchen
         // DEN start: Appliance coooking
 
         /// <summary>
-        ///     A set of valid appliance tags that can produce this recipe.
+        ///     A set of valid appliances that can produce this recipe.
         /// </summary>
         /// <remarks>
-        ///     For example, an appliance might be only capable of producing recipes with the "Microwave" type tag.
+        ///     For example, an appliance might be only capable of producing recipes with the "Microwave" type.
         /// </remarks>
-        [DataField(required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<TagPrototype>))]
-        public HashSet<ProtoId<TagPrototype>> RecipeTypes = new();
+        [DataField(required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<CookingAppliancePrototype>))]
+        public HashSet<ProtoId<CookingAppliancePrototype>> RecipeTypes = new();
 
         // End DEN
 
