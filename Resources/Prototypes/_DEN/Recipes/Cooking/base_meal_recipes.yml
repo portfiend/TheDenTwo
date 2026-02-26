@@ -1,0 +1,171 @@
+# this file mainly serves to enforce some level of convention between recipes
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseMothRecipe
+  group: Moth
+
+# appliances
+
+# Any appliance that is capable of heating things.
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseAnyHeated
+  time: 5
+  recipeTypes: [Microwave, Oven]
+
+# Basic assembly recipes.
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseAssembled
+  recipeTypes: [Assembler]
+
+# The primary purpose of the oven - baked goods.
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseBaked
+  recipeTypes: [Oven]
+
+# Medical topicals
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseTopical
+  recipeTypes: [MedicalAssembler]
+
+# TODO: Do we want another appliance for grilling etc.?
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseGrilledMeal
+  recipeTypes: [Oven]
+
+# The primary purpose of the microwave - heating or boiling things.
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseSimpleHeated
+  time: 15
+  recipeTypes: [Microwave]
+
+# recipe types
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BaseBread
+  group: Breads
+  time: 10
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBread
+  id: BaseBreadComplex
+  time: 15
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseBurger
+  time: 10
+  recipeTypes: [Oven]
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseCake
+  time: 5
+  group: Cake
+  recipeTypes: [Assembler]
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BaseCookie
+  group: BarsAndCookies
+  time: 5
+  # TODO: Add multi-yield recipes
+  # (i.e. make multiple cookies per batch and increase this time)
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseAnyHeated
+  id: BaseDried
+  time: 10
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseAssembled
+  id: BaseEntireLiveAnimal
+  time: 15
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseSimpleHeated
+  id: BaseDonkPocket
+  group: Savory
+  time: 5
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BaseMuffin
+  time: 15
+  group: Dessert
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseNoodles
+  group: Pasta
+  time: 10
+  recipeTypes: [Oven]
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseGrilledMeal
+  id: BasePancake
+  group: Breakfast
+  time: 5
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BasePie
+  group: Pie
+  time: 15
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BasePizza
+  group: Pizza
+  time: 30
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseRice
+  time: 15
+  recipeTypes: [Oven]
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseAssembled
+  id: BaseSalad
+  group: Salad
+  time: 5
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseSoup
+  group: Soup
+  time: 10
+  recipeTypes: [Oven]
+
+- type: microwaveMealRecipe
+  abstract: true
+  id: BaseTaco
+  group: Savory
+  time: 10
+  recipeTypes: [Oven]
+
+- type: microwaveMealRecipe
+  abstract: true
+  parent: BaseBaked
+  id: BaseToast
+  group: Breads
+  time: 5

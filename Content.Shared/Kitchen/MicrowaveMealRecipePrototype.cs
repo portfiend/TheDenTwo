@@ -4,6 +4,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
@@ -13,11 +14,19 @@ namespace Content.Shared.Kitchen
     ///    A recipe for space microwaves.
     /// </summary>
     [Prototype("microwaveMealRecipe")]
-    public sealed partial class FoodRecipePrototype : IPrototype
+    public sealed partial class FoodRecipePrototype : IPrototype, IInheritingPrototype
     {
         [ViewVariables]
         [IdDataField]
         public string ID { get; private set; } = default!;
+
+        // DEN start: Make microwave recipes inheriting
+        [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<FoodRecipePrototype>))]
+        public string[]? Parents { get; private set; }
+
+        [AbstractDataField]
+        public bool Abstract { get; private set; }
+        // DEN end
 
         [DataField("name")]
         private string _name = string.Empty;

@@ -1,4 +1,5 @@
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeBun
   name: bun recipe
   result: FoodBreadBun
@@ -8,6 +9,7 @@
     FoodDoughSlice: 1 # one third of a standard bread dough recipe
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCottonBun
   name: cotton bun recipe
   result: FoodCottonBun
@@ -18,6 +20,7 @@
 
 #Bagels
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeBagel
   name: bagel recipe
   result: FoodBagel
@@ -27,6 +30,7 @@
     FoodDoughRope: 1 # created by rolling a dough slice.
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeBagelPoppy
   name: poppyseed bagel recipe
   result: FoodBagelPoppy
@@ -37,6 +41,7 @@
     PoppySeeds: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeBagelCotton
   name: cotton bagel recipe
   result: FoodBagelCotton
@@ -48,20 +53,22 @@
 #Burgers
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeAppendixBurger
   name: appendix burger recipe
   result: FoodBurgerAppendix
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     OrganHumanAppendix: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBaconBurger
   name: bacon burger recipe
   result: FoodBurgerBacon
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -69,26 +76,29 @@
     FoodCheeseSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBaseballBurger
   name: baseball burger recipe
   result: FoodBurgerBaseball
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     BaseBallBat: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBearger
   name: bearger recipe
   result: FoodBurgerBear
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatBear: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBigBiteBurger
   name: big bite burger recipe
   result: FoodBurgerBig
@@ -102,20 +112,22 @@
     FoodOnionSlice: 2
 
 - type: microwaveMealRecipe #Added to metamorph recipes
+  parent: BaseBurger # DEN
   id: RecipeBrainBurger
   name: brain burger recipe
   result: FoodBurgerBrain
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     OrganHumanBrain: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeCatBurger
   name: cat burger recipe
   result: FoodBurgerCat
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -123,10 +135,11 @@
     ClothingHeadHatCatEars: 1
 
 - type: microwaveMealRecipe #Added to metamorph recipes
+  parent: BaseBurger # DEN
   id: RecipeCheeseburger
   name: cheeseburger recipe
   result: FoodBurgerCheese
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -134,10 +147,11 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe #Added to metamorph recipes
+  parent: BaseBurger # DEN
   id: RecipeChickenSandwich
   name: chicken sandwich recipe
   result: FoodBurgerChicken
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   reagents:
     Mayo: 5
@@ -146,36 +160,40 @@
     FoodMeatChicken: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeClownBurger
   name: clownburger recipe
   result: FoodBurgerClown
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     ClothingMaskClown: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeCorgiBurger
   name: corgi burger recipe
   result: FoodBurgerCorgi
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatCorgi: 1
 
 - type: microwaveMealRecipe #Added to metamorph recipes
+  parent: BaseBurger # DEN
   id: RecipeCrabBurger
   name: crab burger recipe
   result: FoodBurgerCrab
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatCrab: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeCrazyHamburger
   name: crazy hamburger recipe
   result: FoodBurgerCrazy
@@ -193,10 +211,11 @@
     Flare: 1
 
 - type: microwaveMealRecipe #Added to metamorph recipes
+  parent: BaseBurger # DEN
   id: RecipeDuckBurger
   name: duck sandwich recipe
   result: FoodBurgerDuck
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -204,20 +223,22 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeEmpoweredBurger
   name: empowered burger recipe
   result: FoodBurgerEmpowered
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     SheetPlasma1: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeCarpBurger
   name: fillet-o-carp burger recipe
   result: FoodBurgerCarp
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -225,10 +246,11 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeFiveBurger
   name: five alarm burger recipe
   result: FoodBurgerFive
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -236,40 +258,44 @@
     FoodChiliPepper: 3
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeGhostBurger
   name: ghost burger recipe
   result: FoodBurgerGhost
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     Ectoplasm: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeHumanBurger
   name: human burger recipe
   result: FoodBurgerHuman
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatHuman: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeJellyBurger
   name: jelly burger recipe
   result: FoodBurgerJelly
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodJellyAmanita: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBurgerMcguffin
   name: McGuffin recipe
   result: FoodBurgerMcguffin
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   reagents:
     Egg: 12
@@ -278,10 +304,11 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeBurgerMcrib
   name: BBQ rib sandwich recipe
   result: FoodBurgerMcrib
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -289,40 +316,44 @@
     FoodOnionSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeMimeBurger
   name: mime burger recipe
   result: FoodBurgerMime
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     ClothingMaskMime: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipePlainBurger
   name: plain burger recipe
   result: FoodBurgerPlain
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeat: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeRatBurger
   name: rat burger recipe
   result: FoodBurgerRat
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatRat: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeRobotBurger
   name: roburger recipe
   result: FoodBurgerRobot
-  time: 10
+  # time: 10 # Den: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -330,10 +361,11 @@
     # i would add steel to this recipe but the microwave explodes
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeSoylentBurger
   name: soylent burger recipe
   result: FoodBurgerSoy
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
@@ -341,16 +373,18 @@
     FoodSoybeans: 2 #replace with soylent green when those become craftable
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeSpellBurger
   name: spell burger recipe
   result: FoodBurgerSpell
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     ClothingHeadHatWizard: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeSuperBiteBurger
   name: super bite burger recipe
   result: FoodBurgerSuper
@@ -366,30 +400,34 @@
     FoodTomato: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeTofuBurger
   name: tofu burger recipe
   result: FoodBurgerTofu
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodTofuSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeXenoburger
   name: xenoburger recipe
   result: FoodBurgerXeno
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Savory
   solids:
     FoodBreadBun: 1
     FoodMeatXeno: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBurger # DEN
   id: RecipeMothRoachburger
   name: mothroachburger recipe
   result: FoodBurgerMothRoach
   group: Savory
+  time: 5 # DEN: Make time explicit
   solids:
     FoodBreadBun: 1
     MobMothroach: 1
@@ -397,30 +435,33 @@
 #Breads & Sandwiches
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeBananaBread
   name: banana bread recipe
   result: FoodBreadBanana
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodBanana: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBread # DEN
   id: RecipeCornbread
   name: cornbread recipe
   result: FoodBreadCorn
-  time: 10
-  group: Breads
+  # time: 10 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDoughCornmeal: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeCreamCheeseBread
   name: cream cheese bread recipe
   result: FoodBreadCreamcheese
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   reagents:
     Milk: 5
   solids:
@@ -428,22 +469,24 @@
     FoodCheeseSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeMeatBread
   name: meat bread recipe
   result: FoodBreadMeat
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodMeatCutlet: 2
     FoodCheeseSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeMimanaBread
   name: mimana bread recipe
   result: FoodBreadMimana
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   reagents:
     Nothing: 5
   solids:
@@ -451,60 +494,66 @@
     FoodMimana: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBread # DEN
   id: RecipeBread
   name: bread recipe
   result: FoodBreadPlain
-  time: 10
-  group: Breads
+  # time: 10 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
 
 - type: microwaveMealRecipe
+  parent: [BaseBread, BaseMothRecipe] # DEN
   id: RecipeBreadCotton
   name: cotton bread recipe
   result: FoodBreadCotton
-  time: 10
-  group: Moth
+  # time: 10 # DEN; Inherit time
+  # group: Moth # DEN: Inherit category
   solids:
     FoodDoughCotton: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeSausageBread
   name: sausage bread recipe
   result: FoodBreadSausage
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodMeat: 1 #replace with sausage
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeSpiderMeatBread
   name: spider meat bread recipe
   result: FoodBreadMeatSpider
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodMeatSpiderCutlet: 2
     FoodCheeseSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeTofuBread
   name: tofu bread recipe
   result: FoodBreadTofu
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodTofu: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeXenoMeatBread
   name: xeno meat bread recipe
   result: FoodBreadMeatXeno
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodDough: 1
     FoodMeatXenoCutlet: 2
@@ -513,11 +562,12 @@
 #Slices Only
 
 - type: microwaveMealRecipe
+  parent: BaseBreadComplex # DEN
   id: RecipeBaguette
   name: baguette recipe
   result: FoodBreadBaguette
-  time: 15
-  group: Breads
+  # time: 15 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   reagents:
     TableSalt: 5
     Blackpepper: 5
@@ -525,11 +575,12 @@
     FoodDough: 1
 
 - type: microwaveMealRecipe
+  parent: [BaseBreadComplex, BaseMothRecipe] # DEN
   id: RecipeBaguetteCotton
   name: baguette recipe
   result: FoodBreadBaguetteCotton
-  time: 15
-  group: Moth
+  # time: 15 # DEN: Inherit time
+  # group: Moth # DEN: Inherit category
   reagents:
     TableSalt: 5
     Blackpepper: 5
@@ -537,11 +588,12 @@
     FoodDoughCotton: 1
 
 - type: microwaveMealRecipe
+  parent: RecipeBaguette # DEN
   id: RecipeBaguetteSword
   name: baguette sword recipe
   result: WeaponBaguette
   secretRecipe: true
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Secret
   reagents:
     TableSalt: 5
@@ -551,20 +603,22 @@
     PartRodMetal1: 1
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeButteredToast
   name: buttered toast recipe
   result: FoodBreadButteredToast
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Breads
   solids:
     FoodBreadPlainSlice: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeFrenchToast
   name: french toast recipe
   result: FoodBreadFrenchToast
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Breakfast
   reagents:
     Milk: 5
@@ -573,84 +627,92 @@
     FoodBreadPlainSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeGarlicBread
   name: garlic bread slice recipe
   result: FoodBreadGarlicSlice
-  time: 5
-  group: Breads
+  # time: 5 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodBreadPlainSlice: 1
     FoodGarlic: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeJellyToast
   name: jelly toast recipe
   result: FoodBreadJellySlice
-  time: 5
-  group: Breads
+  # time: 5 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodBreadPlainSlice: 1
     FoodJellyAmanita: 1 #replace with jelly
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeMoldyBreadSlice
   name: moldy bread slice recipe
   result: FoodBreadMoldySlice
-  time: 5
-  group: Breads
+  # time: 5 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   solids:
     FoodBreadPlainSlice: 1
     FoodFlyAmanita: 1
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeTwoBreadSlice
   name: two slice recipe
   result: FoodBreadTwoSlice
-  time: 5
-  group: Breads
+  # time: 5 # DEN: Inherit time
+  # group: Breads # DEN: Inherit category
   reagents:
     Wine: 5
   solids:
     FoodBreadPlainSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeOnionRings
   name: onion rings recipe
   result: FoodOnionRings
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   solids:
     FoodOnionSlice: 1
 
 #Pizzas TODO: contruction graph based pizza
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeMargheritaPizza
   name: margherita pizza recipe
   result: FoodPizzaMargherita
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodTomato: 4
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeMushroomPizza
   name: mushroom pizza recipe
   result: FoodPizzaMushroom
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodMushroom: 5
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeMeatPizza
   name: meat pizza recipe
   result: FoodPizzaMeat
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodMeat: 3
@@ -658,11 +720,12 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeVegetablePizza
   name: vegetable pizza recipe
   result: FoodPizzaVegetable
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodEggplant: 1
@@ -671,22 +734,24 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeHawaiianPizza
   name: Hawaiian pizza recipe
   result: FoodPizzaPineapple
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodMeatChickenCutlet: 3
     FoodPineappleSlice: 5
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeDankPizza
   name: dank pizza recipe
   result: FoodPizzaDank
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     LeavesCannabis: 2
@@ -694,11 +759,12 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeDonkpocketPizza
   name: donk-pocket pizza recipe
   result: FoodPizzaDonkpocket
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodDonkpocketWarm: 3
@@ -706,11 +772,12 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeUraniumPizza
   name: spicy rock pizza recipe
   result: FoodPizzaUranium
-  time: 30
-  group: Pizza
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughFlat: 1
     FoodChiliPepper: 2
@@ -718,30 +785,33 @@
     SheetUranium1: 2
 
 - type: microwaveMealRecipe
+  parent: [BasePizza, BaseMothRecipe] # DEN
   id: RecipeCottonPizza
   name: cotton pizza recipe
   result: FoodPizzaCotton
-  time: 30
-  group: Moth
+  # time: 30 # DEN: Inherit time
+  # group: Pizza # DEN: Inherit category
   solids:
     FoodDoughCottonFlat: 1
     CottonBol: 4
 
 - type: microwaveMealRecipe
+  parent: BasePizza # DEN
   id: RecipeWorldpeasPizza
   name: world peazza recipe
   result: FoodPizzaWorldpeas
-  time: 30
+  # time: 30 # DEN: Inherit time
   solids:
     FoodDoughFlat: 1
     FoodWorldPeas: 3
 
 #Italian
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeBoiledSpaghetti
   name: boiled spaghetti recipe
   result: FoodNoodlesBoiled
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Pasta
   reagents:
     Flour: 15
@@ -749,41 +819,45 @@
     OilOlive: 5
 
 - type: microwaveMealRecipe
+  parent: BaseNoodles # DEN
   id: RecipePastaTomato
   name: pasta tomato recipe
   result: FoodNoodles
-  time: 10
-  group: Pasta
+  # time: 10 # DEN: Inherit time
+  # group: Pasta # DEN: Inherit category
   solids:
     FoodNoodlesBoiled: 1
     FoodTomato: 2
 
 - type: microwaveMealRecipe
+  parent: BaseNoodles # DEN
   id: RecipeMeatballSpaghetti
   name: spaghetti & meatballs recipe
   result: FoodNoodlesMeatball
-  time: 10
-  group: Pasta
+  # time: 10 # DEN: Inherit time
+  # group: Pasta # DEN: Inherit category
   solids:
     FoodNoodlesBoiled: 1
     FoodMeatMeatball: 2
 
 - type: microwaveMealRecipe
+  parent: BaseNoodles # DEN
   id: RecipeButterNoodles
   name: butter noodles recipe
   result: FoodNoodlesButter
-  time: 10
-  group: Pasta
+  # time: 10 # DEN: Inherit time
+  # group: Pasta # DEN: Inherit category
   solids:
     FoodNoodlesBoiled: 1
     FoodButter: 1
 
 - type: microwaveMealRecipe
+  parent: BaseNoodles # DEN
   id: RecipeChowMein
   name: chow mein recipe
   result: FoodNoodlesChowmein
-  time: 10
-  group: Pasta
+  # time: 10 # DEN: Inherit time
+  # group: Pasta # DEN: Inherit category
   reagents:
     Egg: 6
   solids:
@@ -793,10 +867,11 @@
     FoodCorn: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeOatmeal
   name: oatmeal recipe
   result: FoodOatmeal
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   reagents:
     Oats: 15
@@ -805,10 +880,11 @@
     FoodBowlBig: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeBoiledRice
   name: boiled rice recipe
   result: FoodRiceBoiled
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   reagents:
     Rice: 15
@@ -817,10 +893,11 @@
     FoodBowlBig: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeRicePudding
   name: rice pudding recipe
   result: FoodRicePudding
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Dessert
   reagents:
     Rice: 15
@@ -830,20 +907,22 @@
     FoodBowlBig: 1
 
 - type: microwaveMealRecipe
+  parent: BaseRice # DEN
   id: RecipeRicePork
   name: rice and pork recipe
   result: FoodRicePork
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   solids:
     FoodRiceBoiled: 1
     FoodMeatCutlet: 3
 
 - type: microwaveMealRecipe
+  parent: BaseRice # DEN
   id: RecipeRiceGumbo
   name: black-eyed gumbo recipe
   result: FoodRiceGumbo
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   solids:
     FoodRiceBoiled: 1
@@ -851,10 +930,11 @@
     FoodChiliPepper: 2
 
 - type: microwaveMealRecipe
+  parent: BaseRice # DEN
   id: RecipeEggRice
   name: egg-fried rice recipe
   result: FoodRiceEgg
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Savory
   reagents:
     Egg: 6
@@ -863,22 +943,24 @@
     FoodCarrot: 1
 
 - type: microwaveMealRecipe
+  parent: BaseNoodles
   id: RecipeCopypasta
   name: copypasta recipe
   result: FoodNoodlesCopy
-  time: 10
-  group: Pasta
+  # time: 10 # DEN: Inherit time
+  # group: Pasta # DEN: Inherit category
   solids:
     FoodNoodles: 2
     FoodPlateSmall: 2
 
 #Soups & Stew
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeBisque
   name: bisque recipe
   result: FoodSoupBisque
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -888,11 +970,12 @@
     FoodMeatFish: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeMeatballSoup
   name: meatball soup recipe
   result: FoodSoupMeatball
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -902,11 +985,12 @@
     FoodPotato: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeNettleSoup
   name: nettle soup recipe
   result: FoodSoupNettle
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
     Egg: 6
@@ -916,11 +1000,12 @@
     FoodPotato: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeEyeballSoup
   name: eyeball soup recipe
   result: FoodSoupEyeball
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -930,6 +1015,7 @@
     FoodPotato: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeAmanitaJelly
   name: amanita jelly recipe
   result: FoodJellyAmanita
@@ -942,11 +1028,12 @@
     FoodFlyAmanita: 3
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeOnionSoup
   name: onion soup recipe
   result: FoodSoupOnion
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -955,11 +1042,12 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeMushroomSoup
   name: mushroom soup recipe
   result: FoodSoupMushroom
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 5
     Milk: 5
@@ -968,11 +1056,12 @@
     FoodMushroom: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeStewSoup
   name: stew recipe
   result: FoodSoupStew
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -985,11 +1074,12 @@
     FoodMushroom: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeTomatoSoup
   name: tomato soup recipe
   result: FoodSoupTomato
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -997,11 +1087,12 @@
     FoodTomato: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeTomatoBloodSoup
   name: tomato blood soup recipe
   result: FoodSoupTomatoBlood
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Blood: 10
   solids:
@@ -1009,11 +1100,12 @@
     FoodBloodTomato: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeWingFangChuSoup
   name: wing fang chu recipe
   result: FoodSoupWingFangChu
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Soysauce: 5
   solids:
@@ -1021,11 +1113,12 @@
     FoodMeatXenoCutlet: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeWingFangChuSoupSpider
   name: wing fang chu recipe
   result: FoodSoupWingFangChu
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Soysauce: 5
   solids:
@@ -1033,11 +1126,12 @@
     FoodMeatSpider: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeVegetableSoup
   name: vegetable soup recipe
   result: FoodSoupVegetable
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 5
   solids:
@@ -1048,11 +1142,12 @@
     FoodEggplant: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeClownTearsSoup
   name: clown tears soup recipe
   result: FoodSoupClown
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 10
   solids:
@@ -1062,11 +1157,12 @@
     #idk probably replace shard with someting bananium when #14663 merged
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeMonkeysDelightSoup
   name: monkeys delight recipe
   result: FoodSoupMonkey
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Flour: 5
     TableSalt: 1
@@ -1077,11 +1173,12 @@
     MonkeyCube: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeBungoSoup
   name: bungo soup recipe
   result: FoodSoupBungo
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 5
   solids:
@@ -1090,6 +1187,7 @@
     FoodChiliPepper: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeBoiledSnail
   name: boiled snail recipe
   result: FoodMeatSnailCooked
@@ -1101,11 +1199,12 @@
     FoodMeatSnail: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeEscargotSoup
   name: escargot recipe
   result: FoodSoupEscargot
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   reagents:
     Water: 5
   solids:
@@ -1117,32 +1216,35 @@
 #Pies
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeAmanitaPie
   name: amanita pie recipe
   result: FoodPieAmanita
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodFlyAmanita: 1
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeApplePie
   name: apple pie recipe
   result: FoodPieApple
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodApple: 3
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeBaklava
   name: baklava recipe
   result: FoodPieBaklava
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: BarsAndCookies
   solids:
     FoodDoughPie: 1
@@ -1150,66 +1252,72 @@
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeBananaCreamPie
   name: banana cream pie recipe
   result: FoodPieBananaCream
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodBanana: 3
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeBerryClafoutis
   name: berry clafoutis recipe
   result: FoodPieClafoutis
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodBerries: 3
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeCherryPie
   name: cherry pie recipe
   result: FoodPieCherry
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodCherry: 5
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeFrostyPie
   name: frosty pie recipe
   result: FoodPieFrosty
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodChillyPepper: 3
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeMeatPie
   name: meat pie recipe
   result: FoodPieMeat
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodMeat: 3
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipePumpkinPie
   name: pumpkin pie recipe
   result: FoodPiePumpkin
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodPumpkin: 1
@@ -1226,11 +1334,12 @@
 #    FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeXenoPie
   name: xeno pie recipe
   result: FoodPieXeno
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   solids:
     FoodDoughPie: 1
     FoodMeatXeno: 3
@@ -1239,11 +1348,12 @@
 #Tarts
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeCocoTart
   name: chocolate lava tart recipe
   result: FoodTartCoco
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   reagents:
     Sugar: 5
     Milk: 5
@@ -1253,11 +1363,12 @@
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeGappleTart
   name: golden apple streusel tart recipe
   result: FoodTartGapple
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   reagents:
     Gold: 10
     Sugar: 5
@@ -1268,11 +1379,12 @@
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeGrapeTart
   name: grape tart recipe
   result: FoodTartGrape
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   reagents:
     Sugar: 5
     Milk: 5
@@ -1282,11 +1394,12 @@
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
+  parent: BasePie # DEN
   id: RecipeMimeTart
   name: mime tart recipe
   result: FoodTartMime
-  time: 15
-  group: Pie
+  # time: 15 # DEN: Inherit time
+  # group: Pie # DEN: Inherit category
   reagents:
     Sugar: 5
     Milk: 5
@@ -1298,6 +1411,7 @@
 #Other
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCubanCarp
   name: Cuban carp recipe
   result: FoodMealCubancarp
@@ -1310,6 +1424,7 @@
     FoodMeatFish: 2
 
 - type: microwaveMealRecipe
+  parent: BaseAssembled # DEN
   id: RecipeSashimi
   name: sashimi recipe
   result: FoodMealSashimi
@@ -1321,17 +1436,19 @@
     FoodMeatFish: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeMisoColaSoup
   name: salty sweet misocola soup recipe
   result: DisgustingSweptSoup
   time: 15
-  group: Savory
+  # group: Savory # DEN: Inherit category
   reagents:
     Cola: 5
   solids:
     FoodSoupMiso: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeLoadedBakedPotato
   name: loaded baked potato recipe
   result: FoodMealPotatoLoaded
@@ -1342,6 +1459,7 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeFries
   name: space fries recipe
   result: FoodMealFries
@@ -1353,6 +1471,7 @@
     FoodPotato: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCheesyFries
   name: cheesy fries recipe
   result: FoodMealFriesCheesy
@@ -1365,6 +1484,7 @@
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCarrotFries
   name: carrot fries recipe
   result: FoodMealFriesCarrot
@@ -1376,6 +1496,7 @@
     FoodCarrot: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeNachos
   name: nachos recipe
   result: FoodMealNachos
@@ -1388,6 +1509,7 @@
     FoodPlateSmall: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeNachosCheesy
   name: cheesy nachos recipe
   result: FoodMealNachosCheesy
@@ -1401,6 +1523,7 @@
     FoodPlateSmall: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeNachosCuban
   name: cuban nachos recipe
   result: FoodMealNachosCuban
@@ -1414,31 +1537,34 @@
     FoodPlateSmall: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipePopcorn
   name: popcorn recipe
   result: FoodSnackPopcorn
-  time: 20
+  # time: 20 # DEN: Inherit time
   group: Savory
   solids:
     FoodCorn: 1
 
 - type: microwaveMealRecipe
+  parent: BasePancake # DEN
   id: RecipePancake
   name: pancake recipe
   result: FoodBakedPancake
-  time: 5
-  group: Breakfast
+  # time: 5 # DEN: Inherit time
+  # group: Breakfast # DEN: Inherit category
   reagents:
     Flour: 5
     Milk: 5
     Egg: 6
 
 - type: microwaveMealRecipe
+  parent: BasePancake # DEN
   id: RecipeBlueberryPancake
   name: blueberry pancake recipe
   result: FoodBakedPancakeBb
-  time: 5
-  group: Breakfast
+  # time: 5 # DEN: Inherit time
+  # group: Breakfast # DEN: Inherit category
   reagents:
     Flour: 5
     Milk: 5
@@ -1447,6 +1573,7 @@
     FoodBerries: 2
 
 - type: microwaveMealRecipe
+  parent: BaseGrilledMeal # DEN
   id: RecipeWaffles
   name: waffle recipe
   result: FoodBakedWaffle
@@ -1459,11 +1586,12 @@
     SodaWater: 5
 
 - type: microwaveMealRecipe
+  parent: RecipeWaffles # DEN
   id: RecipeWaffleSoy
   name: soy waffle recipe
   result: FoodBakedWaffleSoy
-  time: 10
-  group: Breakfast
+  # time: 10 # DEN: Inherit time
+  # group: Breakfast # DEN: Inherit category
   reagents:
     Flour: 5
     MilkSoy: 5
@@ -1471,11 +1599,12 @@
     SodaWater: 5
 
 - type: microwaveMealRecipe
+  parent: BaseCookie # DEN
   id: RecipeCookie
   name: cookie recipe
   result: FoodBakedCookie
-  time: 5
-  group: BarsAndCookies
+  # time: 5 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Flour: 5
     Sugar: 5
@@ -1484,11 +1613,12 @@
     FoodSnackChocolateBar: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCookie # DEN
   id: RecipeSugarCookie
   name: sugar cookie recipe
   result: FoodBakedCookieSugar
-  time: 5
-  group: BarsAndCookies
+  # time: 5 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Flour: 5
     Sugar: 10
@@ -1496,11 +1626,12 @@
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCookie # DEN
   id: RecipeRaisinCookie
   name: raisin cookie recipe
   result: FoodBakedCookieRaisin
-  time: 5
-  group: BarsAndCookies
+  # time: 5 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Flour: 5
     Sugar: 5
@@ -1508,11 +1639,12 @@
     FoodSnackRaisins: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCookie # DEN
   id: RecipeCookieOatmeal
   name: oatmeal cookie recipe
   result: FoodBakedCookieOatmeal
-  time: 5
-  group: BarsAndCookies
+  # time: 5 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Oats: 5
     Sugar: 5
@@ -1520,11 +1652,12 @@
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: # DEN
   id: RecipeChocolateChipPancake
   name: chocolate chip pancake recipe
   result: FoodBakedPancakeCc
-  time: 5
-  group: BarsAndCookies
+  # time: 5 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Flour: 5
     Milk: 5
@@ -1533,82 +1666,90 @@
     FoodSnackChocolateBar: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeAppleCake
   name: apple cake recipe
   result: FoodCakeApple
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodApple: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeCarrotCake
   name: carrot cake recipe
   result: FoodCakeCarrot
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodCarrot: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeLemonCake
   name: lemon cake recipe
   result: FoodCakeLemon
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodLemon: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeLemoonCake
   name: lemoon cake recipe
   result: FoodCakeLemoon
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodLemoon: 2
     FoodBerries: 1 #dark colouring
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeOrangeCake
   name: orange cake recipe
   result: FoodCakeOrange
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodOrange: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeBlueberryCake
   name: blueberry cake recipe
   result: FoodCakeBlueberry
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodBerries: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeLimeCake
   name: lime cake recipe
   result: FoodCakeLime
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodLime: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeCheeseCake
   name: cheese cake recipe
   result: FoodCakeCheese
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   reagents:
     Cream: 10
   solids:
@@ -1616,26 +1757,29 @@
     FoodCheeseSlice: 3
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipePumpkinCake
   name: pumpkin cake recipe
   result: FoodCakePumpkin
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodPumpkin: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeClownCake
   name: clown cake recipe
   result: FoodCakeClown
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     ClothingMaskClown: 1
     FoodCakePlain: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCake
   name: cake recipe
   result: FoodCakePlain
@@ -1645,52 +1789,57 @@
     FoodCakeBatter: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeBirthdayCake
   name: birthday cake recipe
   result: FoodCakeBirthday
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   reagents:
     Cream: 5
   solids:
     FoodCakePlain: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeChocolateCake
   name: chocolate cake recipe
   result: FoodCakeChocolate
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     FoodSnackChocolateBar: 2
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeBrainCake
   name: brain cake recipe
   result: FoodCakeBrain
   time: 15
-  group: Cake
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakePlain: 1
     OrganHumanBrain: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeSlimeCake
   name: slime cake recipe
   result: FoodCakeSlime
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   reagents:
     Slime: 15
   solids:
     FoodCakePlain: 1
 
 - type: microwaveMealRecipe
+  parent: BaseEntireLiveAnimal # DEN
   id: RecipeCatCake
   name: cat cake recipe
   result: MobCatCake
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Cake
   reagents:
     Milk: 15
@@ -1701,11 +1850,12 @@
     OrganAnimalHeart: 1
 
 - type: microwaveMealRecipe
+  parent: BaseCake # DEN
   id: RecipeBerryDelight
   name: berry delight recipe
   result: FoodCakeBerryDelight
-  time: 5
-  group: Cake
+  # time: 5 # DEN: Inherit time
+  # group: Cake # DEN: Inherit category
   solids:
     FoodCakeBlueberry: 1
     FoodBerries: 2
@@ -1713,10 +1863,11 @@
     Milk: 10
 
 - type: microwaveMealRecipe
+  parent: BaseEntireLiveAnimal # DEN
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
-  time: 15
+  # time: 15 # DEN: Inherit time
   group: Breads
   reagents:
     Cognizine: 5
@@ -1726,6 +1877,7 @@
     FoodSpaceshroomCooked: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeDumplings
   name: dumplings recipe
   result: FoodBakedDumplings
@@ -1738,6 +1890,7 @@
     FoodDoughSlice: 3
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeBrownies
   name: brownie recipe
   result: FoodBakedBrownieBatch
@@ -1753,100 +1906,111 @@
 
 #Donks i guess
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeWarmDonkpocket
   name: warm donk pocket recipe
   result: FoodDonkpocketWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocket: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeWarmDankpocket
   name: warm dank pocket recipe
   result: FoodDonkpocketDankWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketDank: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeWarmDonkpocketSpicy
   name: warm spicy donk-pocket recipe
   result: FoodDonkpocketSpicyWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketSpicy: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeWarmDonkpocketTeriyaki
   name: warm teriyaki-pocket recipe
   result: FoodDonkpocketTeriyakiWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketTeriyaki: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeWarmDonkpocketPizza
   name: warm pizza-pocket recipe
   result: FoodDonkpocketPizzaWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketPizza: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeDonkpocketHonk
   name: warm honk-pocket recipe
   result: FoodDonkpocketHonkWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketHonk: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeDonkpocketBerry
   name: warm berry-pocket recipe
   result: FoodDonkpocketBerryWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketBerry: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeDonkpocketStonk
   name: warm stonk-pocket recipe
   result: FoodDonkpocketStonkWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketStonk: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDonkPocket # DEN
   id: RecipeDonkpocketCarp
   name: warm carp-pocket recipe
   result: FoodDonkpocketCarpWarm
-  time: 5
-  group: Savory
+  # time: 5 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodDonkpocketCarp: 1
 
 - type: microwaveMealRecipe
+  parent: [BaseDonkPocket, BaseMothRecipe] # DEN
   id: RecipeDonkpocketMoth
   name: warm moth-pocket recipe
   result: FoodDonkpocketMothWarm
-  time: 5
+  # time: 5 # DEN: Inherit time
   solids:
     FoodDonkpocketMoth: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeHotChili
   name: hot chili recipe
   result: FoodSoupChiliHot
   time: 20
-  group: Soup
+  # group: Soup # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodChiliPepper: 1
@@ -1855,6 +2019,7 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  parent: BaseAssembled # DEN
   id: RecipeColdChili
   name: cold chili recipe
   result: FoodSoupChiliCold
@@ -1866,11 +2031,12 @@
     FoodSoupChiliHot: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup
   id: RecipeClownTears
   name: clown's tears recipe
   result: FoodSoupClown
   time: 15
-  group: Soup
+  # group: Soup # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodOnionSlice: 1
@@ -1878,11 +2044,12 @@
     BikeHorn: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipeChiliClown
   name: chili con carnival recipe
   result: FoodSoupChiliClown
   time: 30
-  group: Soup
+  # group: Soup # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodChiliPepper: 1
@@ -1892,6 +2059,7 @@
     ClothingShoesClown: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeQueso
   name: queso recipe
   result: FoodMealQueso
@@ -1905,6 +2073,7 @@
     FoodCheeseSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeRibs
   name: BBQ ribs recipe
   result: FoodMealRibs
@@ -1917,6 +2086,7 @@
     FoodKebabSkewer: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeEnchiladas
   name: enchiladas recipe
   result: FoodMealEnchiladas
@@ -1929,22 +2099,24 @@
 
 # SALADS: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeHerbSalad
   name: herb salad recipe
   result: FoodSaladHerb
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodAmbrosiaVulgaris: 3
     FoodApple: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeValidSalad
   name: valid salad recipe
   result: FoodSaladValid
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodAmbrosiaVulgaris: 3
@@ -1952,11 +2124,12 @@
     FoodMeatMeatball: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeColeslaw
   name: coleslaw recipe
   result: FoodSaladColeslaw
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   reagents:
     Vinaigrette: 5
   solids:
@@ -1965,11 +2138,12 @@
     FoodCabbage: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeCaesarSalad
   name: caesar salad recipe
   result: FoodSaladCaesar
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   reagents:
     OilOlive: 5
   solids:
@@ -1980,11 +2154,12 @@
     FoodCabbage: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeCitrusSalad
   name: citrus salad recipe
   result: FoodSaladCitrus
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodOrange: 1
@@ -1992,11 +2167,12 @@
     FoodLime: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeKimchiSalad
   name: kimchi salad recipe
   result: FoodSaladKimchi
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   reagents:
     Vinegar: 5
   solids:
@@ -2006,11 +2182,12 @@
     FoodGarlic: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeFruitSalad
   name: fruit salad recipe
   result: FoodSaladFruit
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodOrange: 1
@@ -2019,11 +2196,12 @@
     FoodWatermelonSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeJungleSalad
   name: jungle salad recipe
   result: FoodSaladJungle
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodBowlBig: 1
     FoodBanana: 1
@@ -2032,11 +2210,12 @@
     FoodWatermelonSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseSalad # DEN
   id: RecipeWatermelonFruitBowlSalad
   name: watermelon fruit bowl recipe
   result: FoodSaladWatermelonFruitBowl
-  time: 5
-  group: Salad
+  # time: 5 # DEN: Inherit time
+  # group: Salad # DEN: Inherit category
   solids:
     FoodWatermelon: 1
     FoodApple: 1
@@ -2048,11 +2227,12 @@
 # Muffins
 
 - type: microwaveMealRecipe
+  parent: BaseMuffin # DEN
   id: RecipeMuffin
   name: muffin recipe
   result: FoodBakedMuffin
-  time: 15
-  group: Dessert
+  # time: 15 # DEN: Inherit time
+  # group: Dessert # DEN: Inherit category
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
@@ -2060,11 +2240,12 @@
     Sugar: 10
 
 - type: microwaveMealRecipe
+  parent: BaseMuffin # DEN
   id: RecipeMuffinChocolate
   name: chocolate muffin recipe
   result: FoodBakedMuffinChocolate
-  time: 15
-  group: Dessert
+  # time: 15 # DEN: Inherit time
+  # group: Dessert # DEN: Inherit category
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
@@ -2073,11 +2254,12 @@
     Sugar: 10
 
 - type: microwaveMealRecipe
+  parent: BaseMuffin # DEN
   id: RecipeMuffinBerry
   name: berry muffin recipe
   result: FoodBakedMuffinBerry
-  time: 15
-  group: Dessert
+  # time: 15 # DEN: Inherit time
+  # group: Dessert # DEN: Inherit category
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
@@ -2086,11 +2268,12 @@
     Sugar: 10
 
 - type: microwaveMealRecipe
+  parent: BaseMuffin # DEN
   id: RecipeMuffinBanana
   name: banana muffin recipe
   result: FoodBakedMuffinBanana
-  time: 15
-  group: Dessert
+  # time: 15 # DEN: Inherit time
+  # group: Dessert # DEN: Inherit category
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
@@ -2099,11 +2282,12 @@
     Sugar: 10
 
 - type: microwaveMealRecipe
+  parent: BaseMuffin # DEN
   id: RecipeMuffinCherry
   name: cherry muffin recipe
   result: FoodBakedMuffinCherry
-  time: 15
-  group: Dessert
+  # time: 15 # DEN: Inherit time
+  # group: Dessert # DEN: Inherit category
   solids:
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
@@ -2114,50 +2298,56 @@
 # NOT ACTUAL FOOD
 
 - type: microwaveMealRecipe
+  parent: BaseDried # DEN
   id: RecipeDriedTeaLeaves
   name: dried tea leaves recipe
   result: LeavesTeaDried
-  time: 10
+  # time: 10 # DEN: Inherit time
   solids:
     LeavesTea: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDried # DEN
   id: RecipeDriedTobacco
   name: dried tobacco leaves recipe
   result: LeavesTobaccoDried
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Medicinal
   solids:
     LeavesTobacco: 1
 
 - type: microwaveMealRecipe
+  parent: BaseDried # DEN
   id: RecipeDriedCannabis
   name: dried cannabis leaves recipe
   result: LeavesCannabisDried
-  time: 10
+  # time: 10 # DEN: Inherit time
   group: Medicinal
   solids:
     LeavesCannabis: 1
 
 - type: microwaveMealRecipe
+  parent: RecipeDriedCannabis
   id: RecipeDriedCannabisRainbow
   name: dried rainbow cannabis leaves recipe
   result: LeavesCannabisRainbowDried
-  time: 10
-  group: Medicinal
+  # time: 10 DEN: Inherit time
+  # group: Medicinal # DEn: Inherit category
   solids:
     LeavesCannabisRainbow: 1
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeTrashBakedBananaPeel
   name: baked banana peel recipe
   result: TrashBakedBananaPeel
-  time: 5
+  # time: 5 # DEN: Inherit time
   solids:
     TrashBananaPeel: 1
 
 # Suppermatter
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeSuppermatter
   name: suppermatter recipe
   result: FoodCakeSuppermatter
@@ -2170,40 +2360,44 @@
     Plasma: 10
 
 - type: microwaveMealRecipe
+  parent: BaseToast # DEN
   id: RecipeFoodBakedChevreChaud
   name: chevre chaud recipe
   result: FoodBakedChevreChaud
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Savory
   solids:
     FoodChevreSlice: 1
     FoodBreadBaguetteSlice: 1
 
 - type: microwaveMealRecipe
+  parent: [RecipeFoodBakedChevreChaud, BaseMothRecipe] # DEN
   id: RecipeFoodBakedChevreChaudCotton
   name: cotton chevre chaud recipe
   result: FoodBakedChevreChaudCotton
-  time: 5
-  group: Moth
+  # time: 5 # DEN: Inherit time
+  # group: Moth # DEN: Inherit category
   solids:
     FoodChevreSlice: 1
     FoodBreadBaguetteCottonSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSimpleHeated # DEN
   id: RecipeCannabisButter
   name: cannabis butter recipe
   result: FoodCannabisButter
-  time: 15
+  # time: 15 # DEN: Inherit time
   solids:
     FoodButter: 1
     LeavesCannabis: 6
 
 - type: microwaveMealRecipe
+  parent: RecipeBrownies
   id: RecipeCannabisBrownies
   name: cannabis brownie recipe
   result: FoodBakedCannabisBrownieBatch
-  time: 25
-  group: BarsAndCookies
+  # time: 25 # DEN: Inherit time
+  # group: BarsAndCookies # DEN: Inherit category
   reagents:
     Flour: 15
     Sugar: 30
@@ -2213,6 +2407,7 @@
     FoodSnackChocolateBar: 2
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeCornInButter
   name: corn in butter recipe
   result: FoodMealCornInButter
@@ -2224,11 +2419,12 @@
     FoodButter: 1
 
 - type: microwaveMealRecipe
+  parent: BaseSoup # DEN
   id: RecipePeaSoup
   name: pea soup recipe
   result: FoodSoupPea
-  time: 10
-  group: Soup
+  # time: 10 # DEN: Inherit time
+  # group: Soup # DEN: Inherit category
   solids:
     FoodPeaPod: 2
     FoodBowlBig: 1
@@ -2236,42 +2432,46 @@
     Water: 10
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeTacoShell
   name: taco shell recipe
   result: FoodTacoShell
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Breads
   solids:
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoBeef
   name: beef taco recipe
   result: FoodTacoBeef
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodMeatCutlet: 1
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoChicken
   name: chicken taco recipe
   result: FoodTacoChicken
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodMeatChickenCutlet: 1
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoFish
   name: fish taco recipe
   result: FoodTacoFish
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodMeatFish: 1
@@ -2280,22 +2480,24 @@
     FoodCabbage: 1
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoRat
   name: rat taco recipe
   result: FoodTacoRat
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodCheeseSlice: 1
     FoodMeatRat: 1
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoBeefSupreme
   name: beef taco supreme recipe
   result: FoodTacoBeefSupreme
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodCheeseSlice: 1
@@ -2305,11 +2507,12 @@
     FoodOnionSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoChickenSupreme
   name: beef taco supreme recipe
   result: FoodTacoChickenSupreme
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodCheeseSlice: 1
@@ -2319,17 +2522,19 @@
     FoodOnionSlice: 2
 
 - type: microwaveMealRecipe
+  parent: BaseTaco # DEN
   id: RecipeTacoDragon
   name: draco recipe
   result: FoodTacoDragon
-  time: 10
-  group: Savory
+  # time: 10 # DEN: Inherit time
+  # group: Savory # DEN: Inherit category
   solids:
     FoodTacoShell: 1
     FoodMeatDragonCutlet: 2
     FoodChiliPepper: 1
 
 - type: microwaveMealRecipe
+  parent: BaseBaked # DEN
   id: RecipeCroissant
   name: croissant recipe
   result: FoodBakedCroissant
@@ -2340,21 +2545,23 @@
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: [RecipeCroissant, BaseMothRecipe] # DEN
   id: RecipeCroissantCotton
   name: cotton croissant recipe
   result: FoodBakedCroissantCotton
-  time: 5
-  group: Moth
+  # time: 5 # DEN: Inherit time
+  # group: Moth # DEN: Inherit category
   solids:
     FoodCroissantRawCotton: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: RecipeCroissant # DEN
   id: RecipeThrowingCroissant
   name: throwing croissant recipe
   result: WeaponCroissant
   secretRecipe: true
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Secret
   solids:
     FoodCroissantRaw: 1
@@ -2362,33 +2569,37 @@
     ShardGlass: 1
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeInertAnomalyMeat
   name: inert meat anomaly recipe
   result: FoodMeatAnomaly
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Savory
   solids:
     AnomalyCoreFleshInert: 1
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeAnomalyMeat
   name: meat anomaly recipe
   result: FoodMeatAnomaly
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Savory
   solids:
     AnomalyCoreFlesh: 1
 
 - type: microwaveMealRecipe
+  parent: BaseAnyHeated # DEN
   id: RecipeAnomalyMeatCooked
   name: cooked meat anomaly recipe
   result: FoodMeatAnomalyCooked
-  time: 5
+  # time: 5 # DEN: Inherit time
   group: Savory
   solids:
     FoodMeatAnomaly: 1
 
 - type: microwaveMealRecipe
+  parent: BaseGrilledMeal # DEN
   id: RecipeGrilledCheeseSandwich
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
@@ -2400,17 +2611,19 @@
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: [RecipeGrilledCheeseSandwich, BaseMothRecipe] # DEN
   id: RecipeGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
-  time: 10
-  group: Moth
+  # time: 10 # DEN: Inherit time
+  # group: Moth # DEN: Inherit category
   solids:
     FoodBreadCottonSlice: 2
     FoodCheeseSlice: 1
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
+  parent: BaseGrilledMeal # DEN
   id: RecipeBreakfastAmerican
   name: full american breakfast recipe
   result: FoodBreakfastAmerican
@@ -2424,6 +2637,7 @@
     FoodBakedPancake: 2
 
 - type: microwaveMealRecipe
+  parent: BaseGrilledMeal # DEN
   id: RecipeBreakfastEnglish
   name: full english breakfast recipe
   result: FoodBreakfastEnglish
@@ -2438,6 +2652,7 @@
     FoodSoybeans: 2 # replace these with green beans once those become a thing
 
 - type: microwaveMealRecipe
+  parent: BaseEntireLiveAnimal # DEN
   id: RecipeMoproach # TODO: Move this to be an actual surgery instead, once surgery gets implemented.
   name: moproach recipe
   result: MobMoproach
@@ -2451,11 +2666,12 @@
     MoproachShoes: 1
 
 - type: microwaveMealRecipe
+  parent: [BaseCake, BaseMothRecipe] # DEN
   id: RecipeCottonCake
   name: cotton cake recipe
   result: FoodCakeCotton
-  time: 5
-  group: Moth
+  # time: 5 # DEN: Inherit time
+  # group: Moth # DEN: Inherit category
   reagents:
     Fiber: 10
   solids:
