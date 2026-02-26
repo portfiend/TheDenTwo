@@ -1,8 +1,10 @@
 ﻿using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared.Kitchen
 {
@@ -45,6 +47,19 @@ namespace Content.Shared.Kitchen
         /// </summary>
         [DataField]
         public bool SecretRecipe = false;
+
+        // DEN start: Appliance coooking
+
+        /// <summary>
+        ///     A set of valid appliance tags that can produce this recipe.
+        /// </summary>
+        /// <remarks>
+        ///     For example, an appliance might be only capable of producing recipes with the "Microwave" type tag.
+        /// </remarks>
+        [DataField(required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<TagPrototype>))]
+        public HashSet<ProtoId<TagPrototype>> RecipeTypes = new();
+
+        // End DEN
 
         /// <summary>
         ///    Count the number of ingredients in a recipe for sorting the recipe list.
