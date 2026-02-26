@@ -1,4 +1,5 @@
 # alphabetical order PLEASE
+# also document their purpose
 
 - type: Tag
-  id: TeddyRibbon
+  id: TeddyRibbon # Ribbon slot for teddy bears
