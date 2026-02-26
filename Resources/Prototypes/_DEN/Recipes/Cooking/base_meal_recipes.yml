@@ -30,6 +30,8 @@
 - type: microwaveMealRecipe
   abstract: true
   id: BaseTopical
+  group: Medicinal
+  time: 10
   recipeTypes: [MedicalAssembler]
 
 # TODO: Do we want another appliance for grilling etc.?
