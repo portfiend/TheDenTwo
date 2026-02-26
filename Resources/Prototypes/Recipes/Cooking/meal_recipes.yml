@@ -2392,7 +2392,7 @@
     LeavesCannabis: 6
 
 - type: microwaveMealRecipe
-  parent: RecipeBrownies
+  parent: RecipeBrownies # DEN
   id: RecipeCannabisBrownies
   name: cannabis brownie recipe
   result: FoodBakedCannabisBrownieBatch
