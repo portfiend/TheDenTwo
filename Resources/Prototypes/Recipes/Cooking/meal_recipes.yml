@@ -1652,7 +1652,7 @@
     FoodButterSlice: 1
 
 - type: microwaveMealRecipe
-  parent: # DEN
+  parent: BasePancake # DEN
   id: RecipeChocolateChipPancake
   name: chocolate chip pancake recipe
   result: FoodBakedPancakeCc

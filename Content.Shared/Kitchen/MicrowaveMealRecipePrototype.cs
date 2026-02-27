@@ -24,6 +24,7 @@ namespace Content.Shared.Kitchen
         [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<FoodRecipePrototype>))]
         public string[]? Parents { get; private set; }
 
+        [NeverPushInheritance]
         [AbstractDataField]
         public bool Abstract { get; private set; }
         // DEN end
@@ -66,7 +67,7 @@ namespace Content.Shared.Kitchen
         /// <remarks>
         ///     For example, an appliance might be only capable of producing recipes with the "Microwave" type.
         /// </remarks>
-        [DataField(required: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<CookingAppliancePrototype>))]
+        [DataField(required: true)]
         public HashSet<ProtoId<CookingAppliancePrototype>> RecipeTypes = new();
 
         // End DEN
