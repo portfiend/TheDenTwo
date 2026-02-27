@@ -628,6 +628,11 @@ namespace Content.Server.Kitchen.EntitySystems
                 return (recipe, 0);
             }
 
+            // DEN Start: Check if the appliance shares at least one valid appliance type with the recipe.
+            if (component.RecipeTypes != null && !component.RecipeTypes.Intersect(recipe.RecipeTypes).Any())
+                return (recipe, 0);
+            // DEN End
+
             foreach (var solid in recipe.IngredientsSolids)
             {
                 if (!solids.ContainsKey(solid.Key))

@@ -1,0 +1,44 @@
+- type: entity
+  parent: KitchenMicrowaveUpstream
+  id: KitchenMicrowave
+  suffix: TheDen
+  components:
+  - type: Microwave
+    recipeTypes: [Microwave]
+
+- type: entity
+  parent: KitchenMicrowave
+  id: KitchenElectricRange
+  name: oven
+  suffix: null
+  components:
+  - type: Sprite
+    color: "#FF0000"
+  - type: Microwave
+    recipeTypes: [Oven]
+
+- type: entity
+  parent: KitchenMicrowave
+  id: KitchenAssembler
+  name: food-o-mat
+  suffix: null
+  components:
+  - type: Sprite
+    color: "#00FF00"
+  - type: Microwave
+    baseHeatMultiplier: 0
+    objectHeatMultiplier: 0
+    recipeTypes: [Assembler]
+
+- type: entity
+  parent: KitchenMicrowave
+  id: MedicalAssembler
+  name: medical assembler
+  suffix: null
+  components:
+  - type: Sprite
+    color: "#0000FF"
+  - type: Microwave
+    baseHeatMultiplier: 0
+    objectHeatMultiplier: 0
+    recipeTypes: [MedicalAssembler]

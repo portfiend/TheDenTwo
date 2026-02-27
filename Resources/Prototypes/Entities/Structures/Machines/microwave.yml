@@ -1,8 +1,9 @@
 - type: entity
-  id: KitchenMicrowave
+  id: KitchenMicrowaveUpstream # DEN: Update prototype ID
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   name: microwave
   description: It's magic.
+  suffix: Upstream # DEN: Add suffix
   components:
   - type: Microwave
     capacity: 10

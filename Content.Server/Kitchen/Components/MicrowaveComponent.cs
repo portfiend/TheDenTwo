@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Kitchen.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Item;
@@ -110,5 +111,18 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanMicrowaveIdsSafely = true;
+
+        // DEN Start: Appliance cooking
+
+        /// <summary>
+        ///     What kind of microwaveMealRecipes this appliance is capable of producing.
+        /// </summary>
+        /// <remarks>
+        ///     If set to null, then this appliance can make any recipe - replicating the old behavior of microwaves.
+        /// </remarks>
+        [DataField]
+        public HashSet<ProtoId<CookingAppliancePrototype>>? RecipeTypes = null;
+
+        // DEN End
     }
 }
