@@ -1,0 +1,34 @@
+# NOTE!! groupWhitelist has partial inheritance.
+# This means you can parent a marking with a group whitelist filled out, and then add more species to the groupWhitelist
+# field, and the marking will use a combined list of species from those two group whitelists.
+
+- type: marking
+  abstract: true
+  id: BaseGroupsGeneralUndergarments
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime, Vulpkanin]
+
+# Species that can wear generic underwear bottoms, but not tops
+- type: marking
+  abstract: true
+  parent: BaseGroupsGeneralUndergarments
+  id: BaseGroupsGeneralUndergarmentBottom
+
+# Species that can wear generic underwear tops, but not bottoms
+- type: marking
+  abstract: true
+  parent: BaseGroupsGeneralUndergarments
+  id: BaseGroupsGeneralUndergarmentTop
+  groupWhitelist: [Reptilian]
+
+# Single-species group
+# TODO: "Preferred group" functionality
+
+- type: marking
+  abstract: true
+  id: BaseGroupSingleReptilian
+  groupWhitelist: [Reptilian]
+
+- type: marking
+  abstract: true
+  id: BaseGroupSingleVox
+  groupWhitelist: [Vox]

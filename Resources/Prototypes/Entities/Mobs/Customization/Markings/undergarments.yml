@@ -1,291 +1,321 @@
 # These options are kept very sparse to not put emphasis on nudity, and to provide a base for players to feel comfortable with.
-# It's unlikely more will be added to upstream for cosmetic reasons. 
+# It's unlikely more will be added to upstream for cosmetic reasons.
+
+# (DEN comment: Ignore the above two comments.)
 
 - type: marking
+  parent: BaseUndergarmentBottomGeneral # DEN
   id: UndergarmentBottomBoxers
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: boxers
 
 - type: marking
+  parent: BaseUndergarmentBottomGeneral # DEN
   id: UndergarmentBottomBriefs
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: briefs
 
 - type: marking
+  parent: BaseUndergarmentBottomGeneral # DEN
   id: UndergarmentBottomSatin
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: satin
 
 - type: marking
+  parent: BaseUndergarmentTopGeneral # DEN
   id: UndergarmentTopBra
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: classic
 
 - type: marking
+  parent: BaseUndergarmentTopGeneral # DEN
   id: UndergarmentTopSportsbra
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: sports
 
 - type: marking
+  parent: BaseUndergarmentTopGeneral # DEN
   id: UndergarmentTopBinder
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: binder
 
 - type: marking
+  parent: BaseUndergarmentTopGeneral # DEN
   id: UndergarmentTopTanktop
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: tanktop
 
+# ========================================
+# DEN COMMENT: Vox markings start
+# ========================================
+
 - type: marking
+  parent: BaseUndergarmentBottomVox # DEN
   id: UndergarmentBottomBoxersVox # Voxers.
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: boxers_vox
 
 - type: marking
+  parent: BaseUndergarmentBottomVox # DEN
   id: UndergarmentBottomBriefsVox
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: briefs_vox
 
 - type: marking
+  parent: BaseUndergarmentBottomVox # DEN
   id: UndergarmentBottomSatinVox
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: satin_vox
 
 - type: marking
+  parent: BaseUndergarmentTopVox # DEN
   id: UndergarmentTopBraVox
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: classic_vox
 
 - type: marking
+  parent: BaseUndergarmentTopVox # DEN
   id: UndergarmentTopSportsbraVox
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: sports_vox
 
 - type: marking
+  parent: BaseUndergarmentTopVox # DEN
   id: UndergarmentTopBinderVox
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: binder_vox
 
 - type: marking
+  parent: BaseUndergarmentTopVox # DEN
   id: UndergarmentTopTanktopVox
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vox]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentTop
+  # groupWhitelist: [Vox]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: tanktop_vox
 
+# ========================================
+# DEN COMMENT: Reptilian markings start
+# ========================================
+
 - type: marking
+  parent: BaseUndergarmentBottomReptilian # DEN
   id: UndergarmentBottomBoxersReptilian
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Reptilian]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: boxers_reptilian
 
 - type: marking
+  parent: BaseUndergarmentBottomReptilian # DEN
   id: UndergarmentBottomBriefsReptilian
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Reptilian]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: briefs_reptilian
 
 - type: marking
+  parent: BaseUndergarmentBottomReptilian # DEN
   id: UndergarmentBottomSatinReptilian
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Reptilian]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
+  # bodyPart: UndergarmentBottom
+  # groupWhitelist: [Reptilian]
+  # coloring:
+  #   default:
+  #     type: null
+  #     fallbackColor: '#FFFFFF'
   sprites:
   - sprite: Mobs/Customization/undergarments.rsi
     state: satin_reptilian
 
-- type: marking
-  id: UndergarmentBottomBoxersVulpkanin
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: boxers_vulpkanin
+# DEN start: Comment out all of these, because we use Paradise sprites
 
-- type: marking
-  id: UndergarmentBottomBriefsVulpkanin
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: briefs_vulpkanin
+# - type: marking
+#   id: UndergarmentBottomBoxersVulpkanin
+#   bodyPart: UndergarmentBottom
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: boxers_vulpkanin
 
-- type: marking
-  id: UndergarmentBottomSatinVulpkanin
-  bodyPart: UndergarmentBottom
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: satin_vulpkanin
+# - type: marking
+#   id: UndergarmentBottomBriefsVulpkanin
+#   bodyPart: UndergarmentBottom
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: briefs_vulpkanin
 
-- type: marking
-  id: UndergarmentTopBraVulpkanin
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: classic_vulpkanin
+# - type: marking
+#   id: UndergarmentBottomSatinVulpkanin
+#   bodyPart: UndergarmentBottom
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: satin_vulpkanin
 
-- type: marking
-  id: UndergarmentTopSportsbraVulpkanin
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: sports_vulpkanin
+# - type: marking
+#   id: UndergarmentTopBraVulpkanin
+#   bodyPart: UndergarmentTop
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: classic_vulpkanin
 
-- type: marking
-  id: UndergarmentTopBinderVulpkanin
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: binder_vulpkanin
+# - type: marking
+#   id: UndergarmentTopSportsbraVulpkanin
+#   bodyPart: UndergarmentTop
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: sports_vulpkanin
 
-- type: marking
-  id: UndergarmentTopTanktopVulpkanin
-  bodyPart: UndergarmentTop
-  groupWhitelist: [Vulpkanin]
-  coloring:
-    default:
-      type: null
-      fallbackColor: '#FFFFFF'
-  sprites:
-  - sprite: Mobs/Customization/undergarments.rsi
-    state: tanktop_vulpkanin
-    
+# - type: marking
+#   id: UndergarmentTopBinderVulpkanin
+#   bodyPart: UndergarmentTop
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: binder_vulpkanin
+
+# - type: marking
+#   id: UndergarmentTopTanktopVulpkanin
+#   bodyPart: UndergarmentTop
+#   groupWhitelist: [Vulpkanin]
+#   coloring:
+#     default:
+#       type: null
+#       fallbackColor: '#FFFFFF'
+#   sprites:
+#   - sprite: Mobs/Customization/undergarments.rsi
+#     state: tanktop_vulpkanin
+
+# DEN end

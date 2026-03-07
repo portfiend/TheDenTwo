@@ -1,0 +1,52 @@
+# Helper base markings
+
+- type: marking
+  abstract: true
+  id: BaseColorWhite
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+
+# Marking types
+
+- type: marking
+  abstract: true
+  parent: BaseColorWhite
+  id: BaseUndergarmentBottom
+  bodyPart: UndergarmentBottom
+
+- type: marking
+  abstract: true
+  parent: BaseColorWhite
+  id: BaseUndergarmentTop
+  bodyPart: UndergarmentTop
+
+# Abstract inherited markings
+
+## Undergarments
+
+- type: marking
+  abstract: true
+  parent: [BaseUndergarmentBottom, BaseGroupsGeneralUndergarmentBottom]
+  id: BaseUndergarmentBottomGeneral
+
+- type: marking
+  abstract: true
+  parent: [BaseUndergarmentBottom, BaseGroupSingleReptilian]
+  id: BaseUndergarmentBottomReptilian
+
+- type: marking
+  abstract: true
+  parent: [BaseUndergarmentBottom, BaseGroupSingleVox]
+  id: BaseUndergarmentBottomVox
+
+- type: marking
+  abstract: true
+  parent: [BaseUndergarmentTop, BaseGroupsGeneralUndergarmentTop]
+  id: BaseUndergarmentTopGeneral
+
+- type: marking
+  abstract: true
+  parent: [BaseUndergarmentTop, BaseGroupSingleVox]
+  id: BaseUndergarmentTopVox
