@@ -1,0 +1,8 @@
+- type: species
+  id: Ovinia
+  name: species-name-ovinia
+  roundStart: true
+  prototype: MobSlimePerson # TODO
+  defaultSkinTone: "#ffffff"
+  dollPrototype: AppearanceSlimePerson # TODO
+  skinColoration: Hues
