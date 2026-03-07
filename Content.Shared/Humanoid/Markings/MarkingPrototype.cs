@@ -1,13 +1,23 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Markings
 {
     [Prototype]
-    public sealed partial class MarkingPrototype : IPrototype
+    public sealed partial class MarkingPrototype : IPrototype, IInheritingPrototype // DEN: Make inheriting
     {
         [IdDataField]
         public string ID { get; private set; } = "uwu";
+
+        // DEN start: Make markings inheriting
+        [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<MarkingPrototype>))]
+        public string[]? Parents { get; private set; }
+
+        [NeverPushInheritance]
+        [AbstractDataField]
+        public bool Abstract { get; private set; }
+        // End DEN
 
         public string Name { get; private set; } = default!;
 
