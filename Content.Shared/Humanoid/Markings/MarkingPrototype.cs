@@ -25,6 +25,7 @@ namespace Content.Shared.Humanoid.Markings
         public HumanoidVisualLayers BodyPart { get; private set; } = default!;
 
         [DataField]
+        [AlwaysPushInheritance] // DEN
         public List<ProtoId<MarkingsGroupPrototype>>? GroupWhitelist;
 
         [DataField("sexRestriction")]
