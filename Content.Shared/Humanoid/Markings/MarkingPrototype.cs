@@ -47,6 +47,20 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("sprites", required: true)]
         public List<SpriteSpecifier> Sprites { get; private set; } = default!;
 
+        // DEN start: categorization of markings
+
+        /// <summary>
+        ///     A list of "categories" that this marking belongs to.
+        /// </summary>
+        /// <remarks>
+        ///     This will eventually be used for in-round marking customization - such as interactions that
+        ///     can change your scars, tattoos, gauze wraps, or underwear in the middle of a round.
+        /// </remarks>
+        [DataField]
+        public HashSet<string> Categories = new();
+
+        // DEN end
+
         public Marking AsMarking()
         {
             return new Marking(ID, Sprites.Count);

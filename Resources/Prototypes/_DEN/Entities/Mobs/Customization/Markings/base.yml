@@ -15,12 +15,14 @@
   parent: BaseColorWhite
   id: BaseUndergarmentBottom
   bodyPart: UndergarmentBottom
+  categories: [Undergarment, UndergarmentBottom]
 
 - type: marking
   abstract: true
   parent: BaseColorWhite
   id: BaseUndergarmentTop
   bodyPart: UndergarmentTop
+  categories: [Undergarment, UndergarmentTop]
 
 # Abstract inherited markings
 
