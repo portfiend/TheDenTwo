@@ -4,6 +4,21 @@
 
 - type: marking
   abstract: true
+  id: BaseGroupsGeneralScar
+  groupWhitelist: [Human, Reptilian, Vulpkanin]
+
+- type: marking
+  abstract: true
+  id: BaseGroupsGeneralScarHead
+  groupWhitelist: [Moth]
+
+- type: marking
+  abstract: true
+  id: BaseGroupsGeneralScarChest
+  groupWhitelist: [Arachnid, Diona]
+
+- type: marking
+  abstract: true
   id: BaseGroupsGeneralUndergarments
   groupWhitelist: [Arachnid, Diona, Human, Moth, Slime, Vulpkanin]
 
