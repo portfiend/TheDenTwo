@@ -1,374 +1,410 @@
+# DEN start: base inheritor
 - type: marking
+  abstract: true
+  parent: [BaseColorWhite, BaseGroupSingleDiona]
+  id: BaseDiona
+# end DEN
+
+- type: marking
+  parent: BaseDiona # DEN
   id: DionaThornsHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: thorns_head
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaThornsBody
   bodyPart: Chest
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: thorns_body
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaFlowersHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: flowers_head
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaFlowersBody
   bodyPart: Chest
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: flowers_body
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaLeafCover
   bodyPart: Chest
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SkinColoring
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: leaf_cover
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaBloomHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: bloom
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaBracketHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: bracket
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaBrushHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SkinColoring
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: brush
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaCornflowerHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: cornflower
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaFicusHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: ficus
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaGarlandHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: garland
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaKingHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: king
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaLaurelHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: laurel
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaLeafyHeadTop
   bodyPart: HeadTop
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: leafy
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaLotusHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: lotus
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaMeadowHeadTop
   bodyPart: HeadTop
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: meadow
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaOakHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: oak
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaPalmHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: palm
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaRootHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: root
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaRoseHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: rose
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaRoseyHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: rosey
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaShrubHeadTop
   bodyPart: HeadTop
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: shrub
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaSpinnerHeadSide
   bodyPart: HeadSide
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: spinner
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaSproutHeadSide
   bodyPart: HeadSide
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: sprout
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaVineHeadTop
   bodyPart: HeadTop
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: vine
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaVinelHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: vinel
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaVinesHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: vines
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaWildflowerHead
   bodyPart: Head
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #         color: "#FFFFFF"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: wildflower
 
 - type: marking
+  parent: BaseDiona # DEN
   id: DionaVineOverlay
   bodyPart: Overlay
-  groupWhitelist: [Diona]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#5f7039"
+  # groupWhitelist: [Diona]
+  # coloring:
+  #   default:
+  #     type:
+  #       !type:SimpleColoring
+  #       color: "#5f7039"
   sprites:
   - sprite: Mobs/Customization/diona.rsi
     state: overlay

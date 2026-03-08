@@ -40,6 +40,11 @@
 
 - type: marking
   abstract: true
+  id: BaseGroupSingleDiona
+  groupWhitelist: [Diona]
+
+- type: marking
+  abstract: true
   id: BaseGroupSingleReptilian
   groupWhitelist: [Reptilian]
 
