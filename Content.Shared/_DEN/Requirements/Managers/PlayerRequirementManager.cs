@@ -16,7 +16,7 @@ public sealed partial class PlayerRequirementManager
     {
         foreach (var requirement in requirements)
         {
-            // Pre-check the actual requirement. This ensures our context has all the fields needed for the requirement.
+            // Pre-check the requirement. This ensures our context has all the fields needed for the requirement.
             // If the pre-check fails, whether or not this requirement passes depends on requirement.MustPassPreCheck.
             // If you don't need to pass the pre-check, then it's an auto-success.
             if (!requirement.PreCheck(context))
