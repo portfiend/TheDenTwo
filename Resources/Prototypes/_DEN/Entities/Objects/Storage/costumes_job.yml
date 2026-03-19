@@ -16,13 +16,14 @@
 #       color: "#74ff33"
 #   - type: Icon
 #     state: icon-clown
-#   - type: StorageFill
-#     contents:
-#     - id: ClothingHeadHatCircusClown
-#     - id: ClothingMaskClownNose
-#     - id: ClothingNeckRuffle
-#     - id: ClothingUniformCircusClown
-#     - id: ClothingShoesCircus
+#   - type: EntityTableContainerFill
+#     containers:
+#       storagebase: !type:AllSelector
+#       - id: ClothingHeadHatCircusClown
+#       - id: ClothingMaskClownNose
+#       - id: ClothingNeckRuffle
+#       - id: ClothingUniformCircusClown
+#       - id: ClothingShoesCircus
 
 - type: entity
   parent: BaseCostumeBundle
@@ -41,14 +42,15 @@
       color: "#74ff33"
   - type: Icon
     state: icon-clown
-  - type: StorageFill
-    contents:
-    - id: ClothingHeadHatJester
-    - id: ClothingHeadHatJesterAlt
-    - id: ClothingUniformJumpsuitJester
-    - id: ClothingUniformJumpsuitJesterAlt
-    - id: ClothingShoesJester
-    - id: ClothingShoesJester
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+      - id: ClothingHeadHatJester
+      - id: ClothingHeadHatJesterAlt
+      - id: ClothingUniformJumpsuitJester
+      - id: ClothingUniformJumpsuitJesterAlt
+      - id: ClothingShoesJester
+      - id: ClothingShoesJester
 
 # TODO: Port from Impstation
 # - type: entity
@@ -68,11 +70,12 @@
 #       color: "#6f56b8"
 #   - type: Icon
 #     state: icon-musician
-#   - type: StorageFill
-#     contents:
-#     - id: ClothingUniformMusicianSingerDress
-#     - id: ClothingHandsMusicianSingerGloves
-#     - id: ClothingNeckFeatherBoa
+#   - type: EntityTableContainerFill
+#     containers:
+#       storagebase: !type:AllSelector
+#       - id: ClothingUniformMusicianSingerDress
+#       - id: ClothingHandsMusicianSingerGloves
+#       - id: ClothingNeckFeatherBoa
 
 # TODO: Port from Impstation
 # - type: entity
@@ -92,7 +95,8 @@
 #       color: "#6f56b8"
 #   - type: Icon
 #     state: icon-musician
-#   - type: StorageFill
-#     contents:
-#     - id: ClothingHeadHatMusicianShako
-#     - id: ClothingUniformJumpsuitMusicianMarchingBand
+#   - type: EntityTableContainerFill
+#     containers:
+#       storagebase: !type:AllSelector
+#       - id: ClothingHeadHatMusicianShako
+#       - id: ClothingUniformJumpsuitMusicianMarchingBand
