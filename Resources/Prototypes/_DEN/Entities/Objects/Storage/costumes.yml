@@ -1,5 +1,27 @@
-# Costume bundles
-# Used to consolidate multi-item costumes into a single item for drobes.
+# === COSTUME BUNDLES ===
+# Used to group together multi-part outfits into a single storage item. Think, like, Spirit Halloween costumes.
+# Convenient for vending machines, crate orders, loadouts, admeme spawning, et cetera.
+#
+# == TO MAKE A NEW COSTUME BUNDLE: ==
+# Make an entity that inherits from `BaseCostumeBundle`. Ideally, the ID of this entity should
+# be along the lines of "CostumeBundle[CostumeName]". Check CostumeBundleCardborg for a simple example.
+# Make sure to change the `name`` field to "[costume] costume bundle"!
+#
+# The sprite has four layers:
+# - outfit: This is the clothing "inside" the bundle. I recommend color-picking from the most significant
+#     accessory in the bundle itself, such as an inner/outer clothing layer (if there is one).
+# - wrapper-fill: Translucent plastic wrap. Always `#ffffff22`.
+# - wrapper: Outline of the plastic wrap. Don't touch the color of this one.
+# - label: The outer label part of the sprite. This is often `#dd6b17` as a fallback, especially for
+#     "generic" costumes, but this can be anything, like an accent color. It doesn't really matter.
+#
+# Then, modify the EntityTableContainerFill component to contain the parts of your costume.
+#
+# Note that costume bundles have a whitelist: entities with the Clothing component, and entities with the
+# CostumeItem tag. If you're inserting prop items, make sure to add the CostumeItem tag if it's not wearable
+# - for example, the pirate's foam cutlass, or the shrine maiden's gohei.
+# =======================
+
 
 - type: entity
   abstract: true
