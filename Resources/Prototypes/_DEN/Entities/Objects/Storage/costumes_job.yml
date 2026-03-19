@@ -1,3 +1,6 @@
+# Costume bundles that represent uniforms for specific jobs - for example, "alt costumes" for clowns.
+# =======================
+
 # TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
