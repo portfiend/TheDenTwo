@@ -3,7 +3,7 @@
 
 - type: vendingMachineInventory
   id: AutoDrobeInventory
-  startingInventory: # TODO: Costume bundles
+  startingInventory:
     ## DEN comment - Section 1 - Performer job clothing
     # BEGIN Den: Costume bundles
     # ClothingHeadHatJester: 1
@@ -88,6 +88,8 @@
     # ClothingHeadHatGladiator: 1
     # ClothingUniformJumpsuitGladiator: 1
     # END Den
+    # TODO DEN: Consider consolidating cowboy accessories into bundles.
+    # I'm not doing this right now b/c they're not "costumes" - just hats/boots.
     ClothingHeadHatCowboyBrown: 1
     ClothingHeadHatCowboyBlack: 1
     ClothingHeadHatCowboyWhite: 1
