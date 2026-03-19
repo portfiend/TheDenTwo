@@ -1,3 +1,4 @@
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleCircusClown
@@ -49,6 +50,7 @@
     - id: ClothingShoesJester
     - id: ClothingShoesJester
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleMusicianLoungeSinger
@@ -72,6 +74,7 @@
 #     - id: ClothingHandsMusicianSingerGloves
 #     - id: ClothingNeckFeatherBoa
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleMusicianMarching

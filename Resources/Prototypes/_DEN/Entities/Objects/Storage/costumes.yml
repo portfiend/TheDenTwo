@@ -22,7 +22,6 @@
 # - for example, the pirate's foam cutlass, or the shrine maiden's gohei.
 # =======================
 
-
 - type: entity
   abstract: true
   parent: [BaseStorageItem, BaseBagOpenClose]
@@ -88,6 +87,7 @@
     - state: label
       color: "#dd6b17"
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleAngel
@@ -112,6 +112,7 @@
 #     - id: ClothingNeckAngelWings
 #     - id: HandheldHarpInstrument
 
+# TODO: Port from prebase Den
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleBunnySuit
@@ -132,6 +133,7 @@
 #     - id: ClothingHeadHatBunny
 #     - id: ClothingCostumeBunnySuit
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleBurglar
@@ -192,6 +194,7 @@
     - id: ClothingHeadHatChickenhead
     - id: ClothingOuterSuitChicken
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleDevil
@@ -362,6 +365,7 @@
     - id: ClothingHeadSafari
     - id: ClothingUniformJumpsuitSafari
 
+# TODO: Port from Impstation
 # - type: entity
 #   parent: BaseCostumeBundle
 #   id: CostumeBundleSailor
