@@ -23,31 +23,31 @@
 #     - id: ClothingUniformCircusClown
 #     - id: ClothingShoesCircus
 
-# - type: entity
-#   parent: BaseCostumeBundle
-#   id: CostumeBundleJester
-#   name: jester costume bundle
-#   components:
-#   - type: Sprite
-#     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
-#       color: "#dd1818"
-#     - state: wrapper-fill
-#       color: "#ffffff22"
-#     - state: wrapper
-#     - state: label
-#       color: "#74ff33"
-#   - type: Icon
-#     state: icon-clown
-#   - type: StorageFill
-#     contents:
-#     - id: ClothingHeadHatJester
-#     - id: ClothingHeadHatJesterAlt
-#     - id: ClothingUniformJumpsuitJester
-#     - id: ClothingUniformJumpsuitJesterAlt
-#     - id: ClothingShoesJester
-#     - id: ClothingShoesJester
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleJester
+  name: jester costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit
+      map: [ "enum.ToggleableVisuals.Layer" ]
+      color: "#dd1818"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#74ff33"
+  - type: Icon
+    state: icon-clown
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHatJester
+    - id: ClothingHeadHatJesterAlt
+    - id: ClothingUniformJumpsuitJester
+    - id: ClothingUniformJumpsuitJesterAlt
+    - id: ClothingShoesJester
+    - id: ClothingShoesJester
 
 # - type: entity
 #   parent: BaseCostumeBundle
