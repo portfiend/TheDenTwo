@@ -473,8 +473,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatSkub
-      - id: ClothingOuterSkub
+        children:
+        - id: ClothingHeadHatSkub
+        - id: ClothingOuterSkub
 
 - type: entity
   parent: BaseCostumeBundle
