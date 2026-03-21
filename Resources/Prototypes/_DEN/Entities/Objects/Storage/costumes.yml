@@ -32,8 +32,8 @@
   - type: Sprite
     sprite: _DEN/Objects/Storage/costume_bundle.rsi
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#ffffff"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -57,15 +57,10 @@
       - CostumeItem
       components:
       - Clothing
-  - type: ContainerHeld
-    threshold: 1
+  - type: StorageFillVisualizer
+    maxFillLevels: 3
+    fillBaseName: outfit
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-     enum.ToggleableVisuals.Enabled:
-        enum.ToggleableVisuals.Layer:
-          True: {visible: true}
-          False: {visible: false}
   - type: StaticPrice
     price: 10
 
@@ -77,10 +72,9 @@
   - type: Sprite
     sprite: _DEN/Objects/Storage/costume_bundle.rsi
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-0 # starts with nothing
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#ffffff"
-      visible: false # starts with nothing
     - state: wrapper-fill
       color: "#ffffff22"
     - state: wrapper
@@ -95,8 +89,8 @@
 #   components:
 #   - type: Sprite
 #     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: outfit-1
+#       map: [ "enum.StorageFillLayers.Fill" ]
 #       color: "#f5b8c3"
 #     - state: wrapper-fill
 #       color: "#ffffff22"
@@ -106,12 +100,13 @@
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
-#       - id: ClothingHeadHalo
-#       - id: ClothingUniformJumpskirtAngelDress
-#       - id: ClothingHandsAngelGloves
-#       - id: ClothingShoesAngelSandals
-#       - id: ClothingNeckAngelWings
-#       - id: HandheldHarpInstrument
+#         children:
+#         - id: ClothingHeadHalo
+#         - id: ClothingUniformJumpskirtAngelDress
+#         - id: ClothingHandsAngelGloves
+#         - id: ClothingShoesAngelSandals
+#         - id: ClothingNeckAngelWings
+#         - id: HandheldHarpInstrument
 
 # TODO: Port from prebase Den
 # - type: entity
@@ -121,8 +116,8 @@
 #   components:
 #   - type: Sprite
 #     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: outfit-1
+#       map: [ "enum.StorageFillLayers.Fill" ]
 #       color: "#48494e"
 #     - state: wrapper-fill
 #       color: "#ffffff22"
@@ -132,6 +127,7 @@
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
+#         children:
 #       - id: ClothingHeadHatBunny
 #       - id: ClothingCostumeBunnySuit
 
@@ -143,8 +139,8 @@
 #   components:
 #   - type: Sprite
 #     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: outfit-1
+#       map: [ "enum.StorageFillLayers.Fill" ]
 #       color: "#3e3735"
 #     - state: wrapper-fill
 #       color: "#ffffff22"
@@ -154,6 +150,7 @@
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
+#         children:
 #       - id: ClothingMaskBurglar
 #       - id: ClothingUniformBurglarJumpsuit
 
@@ -164,8 +161,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#70736c"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -175,8 +172,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatCardborg
-      - id: ClothingOuterCardborg
+        children:
+        - id: ClothingHeadHatCardborg
+        - id: ClothingOuterCardborg
 
 - type: entity
   parent: BaseCostumeBundle
@@ -185,8 +183,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#ffc800"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -196,8 +194,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatChickenhead
-      - id: ClothingOuterSuitChicken
+        children:
+        - id: ClothingHeadHatChickenhead
+        - id: ClothingOuterSuitChicken
 
 # TODO: Port from Impstation
 # - type: entity
@@ -207,8 +206,8 @@
 #   components:
 #   - type: Sprite
 #     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: outfit-1
+#       map: [ "enum.StorageFillLayers.Fill" ]
 #       color: "#4b3b56"
 #     - state: wrapper-fill
 #       color: "#ffffff22"
@@ -218,12 +217,13 @@
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
-#       - id: ClothingHeadDevilHorns
-#       - id: ClothingHeadJesterEvilHat
-#       - id: ClothingNeckDevilWings
-#       - id: ClothingUniformJesterEvil
-#       - id: ClothingShoesJesterEvilJanglers
-#       - id: DevilPitchfork
+#         children:
+#         - id: ClothingHeadDevilHorns
+#         - id: ClothingHeadJesterEvilHat
+#         - id: ClothingNeckDevilWings
+#         - id: ClothingUniformJesterEvil
+#         - id: ClothingShoesJesterEvilJanglers
+#         - id: DevilPitchfork
 
 - type: entity
   parent: BaseCostumeBundle
@@ -232,8 +232,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#e1b73d"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -243,8 +243,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatGladiator
-      - id: ClothingUniformJumpsuitGladiator
+        children:
+        - id: ClothingHeadHatGladiator
+        - id: ClothingUniformJumpsuitGladiator
 
 - type: entity
   parent: BaseCostumeBundle
@@ -253,8 +254,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#2e2e2e"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -264,8 +265,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatPwig
-      - id: ClothingOuterRobesJudge
+        children:
+        - id: ClothingHeadHatPwig
+        - id: ClothingOuterRobesJudge
 
 - type: entity
   parent: BaseCostumeBundle
@@ -274,8 +276,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#914800"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -285,8 +287,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatAnimalMonkey
-      - id: ClothingOuterSuitMonkey
+        children:
+        - id: ClothingHeadHatAnimalMonkey
+        - id: ClothingOuterSuitMonkey
 
 - type: entity
   parent: BaseCostumeBundle
@@ -295,8 +298,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#dfe1de"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -306,13 +309,14 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatPirate
-      - id: ClothingHeadBandRed
-      - id: ClothingEyesEyepatch
-      - id: ClothingUniformJumpsuitPirate
-      - id: ClothingOuterCoatPirate
-      - id: ClothingShoesBootsLaceup
-      - id: FoamCutlass
+        children:
+        - id: ClothingHeadHatPirate
+        - id: ClothingHeadBandRed
+        - id: ClothingEyesEyepatch
+        - id: ClothingUniformJumpsuitPirate
+        - id: ClothingOuterCoatPirate
+        - id: ClothingShoesBootsLaceup
+        - id: FoamCutlass
 
 - type: entity
   parent: BaseCostumeBundle
@@ -321,8 +325,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#474f63"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -332,9 +336,10 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingUniformJumpskirtPerformer
-      - id: ClothingShoesBootsPerformer
-      - id: FoodMealMemoryleek
+        children:
+        - id: ClothingUniformJumpskirtPerformer
+        - id: ClothingShoesBootsPerformer
+        - id: FoodMealMemoryleek
 
 - type: entity
   parent: BaseCostumeBundle
@@ -343,8 +348,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#e48a1b"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -354,8 +359,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatRedRacoon
-      - id: ClothingOuterRedRacoon
+        children:
+        - id: ClothingHeadHatRedRacoon
+        - id: ClothingOuterRedRacoon
 
 - type: entity
   parent: BaseCostumeBundle
@@ -364,8 +370,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#d3bf86"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -375,8 +381,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadSafari
-      - id: ClothingUniformJumpsuitSafari
+        children:
+        - id: ClothingHeadSafari
+        - id: ClothingUniformJumpsuitSafari
 
 # TODO: Port from Impstation
 # - type: entity
@@ -386,8 +393,8 @@
 #   components:
 #   - type: Sprite
 #     layers:
-#     - state: outfit
-#       map: [ "enum.ToggleableVisuals.Layer" ]
+#     - state: outfit-1
+#       map: [ "enum.StorageFillLayers.Fill" ]
 #       color: "#dedbec"
 #     - state: wrapper-fill
 #       color: "#ffffff22"
@@ -397,10 +404,11 @@
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
-#       - id: ClothingHeadSailorCap
-#       - id: ClothingNeckSailorAscot
-#       - id: ClothingUniformSailorSuit
-#       - id: ClothingShoesBootsLaceup
+#         children:
+#         - id: ClothingHeadSailorCap
+#         - id: ClothingNeckSailorAscot
+#         - id: ClothingUniformSailorSuit
+#         - id: ClothingShoesBootsLaceup
 
 - type: entity
   parent: BaseCostumeBundle
@@ -409,8 +417,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#d73827"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -420,8 +428,9 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatSantahat
-      - id: ClothingOuterSanta
+        children:
+        - id: ClothingHeadHatSantahat
+        - id: ClothingOuterSanta
 
 - type: entity
   parent: BaseCostumeBundle
@@ -430,8 +439,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#ff1f24"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -441,9 +450,10 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatShrineMaidenWig
-      - id: ClothingOuterSuitShrineMaiden
-      - id: Gohei
+        children:
+        - id: ClothingHeadHatShrineMaidenWig
+        - id: ClothingOuterSuitShrineMaiden
+        - id: Gohei
 
 - type: entity
   parent: BaseCostumeBundle
@@ -452,8 +462,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#fcd4d4"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -473,8 +483,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#1b1b1b"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -484,9 +494,10 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingHeadHatWitch1
-      - id: ClothingHeadHatWitch
-      - id: ClothingOuterSuitWitchRobes
+        children:
+        - id: ClothingHeadHatWitch1
+        - id: ClothingHeadHatWitch
+        - id: ClothingOuterSuitWitchRobes
 
 - type: entity
   parent: BaseCostumeBundle
@@ -495,8 +506,8 @@
   components:
   - type: Sprite
     layers:
-    - state: outfit
-      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
       color: "#ae2354"
     - state: wrapper-fill
       color: "#ffffff22"
@@ -506,6 +517,7 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
-      - id: ClothingUniformJumpsuitDameDane
-      - id: ClothingOuterDameDane
-      - id: ClothingShoesDameDane
+        children:
+        - id: ClothingUniformJumpsuitDameDane
+        - id: ClothingOuterDameDane
+        - id: ClothingShoesDameDane

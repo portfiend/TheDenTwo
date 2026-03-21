@@ -23,8 +23,7 @@ public sealed class ContainerHeldSystem : EntitySystem
 
     private void OnContainerModified(EntityUid uid, ContainerHeldComponent comp, ContainerModifiedMessage args)
     {
-        if (!(TryComp<StorageComponent>(uid, out var storage)
-              && storage.Container is not null // DEN - Bugfix lol
+        if (!(HasComp<StorageComponent>(uid)
               && TryComp<AppearanceComponent>(uid, out var appearance)
               && TryComp<ItemComponent>(uid, out var item)))
         {

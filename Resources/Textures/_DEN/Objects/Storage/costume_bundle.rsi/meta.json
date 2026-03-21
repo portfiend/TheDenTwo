@@ -20,7 +20,13 @@
       "name": "label"
     },
     {
-      "name": "outfit"
+      "name": "outfit-0"
+    },
+    {
+      "name": "outfit-1"
+    },
+    {
+      "name": "outfit-2"
     },
     {
       "name": "wrapper"
