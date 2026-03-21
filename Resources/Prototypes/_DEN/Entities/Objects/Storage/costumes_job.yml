@@ -17,8 +17,6 @@
 #     - state: wrapper
 #     - state: label
 #       color: "#74ff33"
-#   - type: Icon
-#     state: icon-clown
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
@@ -44,8 +42,6 @@
     - state: wrapper
     - state: label
       color: "#74ff33"
-  - type: Icon
-    state: icon-clown
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -73,8 +69,6 @@
 #     - state: wrapper
 #     - state: label
 #       color: "#6f56b8"
-#   - type: Icon
-#     state: icon-musician
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
@@ -99,8 +93,6 @@
 #     - state: wrapper
 #     - state: label
 #       color: "#6f56b8"
-#   - type: Icon
-#     state: icon-musician
 #   - type: EntityTableContainerFill
 #     containers:
 #       storagebase: !type:AllSelector
