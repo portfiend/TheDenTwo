@@ -1,5 +1,7 @@
 using Content.Shared._DEN.Requirements.Managers;
+using Content.Shared.CCVar;
 using Content.Shared.Roles;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DEN.Requirements.PlayerRequirements;
@@ -23,7 +25,10 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
     /// <inheritdoc/>
     public override bool PreCheck(PlayerRequirementContext context)
     {
-        return context.Playtimes != null;
+        // We are always returning "true" if ShouldAutoPass() is true, because otherwise, if the
+        // pre-check failed, then it would be possible to fail this requirement as per
+        // PlayerRequirement.MustPassPreCheck even when role timers should be ignored anyway.
+        return ShouldAutoPass() || context.Playtimes != null;
     }
 
     /// <summary>
@@ -43,6 +48,20 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
     }
 
     /// <summary>
+    ///     Whether or not this requirement should auto-pass. This applies if role timers
+    ///     are disabled, because playtimes shouldn't matter anyway in this case - we shouldn't
+    ///     fail playtime requirements ever when role timers are disabled.
+    /// </summary>
+    /// <returns>
+    ///     Whether or not this requirement should auto-pass.
+    /// </returns>
+    protected static bool ShouldAutoPass()
+    {
+        var config = IoCManager.Resolve<IConfigurationManager>();
+        return !config.GetCVar(CCVars.GameRoleTimers);
+    }
+
+    /// <summary>
     ///     Gets a localized "reason" string for this requirement's playtime ranges.
     /// </summary>
     /// <remarks>
@@ -53,6 +72,10 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
     /// </returns>
     protected string? GetPlaytimeConstraintReason()
     {
+        var config = IoCManager.Resolve<IConfigurationManager>();
+        if (!config.GetCVar(CCVars.GameRoleTimers))
+            return null;
+
         if (MinTime == null && MaxTime == null)
             return null;
 
@@ -103,6 +126,10 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     /// <inheritdoc/>
     public override bool CheckRequirement(PlayerRequirementContext context)
     {
+        // Auto-pass if role timers are disabled.
+        if (ShouldAutoPass())
+            return true;
+
         var playtime = GetDepartmentPlaytime(context);
         if (playtime is null)
             return false;
@@ -113,6 +140,10 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     /// <inheritdoc/>
     public override string? GetReason(PlayerRequirementContext context)
     {
+        // Do not give a reason if role timers are disabled.
+        if (ShouldAutoPass())
+            return null;
+
         // Get the department name.
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         if (!protoMan.TryIndex(Department, out var department))
