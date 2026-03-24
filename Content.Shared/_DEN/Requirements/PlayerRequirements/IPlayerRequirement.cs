@@ -65,3 +65,24 @@ public partial interface IPlayerRequirement
     /// <returns>An optional string representing the requirement text to display to a player.</returns>
     string? GetReason(PlayerRequirementContext context);
 }
+
+/// <summary>
+///     Abstract class inherited by other player requirements.
+/// </summary>
+public abstract partial class PlayerRequirement : IPlayerRequirement
+{
+    /// <inheritdoc/>
+    [DataField] public bool Inverted { get; set; } = false;
+
+    /// <inheritdoc/>
+    [DataField] public bool MustPassPreCheck { get; set; } = false;
+
+    /// <inheritdoc/>
+    public abstract bool CheckRequirement(PlayerRequirementContext context);
+
+    /// <inheritdoc/>
+    public abstract string? GetReason(PlayerRequirementContext context);
+
+    /// <inheritdoc/>
+    public abstract bool PreCheck(PlayerRequirementContext context);
+}
