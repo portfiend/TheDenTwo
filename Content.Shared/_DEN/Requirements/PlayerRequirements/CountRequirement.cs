@@ -60,6 +60,7 @@ public sealed partial class ConstantCountRequirement : CountRequirement
     /// <inheritdoc />
     public override string GetReason()
     {
+        // "You must have exactly 1 of the following items."
         return Loc.GetString("count-requirement-constant-reason",
             ("count", Count));
     }
@@ -94,13 +95,16 @@ public sealed partial class RangeCountRequirement : CountRequirement
     {
         return (Min, Max) switch
         {
+            // "You must have between 1 and 5 of the following items."
             (not null, not null) => Loc.GetString("count-requirement-range-minmax-reason",
                 ("minimum", Min),
                 ("maximum", Max)),
 
+            // "You must have at most 5 of the following items."
             (null, not null) => Loc.GetString("count-requirement-range-maximum-reason",
                 ("maximum", Max)),
 
+            // "You must have at least 1 of the following items."
             (not null, null) => Loc.GetString("count-requirement-range-minimum-reason",
                 ("minimum", Min)),
 
@@ -125,6 +129,7 @@ public sealed partial class AllCountRequirement : CountRequirement
     /// <inheritdoc />
     public override string GetReason()
     {
+        // "You must have all of the following items."
         return Loc.GetString("count-requirement-all-reason");
     }
 
