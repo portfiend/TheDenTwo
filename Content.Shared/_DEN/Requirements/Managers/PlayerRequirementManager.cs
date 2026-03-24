@@ -1,8 +1,14 @@
 using Content.Shared._DEN.Requirements.PlayerRequirements;
 using JetBrains.Annotations;
 
+#pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Requirements.Managers;
+#pragma warning restore IDE1006 // Naming Styles
 
+/// <summary>
+///     A manager used to check player stats against a list of requirements, getting the pass/fail status of these requirements.
+///     This can be used to apply restrictions to character actions, like jobs or traits.
+/// </summary>
 public sealed partial class PlayerRequirementManager
 {
     /// <summary>
