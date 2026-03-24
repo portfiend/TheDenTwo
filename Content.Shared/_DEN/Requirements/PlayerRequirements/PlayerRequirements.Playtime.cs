@@ -8,14 +8,8 @@ namespace Content.Shared._DEN.Requirements.PlayerRequirements;
 ///     An abstract class for playtime requirements that expect a playtime to be within
 ///     optional minimum and maximum parameters.
 /// </summary>
-public abstract partial class PlayerPlaytimeRequirement : IPlayerRequirement
+public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
 {
-    /// <inheritdoc/>
-    [DataField] public bool Inverted { get; set; } = false;
-
-    /// <inheritdoc/>
-    [DataField] public bool MustPassPreCheck { get; set; } = false;
-
     /// <summary>
     ///     The minimum time you can have in this tracker.
     /// </summary>
@@ -27,16 +21,10 @@ public abstract partial class PlayerPlaytimeRequirement : IPlayerRequirement
     [DataField] public TimeSpan? MaxTime = null;
 
     /// <inheritdoc/>
-    public bool PreCheck(PlayerRequirementContext context)
+    public override bool PreCheck(PlayerRequirementContext context)
     {
         return context.Playtimes != null;
     }
-
-    /// <inheritdoc/>
-    public abstract bool CheckRequirement(PlayerRequirementContext context);
-
-    /// <inheritdoc/>
-    public abstract string? GetReason(PlayerRequirementContext context);
 
     /// <summary>
     ///     Check if a given playtime tracker fits within the minimum and maximum times of this requirement.
@@ -137,9 +125,13 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
         if (playtimeString == null)
             return null;
 
+        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
+            ("inverted", Inverted),
+            ("timeConstraint", playtimeString));
+
         // E.g. "You must have 120 minutes in the Science department."
         return Loc.GetString("player-requirement-department-playtime-reason",
-            ("timeConstraint", playtimeString),
+            ("constraint", constraintReason),
             ("department", deptName));
     }
 
