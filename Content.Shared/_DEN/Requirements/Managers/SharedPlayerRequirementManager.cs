@@ -1,24 +1,18 @@
 using Content.Shared._DEN.Requirements.PlayerRequirements;
 using JetBrains.Annotations;
+using Robust.Shared.Player;
 
-#pragma warning disable IDE1006 // Naming Styles
 namespace Content.Shared._DEN.Requirements.Managers;
-#pragma warning restore IDE1006 // Naming Styles
 
 /// <summary>
 ///     A manager used to check player stats against a list of requirements, getting the pass/fail status of these requirements.
 ///     This can be used to apply restrictions to character actions, like jobs or traits.
 /// </summary>
-public sealed partial class PlayerRequirementManager
+public abstract partial class SharedPlayerRequirementManager : IPlayerRequirementManager
 {
-    /// <summary>
-    ///     Check a context against enumerable requirements and gets the final pass/fail status of these requirements.
-    /// </summary>
-    /// <param name="context">The context containing fields to check against the requirements.</param>
-    /// <param name="requirements">An enumerable collection of requirements.</param>
-    /// <returns>Whether or not this context passes *all* requirements. If even one fails, then this is false.</returns>
+    /// <inheritdoc />
     [PublicAPI]
-    public static bool CheckRequirements(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
+    public bool CheckRequirements(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
     {
         foreach (var requirement in requirements)
         {
@@ -40,4 +34,7 @@ public sealed partial class PlayerRequirementManager
 
         return true;
     }
+
+    /// <inheritdoc />
+    public abstract PlayerRequirementContext GetPlayerContext(ICommonSession session);
 }
