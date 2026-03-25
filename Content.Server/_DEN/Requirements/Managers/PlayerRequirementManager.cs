@@ -25,6 +25,11 @@ public sealed partial class PlayerRequirementManager : SharedPlayerRequirementMa
         };
     }
 
+    /// <summary>
+    ///     Retrieves a session's selected lobby character.
+    /// </summary>
+    /// <param name="session">The session to retrieve a profile for.</param>
+    /// <returns>The session's currently-selected profile, if any.</returns>
     private HumanoidCharacterProfile? GetProfile(ICommonSession session)
     {
         if (!_prefsManager.TryGetCachedPreferences(session.UserId, out var prefs))
