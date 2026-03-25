@@ -17,7 +17,7 @@ public abstract partial class CountRequirement
     ///     Gets a string reason representation for this range.
     /// </summary>
     /// <remarks>
-    ///     This would slot into the sentence "You must have [reason] of the following items: [items]".
+    ///     This would slot into the sentence "Must have [reason] of the following items: [items]".
     /// </remarks>
     /// <example>"At least 1", "between 2 and 5", "all"</example>
     /// <returns>A string representation of this range's requirement bounds.</returns>
@@ -60,7 +60,7 @@ public sealed partial class ConstantCountRequirement : CountRequirement
     /// <inheritdoc />
     public override string GetReason()
     {
-        // "You must have exactly 1 of the following items."
+        // "Must have exactly 1 of the following items."
         return Loc.GetString("count-requirement-constant-reason",
             ("count", Count));
     }
@@ -95,16 +95,16 @@ public sealed partial class RangeCountRequirement : CountRequirement
     {
         return (Min, Max) switch
         {
-            // "You must have between 1 and 5 of the following items."
+            // "Must have between 1 and 5 of the following items."
             (not null, not null) => Loc.GetString("count-requirement-range-minmax-reason",
                 ("minimum", Min),
                 ("maximum", Max)),
 
-            // "You must have at most 5 of the following items."
+            // "Must have at most 5 of the following items."
             (null, not null) => Loc.GetString("count-requirement-range-maximum-reason",
                 ("maximum", Max)),
 
-            // "You must have at least 1 of the following items."
+            // "Must have at least 1 of the following items."
             (not null, null) => Loc.GetString("count-requirement-range-minimum-reason",
                 ("minimum", Min)),
 
@@ -122,6 +122,30 @@ public sealed partial class RangeCountRequirement : CountRequirement
 }
 
 /// <summary>
+///     To fulfill the requirement, you must have at least one item in the required collection.
+/// </summary>
+/// <remarks>
+///     This is similar to <see cref="RangeCountRequirement"/>, with a Min of 1, but it says "any" in the reason instead.
+///     This sounds smoother for inverted requirements; i.e. "Must not have any of the following items."
+/// </remarks>
+public sealed partial class AllCountRequirement : CountRequirement
+{
+    /// <inheritdoc />
+    public override string GetReason()
+    {
+        // "Must have any of the following items."
+        return Loc.GetString("count-requirement-any-reason");
+    }
+
+    /// <inheritdoc />
+    public override bool CheckRequirement<T>(IEnumerable<T> have, IEnumerable<T> required)
+    {
+        var count = GetFulfilledCount(have, required);
+        return count >= 1;
+    }
+}
+
+/// <summary>
 ///     To fulfill the requirement, you must have all items in the required collection.
 /// </summary>
 public sealed partial class AllCountRequirement : CountRequirement
@@ -129,7 +153,7 @@ public sealed partial class AllCountRequirement : CountRequirement
     /// <inheritdoc />
     public override string GetReason()
     {
-        // "You must have all of the following items."
+        // "Must have all of the following items."
         return Loc.GetString("count-requirement-all-reason");
     }
 
