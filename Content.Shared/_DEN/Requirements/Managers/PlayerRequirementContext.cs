@@ -18,5 +18,5 @@ public partial record PlayerRequirementContext
     /// <summary>
     ///     A dictionary of registered playtimes for the player.
     /// </summary>
-    public Dictionary<ProtoId<PlayTimeTrackerPrototype>, TimeSpan>? Playtimes = null;
+    public IReadOnlyDictionary<string, TimeSpan>? Playtimes = null;
 }
