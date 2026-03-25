@@ -1,4 +1,5 @@
 player-requirement-format-department = [color={$color}]{$department}[/color]
+player-requirement-format-job = [color={$color}]{$job}[/color]
 player-requirement-format-species = [color=Green]{$species}[/color]
 player-requirement-format-time = [color=Yellow]{$playtime}[/color]
 player-requirement-format-trait = [color=LightBlue]{$trait}[/color]

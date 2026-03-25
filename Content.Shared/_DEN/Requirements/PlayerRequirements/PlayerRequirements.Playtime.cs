@@ -2,6 +2,7 @@ using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Localizations;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
@@ -137,16 +138,9 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
         if (ShouldAutoPass())
             return null;
 
-        // Get the department name and format it with a color.
+        // Get a formatted department name.
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        if (!protoMan.TryIndex(Department, out var department))
-            return null;
-
-        var deptName = Loc.GetString(department.Name);
-        var deptColor = department.Color.ToHex();
-        var formattedDept = Loc.GetString("player-requirement-format-department",
-            ("color", deptColor),
-            ("department", deptName));
+        var deptName = FormatDepartment(protoMan);
 
         // Get the playtime constraint string.
         var playtimeString = GetPlaytimeConstraintReason();
@@ -157,10 +151,29 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
             ("inverted", Inverted),
             ("timeConstraint", playtimeString));
 
-        // E.g. "You must have 2h30m in the Science department."
+        // E.g. "You must have 2h30m of playtime in the Science department."
         return Loc.GetString("player-requirement-department-playtime-reason",
             ("constraint", constraintReason),
-            ("department", formattedDept));
+            ("department", deptName));
+    }
+
+    /// <summary>
+    ///     Format this requirement's department name, with a color.
+    /// </summary>
+    /// <param name="protoMan">The prototype manager.</param>
+    /// <returns>The department name of this prototype, formatted.</returns>
+    private string FormatDepartment(IPrototypeManager protoMan)
+    {
+        if (!protoMan.TryIndex(Department, out var department))
+            return Department;
+
+        var deptName = Loc.GetString(department.Name);
+        var deptColor = department.Color.ToHex();
+        var formattedDept = Loc.GetString("player-requirement-format-department",
+            ("color", deptColor),
+            ("department", deptName));
+
+        return formattedDept;
     }
 
     /// <summary>
@@ -188,6 +201,103 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
 
             playtime += roleTime;
         }
+
+        return playtime;
+    }
+}
+
+/// <summary>
+///     Checks if a player's total playtime in a given job fits within a given playtime range.
+/// </summary>
+public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequirement
+{
+    /// <summary>
+    ///     The job we should check against the requirement.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<JobPrototype> Job = default!;
+
+    /// <inheritdoc/>
+    public override bool CheckRequirement(PlayerRequirementContext context)
+    {
+        // Auto-pass if role timers are disabled.
+        if (ShouldAutoPass())
+            return true;
+
+        var playtime = GetJobPlaytime(context);
+        if (playtime is null)
+            return false;
+
+        return IsValidPlaytime(playtime.Value);
+    }
+
+    /// <inheritdoc/>
+    public override string? GetReason()
+    {
+        // Do not give a reason if role timers are disabled.
+        if (ShouldAutoPass())
+            return null;
+
+        // Get the job name and format it with a color.
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+        var jobName = FormatJob(protoMan);
+
+        // Get the playtime constraint string.
+        var playtimeString = GetPlaytimeConstraintReason();
+        if (playtimeString == null)
+            return null;
+
+        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
+            ("inverted", Inverted),
+            ("timeConstraint", playtimeString));
+
+        // E.g. "You must have 2h30m of playtime as a Mime."
+        return Loc.GetString("player-requirement-job-playtime-reason",
+            ("constraint", constraintReason),
+            ("job", jobName));
+    }
+
+    /// <summary>
+    ///     Format this requirement's job name, with a color.
+    /// </summary>
+    /// <param name="protoMan">The prototype manager.</param>
+    /// <returns>The department name of this prototype, formatted.</returns>
+    private string FormatJob(IPrototypeManager protoMan)
+    {
+        if (!protoMan.TryIndex(Job, out var job))
+            return Job;
+
+        var jobName = Loc.GetString(job.Name);
+
+        // Gotta use the department to recolor this role's name.
+        var entMan = IoCManager.Resolve<EntityManager>();
+        var jobSystem = entMan.System<SharedJobSystem>();
+        var deptColor = Color.LightGray.ToHex();
+        if (jobSystem.TryGetPrimaryDepartment(Job, out var dept) || jobSystem.TryGetDepartment(Job, out dept))
+            deptColor = dept.Color.ToHex();
+
+        var formattedJob = Loc.GetString("player-requirement-format-job",
+            ("color", deptColor),
+            ("job", jobName));
+
+        return formattedJob;
+    }
+
+    /// <summary>
+    ///     Get the total playtime for this job.
+    /// </summary>
+    /// <param name="context">A definition of parameters to check against the requirement.</param>
+    /// <returns>The total playtime of this job. Null if either context playtimes or job is invalid.</returns>
+    private TimeSpan? GetJobPlaytime(PlayerRequirementContext context)
+    {
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+        var playtime = TimeSpan.Zero;
+
+        if (context.Playtimes == null || !protoMan.TryIndex(Job, out var job))
+            return null;
+
+        if (context.Playtimes.TryGetValue(job.PlayTimeTracker, out var tracker))
+            playtime = tracker;
 
         return playtime;
     }

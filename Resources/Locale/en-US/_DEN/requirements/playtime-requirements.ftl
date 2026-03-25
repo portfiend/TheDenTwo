@@ -4,6 +4,7 @@ player-requirement-playtime-minmax-time = between {$minimum} and {$maximum}
 player-requirement-playtime-constraint-reason = Must{$inverted ->
     [true] {" "}not
    *[false] {""}
-} have {$timeConstraint}
+} have {$timeConstraint} of playtime
 
 player-requirement-department-playtime-reason = {$constraint} in the {$department} department.
+player-requirement-job-playtime-reason = {$constraint} as a {$job}.
