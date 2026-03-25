@@ -128,7 +128,7 @@ public sealed partial class RangeCountRequirement : CountRequirement
 ///     This is similar to <see cref="RangeCountRequirement"/>, with a Min of 1, but it says "any" in the reason instead.
 ///     This sounds smoother for inverted requirements; i.e. "Must not have any of the following items."
 /// </remarks>
-public sealed partial class AllCountRequirement : CountRequirement
+public sealed partial class AnyCountRequirement : CountRequirement
 {
     /// <inheritdoc />
     public override string GetReason()
