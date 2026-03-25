@@ -36,6 +36,12 @@ public partial interface IPlayerRequirement
     bool MustPassPreCheck { get; set; }
 
     /// <summary>
+    ///     Whether or not the item should be hidden from the UI if this requirement fails.
+    /// </summary>
+    [DataField]
+    bool HideIfFailed { get; set; }
+
+    /// <summary>
     ///     Check if the given context has all parameters required in order to perform an actual check.
     /// </summary>
     /// <remarks>
@@ -74,6 +80,9 @@ public abstract partial class PlayerRequirement : IPlayerRequirement
 
     /// <inheritdoc/>
     [DataField] public bool MustPassPreCheck { get; set; } = false;
+
+    /// <inheritdoc/>
+    [DataField] public bool HideIfFailed { get; set; } = false;
 
     /// <inheritdoc/>
     public abstract bool CheckRequirement(PlayerRequirementContext context);
