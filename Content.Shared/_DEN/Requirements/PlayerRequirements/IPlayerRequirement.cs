@@ -58,12 +58,10 @@ public partial interface IPlayerRequirement
     ///     Get a localized string representing how this requirement displays to players.
     /// </summary>
     /// <remarks>
-    ///     This should, ideally, display regardless if the context actually passes or not.
-    ///     It should also display differently depending on the value of <see cref="Inverted"/>.
+    ///     This should display differently depending on the value of <see cref="Inverted"/>.
     /// </remarks>
-    /// <param name="context">A definition of parameters to check against the requirement.</param>
     /// <returns>An optional string representing the requirement text to display to a player.</returns>
-    string? GetReason(PlayerRequirementContext context);
+    string? GetReason();
 }
 
 /// <summary>
@@ -81,7 +79,7 @@ public abstract partial class PlayerRequirement : IPlayerRequirement
     public abstract bool CheckRequirement(PlayerRequirementContext context);
 
     /// <inheritdoc/>
-    public abstract string? GetReason(PlayerRequirementContext context);
+    public abstract string? GetReason();
 
     /// <inheritdoc/>
     public abstract bool PreCheck(PlayerRequirementContext context);

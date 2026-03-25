@@ -3,6 +3,10 @@ using Robust.Shared.Player;
 
 namespace Content.Shared._DEN.Requirements.Managers;
 
+/// <summary>
+///     A manager used to check player stats against a list of requirements, getting the pass/fail status of these requirements.
+///     This can be used to apply restrictions to character actions, like jobs or traits.
+/// </summary>
 public interface IPlayerRequirementManager
 {
     /// <summary>

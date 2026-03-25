@@ -1,5 +1,6 @@
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.Localizations;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
@@ -72,17 +73,13 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
     /// </returns>
     protected string? GetPlaytimeConstraintReason()
     {
-        var config = IoCManager.Resolve<IConfigurationManager>();
-        if (!config.GetCVar(CCVars.GameRoleTimers))
-            return null;
-
         if (MinTime == null && MaxTime == null)
             return null;
 
         var minTimeString = FormatPlaytime(MinTime);
         var maxTimeString = FormatPlaytime(MaxTime);
 
-        return (MinTime, MaxTime) switch
+        return (minTimeString, maxTimeString) switch
         {
             (not null, not null) => Loc.GetString("player-requirement-playtime-minmax-time",
                 ("minimum", minTimeString), ("maximum", maxTimeString)),
@@ -97,18 +94,14 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
         };
     }
 
-    /// <summary>
-    ///     Gets a localized time string for the given playtime.
-    /// </summary>
-    /// <param name="playtime">The playtime to format.</param>
-    /// <returns>A localized time string for this playtime.</returns>
-    private static string FormatPlaytime(TimeSpan? playtime)
+    private static string? FormatPlaytime(TimeSpan? playtime)
     {
-        var time = ((int?)playtime?.TotalMinutes) ?? 0;
+        if (playtime is null)
+            return null;
 
-        return playtime != null
-            ? Loc.GetString("player-requirement-playtime-time", ("playtime", time))
-            : string.Empty;
+        var playtimeString = ContentLocalizationManager.FormatPlaytime(playtime.Value);
+        return Loc.GetString("player-requirement-format-time",
+            ("playtime", playtimeString));
     }
 }
 
@@ -138,18 +131,22 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     }
 
     /// <inheritdoc/>
-    public override string? GetReason(PlayerRequirementContext context)
+    public override string? GetReason()
     {
         // Do not give a reason if role timers are disabled.
         if (ShouldAutoPass())
             return null;
 
-        // Get the department name.
+        // Get the department name and format it with a color.
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         if (!protoMan.TryIndex(Department, out var department))
             return null;
 
         var deptName = Loc.GetString(department.Name);
+        var deptColor = department.Color.ToHex();
+        var formattedDept = Loc.GetString("player-requirement-format-department",
+            ("color", deptColor),
+            ("department", deptName));
 
         // Get the playtime constraint string.
         var playtimeString = GetPlaytimeConstraintReason();
@@ -160,10 +157,10 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
             ("inverted", Inverted),
             ("timeConstraint", playtimeString));
 
-        // E.g. "You must have 120 minutes in the Science department."
+        // E.g. "You must have 2h30m in the Science department."
         return Loc.GetString("player-requirement-department-playtime-reason",
             ("constraint", constraintReason),
-            ("department", deptName));
+            ("department", formattedDept));
     }
 
     /// <summary>

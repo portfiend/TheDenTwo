@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Requirements.PlayerRequirements;
 using Content.Shared._DEN.Traits.TraitFunctions;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Traits;
@@ -69,4 +70,10 @@ public sealed partial class EntityTraitPrototype : IPrototype
     /// </summary>
     [DataField("characterEditorSelectable")]
     public bool Selectable = true;
+
+    /// <summary>
+    ///     A list of requirements to use this trait.
+    /// </summary>
+    [DataField]
+    public List<IPlayerRequirement> Requirements = new();
 }

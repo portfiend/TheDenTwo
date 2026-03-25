@@ -36,7 +36,7 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
     }
 
     /// <inheritdoc/>
-    public override string? GetReason(PlayerRequirementContext context)
+    public override string? GetReason()
     {
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var traitNames = Traits.Select(t => LocalizeTrait(t, protoMan));
@@ -62,6 +62,6 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
         if (protoMan.TryIndex(traitId, out var trait))
             traitName = Loc.GetString(trait.Name);
 
-        return Loc.GetString("player-requirement-trait", ("traitName", traitName));
+        return Loc.GetString("player-requirement-format-trait", ("trait", traitName));
     }
 }
