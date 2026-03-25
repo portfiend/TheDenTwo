@@ -44,7 +44,7 @@ public partial interface IPlayerRequirement
     ///     <see cref="MustPassPreCheck"/>.
     /// </remarks>
     /// <param name="context">A definition of parameters to check against the requirement.</param>
-    /// <returns></returns>
+    /// <returns>Whether or not the context has all required parameters.</returns>
     bool PreCheck(PlayerRequirementContext context);
 
     /// <summary>
