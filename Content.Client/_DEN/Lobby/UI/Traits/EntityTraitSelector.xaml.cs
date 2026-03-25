@@ -59,9 +59,11 @@ public sealed partial class EntityTraitSelector : BoxContainer
         if (_trait is null)
             return null;
 
-        var tooltip = new Tooltip();
         var tooltipString = ConstructTooltipDescription(_trait);
+        if (tooltipString.Length == 0)
+            return null;
 
+        var tooltip = new Tooltip();
         if (FormattedMessage.TryFromMarkup(tooltipString, out var msg))
             tooltip.SetMessage(msg);
 
@@ -77,9 +79,11 @@ public sealed partial class EntityTraitSelector : BoxContainer
     {
         var tooltipBuilder = new StringBuilder();
 
+        // Add description
         if (trait.Description is not null)
             tooltipBuilder.AppendLine(Loc.GetString(trait.Description.Value));
 
+        // Add requirement reason texts
         if (trait.Requirements.Count > 0)
         {
             tooltipBuilder.AppendLine(); // Empty line
@@ -93,12 +97,7 @@ public sealed partial class EntityTraitSelector : BoxContainer
             }
         }
 
-        var tooltipString = tooltipBuilder.ToString();
-        var lineBreak = "\n";
-
-        if (tooltipString.EndsWith(lineBreak))
-            tooltipString = tooltipString[..^lineBreak.Length];
-
+        var tooltipString = tooltipBuilder.ToString().Trim();
         return tooltipString;
     }
 
