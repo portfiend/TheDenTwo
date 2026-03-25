@@ -44,17 +44,6 @@ public sealed partial class TraitSystem : SharedTraitSystem
                 continue;
             }
 
-            // TODO DEN: Remove
-            if (trait.AllowedSpecies != null)
-            {
-                if (!TryComp<HumanoidProfileComponent>(mob, out var profile)
-                    || !trait.AllowedSpecies.Contains(profile.Species))
-                {
-                    Log.Error($"Tried to spawn trait {traitId} on {ToPrettyString(mob)} with invalid species: {profile?.Species ?? "null"}!");
-                    continue;
-                }
-            }
-
             var context = _requirements.GetPlayerContext(args.Player);
             context.Profile = args.Profile;
             if (!_requirements.CheckRequirements(context, trait.Requirements))
