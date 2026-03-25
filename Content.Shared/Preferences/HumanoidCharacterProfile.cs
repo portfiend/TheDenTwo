@@ -616,10 +616,7 @@ namespace Content.Shared.Preferences
             context.Profile = this;
 
             var traits = EntityTraitPreferences
-                .Where(t => prototypeManager.TryIndex(t, out var trait)
-                    && trait.Selectable
-                    && (trait.AllowedSpecies is null || trait.AllowedSpecies.Contains(Species)) // TODO DEN: Remove
-                    && requirements.CheckRequirements(context, trait.Requirements))
+                .Where(t => prototypeManager.TryIndex(t, out var trait) && trait.Selectable)
                 .ToList();
             // End DEN
 
