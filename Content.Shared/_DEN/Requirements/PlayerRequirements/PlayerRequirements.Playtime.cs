@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Localizations;
+using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
@@ -298,5 +299,64 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
             playtime = tracker;
 
         return playtime;
+    }
+}
+
+/// <summary>
+///     Checks if a player's total overall playtime fits within a given playtime range.
+/// </summary>
+public sealed partial class PlayerOverallPlaytimeRequirement : PlayerPlaytimeRequirement
+{
+    /// <inheritdoc/>
+    public override bool CheckRequirement(PlayerRequirementContext context)
+    {
+        // Auto-pass if role timers are disabled.
+        if (ShouldAutoPass())
+            return true;
+
+        var playtime = GetOverallPlaytime(context);
+        if (playtime is null)
+            return false;
+
+        return IsInRange(playtime.Value);
+    }
+
+    /// <summary>
+    ///     Get the overall playtime for this context.
+    /// </summary>
+    /// <param name="context">The context being used for checking this requirement.</param>
+    /// <returns>The player's overall playtime.</returns>
+    private static TimeSpan? GetOverallPlaytime(PlayerRequirementContext context)
+    {
+        var overallTracker = PlayTimeTrackingShared.TrackerOverall;
+        var playtime = TimeSpan.Zero;
+
+        if (context.Playtimes == null)
+            return null;
+
+        if (context.Playtimes.TryGetValue(overallTracker, out var tracker))
+            playtime = tracker;
+
+        return playtime;
+    }
+
+    /// <inheritdoc/>
+    public override string? GetReason()
+    {
+        // Do not give a reason if role timers are disabled.
+        if (ShouldAutoPass())
+            return null;
+
+        // Get the playtime constraint string.
+        if (!TryGetRangeConstraintReason(out var playtimeString))
+            return null;
+
+        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
+            ("inverted", Inverted),
+            ("timeConstraint", playtimeString));
+
+        // E.g. "You must have 300h of playtime overall."
+        return Loc.GetString("player-requirement-overall-playtime-reason",
+            ("constraint", constraintReason));
     }
 }

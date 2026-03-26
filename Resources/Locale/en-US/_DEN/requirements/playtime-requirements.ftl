@@ -8,3 +8,4 @@ player-requirement-playtime-constraint-reason = Must{$inverted ->
 
 player-requirement-department-playtime-reason = {$constraint} in the {$department} department.
 player-requirement-job-playtime-reason = {$constraint} as a {$job}.
+player-requirement-overall-playtime-reason = {$constraint} overall.

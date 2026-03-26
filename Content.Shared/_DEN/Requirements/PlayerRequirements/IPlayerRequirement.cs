@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared._DEN.Requirements.Managers;
 
 namespace Content.Shared._DEN.Requirements.PlayerRequirements;
