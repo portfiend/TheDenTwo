@@ -17,7 +17,30 @@ Small fixes/refactors are exempt. Media may be used in SS14 progress reports wit
 <!-- Confirm the following by placing an X in the brackets without spaces inside (for example: [X] ): -->
 - [ ] I have read and am following the [Pull Request and Changelog Guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
 - [ ] I have added media to this PR or it does not require an in-game showcase.
+- [ ] I have tested my changes and additions in-game.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
+
+### Licensing
+<!--
+    This is REQUIRED for any code submitted to The Den 2 repository.
+    If this is a port, make sure to check the original repository's license!
+
+    This code can be licensed to MIT if:
+    1. You wrote it yourself, and you agree it can be MIT-licensed.
+    2. The original pull request originates from an MIT-licensed codebase, such as Wizard's Den.
+    3. The original code author submitted the code to a non-MIT (e.g. AGPLv3) codebase, but
+       has given explicit permission to have their code re-licensed.
+
+    If your code does not fit these cases, it probably can't be accepted!
+    If you need help getting MIT licensing, please ask for help in our development channels.
+-->
+- [ ] All code in this pull request can be licensed to MIT.
+
+<!--
+    Macrocosm is The Den 2's upstream repository. We may port features to Macrocosm if other
+    servers that share the Macrocosm upstream are interested in the feature.
+-->
+- [ ] (OPTIONAL) I give permission to seeing this feature upstreamed to Macrocosm in the future.
 
 ## Breaking changes
 <!-- List any breaking changes, including namespaces, public class/method/field changes, prototype renames; and provide instructions for fixing them.
