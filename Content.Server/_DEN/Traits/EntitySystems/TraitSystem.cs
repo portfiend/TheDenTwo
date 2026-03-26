@@ -1,7 +1,6 @@
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared._DEN.Traits.EntitySystems;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -46,7 +45,7 @@ public sealed partial class TraitSystem : SharedTraitSystem
 
             var context = _requirements.GetPlayerContext(args.Player);
             context.Profile = args.Profile;
-            if (!_requirements.CheckRequirements(context, trait.Requirements))
+            if (!SharedPlayerRequirementManager.CheckRequirements(context, trait.Requirements))
             {
                 Log.Error($"Tried to spawn trait {traitId} on {ToPrettyString(mob)}, but we failed the requirements to do so!");
                 continue;
