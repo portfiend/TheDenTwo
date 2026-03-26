@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared._DEN.Requirements.PlayerRequirements;
+using Content.Shared.CCVar;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Preferences.Loadouts.Effects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -23,7 +25,10 @@ public sealed partial class PlayerRequirementLoadoutEffect : LoadoutEffect
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        if (session == null)
+        var configurationManager = collection.Resolve<IConfigurationManager>();
+        var timersDisabled = !configurationManager.GetCVar(CCVars.GameRoleLoadoutTimers);
+
+        if (session == null || timersDisabled)
         {
             reason = FormattedMessage.Empty;
             return false;
