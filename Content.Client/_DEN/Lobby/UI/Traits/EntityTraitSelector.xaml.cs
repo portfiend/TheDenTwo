@@ -67,7 +67,7 @@ public sealed partial class EntityTraitSelector : BoxContainer
             return;
 
         var context = _requirements.GetPlayerContext(session);
-        Visible = !_requirements.ShouldHide(context, trait.Requirements);
+        Visible = !SharedPlayerRequirementManager.ShouldHide(context, trait.Requirements);
     }
 
     /// <summary>
