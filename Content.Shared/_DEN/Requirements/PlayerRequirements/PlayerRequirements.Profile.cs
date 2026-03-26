@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared._DEN.Traits.Prototypes;
@@ -7,18 +8,21 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._DEN.Requirements.PlayerRequirements;
 
 /// <summary>
-///     Checks if a player's character has a required number of the given traits.
+///     Checks if a player's character is within the given age range.
 /// </summary>
-public sealed partial class PlayerTraitRequirement : PlayerRequirement
+public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRangeRequirement<int>
 {
     /// <summary>
-    ///     Traits that the character needs to have to the pass the requirement.
+    ///     Minimum age of the character to pass the requirement.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<EntityTraitPrototype>> Traits = new();
+    public int? Min { get; set; } = null;
 
+    /// <summary>
+    ///     Maximum age of the character to pass the requirement.
+    /// </summary>
     [DataField]
-    public CountRequirement Count;
+    public int? Max { get; set; } = null;
 
     /// <inheritdoc/>
     public override bool PreCheck(PlayerRequirementContext context)
@@ -32,38 +36,49 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
         if (context.Profile == null)
             return false;
 
-        var profileTraits = context.Profile.EntityTraitPreferences;
-        return Count.CheckRequirement(profileTraits, Traits);
+        if (this is IPlayerRangeRequirement<int> range)
+            return range.IsInRange(context.Profile.Age);
+
+        return false;
     }
 
     /// <inheritdoc/>
     public override string? GetReason()
     {
-        var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        var traitNames = Traits.Select(t => LocalizeTrait(t, protoMan));
-        var traitList = string.Join(", ", traitNames);
-        var constraintReason = Count.GetReason();
+        if (!TryGetRangeConstraintReason(out var constraintReason))
+            return null;
 
-        return Loc.GetString("player-requirement-trait-reason",
+        // "Must be between 20 and 40 years old."
+        return Loc.GetString("player-requirement-age-reason",
             ("inverted", Inverted),
-            ("constraint", constraintReason),
-            ("traits", traitList));
+            ("constraint", constraintReason));
     }
 
     /// <summary>
-    ///     Localizes a trait ID into a formatted trait name.
+    ///     Get the text to display to the player that represents the range of valid playtimes.
     /// </summary>
-    /// <param name="traitId">The ID of the trait.</param>
-    /// <param name="protoMan">The prototype manager.</param>
-    /// <returns>A formatted trait name string.</returns>
-    private static string LocalizeTrait(ProtoId<EntityTraitPrototype> traitId, IPrototypeManager protoMan)
+    /// <param name="reason">The playtime range description.</param>
+    /// <returns>Whether or not this operation was successful.</returns>
+    private bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? reason)
     {
-        var traitName = traitId;
+        reason = null;
 
-        if (protoMan.TryIndex(traitId, out var trait))
-            traitName = Loc.GetString(trait.Name);
+        if (this is IPlayerRangeRequirement<int> range)
+            reason = range.GetRangeConstraintReason();
 
-        return Loc.GetString("player-requirement-format-trait", ("trait", traitName));
+        return reason != null;
+    }
+
+    /// <inheritdoc/>
+    public string? GetMinText()
+    {
+        return Min?.ToString();
+    }
+
+    /// <inheritdoc/>
+    public string? GetMaxText()
+    {
+        return Max?.ToString();
     }
 }
 
@@ -125,5 +140,66 @@ public sealed partial class PlayerSpeciesRequirement : PlayerRequirement
 
         speciesName = Loc.GetString(species.Name);
         return Loc.GetString("player-requirement-format-species", ("species", speciesName));
+    }
+}
+
+/// <summary>
+///     Checks if a player's character has a required number of the given traits.
+/// </summary>
+public sealed partial class PlayerTraitRequirement : PlayerRequirement
+{
+    /// <summary>
+    ///     Traits that the character needs to have to the pass the requirement.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<EntityTraitPrototype>> Traits = new();
+
+    [DataField]
+    public CountRequirement Count;
+
+    /// <inheritdoc/>
+    public override bool PreCheck(PlayerRequirementContext context)
+    {
+        return context.Profile != null;
+    }
+
+    /// <inheritdoc/>
+    public override bool CheckRequirement(PlayerRequirementContext context)
+    {
+        if (context.Profile == null)
+            return false;
+
+        var profileTraits = context.Profile.EntityTraitPreferences;
+        return Count.CheckRequirement(profileTraits, Traits);
+    }
+
+    /// <inheritdoc/>
+    public override string? GetReason()
+    {
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+        var traitNames = Traits.Select(t => LocalizeTrait(t, protoMan));
+        var traitList = string.Join(", ", traitNames);
+        var constraintReason = Count.GetReason();
+
+        return Loc.GetString("player-requirement-trait-reason",
+            ("inverted", Inverted),
+            ("constraint", constraintReason),
+            ("traits", traitList));
+    }
+
+    /// <summary>
+    ///     Localizes a trait ID into a formatted trait name.
+    /// </summary>
+    /// <param name="traitId">The ID of the trait.</param>
+    /// <param name="protoMan">The prototype manager.</param>
+    /// <returns>A formatted trait name string.</returns>
+    private static string LocalizeTrait(ProtoId<EntityTraitPrototype> traitId, IPrototypeManager protoMan)
+    {
+        var traitName = traitId;
+
+        if (protoMan.TryIndex(traitId, out var trait))
+            traitName = Loc.GetString(trait.Name);
+
+        return Loc.GetString("player-requirement-format-trait", ("trait", traitName));
     }
 }
