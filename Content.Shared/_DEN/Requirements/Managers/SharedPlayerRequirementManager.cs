@@ -1,6 +1,8 @@
+using System.Text;
 using Content.Shared._DEN.Requirements.PlayerRequirements;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DEN.Requirements.Managers;
 
@@ -64,6 +66,43 @@ public abstract partial class SharedPlayerRequirementManager : IPlayerRequiremen
             return false;
 
         return true;
+    }
+
+    /// <summary>
+    ///     Get a combined reason message for an enumerable collection of requirements.
+    /// </summary>
+    /// <param name="requirements">A collection of requirements.</param>
+    /// <returns>A formatted message containing all the requirement reasons.</returns>
+    [PublicAPI]
+    public static FormattedMessage GetCombinedReason(IEnumerable<IPlayerRequirement> requirements)
+    {
+        var messageBuilder = new StringBuilder();
+        foreach (var req in requirements)
+            messageBuilder.AppendLine(req.GetReason());
+
+        var messageString = messageBuilder.ToString().Trim();
+        return FormattedMessage.FromMarkupPermissive(messageString);
+    }
+
+    /// <summary>
+    ///     Get a combined reason message for an enumerable collection of requirements.
+    ///     This override will only include requirements that fail, given a context.
+    /// </summary>
+    /// <param name="context">A context to check against the requirements.</param>
+    /// <param name="requirements">A collection of requirements.</param>
+    /// <returns>A formatted message containing all the requirement reasons.</returns>
+    [PublicAPI]
+    public static FormattedMessage GetCombinedReason(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
+    {
+        var messageBuilder = new StringBuilder();
+        foreach (var req in requirements)
+        {
+            if (!CheckRequirement(context, req))
+                messageBuilder.AppendLine(req.GetReason());
+        }
+
+        var messageString = messageBuilder.ToString().Trim();
+        return FormattedMessage.FromMarkupPermissive(messageString);
     }
 
     /// <inheritdoc />
