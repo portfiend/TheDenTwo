@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Localizations;
@@ -12,17 +13,19 @@ namespace Content.Shared._DEN.Requirements.PlayerRequirements;
 ///     An abstract class for playtime requirements that expect a playtime to be within
 ///     optional minimum and maximum parameters.
 /// </summary>
-public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
+public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPlayerRangeRequirement<TimeSpan>
 {
     /// <summary>
     ///     The minimum time you can have in this tracker.
     /// </summary>
-    [DataField] public TimeSpan? MinTime = null;
+    [DataField("minTime")]
+    public TimeSpan? Min { get; set; } = null;
 
     /// <summary>
     ///     The maximum time you can have in this tracker.
     /// </summary>
-    [DataField] public TimeSpan? MaxTime = null;
+    [DataField("maxTime")]
+    public TimeSpan? Max { get; set; } = null;
 
     /// <inheritdoc/>
     public override bool PreCheck(PlayerRequirementContext context)
@@ -31,22 +34,6 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
         // pre-check failed, then it would be possible to fail this requirement as per
         // PlayerRequirement.MustPassPreCheck even when role timers should be ignored anyway.
         return ShouldAutoPass() || context.Playtimes != null;
-    }
-
-    /// <summary>
-    ///     Check if a given playtime tracker fits within the minimum and maximum times of this requirement.
-    /// </summary>
-    /// <param name="playtime">The playtime to check.</param>
-    /// <returns>Whether or not this playtime is valid.</returns>
-    protected bool IsValidPlaytime(TimeSpan playtime)
-    {
-        if (MinTime != null & playtime < MinTime)
-            return false;
-
-        if (MaxTime != null & playtime > MaxTime)
-            return false;
-
-        return true;
     }
 
     /// <summary>
@@ -64,37 +51,10 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
     }
 
     /// <summary>
-    ///     Gets a localized "reason" string for this requirement's playtime ranges.
+    ///     Format a playtime TimeSpan into text to display to the player.
     /// </summary>
-    /// <remarks>
-    ///     For example: "Less than 30 minutes", "At least 120 minutes", "Between 20 minutes and 180 minutes".
-    /// </remarks>
-    /// <returns>
-    ///     A string describing how much playtime you should have. Null if both minimum and maximum as null.
-    /// </returns>
-    protected string? GetPlaytimeConstraintReason()
-    {
-        if (MinTime == null && MaxTime == null)
-            return null;
-
-        var minTimeString = FormatPlaytime(MinTime);
-        var maxTimeString = FormatPlaytime(MaxTime);
-
-        return (minTimeString, maxTimeString) switch
-        {
-            (not null, not null) => Loc.GetString("player-requirement-playtime-minmax-time",
-                ("minimum", minTimeString), ("maximum", maxTimeString)),
-
-            (null, not null) => Loc.GetString("player-requirement-playtime-maximum-time",
-                ("playtime", maxTimeString)),
-
-            (not null, null) => Loc.GetString("player-requirement-playtime-minimum-time",
-                ("playtime", minTimeString)),
-
-            _ => null
-        };
-    }
-
+    /// <param name="playtime">The playtime to format.</param>
+    /// <returns>The formatted playtime, if playtime is not null.</returns>
     private static string? FormatPlaytime(TimeSpan? playtime)
     {
         if (playtime is null)
@@ -103,6 +63,46 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement
         var playtimeString = ContentLocalizationManager.FormatPlaytime(playtime.Value);
         return Loc.GetString("player-requirement-format-time",
             ("playtime", playtimeString));
+    }
+
+    /// <inheritdoc/>
+    public string? GetMinText()
+    {
+        return FormatPlaytime(Min);
+    }
+
+    /// <inheritdoc/>
+    public string? GetMaxText()
+    {
+        return FormatPlaytime(Max);
+    }
+
+    /// <summary>
+    ///     Check if the given playtime is in range.
+    /// </summary>
+    /// <param name="playtime">The playtime to check.</param>
+    /// <returns>Whether or not the playtime is in range.</returns>
+    protected bool IsInRange(TimeSpan playtime)
+    {
+        if (this is IPlayerRangeRequirement<TimeSpan> range)
+            return range.IsInRange(playtime);
+
+        return false;
+    }
+
+    /// <summary>
+    ///     Get the text to display to the player that represents the range of valid playtimes.
+    /// </summary>
+    /// <param name="playtimeString">The playtime range description.</param>
+    /// <returns>Whether or not this operation was successful.</returns>
+    protected bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
+    {
+        playtimeString = null;
+
+        if (this is IPlayerRangeRequirement<TimeSpan> range)
+            playtimeString = range.GetRangeConstraintReason();
+
+        return playtimeString != null;
     }
 }
 
@@ -128,7 +128,7 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
         if (playtime is null)
             return false;
 
-        return IsValidPlaytime(playtime.Value);
+        return IsInRange(playtime.Value);
     }
 
     /// <inheritdoc/>
@@ -143,8 +143,7 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
         var deptName = FormatDepartment(protoMan);
 
         // Get the playtime constraint string.
-        var playtimeString = GetPlaytimeConstraintReason();
-        if (playtimeString == null)
+        if (!TryGetRangeConstraintReason(out var playtimeString))
             return null;
 
         var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
@@ -228,7 +227,7 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
         if (playtime is null)
             return false;
 
-        return IsValidPlaytime(playtime.Value);
+        return IsInRange(playtime.Value);
     }
 
     /// <inheritdoc/>
@@ -243,8 +242,7 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
         var jobName = FormatJob(protoMan);
 
         // Get the playtime constraint string.
-        var playtimeString = GetPlaytimeConstraintReason();
-        if (playtimeString == null)
+        if (!TryGetRangeConstraintReason(out var playtimeString))
             return null;
 
         var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",

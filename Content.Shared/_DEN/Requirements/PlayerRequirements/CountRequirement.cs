@@ -76,48 +76,50 @@ public sealed partial class ConstantCountRequirement : CountRequirement
 /// <summary>
 ///     To fulfill this requirement, you must have a number of items between two values, or either a minimum / maximum.
 /// </summary>
-public sealed partial class RangeCountRequirement : CountRequirement
+public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRangeRequirement<int>
 {
     /// <summary>
-    ///     Minimum amount of required items you need.
+    ///     Minimum amount of required items you need. Null means no minimum constraint.
     /// </summary>
     [DataField]
-    public int? Min = null;
+    public int? Min { get; set; } = null;
 
     /// <summary>
-    ///     Maximum amount of required items you can have.
+    ///     Maximum amount of required items you can have. Null means no maximum constraint.
     /// </summary>
     [DataField]
-    public int? Max = null;
+    public int? Max { get; set; } = null;
 
     /// <inheritdoc />
     public override string GetReason()
     {
-        return (Min, Max) switch
-        {
-            // "Must have between 1 and 5 of the following items."
-            (not null, not null) => Loc.GetString("count-requirement-range-minmax-reason",
-                ("minimum", Min),
-                ("maximum", Max)),
+        if (this is IPlayerRangeRequirement<int> range)
+            return range.GetRangeConstraintReason();
 
-            // "Must have at most 5 of the following items."
-            (null, not null) => Loc.GetString("count-requirement-range-maximum-reason",
-                ("maximum", Max)),
-
-            // "Must have at least 1 of the following items."
-            (not null, null) => Loc.GetString("count-requirement-range-minimum-reason",
-                ("minimum", Min)),
-
-            _ => string.Empty
-        };
+        return string.Empty;
     }
 
     /// <inheritdoc />
     public override bool CheckRequirement<T>(IEnumerable<T> have, IEnumerable<T> required)
     {
         var count = GetFulfilledCount(have, required);
-        return (Min == null || count >= Min)
-            && (Max == null || count <= Max);
+
+        if (this is IPlayerRangeRequirement<int> range)
+            return range.IsInRange(count);
+
+        return false;
+    }
+
+    /// <inheritdoc />
+    public string? GetMinText()
+    {
+        return Min?.ToString();
+    }
+
+    /// <inheritdoc />
+    public string? GetMaxText()
+    {
+        return Max?.ToString();
     }
 }
 

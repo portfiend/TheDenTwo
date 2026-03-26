@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._DEN.Requirements.Managers;
 
 namespace Content.Shared._DEN.Requirements.PlayerRequirements;
@@ -92,4 +93,77 @@ public abstract partial class PlayerRequirement : IPlayerRequirement
 
     /// <inheritdoc/>
     public abstract bool PreCheck(PlayerRequirementContext context);
+}
+
+/// <summary>
+///     An interface representing a requirement where the value is between a given minimum
+///     and/or maximum range.
+/// </summary>
+/// <typeparam name="T">The value of the range to use.</typeparam>
+public interface IPlayerRangeRequirement<T> where T : struct, IComparable
+{
+    /// <summary>
+    ///     The optional minimum value of this requirement to pass.
+    /// </summary>
+    T? Min { get; set; }
+
+    /// <summary>
+    ///     The optional maximum value of this requirement to pass.
+    /// </summary>
+    T? Max { get; set; }
+
+    /// <summary>
+    ///     Check if a value is within range.
+    /// </summary>
+    /// <param name="value">The value to check.</param>
+    /// <returns>Whether this value is in range or not.</returns>
+    bool IsInRange(T value)
+    {
+        // Value is less than minimum
+        if (Min != null && value.CompareTo(Min) < 0)
+            return false;
+
+        // Value is greater than maximum
+        if (Max != null && value.CompareTo(Max) > 0)
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Get a reason message to display to the player for this requirement's allowed value range.
+    /// </summary>
+    string GetRangeConstraintReason()
+    {
+        var minText = GetMinText();
+        var maxText = GetMaxText();
+
+        return (minText, maxText) switch
+        {
+            // "Must have between 1 and 5 of the following items."
+            (not null, not null) => Loc.GetString("player-requirement-range-minmax-reason",
+                ("minimum", minText),
+                ("maximum", maxText)),
+
+            // "Must have at most 5 of the following items."
+            (null, not null) => Loc.GetString("player-requirement-range-maximum-reason",
+                ("maximum", maxText)),
+
+            // "Must have at least 1 of the following items."
+            (not null, null) => Loc.GetString("player-requirement-range-minimum-reason",
+                ("minimum", minText)),
+
+            _ => string.Empty
+        };
+    }
+
+    /// <summary>
+    ///     Get a string representation of this range's minimum value.
+    /// </summary>
+    string? GetMinText();
+
+    /// <summary>
+    ///     Get a string representation of this range's maximum value.
+    /// </summary>
+    string? GetMaxText();
 }
