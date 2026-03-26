@@ -28,6 +28,13 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
     [DataField("maxTime")]
     public TimeSpan? Max { get; set; } = null;
 
+    /// <summary>
+    ///     The "type" of playtime requirement this is.
+    ///     This affects what CVAR is used to turn the timer off.
+    /// </summary>
+    [DataField]
+    public PlaytimeRequirementType RequirementType = PlaytimeRequirementType.Role;
+
     /// <inheritdoc/>
     public override bool PreCheck(PlayerRequirementContext context)
     {
@@ -45,10 +52,17 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
     /// <returns>
     ///     Whether or not this requirement should auto-pass.
     /// </returns>
-    protected static bool ShouldAutoPass()
+    public bool ShouldAutoPass()
     {
         var config = IoCManager.Resolve<IConfigurationManager>();
-        return !config.GetCVar(CCVars.GameRoleTimers);
+        var timerEnabled = RequirementType switch
+        {
+            PlaytimeRequirementType.Role => config.GetCVar(CCVars.GameRoleTimers),
+            PlaytimeRequirementType.Loadout => config.GetCVar(CCVars.GameRoleLoadoutTimers),
+            _ => throw new ArgumentOutOfRangeException(nameof(RequirementType)),
+        };
+
+        return !timerEnabled;
     }
 
     /// <summary>
@@ -105,6 +119,13 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
 
         return playtimeString != null;
     }
+}
+
+[Serializable]
+public enum PlaytimeRequirementType
+{
+    Role,
+    Loadout
 }
 
 /// <summary>
