@@ -10,9 +10,14 @@ namespace Content.Shared._DEN.Requirements.Managers;
 /// </summary>
 public abstract partial class SharedPlayerRequirementManager : IPlayerRequirementManager
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     Check a context against enumerable requirements and gets the final pass/fail status of these requirements.
+    /// </summary>
+    /// <param name="context">The context containing fields to check against the requirements.</param>
+    /// <param name="requirements">An enumerable collection of requirements.</param>
+    /// <returns>Whether or not this context passes *all* requirements. If even one fails, then this is false.</returns>
     [PublicAPI]
-    public bool CheckRequirements(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
+    public static bool CheckRequirements(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
     {
         foreach (var requirement in requirements)
             if (!CheckRequirement(context, requirement))
@@ -21,9 +26,16 @@ public abstract partial class SharedPlayerRequirementManager : IPlayerRequiremen
         return true;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    ///     Whether or not the item associated with a set of requirements should be hidden
+    ///     from the player, such as in UI.
+    /// </summary>
+    /// <param name="context">The context containing fields to check against the requirements.</param>
+    /// <param name="requirements">An enumerable collection of requirements.</param>
+    /// <returns>Whether or not the item should be hidden from the player.</returns>
+
     [PublicAPI]
-    public bool ShouldHide(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
+    public static bool ShouldHide(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
     {
         foreach (var requirement in requirements)
             if (!CheckRequirement(context, requirement) && requirement.HideIfFailed)
