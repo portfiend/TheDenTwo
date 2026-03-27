@@ -16,16 +16,17 @@
   #     department: Command
   #     time: 1h
   jobRequirements:
-  - !type:PlayerDepartmentPlaytimeRequirement
-    department: Engineering
-    minTime: 1h
-  - !type:PlayerDepartmentPlaytimeRequirement
-    department: Medical
-    minTime: 1h
-  - !type:PlayerDepartmentPlaytimeRequirement
-    department: Security
-    minTime: 1h
-  - !type:PlayerDepartmentPlaytimeRequirement
-    department: Command
-    minTime: 1h
+    Captain:
+    - !type:PlayerDepartmentPlaytimeRequirement
+      department: Engineering
+      minTime: 1h
+    - !type:PlayerDepartmentPlaytimeRequirement
+      department: Medical
+      minTime: 1h
+    - !type:PlayerDepartmentPlaytimeRequirement
+      department: Security
+      minTime: 1h
+    - !type:PlayerDepartmentPlaytimeRequirement
+      department: Command
+      minTime: 1h
   # End DEN
