@@ -12,7 +12,7 @@
   #   time: 5h
   playerRequirements:
   - !type:PlayerJobPlaytimeRequirement
-    job: JobBorg
+    job: Borg
     minTime: 5h
   # End DEN
   weight: 10

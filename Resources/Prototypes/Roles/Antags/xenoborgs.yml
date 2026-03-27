@@ -11,7 +11,7 @@
   #   time: 18000  # 5 hrs
   playerRequirements:
   - !type:PlayerJobPlaytimeRequirement
-    job: JobBorg
+    job: Borg
     minTime: 5h
   # End DEN
   guides: [ Xenoborgs ]
@@ -29,7 +29,7 @@
   #   time: 18000  # 5 hrs
   playerRequirements:
   - !type:PlayerJobPlaytimeRequirement
-    job: JobBorg
+    job: Borg
     minTime: 5h
   # End DEN
   guides: [ Xenoborgs ]
