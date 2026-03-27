@@ -5,9 +5,14 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-objective
   guides: [ Traitors ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 1h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 1h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 1h
+  # End DEN
 
 - type: antag
   id: TraitorSleeper
@@ -16,9 +21,14 @@
   setPreference: true
   objective: roles-antag-syndicate-agent-sleeper-objective
   guides: [ Traitors ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 1h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 1h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 1h
+  # End DEN
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear
