@@ -11,9 +11,9 @@ public sealed partial class JobRequirementsManager
     ///     Check if we pass a given list of requirements.
     ///     A profile may be optionally supplied to replace the one in the context.
     /// </summary>
-    /// <param name="profile"></param>
-    /// <param name="requirements"></param>
-    /// <returns></returns>
+    /// <param name="profile">A profile associated with the character we're loading in.</param>
+    /// <param name="requirements">The requirements to check.</param>
+    /// <returns>Whether we pass the requirements given.</returns>
     private bool PassesRequirements(HumanoidCharacterProfile? profile,
         List<IPlayerRequirement> requirements)
     {
