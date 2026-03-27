@@ -13,12 +13,14 @@ public sealed partial class JobRequirementsManager
     /// </summary>
     /// <param name="profile">A profile associated with the character we're loading in.</param>
     /// <param name="requirements">The requirements to check.</param>
+    /// <param name="The context we generated to check requirements.</param>
     /// <returns>Whether we pass the requirements given.</returns>
     private bool PassesRequirements(HumanoidCharacterProfile? profile,
-        List<IPlayerRequirement> requirements)
+        List<IPlayerRequirement> requirements,
+        out PlayerRequirementContext context)
     {
         var session = _playerManager.LocalSession;
-        var context = session != null
+        context = session != null
             ? _requirements.GetPlayerContext(session)
             : new();
 

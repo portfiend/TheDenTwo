@@ -158,9 +158,9 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager // D
         // Begin DEN: Use player requirements
         var roleSystem = _entManager.System<SharedRoleSystem>();
         var requirements = roleSystem.GetRolePlayerRequirements(job);
-        if (requirements != null && !PassesRequirements(profile, requirements))
+        if (requirements != null && !PassesRequirements(profile, requirements, out var context))
         {
-            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements);
+            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements, context);
             return false;
         }
         // End DEN
@@ -196,9 +196,9 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager // D
         // Begin DEN: Use player requirements
         var roleSystem = _entManager.System<SharedRoleSystem>();
         var requirements = roleSystem.GetRolePlayerRequirements(antag);
-        if (requirements != null && !PassesRequirements(profile, requirements))
+        if (requirements != null && !PassesRequirements(profile, requirements, out var context))
         {
-            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements);
+            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements, context);
             return false;
         }
         // End DEN
