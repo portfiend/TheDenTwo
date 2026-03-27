@@ -266,7 +266,7 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     /// <returns>The department name of this prototype, formatted.</returns>
     private string FormatDepartment(IPrototypeManager protoMan)
     {
-        if (!protoMan.TryIndex(Department, out var department))
+        if (!protoMan.Resolve(Department, out var department))
             return Department;
 
         var deptName = Loc.GetString(department.Name);
@@ -289,7 +289,7 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
         var playtime = TimeSpan.Zero;
 
         if (context.Playtimes == null
-            || !protoMan.TryIndex(Department, out var department))
+            || !protoMan.Resolve(Department, out var department))
             return null;
 
         // Sum the playtimes of all roles in this department.
@@ -349,7 +349,7 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
     /// <returns>The department name of this prototype, formatted.</returns>
     private string FormatJob(IPrototypeManager protoMan)
     {
-        if (!protoMan.TryIndex(Job, out var job))
+        if (!protoMan.Resolve(Job, out var job))
             return Job;
 
         var jobName = Loc.GetString(job.Name);
@@ -378,7 +378,7 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var playtime = TimeSpan.Zero;
 
-        if (context.Playtimes == null || !protoMan.TryIndex(Job, out var job))
+        if (context.Playtimes == null || !protoMan.Resolve(Job, out var job))
             return null;
 
         if (context.Playtimes.TryGetValue(job.PlayTimeTracker, out var tracker))

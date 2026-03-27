@@ -192,7 +192,7 @@ public sealed partial class PlayerSpeciesRequirement : PlayerRequirement
     private static string LocalizeSpecies(ProtoId<SpeciesPrototype> speciesId, IPrototypeManager protoMan)
     {
         var speciesName = speciesId;
-        if (!protoMan.TryIndex(speciesId, out var species))
+        if (!protoMan.Resolve(speciesId, out var species))
             return speciesName;
 
         speciesName = Loc.GetString(species.Name);
@@ -254,7 +254,7 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
     {
         var traitName = traitId;
 
-        if (protoMan.TryIndex(traitId, out var trait))
+        if (protoMan.Resolve(traitId, out var trait))
             traitName = Loc.GetString(trait.Name);
 
         return Loc.GetString("player-requirement-format-trait", ("trait", traitName));
