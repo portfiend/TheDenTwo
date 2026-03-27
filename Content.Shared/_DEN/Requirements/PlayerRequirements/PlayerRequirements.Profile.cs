@@ -88,7 +88,10 @@ public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRan
     {
         reason = null;
 
-        if (context?.Profile == null)
+        // TODO DEN: I'm just excluding this if it's inverted,
+        // because otherwise it can get really confusing. You probably
+        // should not be using inverted age requirements anyway.
+        if (context?.Profile == null || Inverted)
             return false;
 
         var age = context.Profile.Age;
