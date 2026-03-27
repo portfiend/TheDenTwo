@@ -115,7 +115,8 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
     /// <inheritdoc />
     public string FormatValue(int value)
     {
-        return value.ToString();
+        return Loc.GetString("player-requirement-format-number",
+            ("number", value.ToString()));
     }
 
     /// <inheritdoc />

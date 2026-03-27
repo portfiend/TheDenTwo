@@ -104,7 +104,8 @@ public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRan
     /// <inheritdoc />
     public string FormatValue(int value)
     {
-        return value.ToString();
+        return Loc.GetString("player-requirement-format-number",
+            ("number", value.ToString()));
     }
 
     /// <inheritdoc/>
