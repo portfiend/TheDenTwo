@@ -7,6 +7,7 @@
     requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Command
       minTime: 1h
+      requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
   #   requirement:
   #     !type:DepartmentTimeRequirement
@@ -288,6 +289,7 @@
     requirement: !type:PlayerJobPlaytimeRequirement
       job: Clown
       minTime: 1h
+      requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
   #   requirement:
   #     !type:RoleTimeRequirement
@@ -307,6 +309,7 @@
     requirement: !type:PlayerJobPlaytimeRequirement
       job: Mime
       minTime: 1h
+      requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
   #   requirement:
   #     !type:RoleTimeRequirement
@@ -326,6 +329,7 @@
     requirement: !type:PlayerDepartmentPlaytimeRequirement
       department: Command
       minTime: 5h
+      requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
   #   requirement:
   #     !type:DepartmentTimeRequirement
@@ -345,6 +349,7 @@
     requirement: !type:PlayerJobPlaytimeRequirement
       job: Librarian
       minTime: 1h
+      requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
   #   requirement:
   #     !type:RoleTimeRequirement

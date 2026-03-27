@@ -28,7 +28,7 @@ public sealed partial class PlayerRequirementLoadoutEffect : LoadoutEffect
             || Requirement is PlayerPlaytimeRequirement playtimeReq && playtimeReq.ShouldAutoPass())
         {
             reason = FormattedMessage.Empty;
-            return false;
+            return true;
         }
 
         var requirements = collection.Resolve<IPlayerRequirementManager>();

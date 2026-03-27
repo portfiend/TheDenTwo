@@ -5,7 +5,7 @@
   # Begin DEN: Use PlayerRequirements
   - !type:PlayerRequirementLoadoutEffect
     requirement: !type:PlayerJobPlaytimeRequirement
-      job: QuarterMaster
+      job: Quartermaster
       minTime: 20h
       requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect

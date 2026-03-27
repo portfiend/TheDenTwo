@@ -5,7 +5,7 @@
   # Begin DEN: Use PlayerRequirements
   - !type:PlayerRequirementLoadoutEffect
     requirement: !type:PlayerJobPlaytimeRequirement
-      job: AtmosphericsTechnician
+      job: AtmosphericTechnician
       minTime: 6h
       requirementType: Loadout
   - !type:PlayerRequirementLoadoutEffect

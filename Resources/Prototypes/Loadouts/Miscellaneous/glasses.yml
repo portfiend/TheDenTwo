@@ -20,8 +20,8 @@
   effects:
   # Begin DEN: Use PlayerRequirements
   - !type:PlayerRequirementLoadoutEffect
-    requirement: !type:PlayerJobPlaytimeRequirement
-      job: Cargo
+    requirement: !type:PlayerDepartmentPlaytimeRequirement
+      department: Cargo
       minTime: 10h
       requirementType: Loadout
   # - !type:JobRequirementLoadoutEffect
