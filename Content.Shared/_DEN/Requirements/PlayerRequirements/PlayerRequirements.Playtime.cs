@@ -194,7 +194,10 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
     {
         reason = null;
 
-        if (context?.Profile == null)
+        // TODO DEN: I'm just excluding this if it's inverted,
+        // because otherwise it can get really confusing. You probably
+        // should not be using inverted playtime requirements anyway.
+        if (context?.Profile == null || Inverted)
             return false;
 
         if (this is IPlayerRangeRequirement<TimeSpan> range)
