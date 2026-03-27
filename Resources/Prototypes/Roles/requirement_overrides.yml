@@ -1,16 +1,31 @@
 - type: jobRequirementOverride
   id: Reduced
-  jobs:
-    Captain:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 1h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 1h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 1h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 1h
+  # Begin DEN: Use PlayerRequirements
+  # jobs:
+  #   Captain:
+  #   - !type:DepartmentTimeRequirement
+  #     department: Engineering
+  #     time: 1h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Medical
+  #     time: 1h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Security
+  #     time: 1h
+  #   - !type:DepartmentTimeRequirement
+  #     department: Command
+  #     time: 1h
+  jobRequirements:
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Engineering
+    minTime: 1h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Medical
+    minTime: 1h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Security
+    minTime: 1h
+  - !type:PlayerDepartmentPlaytimeRequirement
+    department: Command
+    minTime: 1h
+  # End DEN
