@@ -23,7 +23,7 @@ public abstract partial class CountRequirement
     /// <example>"At least 1", "between 2 and 5", "all"</example>
     /// <param name="context">An optional context used to add additional information to the reason.</param>
     /// <returns>A string representation of this range's requirement bounds.</returns>
-    public abstract string GetReason(PlayerRequirementContext? context = null);
+    public abstract string GetReason();
 
     /// <summary>
     ///     Check if our currently-selected items in a collection meets this
@@ -60,7 +60,7 @@ public sealed partial class ConstantCountRequirement : CountRequirement
     public int Count;
 
     /// <inheritdoc />
-    public override string GetReason(PlayerRequirementContext? context = null)
+    public override string GetReason()
     {
         // "Must have exactly 1 of the following items."
         return Loc.GetString("count-requirement-constant-reason",
@@ -93,7 +93,7 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
     public int? Max { get; set; } = null;
 
     /// <inheritdoc />
-    public override string GetReason(PlayerRequirementContext? context = null)
+    public override string GetReason()
     {
         if (this is IPlayerRangeRequirement<int> range)
             return range.GetRangeConstraintReason();
@@ -113,15 +113,30 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
     }
 
     /// <inheritdoc />
-    public string? GetMinText()
+    public string FormatValue(int value)
     {
-        return Min?.ToString();
+        return value.ToString();
     }
 
     /// <inheritdoc />
-    public string? GetMaxText()
+    public int? GetDifference(int value)
     {
-        return Max?.ToString();
+        // Unimplemented - unused
+        throw new NotImplementedException();
+    }
+
+    /// <inheritdoc />
+    public int Sign(int difference)
+    {
+        // Unimplemented - unused
+        throw new NotImplementedException();
+    }
+
+    /// <inheritdoc />
+    public string FormatDifferenceText(int difference)
+    {
+        // Unimplemented - unused
+        throw new NotImplementedException();
     }
 }
 
@@ -135,7 +150,7 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
 public sealed partial class AnyCountRequirement : CountRequirement
 {
     /// <inheritdoc />
-    public override string GetReason(PlayerRequirementContext? context = null)
+    public override string GetReason()
     {
         // "Must have any of the following items."
         return Loc.GetString("count-requirement-any-reason");
@@ -155,7 +170,7 @@ public sealed partial class AnyCountRequirement : CountRequirement
 public sealed partial class AllCountRequirement : CountRequirement
 {
     /// <inheritdoc />
-    public override string GetReason(PlayerRequirementContext? context = null)
+    public override string GetReason()
     {
         // "Must have all of the following items."
         return Loc.GetString("count-requirement-all-reason");

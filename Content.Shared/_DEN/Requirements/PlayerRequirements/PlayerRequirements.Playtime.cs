@@ -44,6 +44,42 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
         return ShouldAutoPass() || context.Playtimes != null;
     }
 
+    /// <inheritdoc/>
+    public override bool CheckRequirement(PlayerRequirementContext context)
+    {
+        // Auto-pass if role timers are disabled.
+        if (ShouldAutoPass())
+            return true;
+
+        var playtime = GetPlaytime(context);
+        if (playtime is null)
+            return false;
+
+        return IsInRange(playtime.Value);
+    }
+
+    /// <inheritdoc/>
+    public override string? GetReason(PlayerRequirementContext? context = null)
+    {
+        // Do not give a reason if role timers are disabled.
+        if (ShouldAutoPass())
+            return null;
+
+        // Get the playtime constraint string.
+        if (!TryGetRangeConstraintReason(out var constraintReason))
+            return null;
+
+        // If there's no "difference reason", then just the constraint is fine.
+        // "Must have 2h of playtime overall."
+        if (!TryGetRangeDifferenceReason(out var differenceReason, context))
+            return constraintReason;
+
+        // "Must have 2h of playtime overall. (Need 1h more)"
+        return Loc.GetString("player-requirement-range-with-difference",
+            ("range", constraintReason),
+            ("difference", differenceReason));
+    }
+
     /// <summary>
     ///     Whether or not this requirement should auto-pass. This applies if role timers
     ///     are disabled, because playtimes shouldn't matter anyway in this case - we shouldn't
@@ -70,26 +106,11 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
     /// </summary>
     /// <param name="playtime">The playtime to format.</param>
     /// <returns>The formatted playtime, if playtime is not null.</returns>
-    private static string? FormatPlaytime(TimeSpan? playtime)
+    private static string FormatPlaytime(TimeSpan playtime)
     {
-        if (playtime is null)
-            return null;
-
-        var playtimeString = ContentLocalizationManager.FormatPlaytime(playtime.Value);
+        var playtimeString = ContentLocalizationManager.FormatPlaytime(playtime);
         return Loc.GetString("player-requirement-format-time",
             ("playtime", playtimeString));
-    }
-
-    /// <inheritdoc/>
-    public string? GetMinText()
-    {
-        return FormatPlaytime(Min);
-    }
-
-    /// <inheritdoc/>
-    public string? GetMaxText()
-    {
-        return FormatPlaytime(Max);
     }
 
     /// <summary>
@@ -105,20 +126,93 @@ public abstract partial class PlayerPlaytimeRequirement : PlayerRequirement, IPl
         return false;
     }
 
+    /// <inheritdoc />
+    public string FormatValue(TimeSpan value)
+    {
+        return FormatPlaytime(value);
+    }
+
+    /// <inheritdoc />
+    public TimeSpan? GetDifference(TimeSpan value)
+    {
+        if (this is IPlayerRangeRequirement<TimeSpan> range && range.IsInRange(value))
+            return null;
+
+        // Negative value = greater than maximum
+        if (Max != null && value > Max)
+            return Max - value;
+
+        // Positive value = less than minimum
+        if (Min != null && value < Min)
+            return Min - value;
+
+        return null;
+    }
+
+    /// <inheritdoc />
+    public int Sign(TimeSpan difference)
+    {
+        return Math.Sign(difference.TotalSeconds);
+    }
+
+    /// <inheritdoc />
+    public string FormatDifferenceText(TimeSpan difference)
+    {
+        var diffValue = difference.Duration();
+        return FormatValue(diffValue);
+    }
+
     /// <summary>
     ///     Get the text to display to the player that represents the range of valid playtimes.
     /// </summary>
     /// <param name="playtimeString">The playtime range description.</param>
     /// <returns>Whether or not this operation was successful.</returns>
-    protected bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
+    protected virtual bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
     {
         playtimeString = null;
 
         if (this is IPlayerRangeRequirement<TimeSpan> range)
-            playtimeString = range.GetRangeConstraintReason();
+        {
+            var constraintReason = range.GetRangeConstraintReason();
+            playtimeString = Loc.GetString("player-requirement-playtime-constraint-reason",
+                ("inverted", Inverted),
+                ("constraint", constraintReason));
+        }
 
         return playtimeString != null;
     }
+
+    /// <summary>
+    ///     Get the text to display to the player that represents the difference between their
+    ///     playtime and the upper/lower bound of acceptable playtimes.
+    /// </summary>
+    /// <param name="reason">A string representing the player's playtime in relation to the requirement's bounds.</param>
+    /// <param name="context">A context that may contain this character's playtimes.</param>
+    /// <returns>Whether or not this operation was successful.</returns>
+    protected virtual bool TryGetRangeDifferenceReason([NotNullWhen(true)] out string? reason,
+        PlayerRequirementContext? context = null)
+    {
+        reason = null;
+
+        if (context?.Profile == null)
+            return false;
+
+        if (this is IPlayerRangeRequirement<TimeSpan> range)
+        {
+            var playtime = GetPlaytime(context);
+            if (playtime != null)
+                reason = range.GetDifferenceReason(playtime.Value);
+        }
+
+        return reason != null;
+    }
+
+    /// <summary>
+    ///     Get the playtime associated with this requirement.
+    /// </summary>
+    /// <param name="context">The context that may or may not contain playtimes.</param>
+    /// <returns>The playtime associated with this requirement.</returns>
+    protected abstract TimeSpan? GetPlaytime(PlayerRequirementContext context);
 }
 
 [Serializable]
@@ -139,43 +233,27 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     [DataField(required: true)]
     public ProtoId<DepartmentPrototype> Department = default!;
 
-    /// <inheritdoc/>
-    public override bool CheckRequirement(PlayerRequirementContext context)
+    /// <inheritdoc />
+    protected override TimeSpan? GetPlaytime(PlayerRequirementContext context)
     {
-        // Auto-pass if role timers are disabled.
-        if (ShouldAutoPass())
-            return true;
-
-        var playtime = GetDepartmentPlaytime(context);
-        if (playtime is null)
-            return false;
-
-        return IsInRange(playtime.Value);
+        return GetDepartmentPlaytime(context);
     }
 
-    /// <inheritdoc/>
-    public override string? GetReason(PlayerRequirementContext? context = null)
+    /// <inheritdoc />
+    protected override bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
     {
-        // Do not give a reason if role timers are disabled.
-        if (ShouldAutoPass())
-            return null;
+        if (!base.TryGetRangeConstraintReason(out playtimeString))
+            return false;
 
-        // Get a formatted department name.
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var deptName = FormatDepartment(protoMan);
 
-        // Get the playtime constraint string.
-        if (!TryGetRangeConstraintReason(out var playtimeString))
-            return null;
-
-        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
-            ("inverted", Inverted),
-            ("timeConstraint", playtimeString));
-
         // E.g. "You must have 2h30m of playtime in the Science department."
-        return Loc.GetString("player-requirement-department-playtime-reason",
-            ("constraint", constraintReason),
+        playtimeString = Loc.GetString("player-requirement-department-playtime-reason",
+            ("constraint", playtimeString),
             ("department", deptName));
+
+        return true;
     }
 
     /// <summary>
@@ -238,43 +316,27 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
     [DataField(required: true)]
     public ProtoId<JobPrototype> Job = default!;
 
-    /// <inheritdoc/>
-    public override bool CheckRequirement(PlayerRequirementContext context)
+    /// <inheritdoc />
+    protected override TimeSpan? GetPlaytime(PlayerRequirementContext context)
     {
-        // Auto-pass if role timers are disabled.
-        if (ShouldAutoPass())
-            return true;
-
-        var playtime = GetJobPlaytime(context);
-        if (playtime is null)
-            return false;
-
-        return IsInRange(playtime.Value);
+        return GetJobPlaytime(context);
     }
 
-    /// <inheritdoc/>
-    public override string? GetReason(PlayerRequirementContext? context = null)
+    /// <inheritdoc />
+    protected override bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
     {
-        // Do not give a reason if role timers are disabled.
-        if (ShouldAutoPass())
-            return null;
+        if (!base.TryGetRangeConstraintReason(out playtimeString))
+            return false;
 
-        // Get the job name and format it with a color.
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var jobName = FormatJob(protoMan);
 
-        // Get the playtime constraint string.
-        if (!TryGetRangeConstraintReason(out var playtimeString))
-            return null;
-
-        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
-            ("inverted", Inverted),
-            ("timeConstraint", playtimeString));
-
         // E.g. "You must have 2h30m of playtime as a Mime."
-        return Loc.GetString("player-requirement-job-playtime-reason",
-            ("constraint", constraintReason),
+        playtimeString = Loc.GetString("player-requirement-job-playtime-reason",
+            ("constraint", playtimeString),
             ("job", jobName));
+
+        return true;
     }
 
     /// <summary>
@@ -328,18 +390,23 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
 /// </summary>
 public sealed partial class PlayerOverallPlaytimeRequirement : PlayerPlaytimeRequirement
 {
-    /// <inheritdoc/>
-    public override bool CheckRequirement(PlayerRequirementContext context)
+    /// <inheritdoc />
+    protected override TimeSpan? GetPlaytime(PlayerRequirementContext context)
     {
-        // Auto-pass if role timers are disabled.
-        if (ShouldAutoPass())
-            return true;
+        return GetOverallPlaytime(context);
+    }
 
-        var playtime = GetOverallPlaytime(context);
-        if (playtime is null)
+    /// <inheritdoc />
+    protected override bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? playtimeString)
+    {
+        if (!base.TryGetRangeConstraintReason(out playtimeString))
             return false;
 
-        return IsInRange(playtime.Value);
+        // E.g. "You must have 300h of playtime overall."
+        playtimeString = Loc.GetString("player-requirement-overall-playtime-reason",
+            ("constraint", playtimeString));
+
+        return true;
     }
 
     /// <summary>
@@ -359,25 +426,5 @@ public sealed partial class PlayerOverallPlaytimeRequirement : PlayerPlaytimeReq
             playtime = tracker;
 
         return playtime;
-    }
-
-    /// <inheritdoc/>
-    public override string? GetReason(PlayerRequirementContext? context = null)
-    {
-        // Do not give a reason if role timers are disabled.
-        if (ShouldAutoPass())
-            return null;
-
-        // Get the playtime constraint string.
-        if (!TryGetRangeConstraintReason(out var playtimeString))
-            return null;
-
-        var constraintReason = Loc.GetString("player-requirement-playtime-constraint-reason",
-            ("inverted", Inverted),
-            ("timeConstraint", playtimeString));
-
-        // E.g. "You must have 300h of playtime overall."
-        return Loc.GetString("player-requirement-overall-playtime-reason",
-            ("constraint", constraintReason));
     }
 }

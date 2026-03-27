@@ -133,7 +133,7 @@ public interface IPlayerRangeRequirement<T> where T : struct, IComparable
     /// <summary>
     ///     Get a reason message to display to the player for this requirement's allowed value range.
     /// </summary>
-    string GetRangeConstraintReason()
+    string GetRangeConstraintReason(PlayerRequirementContext? context = null)
     {
         var minText = GetMinText();
         var maxText = GetMaxText();
@@ -158,12 +158,94 @@ public interface IPlayerRangeRequirement<T> where T : struct, IComparable
     }
 
     /// <summary>
+    ///     Get the difference between this value and the maximum or minimum value of this range.
+    ///     Should return null if the value is in range.
+    /// </summary>
+    /// <param name="value">The value to get a difference of.</param>
+    /// <returns>The difference between the value and the nearest bound of this range.</returns>
+    T? GetDifference(T value);
+
+    /// <summary>
+    ///     Get the "sign" associated with this difference.
+    /// </summary>
+    /// <remarks>
+    ///     "1" means the difference is lower than the minimum.
+    ///     "-1" means the difference is higher than the maximum.
+    ///     "0" means the difference is within range.
+    /// </remarks>
+    /// <param name="difference">The difference value.</param>
+    /// <returns>The sign of this difference.</returns>
+    int Sign(T difference);
+
+    /// <summary>
+    ///     Format this difference value as a string to display to the player.
+    /// </summary>
+    /// <param name="difference">The difference value.</param>
+    /// <returns>A string representation of this difference.</returns>
+    string FormatDifferenceText(T difference);
+
+    /// <summary>
+    ///     Format a "difference" value depending on if it is higher than the maximum or lower than the minimum.
+    /// </summary>
+    /// <param name="difference">The difference value to format.</param>
+    /// <returns>A string representation of this difference.</returns>
+    string FormatDifference(T difference)
+    {
+        var diffText = FormatDifferenceText(difference);
+        return Sign(difference) switch
+        {
+            1 => Loc.GetString("player-requirement-range-difference-lower", ("count", diffText)),
+            -1 => Loc.GetString("player-requirement-range-difference-higher", ("count", diffText)),
+            _ => "0",
+        };
+    }
+
+    /// <summary>
+    ///     Get a string representation between this value and its distance from the nearest bound.
+    ///     Returns null if the value is in range.
+    /// </summary>
+    /// <param name="value">A value being tested against the requirement.</param>
+    /// <returns>A string representation of the difference between the value and the requirement's bounds.</returns>
+    string? GetDifferenceReason(T value)
+    {
+        var difference = GetDifference(value);
+        if (difference == null)
+            return null;
+
+        var diffValue = FormatDifference(difference.Value) ?? difference.Value.ToString();
+        if (diffValue == null)
+            return null;
+
+        return Loc.GetString("player-requirement-range-difference",
+            ("difference", diffValue));
+    }
+
+    /// <summary>
+    ///     Format a value of the range type into a string.
+    /// </summary>
+    /// <param name="value">The value to format.</param>
+    /// <returns>A string representation of this value.</returns>
+    string FormatValue(T value);
+
+    /// <summary>
     ///     Get a string representation of this range's minimum value.
     /// </summary>
-    string? GetMinText();
+    string? GetMinText()
+    {
+        if (Min == null)
+            return null;
+
+        return FormatValue(Min.Value);
+    }
 
     /// <summary>
     ///     Get a string representation of this range's maximum value.
     /// </summary>
-    string? GetMaxText();
+    string? GetMaxText()
+    {
+        if (Max == null)
+            return null;
+
+        return FormatValue(Max.Value);
+    }
 }

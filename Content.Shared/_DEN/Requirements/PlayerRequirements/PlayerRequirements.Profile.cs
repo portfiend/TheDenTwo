@@ -49,15 +49,22 @@ public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRan
             return null;
 
         // "Must be between 20 and 40 years old."
-        return Loc.GetString("player-requirement-age-reason",
+        var rangeReason = Loc.GetString("player-requirement-age-reason",
             ("inverted", Inverted),
             ("constraint", constraintReason));
+
+        if (!TryGetRangeDifferenceReason(out var differenceReason, context))
+            return rangeReason;
+
+        return Loc.GetString("player-requirement-range-with-difference",
+            ("range", rangeReason),
+            ("difference", differenceReason));
     }
 
     /// <summary>
     ///     Get the text to display to the player that represents the range of valid playtimes.
     /// </summary>
-    /// <param name="reason">The playtime range description.</param>
+    /// <param name="reason">The age range description.</param>
     /// <returns>Whether or not this operation was successful.</returns>
     private bool TryGetRangeConstraintReason([NotNullWhen(true)] out string? reason)
     {
@@ -69,16 +76,62 @@ public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRan
         return reason != null;
     }
 
-    /// <inheritdoc/>
-    public string? GetMinText()
+    /// <summary>
+    ///     Get the text to display to the player that represents the difference between their
+    ///     character's age and the upper/lower bound of acceptable ages.
+    /// </summary>
+    /// <param name="reason">A string representing this character's age in relation to the requirement's bounds.</param>
+    /// <param name="context">A context that may contain this character's profile.</param>
+    /// <returns>Whether or not this operation was successful.</returns>
+    private bool TryGetRangeDifferenceReason([NotNullWhen(true)] out string? reason,
+        PlayerRequirementContext? context = null)
     {
-        return Min?.ToString();
+        reason = null;
+
+        if (context?.Profile == null)
+            return false;
+
+        var age = context.Profile.Age;
+        if (this is IPlayerRangeRequirement<int> range)
+            reason = range.GetDifferenceReason(age);
+
+        return reason != null;
+    }
+
+    /// <inheritdoc />
+    public string FormatValue(int value)
+    {
+        return value.ToString();
     }
 
     /// <inheritdoc/>
-    public string? GetMaxText()
+    public int? GetDifference(int value)
     {
-        return Max?.ToString();
+        if (this is IPlayerRangeRequirement<int> range && range.IsInRange(value))
+            return null;
+
+        // Negative value = greater than maximum
+        if (Max != null && value > Max)
+            return Max - value;
+
+        // Positive value = less than minimum
+        if (Min != null && value < Min)
+            return Min - value;
+
+        return null;
+    }
+
+    /// <inheritdoc />
+    public int Sign(int difference)
+    {
+        return Math.Sign(difference);
+    }
+
+    /// <inheritdoc />
+    public string FormatDifferenceText(int difference)
+    {
+        var diffValue = Math.Abs(difference);
+        return FormatValue(diffValue);
     }
 }
 
@@ -179,7 +232,7 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var traitNames = Traits.Select(t => LocalizeTrait(t, protoMan));
         var traitList = string.Join(", ", traitNames);
-        var constraintReason = Count.GetReason(context);
+        var constraintReason = Count.GetReason();
 
         return Loc.GetString("player-requirement-trait-reason",
             ("inverted", Inverted),
