@@ -616,7 +616,9 @@ namespace Content.Shared.Preferences
             context.Profile = this;
 
             var traits = EntityTraitPreferences
-                .Where(t => prototypeManager.TryIndex(t, out var trait) && trait.Selectable)
+                .Where(t => prototypeManager.TryIndex(t, out var trait)
+                    && trait.Selectable
+                    && !SharedPlayerRequirementManager.ShouldHide(context, trait.Requirements))
                 .ToList();
             // End DEN
 
