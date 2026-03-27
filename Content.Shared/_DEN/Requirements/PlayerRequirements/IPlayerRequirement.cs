@@ -66,8 +66,9 @@ public partial interface IPlayerRequirement
     /// <remarks>
     ///     This should display differently depending on the value of <see cref="Inverted"/>.
     /// </remarks>
+    /// <param name="context">An optional context used to add additional information to the reason.</param>
     /// <returns>An optional string representing the requirement text to display to a player.</returns>
-    string? GetReason();
+    string? GetReason(PlayerRequirementContext? context = null);
 }
 
 /// <summary>
@@ -88,7 +89,7 @@ public abstract partial class PlayerRequirement : IPlayerRequirement
     public abstract bool CheckRequirement(PlayerRequirementContext context);
 
     /// <inheritdoc/>
-    public abstract string? GetReason();
+    public abstract string? GetReason(PlayerRequirementContext? context = null);
 
     /// <inheritdoc/>
     public abstract bool PreCheck(PlayerRequirementContext context);

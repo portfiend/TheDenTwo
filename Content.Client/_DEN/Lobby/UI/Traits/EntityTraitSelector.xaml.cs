@@ -57,16 +57,26 @@ public sealed partial class EntityTraitSelector : BoxContainer
     }
 
     /// <summary>
+    ///     Retrieve this session's context.
+    /// </summary>
+    /// <returns>The local player's session context.</returns>
+    private PlayerRequirementContext GetContext()
+    {
+        var session = _player.LocalSession;
+        if (session == null)
+            return new();
+
+        var context = _requirements.GetPlayerContext(session);
+        return context;
+    }
+
+    /// <summary>
     ///     Toggles the visibility of this selector, depending on the requirements of a given trait.
     /// </summary>
     /// <param name="trait">The trait to check the requirements of.</param>
     private void UpdateVisibility(EntityTraitPrototype trait)
     {
-        var session = _player.LocalSession;
-        if (session == null)
-            return;
-
-        var context = _requirements.GetPlayerContext(session);
+        var context = GetContext();
         Visible = !SharedPlayerRequirementManager.ShouldHide(context, trait.Requirements);
     }
 
@@ -80,7 +90,11 @@ public sealed partial class EntityTraitSelector : BoxContainer
         if (_trait is null)
             return null;
 
-        var tooltipString = ConstructTooltipDescription(_trait);
+        var context = _trait.Requirements.Count > 0
+            ? GetContext()
+            : null;
+
+        var tooltipString = ConstructTooltipDescription(_trait, context);
         if (tooltipString.Length == 0)
             return null;
 
@@ -96,7 +110,8 @@ public sealed partial class EntityTraitSelector : BoxContainer
     /// </summary>
     /// <param name="trait">The trait to construct a description out of.</param>
     /// <returns>The tooltip text associated with this trait.</returns>
-    private static string ConstructTooltipDescription(EntityTraitPrototype trait)
+    private static string ConstructTooltipDescription(EntityTraitPrototype trait,
+        PlayerRequirementContext? context = null)
     {
         var tooltipBuilder = new StringBuilder();
 
@@ -110,7 +125,7 @@ public sealed partial class EntityTraitSelector : BoxContainer
             tooltipBuilder.AppendLine(); // Empty line
             foreach (var requirement in trait.Requirements)
             {
-                var reason = requirement.GetReason();
+                var reason = requirement.GetReason(context);
                 if (reason is null)
                     continue;
 

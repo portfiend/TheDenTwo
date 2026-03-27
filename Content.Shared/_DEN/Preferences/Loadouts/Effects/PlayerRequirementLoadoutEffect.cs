@@ -38,7 +38,7 @@ public sealed partial class PlayerRequirementLoadoutEffect : LoadoutEffect
 
         if (!success)
         {
-            var reasonText = Requirement.GetReason() ?? string.Empty;
+            var reasonText = Requirement.GetReason(context) ?? string.Empty;
             reason = FormattedMessage.FromMarkupPermissive(reasonText);
             return false;
         }

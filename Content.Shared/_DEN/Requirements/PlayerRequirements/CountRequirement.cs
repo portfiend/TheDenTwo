@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DEN.Requirements.Managers;
 using JetBrains.Annotations;
 
 namespace Content.Shared._DEN.Requirements.PlayerRequirements;
@@ -20,8 +21,9 @@ public abstract partial class CountRequirement
     ///     This would slot into the sentence "Must have [reason] of the following items: [items]".
     /// </remarks>
     /// <example>"At least 1", "between 2 and 5", "all"</example>
+    /// <param name="context">An optional context used to add additional information to the reason.</param>
     /// <returns>A string representation of this range's requirement bounds.</returns>
-    public abstract string GetReason();
+    public abstract string GetReason(PlayerRequirementContext? context = null);
 
     /// <summary>
     ///     Check if our currently-selected items in a collection meets this
@@ -58,7 +60,7 @@ public sealed partial class ConstantCountRequirement : CountRequirement
     public int Count;
 
     /// <inheritdoc />
-    public override string GetReason()
+    public override string GetReason(PlayerRequirementContext? context = null)
     {
         // "Must have exactly 1 of the following items."
         return Loc.GetString("count-requirement-constant-reason",
@@ -91,7 +93,7 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
     public int? Max { get; set; } = null;
 
     /// <inheritdoc />
-    public override string GetReason()
+    public override string GetReason(PlayerRequirementContext? context = null)
     {
         if (this is IPlayerRangeRequirement<int> range)
             return range.GetRangeConstraintReason();
@@ -133,7 +135,7 @@ public sealed partial class RangeCountRequirement : CountRequirement, IPlayerRan
 public sealed partial class AnyCountRequirement : CountRequirement
 {
     /// <inheritdoc />
-    public override string GetReason()
+    public override string GetReason(PlayerRequirementContext? context = null)
     {
         // "Must have any of the following items."
         return Loc.GetString("count-requirement-any-reason");
@@ -153,7 +155,7 @@ public sealed partial class AnyCountRequirement : CountRequirement
 public sealed partial class AllCountRequirement : CountRequirement
 {
     /// <inheritdoc />
-    public override string GetReason()
+    public override string GetReason(PlayerRequirementContext? context = null)
     {
         // "Must have all of the following items."
         return Loc.GetString("count-requirement-all-reason");

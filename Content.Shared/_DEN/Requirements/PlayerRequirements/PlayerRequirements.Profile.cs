@@ -43,7 +43,7 @@ public sealed partial class PlayerAgeRequirement : PlayerRequirement, IPlayerRan
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         if (!TryGetRangeConstraintReason(out var constraintReason))
             return null;
@@ -109,7 +109,7 @@ public sealed partial class PlayerSpeciesRequirement : PlayerRequirement
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
@@ -174,12 +174,12 @@ public sealed partial class PlayerTraitRequirement : PlayerRequirement
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var traitNames = Traits.Select(t => LocalizeTrait(t, protoMan));
         var traitList = string.Join(", ", traitNames);
-        var constraintReason = Count.GetReason();
+        var constraintReason = Count.GetReason(context);
 
         return Loc.GetString("player-requirement-trait-reason",
             ("inverted", Inverted),

@@ -154,7 +154,7 @@ public sealed partial class PlayerDepartmentPlaytimeRequirement : PlayerPlaytime
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         // Do not give a reason if role timers are disabled.
         if (ShouldAutoPass())
@@ -253,7 +253,7 @@ public sealed partial class PlayerJobPlaytimeRequirement : PlayerPlaytimeRequire
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         // Do not give a reason if role timers are disabled.
         if (ShouldAutoPass())
@@ -362,7 +362,7 @@ public sealed partial class PlayerOverallPlaytimeRequirement : PlayerPlaytimeReq
     }
 
     /// <inheritdoc/>
-    public override string? GetReason()
+    public override string? GetReason(PlayerRequirementContext? context = null)
     {
         // Do not give a reason if role timers are disabled.
         if (ShouldAutoPass())

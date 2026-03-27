@@ -72,13 +72,14 @@ public abstract partial class SharedPlayerRequirementManager : IPlayerRequiremen
     ///     Get a combined reason message for an enumerable collection of requirements.
     /// </summary>
     /// <param name="requirements">A collection of requirements.</param>
+    /// <param name="context">A context to check against the requirements.</param>
     /// <returns>A formatted message containing all the requirement reasons.</returns>
     [PublicAPI]
-    public static FormattedMessage GetCombinedReason(IEnumerable<IPlayerRequirement> requirements)
+    public static FormattedMessage GetCombinedReason(IEnumerable<IPlayerRequirement> requirements, PlayerRequirementContext? context = null)
     {
         var messageBuilder = new StringBuilder();
         foreach (var req in requirements)
-            messageBuilder.AppendLine(req.GetReason());
+            messageBuilder.AppendLine(req.GetReason(context));
 
         var messageString = messageBuilder.ToString().Trim();
         return FormattedMessage.FromMarkupPermissive(messageString);
@@ -86,19 +87,19 @@ public abstract partial class SharedPlayerRequirementManager : IPlayerRequiremen
 
     /// <summary>
     ///     Get a combined reason message for an enumerable collection of requirements.
-    ///     This override will only include requirements that fail, given a context.
+    ///     This function will only include requirements that fail, given a context.
     /// </summary>
     /// <param name="context">A context to check against the requirements.</param>
     /// <param name="requirements">A collection of requirements.</param>
     /// <returns>A formatted message containing all the requirement reasons.</returns>
     [PublicAPI]
-    public static FormattedMessage GetCombinedReason(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
+    public static FormattedMessage GetFailedCombinedReason(PlayerRequirementContext context, IEnumerable<IPlayerRequirement> requirements)
     {
         var messageBuilder = new StringBuilder();
         foreach (var req in requirements)
         {
             if (!CheckRequirement(context, req))
-                messageBuilder.AppendLine(req.GetReason());
+                messageBuilder.AppendLine(req.GetReason(context));
         }
 
         var messageString = messageBuilder.ToString().Trim();
