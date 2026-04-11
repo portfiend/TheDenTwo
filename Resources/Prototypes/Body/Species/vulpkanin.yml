@@ -129,11 +129,11 @@
       types:
         Piercing: 2
         Slash: 3
-  - type: Temperature
+  - type: Temperature # Same as moth temperatures until below is solved.
     specificHeat: 44
   - type: TemperatureDamage
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+    heatDamageThreshold: 320 # TODO: 315 when there is a way to make the temperature alert not blink to the side of the screen and disappear when you "sweat" at 39C.
+    coldDamageThreshold: 230 # TODO: 220 when the above is solved.
     coldDamage:
       types:
         Cold: 0.05 # Per second, scales with temperature & other constants
@@ -160,11 +160,6 @@
         pitch: 1.33
         volume: -5
         variation: 0.05
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: SulfurBlood
-        Quantity: 300
 
 - type: entity
   parent: OrganBase
@@ -185,7 +180,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Vulpkanin/organs.rsi
+    sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   id: OrganVulpkaninVisual
@@ -274,11 +269,11 @@
   id: OrganVulpkaninTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganVulpkaninInternal ]
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
   id: OrganVulpkaninAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganVulpkaninInternal ]
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
   id: OrganVulpkaninEars
 
 - type: entity
@@ -294,9 +289,9 @@
   id: OrganVulpkaninStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninKidneys
