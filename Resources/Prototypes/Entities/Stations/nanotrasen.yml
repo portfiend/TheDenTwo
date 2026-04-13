@@ -27,6 +27,7 @@
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationDeliveries
+    - BaseStationGlimmer # DEN: Glimmer tracking
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

@@ -1,0 +1,10 @@
+- type: entity
+  abstract: true
+  id: BaseStationGlimmer
+  components:
+  - type: GlimmerTracker
+    glimmerLevels: 10
+    glimmerPerLevel: 100
+    startingGlimmerLevelRange: 1, 1
+    global: true
+    offMapAffectsGlimmer: true
