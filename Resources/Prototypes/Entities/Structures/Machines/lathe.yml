@@ -259,6 +259,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
+    - DenBoardsStatic # DEN
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
