@@ -50,7 +50,8 @@ public sealed partial class GlimmerTrackerSystem : SharedGlimmerTrackerSystem
     /// <param name="uid">The entity to retrieve the nearest valid glimmer tracker for.</param>
     /// <param name="trackerEnt">A glimmer tracker that applies to this entity.</param>
     /// <returns>Whether or not we successfully retrieved a glimmer tracker.</returns>
-    private bool TryGetClosestGlimmerTracker(EntityUid uid,
+    [PublicAPI]
+    public bool TryGetClosestGlimmerTracker(EntityUid uid,
         [NotNullWhen(true)] out Entity<GlimmerTrackerComponent>? trackerEnt)
     {
         // This entity is a glimmer tracker
@@ -96,9 +97,15 @@ public sealed partial class GlimmerTrackerSystem : SharedGlimmerTrackerSystem
     /// </summary>
     /// <param name="tracker"></param>
     /// <param name="glimmer"></param>
-    private void SetGlimmer(Entity<GlimmerTrackerComponent> tracker, FixedPoint2 glimmer)
+    [PublicAPI]
+    public void SetGlimmer(Entity<GlimmerTrackerComponent> tracker, FixedPoint2 glimmer)
     {
         var comp = tracker.Comp;
+        var maxGlimmer = comp.GlimmerLevels * comp.GlimmerPerLevel;
+
+        if (glimmer < FixedPoint2.Zero || glimmer > maxGlimmer)
+            throw new ArgumentOutOfRangeException(nameof(glimmer));
+
         comp.CurrentGlimmer = glimmer;
 
         // We're adding 1 to this, so that 0 glimmer becomes level 1.
@@ -112,10 +119,22 @@ public sealed partial class GlimmerTrackerSystem : SharedGlimmerTrackerSystem
     /// </summary>
     /// <param name="tracker"></param>
     /// <param name="level"></param>
-    private void SetGlimmerLevel(Entity<GlimmerTrackerComponent> tracker, int level)
+    [PublicAPI]
+    public void SetGlimmerLevel(Entity<GlimmerTrackerComponent> tracker, int level)
     {
         var comp = tracker.Comp;
+
+        if (level < 0 || level > comp.GlimmerLevels)
+            throw new ArgumentOutOfRangeException(nameof(level));
+
         comp.CurrentGlimmerLevel = level;
+
+        // The highest glimmer level always represents the highest possible glimmer value.
+        if (level == comp.GlimmerLevels)
+        {
+            comp.CurrentGlimmer = level * comp.GlimmerPerLevel;
+            return;
+        }
 
         var min = (level - 1) * comp.GlimmerPerLevel; // INCLUSIVE
         var max = level * comp.GlimmerPerLevel; // EXCLUSIVE

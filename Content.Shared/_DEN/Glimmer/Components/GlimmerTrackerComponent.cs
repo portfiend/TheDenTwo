@@ -28,7 +28,7 @@ public sealed partial class GlimmerTrackerComponent : Component
     ///     What level of glimmer should we start with?
     /// </summary>
     [DataField]
-    public Vector2i StartingGlimmerLevelRange = new(1, 1);
+    public Vector2i StartingGlimmerLevelRange = new(0, 2);
 
     /// <summary>
     ///     An optional limit to what range of glimmer levels we can have.
@@ -81,7 +81,7 @@ public sealed partial class GlimmerTrackerComponent : Component
     ///     What is our current glimmer level?
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public int CurrentGlimmerLevel = 1;
+    public int CurrentGlimmerLevel = 0;
 
     /// <remarks>
     ///     Glimmer is represented as a range from 0 to (GlimmerLevels * GlimmerPerLevel).

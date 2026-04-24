@@ -5,6 +5,6 @@
   - type: GlimmerTracker
     glimmerLevels: 10
     glimmerPerLevel: 100
-    startingGlimmerLevelRange: 1, 1
+    startingGlimmerLevelRange: 0, 2
     global: true
     offMapAffectsGlimmer: true
