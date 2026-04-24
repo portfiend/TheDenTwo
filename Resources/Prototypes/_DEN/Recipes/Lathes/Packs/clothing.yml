@@ -1,0 +1,7 @@
+- type: latheRecipePack
+  id: DenAutotailorStatic
+  recipes: []
+
+- type: latheRecipePack
+  id: DenAutotailorEmagStatic
+  recipes: []
