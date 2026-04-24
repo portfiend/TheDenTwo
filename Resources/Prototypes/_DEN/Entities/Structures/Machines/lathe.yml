@@ -20,9 +20,10 @@
     runningState: building
     staticPacks:
     - DenAutotailorStatic
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - DenAutotailorEmagStatic
+  # TODO: Uncomment when emagged recipes are added
+  # - type: EmagLatheRecipes
+  #   emagStaticPacks:
+  #   - DenAutotailorEmagStatic
   - type: MaterialStorage
     whitelist: &StandardMaterialWhitelist
       tags:
