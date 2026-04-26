@@ -1,7 +1,44 @@
 - type: latheRecipePack
+  parent:
+  - DenColorUniforms
   id: DenAutotailorStatic
-  recipes: []
 
 - type: latheRecipePack
   id: DenAutotailorEmagStatic
   recipes: []
+
+- type: latheRecipePack
+  id: DenColorUniforms
+  recipes:
+  - ClothingUniformJumpsuitColorGrey
+  - ClothingUniformJumpskirtColorGrey
+  - ClothingUniformJumpsuitColorWhite
+  - ClothingUniformJumpskirtColorWhite
+  - ClothingUniformJumpsuitColorBlack
+  - ClothingUniformJumpskirtColorBlack
+  - ClothingUniformJumpsuitColorBlue
+  - ClothingUniformJumpskirtColorBlue
+  - ClothingUniformJumpsuitColorYellow
+  - ClothingUniformJumpskirtColorYellow
+  - ClothingUniformJumpsuitColorGreen
+  - ClothingUniformJumpskirtColorGreen
+  - ClothingUniformJumpsuitColorOrange
+  - ClothingUniformJumpskirtColorOrange
+  - ClothingUniformJumpsuitColorRed
+  - ClothingUniformJumpskirtColorRed
+  - ClothingUniformJumpsuitColorPurple
+  - ClothingUniformJumpskirtColorPurple
+  - ClothingUniformJumpsuitColorPink
+  - ClothingUniformJumpskirtColorPink
+  - ClothingUniformJumpsuitColorDarkBlue
+  - ClothingUniformJumpskirtColorDarkBlue
+  - ClothingUniformJumpsuitColorDarkGreen
+  - ClothingUniformJumpskirtColorDarkGreen
+  - ClothingUniformJumpsuitColorLightBrown
+  - ClothingUniformJumpskirtColorLightBrown
+  - ClothingUniformJumpsuitColorBrown
+  - ClothingUniformJumpskirtColorBrown
+  - ClothingUniformJumpsuitColorMaroon
+  - ClothingUniformJumpskirtColorMaroon
+  - ClothingUniformJumpsuitColorTeal
+  - ClothingUniformJumpskirtColorTeal
