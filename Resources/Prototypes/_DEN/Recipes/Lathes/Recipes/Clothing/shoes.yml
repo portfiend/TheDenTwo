@@ -1,0 +1,62 @@
+# Base
+
+- type: latheRecipe
+  abstract: true
+  id: BaseShoesRecipe
+  categories:
+  - Shoes
+  completetime: 3
+  materials:
+    Cloth: 100
+
+# Color shoes
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorWhite
+  result: ClothingShoesColorWhite
+  categories:
+  - Shoes
+  - Colorable
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorBlue
+  result: ClothingShoesColorBlue
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorBlack
+  result: ClothingShoesColorBlack
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorBrown
+  result: ClothingShoesColorBrown
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorGreen
+  result: ClothingShoesColorGreen
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorOrange
+  result: ClothingShoesColorOrange
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorRed
+  result: ClothingShoesColorRed
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorYellow
+  result: ClothingShoesColorYellow
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesColorPurple
+  result: ClothingShoesColorPurple
+
+# Non-job specific cosmetic shoes

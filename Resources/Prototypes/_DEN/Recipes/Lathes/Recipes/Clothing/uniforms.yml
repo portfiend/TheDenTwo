@@ -4,6 +4,9 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitColorWhite
   result: ClothingUniformJumpsuitColorWhite
+  categories:
+  - Jumpsuits
+  - Colorable
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe

@@ -20,6 +20,14 @@
 
 - type: latheRecipe
   parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesColorWhite
+  result: ClothingHandsGlovesColorWhite
+  categories:
+  - Hands
+  - Colorable
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
   id: ClothingHandsGlovesColorPurple
   result: ClothingHandsGlovesColorPurple
 
@@ -62,14 +70,6 @@
   parent: BaseGlovesRecipe
   id: ClothingHandsGlovesColorOrange
   result: ClothingHandsGlovesColorOrange
-
-- type: latheRecipe
-  parent: BaseGlovesRecipe
-  id: ClothingHandsGlovesColorWhite
-  result: ClothingHandsGlovesColorWhite
-  categories:
-  - Hands
-  - Colorable
 
 - type: latheRecipe
   parent: BaseGlovesRecipe

@@ -7,3 +7,8 @@
 - type: latheCategory
   id: Hands
   name: lathe-category-hands
+
+# Clothing - foot slot
+- type: latheCategory
+  id: Shoes
+  name: lathe-category-shoes
