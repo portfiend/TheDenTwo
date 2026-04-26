@@ -1,0 +1,9 @@
+# Items designed to be recolored - primarily used in autotailor
+- type: latheCategory
+  id: Colorable
+  name: lathe-category-colorable
+
+# Clothing - hand slot
+- type: latheCategory
+  id: Hands
+  name: lathe-category-hands

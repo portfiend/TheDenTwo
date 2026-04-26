@@ -9,6 +9,9 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorWhite
   result: ClothingUniformJumpskirtColorWhite
+  categories:
+  - Jumpsuits
+  - Colorable
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -149,7 +152,5 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorTeal
   result: ClothingUniformJumpskirtColorTeal
-
-# Job-specific uniforms
 
 # Non-job specific cosmetic uniforms

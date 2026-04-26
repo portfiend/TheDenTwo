@@ -1,5 +1,6 @@
 - type: latheRecipePack
   parent:
+  - DenColorGloves
   - DenColorUniforms
   id: DenAutotailorStatic
 
@@ -42,3 +43,18 @@
   - ClothingUniformJumpskirtColorMaroon
   - ClothingUniformJumpsuitColorTeal
   - ClothingUniformJumpskirtColorTeal
+
+- type: latheRecipePack
+  id: DenColorGloves
+  recipes:
+  - ClothingHandsGlovesColorPurple
+  - ClothingHandsGlovesColorRed
+  - ClothingHandsGlovesColorBlue
+  - ClothingHandsGlovesColorTeal
+  - ClothingHandsGlovesColorBrown
+  - ClothingHandsGlovesColorGray
+  - ClothingHandsGlovesColorGreen
+  - ClothingHandsGlovesColorLightBrown
+  - ClothingHandsGlovesColorOrange
+  - ClothingHandsGlovesColorWhite
+  - ClothingHandsGlovesColorBlack
