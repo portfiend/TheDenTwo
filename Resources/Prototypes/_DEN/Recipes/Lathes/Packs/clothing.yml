@@ -1,6 +1,7 @@
 - type: latheRecipePack
   parent:
   - DenColorGloves
+  - DenColorHatsSoft
   - DenColorShoes
   - DenColorUniforms
   id: DenAutotailorStatic
@@ -50,6 +51,20 @@
 # Outerwear
 
 # Hats
+
+- type: latheRecipePack
+  id: DenColorHatsSoft
+  recipes:
+  - ClothingHeadHatMimesoft
+  - ClothingHeadHatBluesoft
+  - ClothingHeadHatCorpsoft
+  - ClothingHeadHatGreensoft
+  - ClothingHeadHatBlacksoft
+  - ClothingHeadHatGreysoft
+  - ClothingHeadHatOrangesoft
+  - ClothingHeadHatPurplesoft
+  - ClothingHeadHatRedsoft
+  - ClothingHeadHatYellowsoft
 
 # Eyes
 

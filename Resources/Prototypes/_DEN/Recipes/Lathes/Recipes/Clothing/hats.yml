@@ -1,0 +1,56 @@
+# Baseball caps
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatMimesoft # white
+  result: ClothingHeadHatMimesoft
+  categories:
+  - Hats
+  - Colorable
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBluesoft
+  result: ClothingHeadHatBluesoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatCorpsoft
+  result: ClothingHeadHatCorpsoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatGreensoft
+  result: ClothingHeadHatGreensoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBlacksoft
+  result: ClothingHeadHatBlacksoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatGreysoft
+  result: ClothingHeadHatGreysoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatOrangesoft
+  result: ClothingHeadHatOrangesoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatPurplesoft
+  result: ClothingHeadHatPurplesoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatRedsoft
+  result: ClothingHeadHatRedsoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatYellowsoft
+  result: ClothingHeadHatYellowsoft
+
+# Non-job specific cosmetic hats
