@@ -5,7 +5,7 @@
   id: BaseShoesRecipe
   categories:
   - Shoes
-  completetime: 3
+  completetime: 2
   materials:
     Cloth: 100
 
