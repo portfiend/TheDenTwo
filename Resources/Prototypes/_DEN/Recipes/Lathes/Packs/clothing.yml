@@ -1,9 +1,12 @@
 - type: latheRecipePack
   parent:
+  - DenClothesMateUniforms
   - DenColorGloves
   - DenColorHatsSoft
   - DenColorShoes
   - DenColorUniforms
+  - DenCosmeticUniforms
+  - DenCosmeticDresses
   id: DenAutotailorStatic
 
 - type: latheRecipePack
@@ -47,6 +50,49 @@
   - ClothingUniformJumpskirtColorMaroon
   - ClothingUniformJumpsuitColorTeal
   - ClothingUniformJumpskirtColorTeal
+
+- type: latheRecipePack
+  id: DenClothesMateUniforms
+  recipes:
+  - ClothingUniformJumpsuitFlannel
+  - ClothingUniformJumpsuitHawaiBlack
+  - ClothingUniformJumpsuitHawaiBlue
+  - ClothingUniformJumpsuitHawaiRed
+  - ClothingUniformJumpsuitHawaiYellow
+  - ClothingUniformJumpsuitCasualBlue
+  - ClothingUniformJumpskirtCasualBlue
+  - ClothingUniformJumpsuitCasualPurple
+  - ClothingUniformJumpskirtCasualPurple
+  - ClothingUniformJumpsuitCasualRed
+  - ClothingUniformJumpskirtCasualRed
+  - ClothingUniformJumpsuitCasualGreen
+  - ClothingUniformJumpskirtCasualGreen
+
+- type: latheRecipePack
+  id: DenCosmeticUniforms
+  recipes:
+  - ClothingUniformJumpsuitLoungewear
+  - ClothingUniformJumpsuitNanotrasen
+
+- type: latheRecipePack
+  id: DenCosmeticDresses
+  recipes:
+  - ClothingUniformJumpskirtBlackElegantDress
+  - ClothingUniformJumpskirtRedElegantDress
+  - ClothingUniformJumpskirtGreenElegantDress
+  - ClothingUniformJumpskirtBlueElegantDress
+  - ClothingUniformJumpskirtPurpleElegantDress
+  - ClothingUniformJumpskirtCyanStripedDress
+  - ClothingUniformJumpskirtRedStripedDress
+  - ClothingUniformJumpskirtGreenStripedDress
+  - ClothingUniformJumpskirtPinkStripedDress
+  - ClothingUniformJumpskirtOrangeStripedDress
+  - ClothingUniformJumpskirtPurpleTurtleneckDress
+  - ClothingUniformJumpskirtRedTurtleneckDress
+  - ClothingUniformJumpskirtGreenTurtleneckDress
+  - ClothingUniformJumpskirtBlueTurtleneckDress
+  - ClothingUniformJumpskirtYellowTurtleneckDress
+  - ClothingUniformJumpskirtYellowOldDress
 
 # Outerwear
 
