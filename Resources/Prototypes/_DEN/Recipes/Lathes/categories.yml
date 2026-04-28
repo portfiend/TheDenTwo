@@ -1,3 +1,8 @@
+# Clothing - belt slot
+- type: latheCategory
+  id: Belts
+  name: lathe-category-belts
+
 # Items designed to be recolored - primarily used in autotailor
 - type: latheCategory
   id: Colorable

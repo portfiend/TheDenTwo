@@ -1,5 +1,6 @@
 - type: latheRecipePack
   parent:
+  - DenBeltsCosmeticJob
   - DenGlovesColor
   - DenHatsColorSoft
   - DenShoesColor
@@ -144,6 +145,12 @@
 # Neck
 
 # Belt
+
+- type: latheRecipePack
+  id: DenBeltsCosmeticJob
+  recipes:
+  - ClothingBeltSuspendersRed
+  - ClothingBeltSuspendersBlack
 
 # Hands
 
