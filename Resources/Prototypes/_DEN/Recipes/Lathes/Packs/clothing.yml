@@ -6,7 +6,9 @@
   - DenUniformsClothesMate
   - DenUniformsColor
   - DenUniformsCosmetic
+  - DenUniformsCosmeticJob
   - DenUniformsDresses
+  - DenUniformsRandom
   id: DenAutotailorStatic
 
 - type: latheRecipePack
@@ -73,6 +75,10 @@
   recipes:
   - ClothingUniformJumpsuitLoungewear
   - ClothingUniformJumpsuitNanotrasen
+  - ClothingUniformJumpsuitPirate
+  - ClothingUniformJumpsuitCossack
+  - ClothingUniformJumpsuitKimono
+  - ClothingUniformJumpskirtOfLife
 
 - type: latheRecipePack
   id: DenUniformsDresses
@@ -93,6 +99,25 @@
   - ClothingUniformJumpskirtBlueTurtleneckDress
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtYellowOldDress
+
+- type: latheRecipePack
+  id: DenUniformsCosmeticJob
+  recipes:
+  - ClothingUniformJumpskirtJanimaid
+  - ClothingUniformJumpskirtJanimaidmini
+  - ClothingUniformOveralls
+  - UniformScrubsColorPurple
+  - UniformScrubsColorGreen
+  - UniformScrubsColorBlue
+
+- type: latheRecipePack
+  id: DenUniformsRandom
+  recipes:
+  - ClothingUniformRandomArmless
+  - ClothingUniformRandomStandard
+  - ClothingUniformRandomBra
+  - ClothingUniformRandomShorts
+  - ClothingUniformRandomShirt
 
 # Outerwear
 

@@ -1,3 +1,13 @@
+# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseJumpsuitRecipe
+  id: BaseRandomJumpsuitRecipe
+  categories:
+  - Jumpsuits
+  - RandomClothes
+
 # Color uniforms
 
 - type: latheRecipe
@@ -78,6 +88,55 @@
   id: ClothingUniformJumpsuitColorTeal
   result: ClothingUniformJumpsuitColorTeal
 
+# Randomized clothing
+
+- type: latheRecipe
+  parent: BaseRandomJumpsuitRecipe
+  id: ClothingUniformRandomArmless
+  result: ClothingUniformRandomArmless
+
+- type: latheRecipe
+  parent: BaseRandomJumpsuitRecipe
+  id: ClothingUniformRandomStandard
+  result: ClothingUniformRandomStandard
+
+- type: latheRecipe
+  parent: BaseRandomJumpsuitRecipe
+  id: ClothingUniformRandomBra
+  result: ClothingUniformRandomBra
+
+- type: latheRecipe
+  parent: BaseRandomJumpsuitRecipe
+  id: ClothingUniformRandomShorts
+  result: ClothingUniformRandomShorts
+
+- type: latheRecipe
+  parent: BaseRandomJumpsuitRecipe
+  id: ClothingUniformRandomShirt
+  result: ClothingUniformRandomShirt
+
+# Job-relevant cosmetic uniforms
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformOveralls
+  result: ClothingUniformOveralls
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: UniformScrubsColorPurple
+  result: UniformScrubsColorPurple
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: UniformScrubsColorGreen
+  result: UniformScrubsColorGreen
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: UniformScrubsColorBlue
+  result: UniformScrubsColorBlue
+
 # Non-job specific cosmetic uniforms
 
 - type: latheRecipe
@@ -94,6 +153,21 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitNanotrasen
   result: ClothingUniformJumpsuitNanotrasen
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitPirate
+  result: ClothingUniformJumpsuitPirate
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCossack
+  result: ClothingUniformJumpsuitCossack
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitKimono
+  result: ClothingUniformJumpsuitKimono
 
 ## Hawaiian shirts
 

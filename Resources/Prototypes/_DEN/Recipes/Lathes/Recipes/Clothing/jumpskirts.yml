@@ -78,7 +78,24 @@
   id: ClothingUniformJumpskirtColorTeal
   result: ClothingUniformJumpskirtColorTeal
 
+# Job-relevant cosmetic uniforms
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtJanimaid
+  result: ClothingUniformJumpskirtJanimaid
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtJanimaidmini
+  result: ClothingUniformJumpskirtJanimaidmini
+
 # Non-job specific cosmetic uniforms
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtOfLife
+  result: ClothingUniformJumpskirtOfLife
 
 ## Casual uniforms
 

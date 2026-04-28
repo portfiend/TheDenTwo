@@ -8,6 +8,11 @@
   id: Hands
   name: lathe-category-hands
 
+# Clothing - procedurally-generated clothing
+- type: latheCategory
+  id: RandomClothes
+  name: lathe-category-random-clothes
+
 # Clothing - foot slot
 - type: latheCategory
   id: Shoes
