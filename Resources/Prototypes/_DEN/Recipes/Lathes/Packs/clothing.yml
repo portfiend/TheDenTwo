@@ -1,12 +1,12 @@
 - type: latheRecipePack
   parent:
-  - DenClothesMateUniforms
-  - DenColorGloves
-  - DenColorHatsSoft
-  - DenColorShoes
-  - DenColorUniforms
-  - DenCosmeticUniforms
-  - DenCosmeticDresses
+  - DenGlovesColor
+  - DenHatsColorSoft
+  - DenShoesColor
+  - DenUniformsClothesMate
+  - DenUniformsColor
+  - DenUniformsCosmetic
+  - DenUniformsDresses
   id: DenAutotailorStatic
 
 - type: latheRecipePack
@@ -16,7 +16,7 @@
 # Uniforms
 
 - type: latheRecipePack
-  id: DenColorUniforms
+  id: DenUniformsColor
   recipes:
   - ClothingUniformJumpsuitColorGrey
   - ClothingUniformJumpskirtColorGrey
@@ -52,7 +52,7 @@
   - ClothingUniformJumpskirtColorTeal
 
 - type: latheRecipePack
-  id: DenClothesMateUniforms
+  id: DenUniformsClothesMate
   recipes:
   - ClothingUniformJumpsuitFlannel
   - ClothingUniformJumpsuitHawaiBlack
@@ -69,13 +69,13 @@
   - ClothingUniformJumpskirtCasualGreen
 
 - type: latheRecipePack
-  id: DenCosmeticUniforms
+  id: DenUniformsCosmetic
   recipes:
   - ClothingUniformJumpsuitLoungewear
   - ClothingUniformJumpsuitNanotrasen
 
 - type: latheRecipePack
-  id: DenCosmeticDresses
+  id: DenUniformsDresses
   recipes:
   - ClothingUniformJumpskirtBlackElegantDress
   - ClothingUniformJumpskirtRedElegantDress
@@ -99,7 +99,7 @@
 # Hats
 
 - type: latheRecipePack
-  id: DenColorHatsSoft
+  id: DenHatsColorSoft
   recipes:
   - ClothingHeadHatMimesoft
   - ClothingHeadHatBluesoft
@@ -123,7 +123,7 @@
 # Hands
 
 - type: latheRecipePack
-  id: DenColorGloves
+  id: DenGlovesColor
   recipes:
   - ClothingHandsGlovesColorPurple
   - ClothingHandsGlovesColorRed
@@ -140,7 +140,7 @@
 # Shoes
 
 - type: latheRecipePack
-  id: DenColorShoes
+  id: DenShoesColor
   recipes:
   - ClothingShoesColorWhite
   - ClothingShoesColorBlack
