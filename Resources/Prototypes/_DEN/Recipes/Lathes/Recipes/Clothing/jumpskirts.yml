@@ -2,14 +2,6 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorWhite
-  result: ClothingUniformJumpsuitColorWhite
-  categories:
-  - Jumpsuits
-  - Colorable
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorWhite
   result: ClothingUniformJumpskirtColorWhite
   categories:
@@ -18,18 +10,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorBlack
-  result: ClothingUniformJumpsuitColorBlack
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorBlack
   result: ClothingUniformJumpskirtColorBlack
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorBlue
-  result: ClothingUniformJumpsuitColorBlue
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -38,18 +20,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorYellow
-  result: ClothingUniformJumpsuitColorYellow
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorYellow
   result: ClothingUniformJumpskirtColorYellow
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorGreen
-  result: ClothingUniformJumpsuitColorGreen
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -58,18 +30,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorOrange
-  result: ClothingUniformJumpsuitColorOrange
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorOrange
   result: ClothingUniformJumpskirtColorOrange
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorRed
-  result: ClothingUniformJumpsuitColorRed
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -78,18 +40,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorPurple
-  result: ClothingUniformJumpsuitColorPurple
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorPurple
   result: ClothingUniformJumpskirtColorPurple
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorPink
-  result: ClothingUniformJumpsuitColorPink
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -98,18 +50,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorDarkBlue
-  result: ClothingUniformJumpsuitColorDarkBlue
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorDarkBlue
   result: ClothingUniformJumpskirtColorDarkBlue
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorDarkGreen
-  result: ClothingUniformJumpsuitColorDarkGreen
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -118,18 +60,8 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorLightBrown
-  result: ClothingUniformJumpsuitColorLightBrown
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorLightBrown
   result: ClothingUniformJumpskirtColorLightBrown
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorBrown
-  result: ClothingUniformJumpsuitColorBrown
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -138,69 +70,17 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorMaroon
-  result: ClothingUniformJumpsuitColorMaroon
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorMaroon
   result: ClothingUniformJumpskirtColorMaroon
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitColorTeal
-  result: ClothingUniformJumpsuitColorTeal
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtColorTeal
   result: ClothingUniformJumpskirtColorTeal
 
-# Non-job specific cosmetic uniform
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitLoungewear
-  result: ClothingUniformJumpsuitLoungewear
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitFlannel
-  result: ClothingUniformJumpsuitFlannel
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitNanotrasen
-  result: ClothingUniformJumpsuitNanotrasen
-
-## Hawaiian shirts
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitHawaiBlack
-  result: ClothingUniformJumpsuitHawaiBlack
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitHawaiBlue
-  result: ClothingUniformJumpsuitHawaiBlue
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitHawaiRed
-  result: ClothingUniformJumpsuitHawaiRed
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitHawaiYellow
-  result: ClothingUniformJumpsuitHawaiYellow
+# Non-job specific cosmetic uniforms
 
 ## Casual uniforms
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualBlue
-  result: ClothingUniformJumpsuitCasualBlue
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -209,28 +89,13 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualPurple
-  result: ClothingUniformJumpsuitCasualPurple
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtCasualPurple
   result: ClothingUniformJumpskirtCasualPurple
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualRed
-  result: ClothingUniformJumpsuitCasualRed
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtCasualRed
   result: ClothingUniformJumpskirtCasualRed
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitCasualGreen
-  result: ClothingUniformJumpsuitCasualGreen
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -318,3 +183,4 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtYellowOldDress
   result: ClothingUniformJumpskirtYellowOldDress
+
