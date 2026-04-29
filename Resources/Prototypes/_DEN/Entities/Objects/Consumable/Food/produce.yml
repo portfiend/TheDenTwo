@@ -6,7 +6,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - apple # TODO
+    - pomegranate
   - type: SolutionContainerManager
     solutions:
       food:
