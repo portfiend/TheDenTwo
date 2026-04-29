@@ -10,6 +10,11 @@
   # - DenHandsRingsDecorated # indecisive...
   - DenHandsRingsSimple
   - DenHatsColorSoft
+  # - DenHatsAnimal # maintenance loot
+  - DenHatsBandana
+  - DenHatsCosmetic
+  # - DenHatsCowboy # use the autodrobe instead
+  # - DenHatsParty # get a party crate instead
   - DenShoesColor
   - DenUniformsClothesMate
   - DenUniformsColor
@@ -83,7 +88,7 @@
   recipes:
   - ClothingUniformJumpsuitLoungewear
   - ClothingUniformJumpsuitNanotrasen
-  - ClothingUniformJumpsuitPirate
+  # - ClothingUniformJumpsuitPirate # autodrobe or pirate crate instead
   - ClothingUniformJumpsuitCossack
   - ClothingUniformJumpsuitKimono
   - ClothingUniformJumpskirtOfLife
@@ -145,6 +150,79 @@
   - ClothingHeadHatRedsoft
   - ClothingHeadHatYellowsoft
 
+- type: latheRecipePack
+  id: DenHatsAnimal
+  recipes:
+  - ClothingHeadHatAnimalCat
+  - ClothingHeadHatAnimalCatBrown
+  - ClothingHeadHatAnimalCatBlack
+  - ClothingHeadHatAnimalHeadslime
+  - ClothingHeadHatAnimalMonkey
+
+- type: latheRecipePack
+  id: DenHatsBandana
+  recipes:
+  - ClothingHeadBandBlack
+  - ClothingHeadBandBlue
+  - ClothingHeadBandGold
+  - ClothingHeadBandGreen
+  - ClothingHeadBandGrey
+  - ClothingHeadBandRed
+  - ClothingHeadBandSkull
+  # - ClothingMaskBandMerc
+  - ClothingHeadBandBrown
+
+- type: latheRecipePack
+  id: DenHatsCosmetic
+  recipes:
+  - ClothingHeadHatBeaverHat
+  - ClothingHeadHatBeret
+  - ClothingHeadHatBeretFrench
+  - ClothingHeadHatCasa
+  - ClothingHeadHatBowlerHat
+  - ClothingHeadHatFedoraBrown
+  - ClothingHeadHatFedoraGrey
+  - ClothingHeadHatFez
+  - ClothingHeadHatPaper
+  # - ClothingHeadHatPirate # autodrobe or pirate crate instead
+  # - ClothingHeadHatPirateTricord # autodrobe or pirate crate instead
+  - ClothingHeadHatPlaguedoctor
+  - ClothingHeadHatSombrero
+  - ClothingHeadHatTophat
+  - ClothingHeadHatUshanka
+  - ClothingHeadHatCanadaBeanie
+  - ClothingHeadHatWizardFake
+  - ClothingHeadHatXmasCrown
+  - ClothingHeadHatTrucker
+  - ClothingHeadPaperSack
+  - ClothingHeadPaperSackSmile
+  - ClothingHeadFishCap
+  - ClothingHeadWehcellentCap
+  - ClothingHeadHatHetmanHat
+  - ClothingHeadHatGreyFlatcap
+  - ClothingHeadHatBrownFlatcap
+  - ClothingHeadHatStrawHat
+  - ClothingHeadPropellerHat
+
+- type: latheRecipePack
+  id: DenHatsParty
+  recipes:
+  - ClothingHeadHatPartyRed
+  - ClothingHeadHatPartyYellow
+  - ClothingHeadHatPartyGreen
+  - ClothingHeadHatPartyBlue
+  - ClothingHeadHatPartyWaterCup
+
+- type: latheRecipePack
+  id: DenHatsCowboy
+  recipes:
+  - ClothingHeadHatCowboyBrown
+  - ClothingHeadHatCowboyBlack
+  - ClothingHeadHatCowboyGrey
+  - ClothingHeadHatCowboyRed
+  - ClothingHeadHatCowboyWhite
+  - ClothingHeadHatCowboyBountyHunter
+
 # Eyes
 
 - type: latheRecipePack
@@ -204,7 +282,7 @@
   - ClothingHandsGlovesPowerglove
   - ClothingHandsGlovesFingerless
   - ClothingHandsGlovesFingerlessInsulated
-  - ClothingHandsGlovesMercFingerless
+  # - ClothingHandsGlovesMercFingerless
 
 - type: latheRecipePack
   id: DenHandsGlovesJob
