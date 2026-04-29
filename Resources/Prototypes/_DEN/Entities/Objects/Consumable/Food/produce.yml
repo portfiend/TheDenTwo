@@ -25,7 +25,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: JuicePomegranate # TODO
+      - ReagentId: JuicePomegranate
         Quantity: 10
   - type: Tag
     tags:
