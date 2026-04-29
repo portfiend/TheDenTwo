@@ -97,16 +97,6 @@
 
 - type: latheRecipe
   parent: BaseGlovesRecipe
-  id: ClothingHandsGlovesLatex
-  result: ClothingHandsGlovesLatex
-
-- type: latheRecipe
-  parent: BaseGlovesRecipe
-  id: ClothingHandsGlovesNitrile
-  result: ClothingHandsGlovesNitrile
-
-- type: latheRecipe
-  parent: BaseGlovesRecipe
   id: ClothingHandsGlovesPowerglove
   result: ClothingHandsGlovesPowerglove
 

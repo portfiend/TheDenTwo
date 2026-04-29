@@ -155,7 +155,6 @@
   - ClothingEyesGlassesJamjar
   - ClothingEyesGlassesOutlawGlasses
   - ClothingEyesGlassesCheapSunglasses
-  -
 
 - type: latheRecipePack
   id: DenEyesGlassesGar
@@ -205,8 +204,6 @@
   - ClothingHandsGlovesPowerglove
   - ClothingHandsGlovesFingerless
   - ClothingHandsGlovesFingerlessInsulated
-  - ClothingHandsGlovesLatex
-  - ClothingHandsGlovesNitrile
   - ClothingHandsGlovesMercFingerless
 
 - type: latheRecipePack

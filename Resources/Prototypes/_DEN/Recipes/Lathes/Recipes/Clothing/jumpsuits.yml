@@ -141,11 +141,6 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitLoungewear
-  result: ClothingUniformJumpsuitLoungewear
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitFlannel
   result: ClothingUniformJumpsuitFlannel
 
