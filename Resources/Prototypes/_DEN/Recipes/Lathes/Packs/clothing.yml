@@ -5,6 +5,8 @@
   - DenEyesGlassesGar
   - DenEyesMiscellaneous
   - DenHandsGlovesColor
+  - DenHandsGlovesCosmetic
+  - DenHandsGlovesJob
   # - DenHandsRingsDecorated # indecisive...
   - DenHandsRingsSimple
   - DenHatsColorSoft
@@ -196,6 +198,23 @@
   - ClothingHandsGlovesColorOrange
   - ClothingHandsGlovesColorWhite
   - ClothingHandsGlovesColorBlack
+
+- type: latheRecipePack
+  id: DenHandsGlovesCosmetic
+  recipes:
+  - ClothingHandsGlovesPowerglove
+  - ClothingHandsGlovesFingerless
+  - ClothingHandsGlovesFingerlessInsulated
+  - ClothingHandsGlovesLatex
+  - ClothingHandsGlovesNitrile
+  - ClothingHandsGlovesMercFingerless
+
+- type: latheRecipePack
+  id: DenHandsGlovesJob
+  recipes:
+  - ClothingHandsGlovesLeather
+  - ClothingHandsGlovesJanitor
+  - ClothingHandsGlovesRobohands
 
 - type: latheRecipePack
   id: DenHandsRingsSimple

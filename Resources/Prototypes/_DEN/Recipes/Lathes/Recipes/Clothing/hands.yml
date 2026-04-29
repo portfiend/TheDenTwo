@@ -76,7 +76,54 @@
   id: ClothingHandsGlovesColorBlack
   result: ClothingHandsGlovesColorBlack
 
+# Job-relevant gloves
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesLeather
+  result: ClothingHandsGlovesLeather
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesJanitor
+  result: ClothingHandsGlovesJanitor
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesRobohands
+  result: ClothingHandsGlovesRobohands
+
 # Non-job specific cosmetic gloves
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesLatex
+  result: ClothingHandsGlovesLatex
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesNitrile
+  result: ClothingHandsGlovesNitrile
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesPowerglove
+  result: ClothingHandsGlovesPowerglove
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesFingerless
+  result: ClothingHandsGlovesFingerless
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesFingerlessInsulated
+  result: ClothingHandsGlovesFingerlessInsulated
+
+- type: latheRecipe
+  parent: BaseGlovesRecipe
+  id: ClothingHandsGlovesMercFingerless
+  result: ClothingHandsGlovesMercFingerless
 
 # Non-job specific cosmetic hand items
 
