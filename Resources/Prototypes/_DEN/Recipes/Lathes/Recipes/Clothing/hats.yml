@@ -215,6 +215,11 @@
   id: ClothingHeadPropellerHat
   result: ClothingHeadPropellerHat
 
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatBunny
+  result: ClothingHeadHatBunny
+
 ## Cowboy hats
 
 - type: latheRecipe
