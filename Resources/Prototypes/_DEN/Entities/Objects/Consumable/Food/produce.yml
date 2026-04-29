@@ -1,0 +1,36 @@
+- type: entity
+  parent: FoodProduceBase
+  id: FoodPomegranate
+  name: pomegranate
+  description: A sticky, sweet symbol of fertility and abundance.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - apple # TODO
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _DEN/Objects/Specific/Hydroponics/pomegranate.rsi
+  - type: Item
+    heldPrefix: produce
+  - type: Produce
+    seedId: pomegranate # TODO
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuicePomegranate # TODO
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+  - type: FoodSequenceElement # TODO
+    entries:
+      Burger: Apple
+      Taco: Apple
