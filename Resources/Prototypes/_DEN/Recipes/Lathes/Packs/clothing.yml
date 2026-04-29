@@ -1,7 +1,12 @@
 - type: latheRecipePack
   parent:
   - DenBeltsCosmeticJob
-  - DenGlovesColor
+  - DenEyesGlassesCosmetic
+  - DenEyesGlassesGar
+  - DenEyesMiscellaneous
+  - DenHandsGlovesColor
+  # - DenHandsRingsDecorated # indecisive...
+  - DenHandsRingsSimple
   - DenHatsColorSoft
   - DenShoesColor
   - DenUniformsClothesMate
@@ -140,6 +145,29 @@
 
 # Eyes
 
+- type: latheRecipePack
+  id: DenEyesGlassesCosmetic
+  recipes:
+  - ClothingEyesGlasses
+  - ClothingEyesGlassesJensen
+  - ClothingEyesGlassesJamjar
+  - ClothingEyesGlassesOutlawGlasses
+  - ClothingEyesGlassesCheapSunglasses
+  -
+
+- type: latheRecipePack
+  id: DenEyesGlassesGar
+  recipes:
+  - ClothingEyesGlassesGar
+  - ClothingEyesGlassesGarOrange
+  - ClothingEyesGlassesGarGiga
+
+- type: latheRecipePack
+  id: DenEyesMiscellaneous
+  recipes:
+  - ClothingEyesBlindfold
+  - ClothingEyesEyepatch
+
 # Mask
 
 # Neck
@@ -155,7 +183,7 @@
 # Hands
 
 - type: latheRecipePack
-  id: DenGlovesColor
+  id: DenHandsGlovesColor
   recipes:
   - ClothingHandsGlovesColorPurple
   - ClothingHandsGlovesColorRed
@@ -168,6 +196,20 @@
   - ClothingHandsGlovesColorOrange
   - ClothingHandsGlovesColorWhite
   - ClothingHandsGlovesColorBlack
+
+- type: latheRecipePack
+  id: DenHandsRingsSimple
+  recipes:
+  - GoldRing
+  - SilverRing
+
+- type: latheRecipePack
+  id: DenHandsRingsDecorated
+  recipes:
+  - GoldRingDiamond
+  - SilverRingDiamond
+  - GoldRingGem
+  - SilverRingGem
 
 # Shoes
 

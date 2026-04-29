@@ -8,6 +8,11 @@
   id: Colorable
   name: lathe-category-colorable
 
+# Clothing - glasses slot
+- type: latheCategory
+  id: Eyes
+  name: lathe-category-eyes
+
 # Clothing - hand slot
 - type: latheCategory
   id: Hands

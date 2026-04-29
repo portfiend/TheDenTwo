@@ -79,3 +79,52 @@
 # Non-job specific cosmetic gloves
 
 # Non-job specific cosmetic hand items
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: GoldRing
+  result: GoldRing
+  materials:
+    Gold: 25
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: SilverRing
+  result: SilverRing
+  materials:
+    Silver: 25
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: GoldRingDiamond
+  result: GoldRingDiamondPrinted
+  materials:
+    Gold: 25
+    Diamond: 100
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: SilverRingDiamond
+  result: SilverRingDiamondPrinted
+  materials:
+    Silver: 25
+    Diamond: 100
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: GoldRingGem
+  result: GoldRingGemPrinted
+  materials:
+    Gold: 25
+    Diamond: 100
+
+- type: latheRecipe
+  parent: BaseHandsRecipe
+  id: SilverRingGem
+  result: SilverRingGemPrinted
+  materials:
+    Silver: 25
+    Diamond: 100
+
+# TODO: maybe that feature from frontier that allows lathes to produce items at a lowered sale value?
+# then we replace this with the original prototypes
