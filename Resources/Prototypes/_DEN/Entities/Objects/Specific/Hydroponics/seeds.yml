@@ -2,6 +2,7 @@
   parent: SeedBase
   id: PomegranateSeeds
   name: packet of pomegranate seeds
+  description: A sticky, sweet symbol of fertility and abundance.
   components:
   - type: Seed
     seedId: pomegranate
