@@ -1,0 +1,9 @@
+- type: entity
+  parent: SeedBase
+  id: PomegranateSeeds
+  name: packet of pomegranate seeds
+  components:
+  - type: Seed
+    seedId: pomegranate
+  - type: Sprite
+    sprite: _DEN/Objects/Specific/Hydroponics/pomegranate.rsi
