@@ -5,6 +5,8 @@
   components:
   - type: IntervalPopupMessageStatusEffect
     interval: [45, 120]
+    visualType: Medium
+    recipients: Local
     messages:
     - reagent-effect-mildaphrodisiac-interval-1
     - reagent-effect-mildaphrodisiac-interval-2

@@ -68,7 +68,7 @@ public sealed partial class PopupMessageStatusEffectSystem : EntitySystem
             popupComp.Messages,
             popupComp.VisualType,
             popupComp.Method,
-            popupComp.Type);
+            popupComp.Recipients);
     }
 
     /// <summary>

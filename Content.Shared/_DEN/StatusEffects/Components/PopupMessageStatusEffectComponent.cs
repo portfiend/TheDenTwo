@@ -22,7 +22,7 @@ public abstract partial class PopupMessageStatusEffectComponent : Component
     /// Whether to just the entity we're affecting, or everyone around them.
     /// </summary>
     [DataField]
-    public PopupRecipients Type = PopupRecipients.Local;
+    public PopupRecipients Recipients = PopupRecipients.Local;
 
     /// <summary>
     /// Which popup API method to use.
