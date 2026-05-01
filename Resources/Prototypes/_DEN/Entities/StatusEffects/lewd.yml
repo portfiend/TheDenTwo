@@ -1,0 +1,16 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectMildAphrodisiac
+  name: mild aphrodisiac effect
+  components:
+  - type: IntervalPopupMessageStatusEffect
+    interval: [45, 120]
+    messages:
+    - reagent-effect-mildaphrodisiac-interval-1
+    - reagent-effect-mildaphrodisiac-interval-2
+    - reagent-effect-mildaphrodisiac-interval-3
+    - reagent-effect-mildaphrodisiac-interval-4
+    - reagent-effect-mildaphrodisiac-interval-5
+  - type: ExpiryPopupMessageStatusEffect
+    messages:
+    - reagent-effect-mildaphrodisiac-expired-1
