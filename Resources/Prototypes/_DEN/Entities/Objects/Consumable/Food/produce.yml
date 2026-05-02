@@ -30,7 +30,7 @@
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement # TODO
+  - type: FoodSequenceElement
     entries:
       Burger: PomegranateBurger
       Taco: Pomegranate
