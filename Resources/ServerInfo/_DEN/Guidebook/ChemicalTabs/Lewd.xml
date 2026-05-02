@@ -9,7 +9,8 @@ As per The Den's server rules on consent, [color=orange]do not expose other play
 ## Aphrodisiacs
 <GuideReagentGroupEmbed Group="Aphrodisiacs"/>
 
-## Other
+<!-- ## Other -->
+<!-- uncomment when we get other lewd reagents -->
 <GuideReagentGroupEmbed Group="Lewd"/>
 
 </Document>
