@@ -28,6 +28,7 @@
         - !type:ModifyStatusEffect
           effectProto: StatusEffectMildAphrodisiac
           type: Update
+          time: 10 # This is so it doesn't expire while you're metabolizing other things
         # Overdose at 50u: Drunkenness / vomiting.
         # Above this level, pomelustine is also flushed out of your system 5x as fast.
         # Each unit above 50u lasts 20 seconds, instead of 100 seconds.
@@ -35,6 +36,7 @@
         - !type:ModifyStatusEffect
           effectProto: StatusEffectMildAphrodisiacOverdose
           type: Update
+          time: 10 # This is so it doesn't expire while you're metabolizing other things
           conditions:
           - !type:ReagentCondition
             reagent: Pomelustine
