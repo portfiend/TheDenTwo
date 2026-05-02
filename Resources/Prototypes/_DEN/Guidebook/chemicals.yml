@@ -1,5 +1,5 @@
 - type: guideEntry
   id: Lewd
   name: guide-entry-lewd
-  text: "/ServerInfo/Guidebook/_DEN/ChemicalTabs/Lewd.xml"
+  text: "/ServerInfo/_DEN/Guidebook/ChemicalTabs/Lewd.xml"
   filterEnabled: True
