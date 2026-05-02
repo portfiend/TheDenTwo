@@ -32,5 +32,5 @@
     - Fruit
   - type: FoodSequenceElement # TODO
     entries:
-      Burger: Apple
-      Taco: Apple
+      Burger: PomegranateBurger
+      Taco: Pomegranate
