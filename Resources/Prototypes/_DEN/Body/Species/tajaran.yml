@@ -92,7 +92,7 @@
   components:
   - type: Speech
     speechSounds: Alto
-    speechVerb: Tajaran # TODO
+    speechVerb: Tajaran
     allowedEmotes: [] # TODO
   - type: TypingIndicator
     proto: default # TODO
