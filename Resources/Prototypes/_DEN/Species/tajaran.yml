@@ -1,0 +1,8 @@
+- type: species
+  id: Tajaran
+  name: species-name-tajaran # TODO
+  roundStart: true
+  prototype: MobReptilian # TODO
+  defaultSkinTone: "#c27c42"
+  dollPrototype: AppearanceReptilian # TODO
+  skinColoration: Hues
