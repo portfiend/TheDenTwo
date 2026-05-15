@@ -6,3 +6,20 @@
   defaultSkinTone: "#c27c42"
   dollPrototype: AppearanceTajaran
   skinColoration: Hues
+
+# Tajaran are a species of anthropomorphic cat-people.
+#
+# TODO: They have sensitive eyesight, allowing them to see in the dark (night vision) -
+# however, this also makes them especially vulnerable to flashes.
+#
+# They have the digestion of a carnivorous animal, allowing them to consume raw
+# meat safely - however, allicin (onions, garlic) and theobromine (coffee, chocolate, tea)
+# will poison them.
+#
+# TODO: Tajaran have a light step - their bare footsteps have no sounds, and they can
+# walk around barefoot without tripping mousetraps or hurting themselves on glass shards.
+#
+# Their unarmed attacks deal slash damage instead of blunt.
+# TODO: Their fur coats make them more resistant to the cold, but more vulnerable to heat.
+#
+# TODO: Tajaran are flexible enough to be stored in duffel bags.
