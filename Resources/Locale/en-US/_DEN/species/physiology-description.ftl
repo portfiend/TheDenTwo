@@ -18,7 +18,7 @@ physiology-description-species-base-vox = vox
 physiology-description-species-base-vulpkanin = vulpkanin
 
 ## den species
-# TODO
+physiology-description-species-base-tajaran = tajaran
 
 # SPECIES PREFIXES
 # TODO
