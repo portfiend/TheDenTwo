@@ -6,21 +6,25 @@
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
+      onlyGroupWhitelisted: false
     enum.HumanoidVisualLayers.FacialHair:
       limit: 1
       required: false
-    enum.HumanoidVisualLayers.Tail: # TODO: Default marking
+      onlyGroupWhitelisted: false
+    enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
+      default: [ TajaranTailRetro ]
     enum.HumanoidVisualLayers.Chest:
       limit: 4
       required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: true
-    enum.HumanoidVisualLayers.HeadTop: # TODO: Default marking
+    enum.HumanoidVisualLayers.HeadTop:
       limit: 4
-      required: false
+      required: true
+      default: [ TajaranEarsRetro ]
     enum.HumanoidVisualLayers.HeadSide:
       limit: 4
       required: false

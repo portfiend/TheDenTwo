@@ -1,0 +1,210 @@
+# === Parts ===
+
+# region Ears
+
+- type: marking
+  id: TajaranEarsRetro
+  bodyPart: HeadTop
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: ears
+
+- type: marking
+  id: TajaranEarsRetroNear
+  bodyPart: HeadTop
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: ears_near
+
+- type: marking
+  id: TajaranEarsSeparate
+  bodyPart: HeadTop
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: outears
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: inears
+
+- type: marking
+  id: TajaranEarsSeparateNear
+  bodyPart: HeadTop
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: outears_near
+  - sprite: _EE/Mobs/Customization/Tajaran/ears.rsi
+    state: inears_near
+
+# endregion Ears
+# region Tails
+
+- type: marking
+  id: TajaranTailRetro
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail
+
+- type: marking
+  id: TajaranTailRetroRings
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_rings
+
+- type: marking
+  id: TajaranTailLeopard
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Tajaran/leotail.rsi
+    state: leopard_primary
+  - sprite: _DEN/Mobs/Customization/Tajaran/leotail.rsi
+    state: leopard_secondary
+
+### Animated
+
+- type: marking
+  id: TajaranTailRetroAnimated
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_anim
+
+- type: marking
+  id: TajaranTailRetroRingsAnimated
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_anim
+  - sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail_anim_rings
+
+- type: marking
+  id: TajaranTailLeopardAnimated
+  bodyPart: Tail
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Tajaran/leotail.rsi
+    state: leotailanim_primary
+  - sprite: _DEN/Mobs/Customization/Tajaran/leotail.rsi
+    state: leotailanim_secondary
+
+# endregion Tails
+
+# === Overlays ===
+
+# region Head
+
+- type: marking
+  id: TajaranHeadNose
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: nose
+
+- type: marking
+  id: TajaranHeadMuzzle
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: muzzle
+
+- type: marking
+  id: TajaranHeadMuzzleLarge
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: muzzle_large
+
+- type: marking
+  id: TajaranHeadPoints
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: points
+
+- type: marking
+  id: TajaranHeadTiger
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: tiger_face
+
+- type: marking
+  id: TajaranHeadTigerAlt
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: tiger_head
+
+- type: marking
+  id: TajaranHeadPatches
+  bodyPart: Head
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/head.rsi
+    state: patch
+
+# endregion Head
+# region Torso
+
+- type: marking
+  id: TajaranTorsoBelly
+  bodyPart: Chest
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/torso.rsi
+    state: belly
+
+- type: marking
+  id: TajaranTorsoCrest
+  bodyPart: Chest
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/torso.rsi
+    state: crest
+
+- type: marking
+  id: TajaranTorsoFullBelly
+  bodyPart: Chest
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/torso.rsi
+    state: fullbelly
+
+# endregion Torso
+# region Limbs
+
+- type: marking
+  id: TajaranOverlayPatch # TODO split
+  bodyPart: Chest
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/overlays.rsi
+    state: patch
+
+- type: marking
+  id: TajaranOverlayPoints # TODO split
+  bodyPart: Chest
+  groupWhitelist: [Tajaran]
+  sprites:
+  - sprite: _EE/Mobs/Customization/Tajaran/overlays.rsi
+    state: points
+
+# endregion Limbs
