@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._DEN.Movement.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -64,6 +65,7 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<RelayInputMoverComponent> RelayQuery;
     protected EntityQuery<PullableComponent> PullableQuery;
     protected EntityQuery<TransformComponent> XformQuery;
+    protected EntityQuery<BarestepModifierComponent> BarestepModifierQuery; // DEN: Barestep modifiers
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
@@ -100,6 +102,7 @@ public abstract partial class SharedMoverController : VirtualController
         FTLQuery = GetEntityQuery<FTLComponent>();
         PilotQuery = GetEntityQuery<PilotComponent>();
         PreventPilotQuery = GetEntityQuery<PreventPilotComponent>();
+        BarestepModifierQuery = GetEntityQuery<BarestepModifierComponent>(); // DEN: Barestep modifiers
 
         SubscribeLocalEvent<MovementSpeedModifierComponent, TileFrictionEvent>(OnTileFriction);
         SubscribeLocalEvent<InputMoverComponent, ComponentStartup>(OnMoverStartup);
@@ -574,6 +577,14 @@ public abstract partial class SharedMoverController : VirtualController
             sound = modifier.FootstepSoundCollection;
             return sound != null;
         }
+
+        // DEN start: Barestep modifiers for shoeless walking
+        if (shoes == null && BarestepModifierQuery.TryComp(uid, out var barestepModifier))
+        {
+            sound = barestepModifier.FootstepSoundCollection;
+            return sound != null;
+        }
+        // DEN end
 
         return TryGetFootstepSound(uid, xform, shoes != null, out sound, tileDef: tileDef);
     }
