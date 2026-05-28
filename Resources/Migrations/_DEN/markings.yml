@@ -1,0 +1,8 @@
+# This dictionary maps "old" marking IDs to "new" marking IDs.
+# When a player imports a character profile, all old markings will be translated to use these IDs.
+
+TajaranLeoTailNoAnim: TajaranTailLeopard
+
+TajaranTailAnim: TajaranTailRetroAnimated
+TajaranTailAnimRings: TajaranTailRetroRingsAnimated
+TajaranLeoTailAnim: TajaranTailLeopardAnimated
