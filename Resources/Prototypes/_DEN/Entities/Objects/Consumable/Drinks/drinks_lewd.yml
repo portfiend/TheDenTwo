@@ -6,7 +6,7 @@
   suffix: pomelustine
   components:
   - type: Solution
-    solutions:
+    solution:
       reagents:
       - ReagentId: Pomelustine
         Quantity: 30
