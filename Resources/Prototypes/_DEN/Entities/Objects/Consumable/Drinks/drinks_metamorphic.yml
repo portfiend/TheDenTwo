@@ -5,12 +5,10 @@
   id: DrinkPomegranateJuiceGlass
   suffix: pomegranate juice
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: JuicePomegranate
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: JuicePomegranate
+        Quantity: 30
 
 # Cocktails

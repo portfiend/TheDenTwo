@@ -12,9 +12,9 @@ namespace Content.Shared._DEN.StatusEffects.EntitySystems;
 /// </summary>
 public sealed partial class PopupMessageStatusEffectSystem : EntitySystem
 {
-    [Dependency] private readonly PopupMessageEntityEffectSystem _popupEffect = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private PopupMessageEntityEffectSystem _popupEffect = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

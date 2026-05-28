@@ -5,12 +5,10 @@
   id: DrinkPomelustineGlass
   suffix: pomelustine
   components:
-  - type: SolutionContainerManager
+  - type: Solution
     solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Pomelustine
-          Quantity: 30
+      reagents:
+      - ReagentId: Pomelustine
+        Quantity: 30
 
 # Others.
