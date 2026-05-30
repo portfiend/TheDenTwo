@@ -5,9 +5,32 @@
   setPreference: true
   objective: roles-antag-thief-objective
   guides: [ Thieves ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 1h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 1h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 1h
+  # End DEN
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Thief
+  prefRoles:
+  - Thief
+  allowNonHumans: true
+  multiAntagSetting: NotExclusive
+  startingGear: ThiefGear
+  components:
+  - type: Pacified
+  - type: Thieving
+    stripTimeReduction: 2
+    stealthy: true
+  mindRoles:
+  - MindRoleThief
+  briefing:
+    sound: "/Audio/Misc/thief_greeting.ogg"
 
 - type: startingGear
   id: ThiefGear

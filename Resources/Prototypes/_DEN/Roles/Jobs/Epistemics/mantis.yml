@@ -1,0 +1,37 @@
+- type: job
+  id: Mantis
+  name: job-name-mantis
+  description: job-description-mantis
+  playTimeTracker: JobMantis
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 20h
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 8h
+  startingGear: MantisGear
+  supervisors: job-supervisors-rd # change to job-supervisors-Epi when Mystagogue is added if we go that path
+  access:
+  - Mantis
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: MantisGear
+  equipment:
+    id: RnDPDA
+    ears: ClothingHeadsetRD
+  storage:
+    back:
+    - Flash
+
+#- type: chameleonOutfit @
+#  id: MantisChameleonOutfit
+#  job: Mantis
+#  equipment:
+#    head:
+#    eyes:
+#    mask:
+#    neck:
+#    outerClothing:
+#    gloves:

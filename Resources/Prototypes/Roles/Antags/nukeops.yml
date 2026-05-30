@@ -4,9 +4,14 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  # End DEN
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -16,11 +21,19 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
-  - !type:RoleTimeRequirement
-    role: JobChemist
-    time: 3h
+  # Begin DEN: Use PlayerRequirements
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  # - !type:RoleTimeRequirement
+  #   role: JobChemist
+  #   time: 3h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  - !type:PlayerJobPlaytimeRequirement
+    job: Chemist
+    minTime: 3h
+  # End DEN
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -29,14 +42,96 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
-  - !type:DepartmentTimeRequirement
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 5h
+  # - !type:DepartmentTimeRequirement
+  #   department: Security
+  #   time: 5h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 5h
+  - !type:PlayerDepartmentPlaytimeRequirement
     department: Security
-    time: 5h
+    minTime: 5h
   # should be changed to nukie playtime when thats tracked (wyci)
+  # End DEN
   guides: [ NuclearOperatives ]
+
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseNukeops
+  prefRoles:
+  - GenericTeamAntagonist # For antag ban purposes
+  roleLoadout:
+  - RoleSurvivalNukie
+  components:
+  - type: NukeOperative
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsCommander
+  prefRoles:
+  - NukeopsCommander
+  spawnerPrototype: SpawnPointNukeopsCommander
+  startingGear: SyndicateCommanderGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateElite
+    nameFormat: name-format-nukie-commander
+  mindRoles:
+  - MindRoleNukeopsCommander
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsMedic
+  prefRoles:
+  - NukeopsMedic
+  spawnerPrototype: SpawnPointNukeopsMedic
+  startingGear: SyndicateOperativeMedicFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-agent
+  mindRoles:
+  - MindRoleNukeopsMedic
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: NukeopsOperative
+  prefRoles:
+  - Nukeops
+  spawnerPrototype: SpawnPointNukeopsOperative
+  startingGear: SyndicateOperativeGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-operator
+  mindRoles:
+  - MindRoleNukeops
+
+- type: antagSpecifier
+  parent: BaseNukeops
+  id: LoneOp
+  spawnerPrototype: SpawnPointLoneNukeOperative
+  pickPlayer: false
+  startingGear: SyndicateLoneOperativeGearFull
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  mindRoles:
+  - MindRoleLoneops
 
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplink

@@ -5,12 +5,17 @@
   name: job-name-station-ai
   description: job-description-station-ai
   playTimeTracker: JobStationAi
-  requirements:
-  - !type:RoleTimeRequirement
-    role: JobBorg
-    time: 5h
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  # - !type:RoleTimeRequirement
+  #   role: JobBorg
+  #   time: 5h
+  playerRequirements:
+  - !type:PlayerJobPlaytimeRequirement
+    job: Borg
+    minTime: 5h
+  # End DEN
   weight: 10
-  canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
@@ -22,10 +27,14 @@
   name: job-name-borg
   description: job-description-borg
   playTimeTracker: JobBorg
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
-  canBeAntag: false
+  # Begin DEN: Use PlayerRequirements
+  # requirements:
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 10h
+  playerRequirements:
+  - !type:PlayerOverallPlaytimeRequirement
+    minTime: 10h
+  # End DEN
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery
