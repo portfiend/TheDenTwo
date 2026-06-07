@@ -1,7 +1,7 @@
 - type: guideEntry
   id: Species
   name: guide-entry-species
-  text: "/ServerInfo/_MACRO/Guidebook/Mobs/Species.xml" #macro - redirected to our directory
+  text: "/ServerInfo/_DEN/Guidebook/Mobs/Species.xml" # DEN - use den directory
   children:
   # - Ant # macro - uncomment to enable
   # - Allulalo # macro - uncomment to enable
@@ -16,6 +16,7 @@
   - Moth
   - Reptilian
   - SlimePerson
+  - Tajaran # den
   - Vox
   - Vulpkanin
 
