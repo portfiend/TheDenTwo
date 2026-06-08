@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._DEN.Flash.Components;
+using Content.Shared._DEN.Flash.EntitySystems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Clothing.Components;
@@ -64,8 +64,6 @@ public abstract partial class SharedFlashSystem : EntitySystem
         SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
         SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
-
-        SubscribeLocalEvent<FlashedModifierComponent, FlashModifierEvent>(OnFlashModified); // DEN - Flash modifiers
     }
 
     private void OnFlashMeleeHit(Entity<FlashComponent> ent, ref MeleeHitEvent args)

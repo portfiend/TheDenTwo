@@ -1,9 +1,16 @@
 using Content.Shared._DEN.Flash.Components;
 
-namespace Content.Shared.Flash;
+namespace Content.Shared._DEN.Flash.EntitySystems;
 
-public abstract partial class SharedFlashSystem
+public sealed partial class SharedFlashModifierSystem : EntitySystem
 {
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<FlashedModifierComponent, FlashModifierEvent>(OnFlashModified);
+    }
+
     /// <summary>
     ///     Modifies the stats of an incoming flash on this entity.
     /// </summary>
