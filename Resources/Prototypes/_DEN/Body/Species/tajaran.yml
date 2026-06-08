@@ -117,10 +117,12 @@
   - type: ProtectedFromStepTriggers # Can step on glass shards and mousetraps safely.
   - type: BarestepModifier # Silent when walking without shoes.
     footstepSoundCollection: null
-  # DEN start
+  - type: FlashedModifier # Tajaran are sensitive to flashes.
+    durationMod: 1.5 # 50% longer duration
+    stunMod: 1.5 # 50% longer duration
+    speedMod: 0.8 # 20% slower speed - only if not stunned.
   - type: PhysiologyDescription
     baseLabel: physiology-description-species-base-tajaran
-  # End DEN
 
 - type: entity
   parent: OrganBase

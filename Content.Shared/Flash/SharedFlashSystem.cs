@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._DEN.Flash.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Clothing.Components;
@@ -63,6 +64,8 @@ public abstract partial class SharedFlashSystem : EntitySystem
         SubscribeLocalEvent<PermanentBlindnessComponent, FlashAttemptEvent>(OnPermanentBlindnessFlashAttempt);
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
         SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
+
+        SubscribeLocalEvent<FlashedModifierComponent, FlashModifierEvent>(OnFlashModified); // DEN - Flash modifiers
     }
 
     private void OnFlashMeleeHit(Entity<FlashComponent> ent, ref MeleeHitEvent args)
@@ -184,6 +187,16 @@ public abstract partial class SharedFlashSystem : EntitySystem
 
         if (attempt.Cancelled)
             return;
+
+        // Begin DEN - Flash modifiers
+        var flashMod = new FlashModifierEvent(target, user, used);
+        RaiseLocalEvent(target, ref flashMod);
+
+        flashDuration *= Math.Max(flashMod.FlashDurationModifier, 0.0f);
+        stunDuration *= Math.Max(flashMod.StunDurationModifier, 0.0f);
+        slowTo *= flashMod.SpeedModifier;
+        slowTo = Math.Clamp(slowTo, 0.0f, 1.0f); // Should not be faster than base speed, or negative
+        // End DEN
 
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
         if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
