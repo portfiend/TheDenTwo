@@ -121,6 +121,9 @@
     durationMod: 1.5 # 50% longer duration
     stunMod: 1.5 # 50% longer duration
     speedMod: 0.8 # 20% slower speed - only if not stunned.
+  - type: BlindedByFlashing # Tajaran are sometimes blinded by flashes.
+    damage: 1
+    chance: 0.35
   - type: PhysiologyDescription
     baseLabel: physiology-description-species-base-tajaran
 
