@@ -4,9 +4,9 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Flash;
 using Robust.Shared.Random;
 
-namespace Content.Shared._DEN.Flash.EntitySystems;
+namespace Content.Server._DEN.Flash.EntitySystems;
 
-public sealed partial class SharedBlindedByFlashingSystem : EntitySystem
+public sealed partial class BlindedByFlashingSystem : EntitySystem
 {
     [Dependency] private BlindableSystem _blindable = default!;
     [Dependency] private IRobustRandom _random = default!;
