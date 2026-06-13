@@ -1,0 +1,47 @@
+// Night vision shader.
+// "Grayscale", but curved so that mid-range colors are lighter.
+// Light colors and "close-to-black" are less affected.
+// Tint and noise are added as well.
+
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+
+// Color ranges are curved based on value, to boost dark colors
+// Lower bound of curve - when adjustment "starts"
+uniform highp float low_curve = 0.2;
+// Midpoint of curve - when the adjustment is at its highest
+uniform highp float mid_curve = 0.5;
+// Upper bound of surve - when adjustment "ends"
+uniform highp float high_curve = 0.8;
+// How much "boost" the curved grays get
+uniform highp float curve_amount = 0.4;
+
+// Screen tint color
+uniform highp vec4 tint_color = vec4(1.0);
+
+void fragment() {
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp vec3 gray = vec3(zGrayscale(color.rgb));
+
+    // curve values based on lightness
+    highp vec3 curvedColor = curve_gray(gray);
+
+    // apply tint to colors
+    highp vec4 tintedColor = vec4(curvedColor * tint_color.rgb, color.a);
+
+    COLOR = tintedColor;
+}
+
+highp vec3 curve_gray(highp vec3 c)
+{
+    highp float value = c.r;
+
+    highp float lowBoost = smoothstep(low_curve, mid_curve, value);
+    highp float highBoost = smoothstep(mid_curve, high_curve, value);
+    highp float boost = lowBoost * (1.0 - highBoost);
+    highp float curved = c.r + (boost * curve_amount);
+    curved = clamp(curved, 0.0, 1.0);
+
+    return vec3(curved);
+}
