@@ -1,6 +1,4 @@
-using Content.Shared._DEN.Overlays.Components;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -8,7 +6,7 @@ namespace Content.Client._DEN.Overlays;
 
 public sealed partial class NightVisionOverlay : Overlay
 {
-    private static readonly ProtoId<ShaderPrototype> Shader = "NightVision";
+    private static readonly ProtoId<ShaderPrototype> ShaderId = "NightVision";
 
     [Dependency] private IPrototypeManager _prototypeManager = default!;
 
@@ -19,7 +17,7 @@ public sealed partial class NightVisionOverlay : Overlay
     public NightVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _nightVisionShader = _prototypeManager.Index(Shader).InstanceUnique();
+        _nightVisionShader = _prototypeManager.Index(ShaderId).InstanceUnique();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -42,5 +40,20 @@ public sealed partial class NightVisionOverlay : Overlay
     public void SetColorTint(Color tint)
     {
         _nightVisionShader.SetParameter("tint_color", tint);
+    }
+
+    public void SetCurve(float? lowCurve, float? midCurve, float? highCurve, float? curveAmount)
+    {
+        if (lowCurve != null)
+            _nightVisionShader.SetParameter("low_curve", lowCurve.Value);
+
+        if (midCurve != null)
+            _nightVisionShader.SetParameter("mid_curve", midCurve.Value);
+
+        if (highCurve != null)
+            _nightVisionShader.SetParameter("high_curve", highCurve.Value);
+
+        if (curveAmount != null)
+            _nightVisionShader.SetParameter("curve_amount", curveAmount.Value);
     }
 }

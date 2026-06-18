@@ -31,6 +31,7 @@ public sealed partial class NightVisionOverlaySystem : EquipmentHudSystem<NightV
         if (comps.TryFirstOrDefault(out var comp))
         {
             _overlay.SetColorTint(comp.TintColor);
+            _overlay.SetCurve(comp.LowCurve, comp.MidCurve, comp.HighCurve, comp.CurveAmount);
             return;
         }
 

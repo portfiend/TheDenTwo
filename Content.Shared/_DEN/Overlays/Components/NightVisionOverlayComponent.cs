@@ -16,4 +16,28 @@ public sealed partial class NightVisionOverlayComponent : Component
     /// </summary>
     [DataField]
     public Color TintColor = DefaultTintColor;
+
+    /// <summary>
+    ///     The minimum bound of lightness that this shader will begin rebalancing values.
+    /// </summary>
+    [DataField]
+    public float? LowCurve = null;
+
+    /// <summary>
+    ///     The point at which the "curve" is highest - what lightness increases the curve the most.
+    /// </summary>
+    [DataField]
+    public float? MidCurve = null;
+
+    /// <summary>
+    ///     The upper bound of lightness that this shader will begin rebalancing values.
+    /// </summary>
+    [DataField]
+    public float? HighCurve = null;
+
+    /// <summary>
+    ///     The amount that lightness values will be increased at its peak.
+    /// </summary>
+    [DataField]
+    public float? CurveAmount = null;
 }
