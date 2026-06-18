@@ -1,7 +1,6 @@
 // Night vision shader.
 // "Grayscale", but curved so that mid-range colors are lighter.
 // Light colors and "close-to-black" are less affected.
-// Tint and noise are added as well.
 
 light_mode unshaded;
 
@@ -9,13 +8,13 @@ uniform sampler2D SCREEN_TEXTURE;
 
 // Color ranges are curved based on value, to boost dark colors
 // Lower bound of curve - when adjustment "starts"
-uniform highp float low_curve = 0.2;
+uniform highp float low_curve = 0.08;
 // Midpoint of curve - when the adjustment is at its highest
-uniform highp float mid_curve = 0.5;
+uniform highp float mid_curve = 0.2;
 // Upper bound of surve - when adjustment "ends"
-uniform highp float high_curve = 0.8;
+uniform highp float high_curve = 0.6;
 // How much "boost" the curved grays get
-uniform highp float curve_amount = 0.4;
+uniform highp float curve_amount = 0.3;
 
 void fragment() {
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
