@@ -25,7 +25,7 @@ public sealed partial class NightVisionOverlaySystem : EquipmentHudSystem<NightV
         base.UpdateInternal(component);
 
         _overlayMan.AddOverlay(_overlay);
-        _lightManager.Enabled = false;
+        _lightManager.DrawLighting = false;
 
         var comps = component.Components;
         if (comps.TryFirstOrDefault(out var comp))
@@ -42,6 +42,6 @@ public sealed partial class NightVisionOverlaySystem : EquipmentHudSystem<NightV
         base.DeactivateInternal();
 
         _overlayMan.RemoveOverlay(_overlay);
-        _lightManager.Enabled = true;
+        _lightManager.DrawLighting = true;
     }
 }
