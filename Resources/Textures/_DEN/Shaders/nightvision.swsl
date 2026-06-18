@@ -17,9 +17,6 @@ uniform highp float high_curve = 0.8;
 // How much "boost" the curved grays get
 uniform highp float curve_amount = 0.4;
 
-// Screen tint color
-uniform highp vec4 tint_color = vec4(1.0);
-
 void fragment() {
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
     highp vec3 gray = vec3(zGrayscale(color.rgb));
@@ -27,10 +24,7 @@ void fragment() {
     // curve values based on lightness
     highp vec3 curvedColor = curve_gray(gray);
 
-    // apply tint to colors
-    highp vec4 tintedColor = vec4(curvedColor * tint_color.rgb, color.a);
-
-    COLOR = tintedColor;
+    COLOR = vec4(curvedColor, color.a);
 }
 
 highp vec3 curve_gray(highp vec3 c)

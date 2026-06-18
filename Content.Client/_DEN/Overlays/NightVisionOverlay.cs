@@ -14,6 +14,8 @@ public sealed partial class NightVisionOverlay : Overlay
     public override bool RequestScreenTexture => true;
     private readonly ShaderInstance _nightVisionShader;
 
+    private Color _tintColor = Color.White;
+
     public NightVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
@@ -29,7 +31,7 @@ public sealed partial class NightVisionOverlay : Overlay
 
         var handle = args.WorldHandle;
         handle.UseShader(_nightVisionShader);
-        handle.DrawRect(args.WorldBounds, Color.White);
+        handle.DrawRect(args.WorldBounds, _tintColor);
         handle.UseShader(null);
     }
 
@@ -39,7 +41,7 @@ public sealed partial class NightVisionOverlay : Overlay
     /// <param name="tint">The tint color.</param>
     public void SetColorTint(Color tint)
     {
-        _nightVisionShader.SetParameter("tint_color", tint);
+        _tintColor = tint;
     }
 
     public void SetCurve(float? lowCurve, float? midCurve, float? highCurve, float? curveAmount)
