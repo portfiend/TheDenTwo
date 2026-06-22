@@ -10,9 +10,21 @@ namespace Content.Shared._DEN.Body.Systems;
 [RegisterComponent, Access(typeof(SharedBloodstreamSystem))]
 public sealed partial class BloodExaminerComponent : Component
 {
+    /// <summary>
+    ///     Examine text for the target. Has two variables: "$target" and "$blood".
+    /// </summary>
+    /// <example>
+    ///     You can smell {POSS-ADJ($target)} {$blood}.
+    /// </example>
     [DataField]
     public LocId ExamineText = "blood-examiner-component-examine";
 
+    /// <summary>
+    ///     The word tacked onto the end of blood reagent list if it doesn't end in "blood".
+    /// </summary>
+    /// <example>
+    ///     You can smell their sugar blood.
+    /// </example>
     [DataField]
     public LocId BloodSuffix = "blood-examiner-component-blood-suffix";
 }
