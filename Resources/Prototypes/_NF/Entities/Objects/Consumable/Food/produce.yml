@@ -7,13 +7,11 @@
   - type: FlavorProfile
     flavors:
     - spices
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Everyspice
-          Quantity: 5
+  - type: Solution # DEN - Update for solutions refactor
+    solution:
+      reagents:
+      - ReagentId: Everyspice
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
     state: produce
@@ -36,13 +34,11 @@
   - type: FlavorProfile
     flavors:
     - peppery
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Blackpepper
-          Quantity: 5
+  - type: Solution # DEN - Update for solutions refactor
+    solution:
+      reagents:
+      - ReagentId: Blackpepper
+        Quantity: 5
   - type: Sprite
     sprite: _NF/Objects/Specific/Hydroponics/everyspice.rsi
     state: produce-roasted
