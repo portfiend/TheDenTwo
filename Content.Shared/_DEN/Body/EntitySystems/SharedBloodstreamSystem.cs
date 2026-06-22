@@ -14,27 +14,40 @@ public abstract partial class SharedBloodstreamSystem
     private void OnExamined(Entity<BloodstreamComponent> target, ref ExaminedEvent args)
     {
         if (TryComp<BloodExaminerComponent>(args.Examiner, out var bloodExaminer))
-            BloodExaminerExamined((args.Examiner, bloodExaminer), target, ref args);
+            ExamineBlood((args.Examiner, bloodExaminer), target, ref args);
     }
 
-    private void BloodExaminerExamined(Entity<BloodExaminerComponent> examiner,
+    /// <summary>
+    ///     Adds examine text to the tooltip of this entity for bloodstream contents.
+    /// </summary>
+    /// <param name="examiner">The entity examining the bloodstream.</param>
+    /// <param name="target">The target with a bloodstream.</param>
+    private void ExamineBlood(Entity<BloodExaminerComponent> examiner,
         Entity<BloodstreamComponent> target,
         ref ExaminedEvent args)
     {
+        // Can't examine your own. Noseblindness or something
         if (examiner.Owner == target.Owner)
             return;
 
+        // Smelling range :)
         if (!_bloodDrinker.IsInBloodDrinkingRange(examiner.Owner, target.Owner))
             return;
 
         var bloodSuffix = Loc.GetString(examiner.Comp.BloodSuffix);
         var bloodNames = LocalizeBloodReagentNames(target, bloodSuffix);
-        var bloodText = ContentLocalizationManager.FormatList(bloodNames);
+        var bloodText = ContentLocalizationManager.FormatList(bloodNames); // "A, B, and C blood"
 
         var examineText = Loc.GetString(examiner.Comp.ExamineText, ("target", target), ("blood", bloodText));
         args.PushMarkup(examineText);
     }
 
+    /// <summary>
+    ///     Gets a list of localized names for reagents composing this entity's bloodstream.
+    /// </summary>
+    /// <param name="ent">The entity with a bloodstream.</param>
+    /// <param name="suffix">The word at the end of a "sensible" blood type - e.g. "blood" for "insect blood".</param>
+    /// <returns>A list of localized names for bloodstream reagents.</returns>
     private List<string> LocalizeBloodReagentNames(Entity<BloodstreamComponent> ent, string suffix)
     {
         var reference = ent.Comp.BloodReferenceSolution;
