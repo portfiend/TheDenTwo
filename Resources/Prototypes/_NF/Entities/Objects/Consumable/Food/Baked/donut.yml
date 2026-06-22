@@ -9,14 +9,13 @@
     - sweet
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/donut.rsi
-  - type: Solution # DEN - update for solutions refactor
-    solutions:
-      maxVol: 5
+  - type: Solution # DEN: Updated solution
+    solution:
       reagents:
       - ReagentId: Nutriment
-        Quantity: 2
-      - ReagentId: UncookedAnimalProteins # DEN - change to uncooked proteins
-        Quantity: 1
+        Quantity: 10
+      - ReagentId: Butter
+        Quantity: 2.5
   # - type: DeepFrySpawn # DEN comment - we don't have this
   #   cycles: 2
   #   output: FoodDonutPlain

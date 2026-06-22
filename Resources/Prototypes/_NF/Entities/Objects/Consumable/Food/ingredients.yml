@@ -14,6 +14,13 @@
   - type: Construction
     graph: Pizza
     node: flat-butter
+  - type: Solution # DEN: Updated solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Butter
+        Quantity: 15
 
 - type: entity
   parent: FoodDoughFlat
@@ -28,5 +35,12 @@
     graph: Pizza
     node: pastry
   - type: SliceableFood
-    count: 3
+    count: 6
     slice: FoodDoughPastryBaseRaw
+  - type: Solution # DEN: Updated solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 60
+      - ReagentId: Butter
+        Quantity: 15

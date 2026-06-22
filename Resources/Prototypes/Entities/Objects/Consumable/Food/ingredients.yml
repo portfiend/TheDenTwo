@@ -566,6 +566,13 @@
     graph: NFDonut
     node: start
     defaultTarget: donut # DEN - tooltip hint
+  - type: Solution # DEN: Updated solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Butter
+        Quantity: 2.5
 
 - type: entity
   name: pastry base
