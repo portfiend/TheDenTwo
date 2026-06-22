@@ -9,7 +9,7 @@ namespace Content.Shared.Body.Systems;
 
 public abstract partial class SharedBloodstreamSystem
 {
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
 
     private void OnExamined(Entity<BloodstreamComponent> target, ref ExaminedEvent args)
     {
