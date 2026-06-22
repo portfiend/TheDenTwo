@@ -35,25 +35,21 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         SubscribeLocalEvent<BodyComponent, TryDrinkBloodEvent>(_body.RelayEvent);
 
         // Subscriptions
-        SubscribeLocalEvent<BloodstreamComponent, GetVerbsEvent<AlternativeVerb>>(OnGetBloodstreamVerbs);
         SubscribeLocalEvent<StomachComponent, BodyRelayedEvent<TryDrinkBloodEvent>>(OnBloodTransferred);
     }
 
-    private void OnGetBloodstreamVerbs(Entity<BloodstreamComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        var user = args.User;
-
-        if (ent.Owner == user || !args.CanInteract || !args.CanAccess)
-            return;
-
-        if (TryComp<BloodDrinkerComponent>(user, out var drinker))
-            AddBloodDrinkerVerbs((user, drinker), ent.AsNullable(), ref args);
-    }
-
-    private void AddBloodDrinkerVerbs(Entity<BloodDrinkerComponent?> ent,
+    /// <summary>
+    ///     Add blood drinking-related verbs to this entity.
+    /// </summary>
+    /// <param name="ent">The drinkerrr.</param>
+    /// <param name="target">The target entity to get verbs for.</param>
+    public void AddBloodDrinkerVerbs(Entity<BloodDrinkerComponent?> ent,
         Entity<BloodstreamComponent?> target,
         ref GetVerbsEvent<AlternativeVerb> args)
     {
+        if (ent.Owner == args.User || !args.CanInteract || !args.CanAccess)
+            return;
+
         if (!IsInBloodDrinkingRange(ent, target))
             return;
 

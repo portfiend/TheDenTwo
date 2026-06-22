@@ -57,7 +57,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BloodstreamComponent, MetabolismExclusionEvent>(OnMetabolismExclusion);
 
-        SubscribeLocalEvent<BloodstreamComponent, ExaminedEvent>(OnExamined); // DEN
+        InitializeBloodDrinkerEvents(); // DEN - Blood drinker system
     }
 
     public override void Update(float frameTime)

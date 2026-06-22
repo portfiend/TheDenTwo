@@ -1,15 +1,31 @@
 using System.Linq;
+using Content.Shared._DEN.Body.Components;
 using Content.Shared._DEN.Body.EntitySystems;
 using Content.Shared._DEN.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
 using Content.Shared.Localizations;
+using Content.Shared.Verbs;
 
 namespace Content.Shared.Body.Systems;
 
 public abstract partial class SharedBloodstreamSystem
 {
     [Dependency] private SharedBloodDrinkerSystem _bloodDrinker = default!;
+
+    private void InitializeBloodDrinkerEvents()
+    {
+        SubscribeLocalEvent<BloodstreamComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<BloodstreamComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+    }
+
+    private void OnGetVerbs(Entity<BloodstreamComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        var user = args.User;
+
+        if (TryComp<BloodDrinkerComponent>(user, out var drinker))
+            _bloodDrinker.AddBloodDrinkerVerbs((user, drinker), ent.AsNullable(), ref args);
+    }
 
     private void OnExamined(Entity<BloodstreamComponent> target, ref ExaminedEvent args)
     {
