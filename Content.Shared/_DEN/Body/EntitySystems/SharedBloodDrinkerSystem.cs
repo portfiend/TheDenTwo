@@ -57,6 +57,13 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             args.Verbs.Add(verb);
     }
 
+    /// <summary>
+    ///     Attempt to retrieve the verb for drinking a target entity's blood.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    /// <param name="target">The target entity to drink from.</param>
+    /// <param name="verb">The verb, if successfully retrieved.</param>
+    /// <returns>Whether or not this operation was successful.</returns>
     private bool TryGetBloodDrinkerVerb(Entity<BloodDrinkerComponent?> ent,
         Entity<BloodstreamComponent?> target,
         [NotNullWhen(true)] out AlternativeVerb? verb)
