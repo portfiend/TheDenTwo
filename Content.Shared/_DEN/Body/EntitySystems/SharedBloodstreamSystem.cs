@@ -1,15 +1,15 @@
 using System.Linq;
+using Content.Shared._DEN.Body.EntitySystems;
 using Content.Shared._DEN.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Examine;
-using Content.Shared.Interaction;
 using Content.Shared.Localizations;
 
 namespace Content.Shared.Body.Systems;
 
 public abstract partial class SharedBloodstreamSystem
 {
-    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedBloodDrinkerSystem _bloodDrinker = default!;
 
     private void OnExamined(Entity<BloodstreamComponent> target, ref ExaminedEvent args)
     {
@@ -24,8 +24,7 @@ public abstract partial class SharedBloodstreamSystem
         if (examiner.Owner == target.Owner)
             return;
 
-        // Blood drinker range.
-        if (!_interactionSystem.InRangeUnobstructed(examiner.Owner, target.Owner))
+        if (!_bloodDrinker.IsInBloodDrinkingRange(examiner.Owner, target.Owner))
             return;
 
         var bloodSuffix = Loc.GetString(examiner.Comp.BloodSuffix);
