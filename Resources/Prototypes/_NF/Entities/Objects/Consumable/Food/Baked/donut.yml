@@ -1,4 +1,4 @@
-- type: entity
+- type: entity # DEN - moved all of this to a shared parent for organization
   abstract: true
   parent: FoodDonutBase
   id: FoodDonutUncookedBase
