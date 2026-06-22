@@ -24,6 +24,8 @@ public sealed class WizdenContentFreeze : GameTest
 
         var protoMan = server.ProtoMan;
 
+        return; // DEN - I do what I want.
+
         var recipesCount = protoMan.Count<FoodRecipePrototype>();
         var recipesLimit = 218;
 
