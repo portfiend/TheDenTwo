@@ -16,27 +16,28 @@ public sealed class WizdenContentFreeze : GameTest
     ///
     /// https://github.com/space-wizards/space-station-14/issues/8524
     /// </summary>
-    [Test]
-    public async Task MicrowaveRecipesFreezeTest()
-    {
-        var pair = Pair;
-        var server = pair.Server;
 
-        var protoMan = server.ProtoMan;
+    // begin DEN comment: feel free to add recipes smiles.
+    // [Test]
+    // public async Task MicrowaveRecipesFreezeTest()
+    // {
+    //     var pair = Pair;
+    //     var server = pair.Server;
 
-        return; // DEN - I do what I want.
+    //     var protoMan = server.ProtoMan;
 
-        var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 218;
+    //     var recipesCount = protoMan.Count<FoodRecipePrototype>();
+    //     var recipesLimit = 218;
 
-        if (recipesCount > recipesLimit)
-        {
-            Assert.Fail($"PLEASE STOP ADDING NEW MICROWAVE RECIPES. MICROWAVE RECIPES ARE FROZEN AND NEED TO BE REPLACED WITH PROPER COOKING MECHANICS! See https://github.com/space-wizards/space-station-14/issues/8524. Keep it under {recipesLimit}. Current count: {recipesCount}");
-        }
+    //     if (recipesCount > recipesLimit)
+    //     {
+    //         Assert.Fail($"PLEASE STOP ADDING NEW MICROWAVE RECIPES. MICROWAVE RECIPES ARE FROZEN AND NEED TO BE REPLACED WITH PROPER COOKING MECHANICS! See https://github.com/space-wizards/space-station-14/issues/8524. Keep it under {recipesLimit}. Current count: {recipesCount}");
+    //     }
 
-        if (recipesCount < recipesLimit)
-        {
-            Assert.Fail($"Oh, you deleted the microwave recipes? YOU ARE SO COOL! Please lower the number of recipes in MicrowaveRecipesFreezeTest from {recipesLimit} to {recipesCount} so that future contributors cannot add new recipes back.");
-        }
-    }
+    //     if (recipesCount < recipesLimit)
+    //     {
+    //         Assert.Fail($"Oh, you deleted the microwave recipes? YOU ARE SO COOL! Please lower the number of recipes in MicrowaveRecipesFreezeTest from {recipesLimit} to {recipesCount} so that future contributors cannot add new recipes back.");
+    //     }
+    // }
+    // end DEN
 }
