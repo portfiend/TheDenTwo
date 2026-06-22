@@ -19,7 +19,7 @@
       - !type:PlaySound
         sound: /Audio/Effects/sizzle.ogg
       steps:
-      - minTemperature: 358 # 85C - based on internal temperature
+      - minTemperature: 360 # ~85C - based on internal temperature
 
   - node: donut
     entity: FoodDonutPlain
