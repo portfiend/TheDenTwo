@@ -32,6 +32,10 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         SubscribeLocalEvent<StomachComponent, BodyRelayedEvent<TryDrinkBloodEvent>>(OnBloodDrank);
     }
 
+    /// <summary>
+    ///     Ingests blood into the stomach of a blood-drinking entity.
+    /// </summary>
+    /// <param name="ent">The blood drinker's stomach entity.</param>
     private void OnBloodDrank(Entity<StomachComponent> ent, ref BodyRelayedEvent<TryDrinkBloodEvent> args)
     {
         if (args.Args.Handled)
