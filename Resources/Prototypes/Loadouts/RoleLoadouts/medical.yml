@@ -14,8 +14,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
-  - ChiefMedicalOfficerJobTrinkets
+#  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -31,8 +32,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
-  - MedicalDoctorJobTrinkets
+#  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -43,8 +45,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
-  - MedicalInternJobTrinkets
+#  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobChemist
@@ -58,8 +61,9 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
-  - ChemistJobTrinkets
+#  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobParamedic
@@ -74,5 +78,6 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
-  - ParamedicJobTrinkets
+#  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid

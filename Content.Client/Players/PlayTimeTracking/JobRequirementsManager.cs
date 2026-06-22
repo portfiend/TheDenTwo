@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
@@ -15,18 +16,19 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Players.PlayTimeTracking;
 
-public sealed class JobRequirementsManager : ISharedPlaytimeManager
+public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
 {
-    [Dependency] private readonly IBaseClient _client = default!;
-    [Dependency] private readonly IClientNetManager _net = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private IBaseClient _client = default!;
+    [Dependency] private IClientNetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IPlayerRequirementManager _requirements = default!; // DEN
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
-    private readonly List<string> _jobBans = new();
-    private readonly List<string> _antagBans = new();
+    private readonly List<ProtoId<JobPrototype>> _jobBans = new();
+    private readonly List<ProtoId<AntagPrototype>> _antagBans = new();
     private readonly List<string> _jobWhitelists = new();
 
     private ISawmill _sawmill = default!;
@@ -148,9 +150,20 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
 
         // Check other role requirements
+        // TODO DEN: This is deprecated
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
         if (!CheckRoleRequirements(reqs, profile, out reason))
             return false;
+
+        // Begin DEN: Use player requirements
+        var roleSystem = _entManager.System<SharedRoleSystem>();
+        var requirements = roleSystem.GetRolePlayerRequirements(job);
+        if (requirements != null && !PassesRequirements(profile, requirements, out var context))
+        {
+            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements, context);
+            return false;
+        }
+        // End DEN
 
         return true;
     }
@@ -175,14 +188,26 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
 
         // Check other role requirements
+        // TODO DEN: This is deprecated
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(antag);
         if (!CheckRoleRequirements(reqs, profile, out reason))
             return false;
+
+        // Begin DEN: Use player requirements
+        var roleSystem = _entManager.System<SharedRoleSystem>();
+        var requirements = roleSystem.GetRolePlayerRequirements(antag);
+        if (requirements != null && !PassesRequirements(profile, requirements, out var context))
+        {
+            reason = SharedPlayerRequirementManager.GetCombinedReason(requirements, context);
+            return false;
+        }
+        // End DEN
 
         return true;
     }
 
     // This must be private so code paths can't accidentally skip requirement overrides. Call this through IsAllowed()
+    [Obsolete("Use SharedPlayerRequirementManager.CheckRequirements() instead")] // DEN
     private bool CheckRoleRequirements(HashSet<JobRequirement>? requirements, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;

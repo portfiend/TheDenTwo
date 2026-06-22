@@ -8,3 +8,41 @@
   id: JournalistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJournalist
+
+# Head
+- type: loadout
+  id: ReporterPressFedora
+  effects:
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Reporter
+      minTime: 10h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobReporter
+  #     time: 10h
+  # End DEN
+  equipment:
+    head: ClothingHeadHatFedoraPress
+
+# Outerclothing
+- type: loadout
+  id: ReporterPressVest
+  effects:
+  # Begin DEN: Use PlayerRequirements
+  - !type:PlayerRequirementLoadoutEffect
+    requirement: !type:PlayerJobPlaytimeRequirement
+      job: Reporter
+      minTime: 35h
+      requirementType: Loadout
+  # - !type:JobRequirementLoadoutEffect
+  #   requirement:
+  #     !type:RoleTimeRequirement
+  #     role: JobReporter
+  #     time: 35h
+  # End DEN
+  equipment:
+    outerClothing: ClothingOuterVestPress
