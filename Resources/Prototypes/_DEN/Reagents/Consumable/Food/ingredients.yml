@@ -1,0 +1,8 @@
+- type: reagent
+  id: GellingAgent
+  name: reagent-name-gelling-agent
+  desc: reagent-desc-gelling-agent
+  group: Foods
+  physicalDesc: reagent-physical-desc-jiggly
+  flavor: jelly
+  color: "#a5a5a5"
