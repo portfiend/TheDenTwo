@@ -9,7 +9,7 @@
   - Stir
   reactants:
     GellingAgent:
-      amount: 10
+      amount: 5
     Enzyme:
       amount: 5
       catalyst: true
