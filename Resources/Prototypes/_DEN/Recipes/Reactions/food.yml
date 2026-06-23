@@ -10,9 +10,6 @@
   reactants:
     GellingAgent:
       amount: 5
-    Enzyme:
-      amount: 5
-      catalyst: true
   effects:
   - !type:SpawnEntity
     entity: FoodGelCube
