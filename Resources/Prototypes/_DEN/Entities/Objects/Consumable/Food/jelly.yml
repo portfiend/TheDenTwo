@@ -165,7 +165,7 @@
   parent: FoodFruitJellyBase
   id: FoodJellyOrange
   name: orange jelly
-  description: Orange jelly set on top of cream, for a sweet orange creamsicle flavor.
+  description: Orange jelly set on top of cream - tastes like an orange creamsicle.
   components:
   - type: FlavorProfile
     flavors:
