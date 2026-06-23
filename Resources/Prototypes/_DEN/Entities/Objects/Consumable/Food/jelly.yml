@@ -135,7 +135,7 @@
   parent: FoodFruitJellyBase
   id: FoodJellyLemon
   name: lemon jelly
-  description: Lemon-flavored jelly for a bright and vivid day.
+  description: Lemon-flavored jelly... or is it lemonade-flavored?
   components:
   - type: FlavorProfile
     flavors:
