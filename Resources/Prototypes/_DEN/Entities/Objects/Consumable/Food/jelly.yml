@@ -18,6 +18,10 @@
         Quantity: 5
       - ReagentId: Sugar
         Quantity: 10
+  - type: Edible
+    utensil:
+    - Fork
+    - Spoon
   - type: Tag
     tags:
     - Jelly
