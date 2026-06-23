@@ -9,6 +9,7 @@
   id: GelCube
 
 # For jelly food items
+# TODO: Add bounty.
 - type: Tag
   id: Jelly
 
