@@ -4,6 +4,10 @@
 - type: Tag
   id: Flash
 
+# Gel cubes. Used in gel cube box storage whitelist.
+- type: Tag
+  id: GelCube
+
 # For jelly food items
 - type: Tag
   id: Jelly

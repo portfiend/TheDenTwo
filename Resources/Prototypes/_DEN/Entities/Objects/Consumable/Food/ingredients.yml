@@ -17,3 +17,6 @@
       reagents:
       - ReagentId: GellingAgent
         Quantity: 5
+  - type: Tag
+    tags:
+    - GelCube
