@@ -938,7 +938,7 @@
   time: 10
   group: Savory
   reagents:
-    GellingAgent: 10 # DEN: 5u water -> 10u gelling agent
+    GellingAgent: 5 # DEN: 5u water -> 5u gelling agent
     Vodka: 5
   solids:
     FoodFlyAmanita: 3

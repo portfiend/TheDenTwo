@@ -15,7 +15,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: Sugar
         Quantity: 10
   - type: Tag
@@ -68,7 +68,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: JuiceApple
         Quantity: 15
       - ReagentId: Nutriment
@@ -94,7 +94,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: JuiceBerry
         Quantity: 15
       - ReagentId: Nutriment
@@ -121,7 +121,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: JuiceGrape
         Quantity: 15
       - ReagentId: Nutriment
@@ -147,7 +147,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: JuiceLemon
         Quantity: 15
       - ReagentId: Nutriment
@@ -174,7 +174,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: Cream
         Quantity: 10
       - ReagentId: JuiceOrange
@@ -203,7 +203,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: Cream
         Quantity: 5
       - ReagentId: JuicePineapple
@@ -231,7 +231,7 @@
     solution:
       reagents:
       - ReagentId: GellingAgent
-        Quantity: 10
+        Quantity: 5
       - ReagentId: JuiceWatermelon
         Quantity: 14
       - ReagentId: Nutriment

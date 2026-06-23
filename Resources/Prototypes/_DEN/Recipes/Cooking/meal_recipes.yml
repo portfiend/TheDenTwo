@@ -5,7 +5,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     Sugar: 10
     Water: 5
 
@@ -16,7 +16,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceApple: 10
     Sugar: 5
   solids:
@@ -29,7 +29,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceBerry: 10
     Sugar: 5
   solids:
@@ -42,7 +42,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceGrape: 10
     Sugar: 5
   solids:
@@ -55,7 +55,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceLemon: 10
     Sugar: 5
   solids:
@@ -68,7 +68,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceOrange: 10
     Cream: 10
     Sugar: 5
@@ -82,7 +82,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuicePineapple: 10
     Cream: 5
     Sugar: 5
@@ -96,7 +96,7 @@
   time: 10
   group: Dessert
   reagents:
-    GellingAgent: 10
+    GellingAgent: 5
     JuiceWatermelon: 10
     Sugar: 5
   solids:
