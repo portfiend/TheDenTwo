@@ -4,6 +4,10 @@
 - type: Tag
   id: Flash
 
+# For jelly food items
+- type: Tag
+  id: Jelly
+
 # Mantis tags start, alphabetized
 - type: Tag
   id: MantisBeltStorable
