@@ -39,6 +39,24 @@
     },
     {
       "name": "jelly_watermelon"
+    },
+    {
+      "name": "jelly_color_red"
+    },
+    {
+      "name": "jelly_color_orange"
+    },
+    {
+      "name": "jelly_color_yellow"
+    },
+    {
+      "name": "jelly_color_green"
+    },
+    {
+      "name": "jelly_color_blue"
+    },
+    {
+      "name": "jelly_color_purple"
     }
   ]
 }
