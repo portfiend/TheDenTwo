@@ -1,0 +1,30 @@
+# Rodentia have a name scheme of "LastName FirstName", because first names are gendered here.
+#
+# "Last names" are more like adjective titles, which makes names sound like animal xenofiction characters, or mobsters.
+# By "animal xenofiction", think, like, Warrior Cats, or Redwall, or Watership Down.
+# ("Stout", "Light-foot", "Gentle", "Cunning", "Brave", "Quick-wits", "Shiny-eyes")
+#
+# First names are more "standard", with emphasis on:
+# - Names you'd give pets, especially pet rodents (Nibbles, Pipsqueak, Spud)
+# - "Standard" first names with a "sentient woodland animal" or "mobster" feel (Rowan, Willow, Louie, Frankie)
+# - What I can only describe as "rodent-themed British village names" (Furwell, Oakley, Squeakwood)
+#
+# Examples: "Stubborn Stanley", "Fat Louie", "Long-tail Nellie", "Big Cheddar", "Hasty Nibbleston"
+
+- type: localizedDataset
+  id: NamesRodentiaFirstMale
+  values:
+    prefix: names-rodentia-first-male-dataset-
+    count: 176
+
+- type: localizedDataset
+  id: NamesRodentiaFirstFemale
+  values:
+    prefix: names-rodentia-first-female-dataset-
+    count: 159
+
+- type: localizedDataset
+  id: NamesRodentiaLast
+  values:
+    prefix: names-rodentia-last-dataset-
+    count: 86

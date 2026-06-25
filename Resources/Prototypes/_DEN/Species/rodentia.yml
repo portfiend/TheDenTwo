@@ -6,6 +6,6 @@
   dollPrototype: AppearanceRodentia
   defaultSkinTone: "#747474"
   skinColoration: Hues
-  maleFirstNames: NamesRodentiaFirstMale # TODO
-  femaleFirstNames: NamesRodentiaFirstFemale # TODO
-  lastNames: NamesRodentiaLast # TODO
+  maleFirstNames: NamesRodentiaFirstMale
+  femaleFirstNames: NamesRodentiaFirstFemale
+  lastNames: NamesRodentiaLast
