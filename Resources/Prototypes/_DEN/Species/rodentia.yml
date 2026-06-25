@@ -2,9 +2,9 @@
   id: Rodentia
   name: species-name-rodentia
   roundStart: true
-  prototype: MobRodentia # TODO
+  prototype: MobRodentia
+  dollPrototype: AppearanceRodentia
   defaultSkinTone: "#747474"
-  dollPrototype: AppearanceRodentia # TODO
   skinColoration: Hues
   maleFirstNames: NamesRodentiaFirstMale # TODO
   femaleFirstNames: NamesRodentiaFirstFemale # TODO
