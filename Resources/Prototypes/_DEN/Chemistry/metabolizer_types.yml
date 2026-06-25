@@ -1,0 +1,5 @@
+# Hardy digestion for trash eaters and decomposers.
+# Can consume gastrotoxin and mold safely, and derive nutrition from doing so.
+- type: metabolizerType
+  id: Detritivore
+  name: metabolizer-type-detritivore
