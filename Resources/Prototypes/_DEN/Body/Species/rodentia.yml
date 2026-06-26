@@ -117,7 +117,7 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: &rodentiaSprite _DEN/Mobs/Customization/Rodentia/parts.rsi
+      sprite: &rodentiaSprite _DEN/Mobs/Species/Rodentia/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Rodentia
