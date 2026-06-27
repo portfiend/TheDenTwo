@@ -114,7 +114,7 @@
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Detritivore]
+          type: [ Detritivore ]
 
 - type: reagent
   id: Mold
@@ -141,7 +141,7 @@
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Detritivore]
+          type: [ Detritivore ]
 
 - type: reagent
   id: PolytrinicAcid
@@ -479,7 +479,7 @@
               Poison: 2
           conditions: # DEN: Detritivores aren't poisoned by vent crud
           - !type:MetabolizerTypeCondition
-            type: [Detritivore]
+            type: [ Detritivore ]
             inverted: true
     Digestion: # DEN: Detritivores can process vent crud
       effects:
@@ -487,7 +487,7 @@
         factor: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Detritivore]
+          type: [ Detritivore ]
 
 - type: reagent
   id: Romerol
@@ -803,7 +803,7 @@
         factor: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Detritivore]
+          type: [ Detritivore ]
         - !type:MetabolizerTypeCondition
           inverted: true
           type: [Vox]
