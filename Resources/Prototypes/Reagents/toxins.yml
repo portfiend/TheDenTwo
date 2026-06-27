@@ -484,7 +484,7 @@
     Digestion: # DEN: Detritivores can process vent crud
       effects:
       - !type:SatiateHunger
-        factor: 0.5
+        factor: 0.75
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Detritivore ]
@@ -800,7 +800,7 @@
         - !type:MetabolizerTypeCondition
           type: [Vox]
       - !type:SatiateHunger # DEN: Detritivores can process trash
-        factor: 0.5
+        factor: 0.75
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Detritivore ]
