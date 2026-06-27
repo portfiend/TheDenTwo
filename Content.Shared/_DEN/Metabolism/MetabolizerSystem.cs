@@ -26,9 +26,8 @@ public sealed partial class MetabolizerSystem
     private void OnAddTraitMetabolizerEvent(Entity<MetabolizerComponent> ent,
         ref BodyRelayedEvent<AddTraitMetabolizerEvent> args)
     {
-        if (args.Args.Handled
-            || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent)
-            || args.Args.Metabolizers.Count == 0)
+        if (args.Args.Metabolizers.Count == 0
+            || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent))
             return;
 
         var metabolizers = args.Args.Metabolizers;
@@ -37,10 +36,6 @@ public sealed partial class MetabolizerSystem
             metabolizers = metabolizers.Union(ent.Comp.MetabolizerTypes).ToHashSet();
 
         ent.Comp.MetabolizerTypes = metabolizers;
-        args.Args = args.Args with
-        {
-            Handled = true,
-        };
     }
 
     /// <summary>
@@ -50,10 +45,9 @@ public sealed partial class MetabolizerSystem
     private void OnRemoveTraitMetabolizerEvent(Entity<MetabolizerComponent> ent,
         ref BodyRelayedEvent<RemoveTraitMetabolizerEvent> args)
     {
-        if (args.Args.Handled
-            || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent)
-            || args.Args.Metabolizers.Count == 0
-            || ent.Comp.MetabolizerTypes == null)
+        if (args.Args.Metabolizers.Count == 0
+            || ent.Comp.MetabolizerTypes == null
+            || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent))
             return;
 
         // TODO: add smarter handling for this
@@ -62,10 +56,6 @@ public sealed partial class MetabolizerSystem
             .ToHashSet();
 
         ent.Comp.MetabolizerTypes = metabolizers;
-        args.Args = args.Args with
-        {
-            Handled = true,
-        };
     }
 }
 
@@ -74,19 +64,15 @@ public sealed partial class MetabolizerSystem
 /// </summary>
 /// <param name="Metabolizers">The metabolizers to add.</param>
 /// <param name="OrganWhitelist">The whitelist for organs to add metabolizers to.</param>
-/// <param name="Handled">Whether or not this event has been handled.</param>
 [ByRefEvent]
 public record struct AddTraitMetabolizerEvent(HashSet<ProtoId<MetabolizerTypePrototype>> Metabolizers,
-    EntityWhitelist? OrganWhitelist = null,
-    bool Handled = false);
+    EntityWhitelist? OrganWhitelist = null);
 
 /// <summary>
 ///     An event that removes metabolizers from subscribed entities that pass the whitelist.
 /// </summary>
 /// <param name="Metabolizers">The metabolizers to add.</param>
 /// <param name="OrganWhitelist">The whitelist for organs to add metabolizers to.</param>
-/// <param name="Handled">Whether or not this event has been handled.</param>
 [ByRefEvent]
 public record struct RemoveTraitMetabolizerEvent(HashSet<ProtoId<MetabolizerTypePrototype>> Metabolizers,
-    EntityWhitelist? OrganWhitelist = null,
-    bool Handled = false);
+    EntityWhitelist? OrganWhitelist = null);
