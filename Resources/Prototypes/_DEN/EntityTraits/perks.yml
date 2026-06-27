@@ -3,10 +3,10 @@
   name: trait-detritivore-name
   description: trait-detritivore-desc
   category: Perks
-  requirements:
-  - !type:PlayerSpeciesRequirement
-    # species: [Rodentia] # TODO: Rodentia
-    inverted: true
+  # requirements:
+  # - !type:PlayerSpeciesRequirement
+  #   species: [Rodentia] # TODO: Rodentia
+  #   inverted: true
   functions:
   - !type:AddMetabolizerTrait
     metabolizerTypes: [Detritivore]
