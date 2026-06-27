@@ -9,3 +9,27 @@
   maleFirstNames: NamesRodentiaFirstMale
   femaleFirstNames: NamesRodentiaFirstFemale
   lastNames: NamesRodentiaLast
+
+#
+# Rodentia are a species of anthropomorphic rodent-people, and other "small mammal"-type species that aren't rodents.
+# (Moles, bats, possums, shrews, and rabbits are all sort of included.)
+#
+# Rodentia are naturally detritivorous, allowing them to consume gastrotoxin, mold, and processed trash safely,
+# and even derive nutrition from doing so! However, like other animals, they are sensitive to allicin and theobromine.
+# They have red blood.
+#
+# TODO: Rodentia can rummage through disposal chutes, usually netting junk, but occasionally digging up snacks
+# or treasure.
+#
+# TODO: Rodentia can use their incisors for "Cutting" interactions without needing wirecutters - such as snipping
+# through cables or door wires. However, they will still be electrocuted without insulation.
+# TODO: They get hungrier 33% faster.
+#
+# TODO: Rodentia are somewhat clumsy, and can't help but hurt themselves on mouse traps and glass shards, even
+# when they're wearing shoes.
+#
+# TODO: Rodentia take more brute and shock damage.
+# TODO: They also have a lower critical *and* death threshold than other species - 90 to crit, 180 to die.
+#
+# TODO: Rodentia are small enough to fit in duffel bags.
+#
