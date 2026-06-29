@@ -75,6 +75,9 @@ public sealed partial class AddMetabolizerTrait : ITraitFunction
     /// <summary>
     ///     A whitelist of allowed organs to use for this trait.
     /// </summary>
+    /// <remarks>
+    ///     For example: you can have this only apply to the heart or lungs by whitelisting Heart or Lung components.
+    /// </remarks>
     [DataField] public EntityWhitelist? OrganWhitelist = null;
 
     public void OnTraitAdded(EntityUid owner, EntityManager entityManager)
