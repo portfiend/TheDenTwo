@@ -43,7 +43,6 @@
   abstract: true
   id: BaseMobDetritivore
   components:
-  - type: Body
   - type: EntityTableContainerFill
     containers:
       body_organs: !type:AllSelector
@@ -53,9 +52,3 @@
         - id: OrganDetritivoreStomach
         - id: OrganDetritivoreLiver
         - id: OrganDetritivoreKidneys
-  - type: ContainerContainer
-    containers:
-      languages: !type:Container
-  - type: LanguageCommunicator
-    languages:
-      Animal: [ true, Fluent ]
