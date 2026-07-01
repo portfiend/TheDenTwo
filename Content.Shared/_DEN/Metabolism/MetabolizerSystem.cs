@@ -36,6 +36,7 @@ public sealed partial class MetabolizerSystem
             metabolizers = metabolizers.Union(ent.Comp.MetabolizerTypes).ToHashSet();
 
         ent.Comp.MetabolizerTypes = metabolizers;
+        Dirty(ent);
     }
 
     /// <summary>
@@ -56,6 +57,7 @@ public sealed partial class MetabolizerSystem
             .ToHashSet();
 
         ent.Comp.MetabolizerTypes = metabolizers;
+        Dirty(ent);
     }
 }
 
