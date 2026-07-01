@@ -1,6 +1,10 @@
 # alphabetical order PLEASE
 # also document their purpose
 
+# Roleplay holoprojectors. Used as a storage whitelist in PDAs.
+- type: Tag
+  id: CivilianHoloprojector
+
 - type: Tag
   id: Flash
 
