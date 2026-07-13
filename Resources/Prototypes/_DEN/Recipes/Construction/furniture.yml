@@ -7,7 +7,7 @@
   targetNode: beige
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -19,7 +19,7 @@
   targetNode: black
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -31,7 +31,7 @@
   targetNode: blue
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -43,7 +43,7 @@
   targetNode: brown
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -55,7 +55,7 @@
   targetNode: gray
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -67,7 +67,7 @@
   targetNode: green
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -79,7 +79,7 @@
   targetNode: orange
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -91,7 +91,7 @@
   targetNode: pink
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -103,7 +103,7 @@
   targetNode: purple
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -115,7 +115,7 @@
   targetNode: red
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -127,7 +127,7 @@
   targetNode: teal
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -139,7 +139,7 @@
   targetNode: white
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
@@ -151,7 +151,7 @@
   targetNode: yellow
   category: construction-category-furniture
   objectType: Structure
-  placementMode: SnapgridBorder
+  placementMode: SnapGridCenter
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
