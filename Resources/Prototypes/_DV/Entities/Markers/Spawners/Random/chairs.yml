@@ -1,3 +1,5 @@
+# Sublicensed under MIT with permission from original author.
+# https://github.com/DeltaV-Station/Delta-v/pull/6113
 - type: entity
   parent: MarkerBase
   id: RandomBeachLoungeSpawner
