@@ -95,6 +95,15 @@
       0: Alive
       90: Critical
       180: Dead
+  - type: Damageable # More shock + brute damage
+    damageModifierSet: Rodentia
+  - type: MeleeWeapon # Use teeth to deal sharp and piercing damage
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
+        Slash: 2
 
 # region Base organs
 

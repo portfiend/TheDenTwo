@@ -1,0 +1,7 @@
+- type: damageModifierSet
+  id: Rodentia
+  coefficients:
+    Blunt: 1.15
+    Slash: 1.10
+    Piercing: 1.10
+    Shock: 1.15

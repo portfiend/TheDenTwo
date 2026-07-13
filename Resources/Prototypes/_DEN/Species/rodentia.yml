@@ -28,7 +28,7 @@
 # TODO: Rodentia are somewhat clumsy, and can't help but hurt themselves on mouse traps and glass shards, even
 # when they're wearing shoes.
 #
-# TODO: Rodentia take more brute and shock damage.
+# TODO: Rodentia take more brute and shock damage, but use their teeth to inflict Sharp and Piercing damage.
 # They also have a lower critical *and* death threshold than other species - 90 to crit, 180 to die.
 #
 # TODO: Rodentia are small enough to fit in duffel bags.
