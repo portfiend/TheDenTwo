@@ -87,6 +87,14 @@
   - BaseSpeciesMobOrganic
   id: MobRodentia
   name: Urist McRat
+  components:
+  - type: Hunger # Faster hunger rate
+    decayRateMultiplier: 1.33
+  - type: MobThresholds # Lower crit + death threshold
+    thresholds:
+      0: Alive
+      90: Critical
+      180: Dead
 
 # region Base organs
 

@@ -158,6 +158,7 @@ public sealed partial class HungerSystem : EntitySystem
         if (component.HungerThresholdDecayModifiers.TryGetValue(component.CurrentThreshold, out var modifier))
         {
             component.ActualDecayRate = component.BaseDecayRate * modifier;
+            component.ActualDecayRate *= component.DecayRateMultiplier; // DEN - Decay rate multipliers
             DirtyField(uid, component, nameof(HungerComponent.ActualDecayRate));
             SetAuthoritativeHungerValue((uid, component), GetHunger(component));
         }

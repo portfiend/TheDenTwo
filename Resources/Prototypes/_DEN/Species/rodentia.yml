@@ -23,13 +23,13 @@
 #
 # TODO: Rodentia can use their incisors for "Cutting" interactions without needing wirecutters - such as snipping
 # through cables or door wires. However, they will still be electrocuted without insulation.
-# TODO: They get hungrier 33% faster.
+# They get hungrier 33% faster.
 #
 # TODO: Rodentia are somewhat clumsy, and can't help but hurt themselves on mouse traps and glass shards, even
 # when they're wearing shoes.
 #
 # TODO: Rodentia take more brute and shock damage.
-# TODO: They also have a lower critical *and* death threshold than other species - 90 to crit, 180 to die.
+# They also have a lower critical *and* death threshold than other species - 90 to crit, 180 to die.
 #
 # TODO: Rodentia are small enough to fit in duffel bags.
 #
