@@ -8,7 +8,7 @@
     - !type:DestroyEntity {}
     edges:
     - to: BeachUmbrellaBlue
-      steps:
+      steps: &constructUmbrellaSteps
       - material: MetalRod
         amount: 2
         doAfter: 1
@@ -16,66 +16,24 @@
         amount: 2
         doAfter: 1
     - to: BeachUmbrellaGray
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaGreen
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaOrange
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaPink
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaPurple
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaRed
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
     - to: BeachUmbrellaYellow
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-      - material: Cloth
-        amount: 2
-        doAfter: 1
+      steps: *constructUmbrellaSteps
 
   # Deconstructs
   - node: BeachUmbrellaBlue
     entity: BeachUmbrellaBlue
-    edges:
+    edges: &deconstructUmbrellaSteps
     - to: start
       completed:
       - !type:SpawnPrototype
@@ -89,99 +47,22 @@
         doAfter: 3
   - node: BeachUmbrellaGray
     entity: BeachUmbrellaGray
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaGreen
     entity: BeachUmbrellaGreen
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaOrange
     entity: BeachUmbrellaOrange
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaPink
     entity: BeachUmbrellaPink
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaPurple
     entity: BeachUmbrellaPurple
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaRed
     entity: BeachUmbrellaRed
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
   - node: BeachUmbrellaYellow
     entity: BeachUmbrellaYellow
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: PartRodMetal1
-        amount: 2
-      - !type:SpawnPrototype
-        prototype: MaterialCloth1
-        amount: 2
-      steps:
-      - tool: Screwing
-        doAfter: 3
+    edges: *deconstructUmbrellaSteps
