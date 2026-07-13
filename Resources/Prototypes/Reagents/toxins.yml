@@ -93,10 +93,6 @@
     Bloodstream:
       effects:
         - !type:HealthChange
-          conditions: # DEN: Detritivore metabolism
-          - !type:MetabolizerTypeCondition
-            type: [ Detritivore ]
-            inverted: true
           damage:
             types:
               Poison: 2
@@ -105,16 +101,7 @@
           - !type:ReagentCondition
             reagent: GastroToxin
             min: 2
-          - !type:MetabolizerTypeCondition # DEN: Detritivore metabolism
-            type: [ Detritivore ]
-            inverted: true
           probability: 0.2
-    Digestion: # DEN: Detritivores can digest gastrotoxin.
-      effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Detritivore]
 
 - type: reagent
   id: Mold
@@ -129,19 +116,9 @@
     Bloodstream:
       effects:
       - !type:HealthChange
-        conditions: # DEN: Detritivore metabolism
-        - !type:MetabolizerTypeCondition
-          type: [ Detritivore ]
-          inverted: true
         damage:
           types:
             Poison: 1
-    Digestion: # DEN: Detritivores can digest mold.
-      effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Detritivore]
 
 - type: reagent
   id: PolytrinicAcid
@@ -511,7 +488,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox ]
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -521,12 +498,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant ]
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant ]
           inverted: true
         damage:
           types:
@@ -541,16 +518,13 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal ]
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-        - !type:MetabolizerTypeCondition # DEN: Prevent redundant metabolism for detritivore vox
-          type: [ Detritivore ]
-          inverted: true
         reagent: Protein
         amount: 0.25
 
