@@ -1,0 +1,64 @@
+<Document>
+  # Rodentia
+
+  <Box>
+    <GuideEntityEmbed Entity="AppearanceRodentia" Caption=""/>
+  </Box>
+
+  Rodentia are a species of anthropomorphic rodent-like humanoids widespread throughout interstellar society. They are highly diverse, and despite their name, have been known to resemble non-rodent species' physiology as well, from bats, to marsupials, to insectivorous mammals like hedgehogs.
+
+  ## Physiology
+
+  Rodentia on average have light-weight, nimble builds. They have red blood and an omnivorous scavenger diet. They will be poisoned by allicin (onions, garlic) and theobromine (chocolate, coffee, tea), but are [color=#1e90ff]capable of digesting rotten meat, mold, and reprocessed trash safely.[/color]
+
+  Rodentia are physically fragile. They [color=#ffa500]will take 15% more Blunt and Shock damage, as well as 10% more Slash and Piercing damage.[/color] In addition, [color=red]they will enter critical condition at 90 damage, and die at 180 damage.[/color]
+
+  They tend to be clumsy with their feet and tails when they move, and [color=#ffa500]will trip on glass shards and mousetraps, even if wearing shoes.[/color]
+
+  ## Rummaging
+
+  <Box>
+    <GuideEntityEmbed Entity="DisposalUnit" Caption=""/>
+    <GuideEntityEmbed Entity="VendingMachineSnackBlue" Caption=""/>
+    <GuideEntityEmbed Entity="ToiletFilled" Caption=""/>
+    <GuideEntityEmbed Entity="GasVentPump" Caption=""/>
+  </Box>
+
+  Rodentia are highly effective scavengers, capable of [color=#1e90ff]rummaging through certain appliances.[/color] Most of them contain junk, but who knows! You might get lucky and sift treasure out of the trash.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodPacketCnDsTrash" Caption=""/>
+    <GuideEntityEmbed Entity="FoodBurgerCarp" Caption=""/>
+    <GuideEntityEmbed Entity="FoodPacketPopcornTrash" Caption=""/>
+    <GuideEntityEmbed Entity="TreasureCoinIron" Caption=""/>
+    <GuideEntityEmbed Entity="ScrapTube" Caption=""/>
+    <GuideEntityEmbed Entity="FoodCheeseSlice" Caption=""/>
+  </Box>
+
+  ## Gnawing
+
+  <Box>
+    <GuideEntityEmbed Entity="Wirecutter" Caption=""/>
+  </Box>
+
+  Rodentia have powerful adapted incisors that deal [color=red]Sharp[/color] and [color=red]Piercing[/color] damage, and make for an effective [color=cyan]Cutting[/color] tool. Watch out for electric shocks!
+
+  ## Rodentia Naming Conventions
+
+  Rodentia are typically given a "standard" first name (dependent on individual culture), traditionally prefixed with an adjective descriptor. These descriptors may be selected by the rodentia themselves, but are often assigned by their peers - especially based on physical quality, temperament, or social reputation.
+
+  Rodentian cultures are frequently heavily communal and place less emphasis on individual families - surnames are uncommon in unmarried rodentia. In some societies, a rodentia may opt to adapt their descriptor into a surname.
+
+  - [color=#449944]Acceptable:[/color] Grumpy Rufus
+  - [color=#449944]Acceptable:[/color] Long-tail Ruby
+  - [color=#449944]Acceptable:[/color] Sneaky Whiskershire
+  - [color=#449944]Acceptable:[/color] Fat Frankie
+  - [color=#449944]Acceptable:[/color] Cheeky Spud
+  - [color=#449944]Acceptable:[/color] Oliver Haste
+  - [color=#449944]Acceptable:[/color] Willow Sharpclaws
+  - [color=#994444]Bad:[/color] Speedy Gonzales
+  - [color=#994444]Bad:[/color] Snotfuck the Rat
+  - [color=#994444]Bad:[/color] Tella Tubby
+  - [color=#994444]Bad:[/color] Big Dick
+
+</Document>
