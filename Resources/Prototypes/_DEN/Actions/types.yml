@@ -1,0 +1,22 @@
+# mental actions
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionToolInteractionToggle
+  name: "[color=cyan]Tool Interaction[/color]"
+  description: Use your empty hand as a tool
+  components:
+  - type: Action
+    icon: Interface/Actions/harmOff.png
+    iconOn: Interface/Actions/harm.png
+    priority: -90
+  - type: InstantAction
+    event: !type:ToggleToolInteractionActionEvent
+
+- type: entity
+  parent: ActionToolInteractionToggle
+  id: ActionToolInteractionToggleOff
+  components:
+  - type: Action
+    enabled: false
+    autoPopulate: false

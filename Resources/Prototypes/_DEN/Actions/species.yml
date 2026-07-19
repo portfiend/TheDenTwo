@@ -1,0 +1,9 @@
+- type: entity
+  parent: ActionToolInteractionToggle
+  id: ActionGnawingToggle
+  name: "[color=cyan]Gnawing[/color]"
+  description: Use your teeth as a [color=yellow]Cutting[/color] tool.
+
+- type: entity
+  parent: [ActionGnawingToggle, ActionToolInteractionToggleOff]
+  id: ActionGnawingToggleOff
