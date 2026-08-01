@@ -104,6 +104,7 @@
       types:
         Piercing: 3
         Slash: 2
+  - type: ToolOrganPerformer
 
 # region Base organs
 
@@ -166,6 +167,9 @@
     - enum.HumanoidVisualLayers.Snout
     - enum.HumanoidVisualLayers.HeadTop
     - enum.HumanoidVisualLayers.HeadSide
+  - type: ToolOrgan # Incisors
+    toolToggleAction: ActionGnawingToggle
+    item: Wirecutter
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganRodentiaExternal ]
