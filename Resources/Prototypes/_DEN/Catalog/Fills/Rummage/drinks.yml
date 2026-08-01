@@ -1,0 +1,361 @@
+- type: entityTable
+  id: RummageableVendingMachineBoda
+  table: !type:GroupSelector
+    children:
+    - &lootGeneric
+      !type:NestedSelector
+      tableId: RummageableVendingMachineGeneric
+      weight: 50
+    - !type:NestedSelector
+      tableId: TrashVendingMachineBoda
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineBoda
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineCola
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineCola
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineCola
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineDrGibb
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineDrGibb
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineDrGibb
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineHotDrinks
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineHotDrinks
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineHotDrinks
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachinePwrGame
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachinePwrGame
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachinePwrGame
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineShamblersJuice
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineShamblersJuice
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineShamblersJuice
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineSmite
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineSmite
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineSmite
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineSoda
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineSoda
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineSoda
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineSpaceUp
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineSpaceUp
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineSpaceUp
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineStarkist
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineStarkist
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineStarkist
+      weight: 20
+
+## Common
+
+- type: entityTable
+  id: LootVendingMachineDrinksCommon
+  table: !type:GroupSelector
+    children:
+    - id: DrinkGrapeCan
+    - id: DrinkRootBeerCan
+    - id: DrinkIcedTeaCan
+    - id: DrinkSolDryCan
+    - id: DrinkFourteenLokoCan
+    - id: DrinkChangelingStingCan
+
+- type: entityTable
+  id: TrashVendingMachineDrinksCommon
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkGrapeCan
+    - id: DrinkRootBeerCan
+    - id: DrinkIcedTeaCan
+    - id: DrinkSolDryCan
+    - id: DrinkFourteenLokoCan
+    - id: DrinkChangelingStingCan
+
+# Loot
+
+- type: entityTable
+  id: LootVendingMachineBoda
+  table: !type:GroupSelector
+    children:
+    - id: DrinkSodaWaterCan
+      weight: 5
+    - id: DrinkColaCan
+
+- type: entityTable
+  id: LootVendingMachineCola
+  table: !type:GroupSelector
+    children:
+    - id: DrinkColaCan
+      weight: 2
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - &commonLootDrinks
+      !type:NestedSelector
+        tableId: LootVendingMachineDrinksCommon
+        weight: 6
+
+- type: entityTable
+  id: LootVendingMachineDrGibb
+  table: !type:GroupSelector
+    children:
+    - id: DrinkDrGibbCan
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+      weight: 3
+    - *commonLootDrinks
+
+- type: entityTable
+  id: LootVendingMachineHotDrinks
+  table: !type:GroupSelector
+    children:
+    - id: DrinkHotCoffee
+    - id: DrinkCafeLatte
+    - id: DrinkTeacup
+    - id: DrinkGreenTea
+    - id: DrinkHotCoco
+
+- type: entityTable
+  id: LootVendingMachinePwrGame
+  table: !type:GroupSelector
+    children:
+    - id: DrinkPwrGameCan
+      weight: 2
+    - id: DrinkEnergyDrinkCan
+      weight: 2
+    - id: DrinkDrGibbCan
+      weight: 1.5
+    - *commonLootDrinks
+
+- type: entityTable
+  id: LootVendingMachineShamblersJuice
+  table: !type:GroupSelector
+    children:
+    - id: DrinkShamblersJuiceCan
+      weight: 2
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonLootDrinks
+
+- type: entityTable
+  id: LootVendingMachineSmite
+  table: !type:GroupSelector
+    children:
+    - id: DrinkLemonLimeCan
+      weight: 4
+    - id: DrinkLemonLimeCranberryCan
+      weight: 3
+    - id: DrinkColaCan
+    - id: DrinkSolDryCan
+    - id: DrinkStarkistCan
+    - id: DrinkChangelingStingCan
+
+- type: entityTable
+  id: LootVendingMachineSoda
+  table: !type:GroupSelector
+    children:
+    - id: DrinkColaCan
+      weight: 2
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonLootDrinks
+
+- type: entityTable
+  id: LootVendingMachineSpaceUp
+  table: !type:GroupSelector
+    children:
+    - id: DrinkSpaceUpCan
+      weight: 3
+    - id: DrinkSpaceMountainWindCan
+      weight: 3
+    - *commonLootDrinks
+
+- type: entityTable
+  id: LootVendingMachineStarkist
+  table: !type:GroupSelector
+    children:
+    - id: DrinkStarkistCan
+      weight: 3
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonLootDrinks
+
+# Trash
+
+- type: entityTable
+  id: TrashVendingMachineBoda
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkSodaWaterCan
+      weight: 5
+    - id: DrinkColaCan
+
+- type: entityTable
+  id: TrashVendingMachineCola
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkColaCan
+      weight: 2
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - &commonTrashDrinks
+      !type:NestedSelector
+        tableId: TrashVendingMachineDrinksCommon
+        weight: 6
+
+- type: entityTable
+  id: TrashVendingMachineDrGibb
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkDrGibbCan
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+      weight: 3
+    - *commonTrashDrinks
+
+- type: entityTable
+  id: TrashVendingMachineHotDrinks
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkHotCoffee
+    - id: DrinkCafeLatte
+    - id: DrinkTeacup
+    - id: DrinkGreenTea
+    - id: DrinkHotCoco
+
+- type: entityTable
+  id: TrashVendingMachinePwrGame
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkPwrGameCan
+      weight: 2
+    - id: DrinkEnergyDrinkCan
+      weight: 2
+    - id: DrinkDrGibbCan
+      weight: 1.5
+    - *commonTrashDrinks
+
+- type: entityTable
+  id: TrashVendingMachineShamblersJuice
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkShamblersJuiceCan
+      weight: 2
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonTrashDrinks
+
+- type: entityTable
+  id: TrashVendingMachineSmite
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkLemonLimeCan
+      weight: 4
+    - id: DrinkLemonLimeCranberryCan
+      weight: 3
+    - id: DrinkColaCan
+    - id: DrinkSolDryCan
+    - id: DrinkStarkistCan
+    - id: DrinkChangelingStingCan
+
+- type: entityTable
+  id: TrashVendingMachineSoda
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkColaCan
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonTrashDrinks
+
+- type: entityTable
+  id: TrashVendingMachineSpaceUp
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkSpaceUpCan
+      weight: 3
+    - id: DrinkSpaceMountainWindCan
+      weight: 3
+    - *commonTrashDrinks
+
+- type: entityTable
+  id: TrashVendingMachineStarkist
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: DrinkStarkistCan
+      weight: 3
+    - id: DrinkLemonLimeCan
+    - id: DrinkLemonLimeCranberryCan
+    - *commonTrashDrinks

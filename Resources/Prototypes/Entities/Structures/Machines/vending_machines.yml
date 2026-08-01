@@ -509,6 +509,9 @@
     radius: 1.5
     energy: 2.0
     color: "#ad7c4b"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineHotDrinks
 
 - type: entity
   parent: VendingMachine
@@ -545,6 +548,9 @@
     radius: 1.5
     energy: 3.0
     color: "#3c5eb5"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineCola
 
 - type: entity
   parent: VendingMachineCola
@@ -609,6 +615,9 @@
     radius: 1.5
     energy: 3.0
     color: "#44964A"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineSpaceUp
 
 - type: entity
   parent: VendingMachineCola
@@ -631,6 +640,9 @@
     radius: 1.5
     energy: 3.0
     color: "#CBC6BE"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineSoda
 
 - type: entity
   parent: VendingMachineCola
@@ -654,6 +666,9 @@
     radius: 1.5
     energy: 3.0
     color: "#D3A44D"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineStarkist
 
 - type: entity
   parent: VendingMachine
@@ -688,6 +703,9 @@
     radius: 1.5
     energy: 3.0
     color: "#66538F"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineShamblersJuice
 
 - type: entity
   parent: VendingMachine
@@ -724,6 +742,9 @@
     radius: 1.5
     energy: 3.0
     color: "#6927C5"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineShamblersJuice
 
 - type: entity
   parent: VendingMachine
@@ -760,6 +781,9 @@
     radius: 1.5
     energy: 3.0
     color: "#D82929"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineDrGibb
 
 - type: entity
   parent: VendingMachine
@@ -796,6 +820,9 @@
     radius: 1.5
     energy: 3.0
     color: "#00E645"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineSmite
 
 - type: entity
   parent: VendingMachine
@@ -892,6 +919,9 @@
     radius: 1.5
     energy: 3.0
     color: "#6148c7"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineDiscountDans
 
 - type: entity
   parent: VendingMachine
@@ -1126,6 +1156,9 @@
     radius: 1.5
     energy: 3.0
     color: "#c73434"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineGetmoreChocolate
 
 - type: entity
   parent: VendingMachineSnack
@@ -1156,6 +1189,9 @@
     radius: 1.5
     energy: 3.0
     color: "#737785"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineSustenance
 
 - type: entity
   parent: VendingMachineSnack
@@ -1273,6 +1309,9 @@
     energy: 3.0
     color: "#389690"
   - type: RussianAccent
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineBoda
 
 - type: entity
   parent: VendingMachine
@@ -1471,6 +1510,9 @@
     radius: 1.5
     energy: 3.0
     color: "#ffe599"
+  - type: Rummageable # DEN - make rummageable
+    table: !type:NestedSelector
+      tableId: RummageableVendingMachineChang
 
 - type: entity
   parent: VendingMachine

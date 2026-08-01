@@ -104,6 +104,7 @@
       types:
         Piercing: 3
         Slash: 2
+  - type: Rummager # Can rummage through objects
   - type: ToolOrganPerformer
 
 # region Base organs

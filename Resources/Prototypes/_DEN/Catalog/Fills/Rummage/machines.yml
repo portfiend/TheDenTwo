@@ -1,0 +1,40 @@
+- type: entityTable
+  id: RummageableVendingMachineGeneric
+  table: !type:GroupSelector
+    children:
+    # Miscellaneous trash
+    - !type:GroupSelector
+      weight: 30
+      children:
+      - !type:NestedSelector
+        tableId: AllBananaPeelsTable
+      - id: CigaretteSpent
+      - id: CigarSpent
+        weight: 0.3
+      - id: FoodFrozenPopsicleTrash
+        weight: 0.75
+      - id: BrokenBottle
+      - id: ShardGlass
+    # Spesos
+    - !type:GroupSelector
+      weight: 15
+      children:
+      - id: SpaceCash10
+        weight: 20
+      - id: SpaceCash100
+        weight: 10
+      - id: SpaceCash500
+        weight: 5
+      - id: SpaceCash1000
+        weight: 1
+    # Coins
+    - !type:NestedSelector
+      tableId: TreasureCoinPile
+      weight: 10
+    # Vermin
+    - !type:GroupSelector
+      weight: 3
+      children:
+      - id: MobCockroach
+      - id: MobMouse
+      - id: MobMouseDead

@@ -1,0 +1,152 @@
+- type: entityTable
+  id: RummageableVendingMachineChang
+  table: !type:GroupSelector
+    children:
+    - &lootGeneric
+      !type:NestedSelector
+      tableId: RummageableVendingMachineGeneric
+      weight: 50
+    - !type:NestedSelector
+      tableId: TrashVendingMachineChang
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineChang
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineDiscountDans
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineDiscountDans
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineDiscountDans
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineGetmoreChocolate
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineGetmoreChocolate
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineGetmoreChocolate
+      weight: 20
+
+- type: entityTable
+  id: RummageableVendingMachineSustenance
+  table: !type:GroupSelector
+    children:
+    - *lootGeneric
+    - !type:NestedSelector
+      tableId: TrashVendingMachineSustenance
+      weight: 30
+    - !type:NestedSelector
+      tableId: LootVendingMachineSustenance
+      weight: 20
+
+## Loot
+
+- type: entityTable
+  id: LootVendingMachineChang
+  table: !type:GroupSelector
+    children:
+    - id: FoodCondimentPacketSoy
+    - id: FoodSnackCookieFortune
+    - id: DrinkRamen
+    - id: DrinkHellRamen
+    - id: FoodSnackChowMein
+    - id: FoodSnackDanDanNoodles
+
+- type: entityTable
+  id: LootVendingMachineDiscountDans
+  table: !type:GroupSelector
+    children:
+    - id: FoodSnackCheesie
+    - id: FoodSnackChips
+    - id: FoodSnackBoritos
+    - id: DrinkEnergyDrinkCan
+    - id: FoodSnackPopcorn
+    - id: FoodSnackEnergy
+    - id: FoodSnackDanDanNoodles
+
+- type: entityTable
+  id: LootVendingMachineGetmoreChocolate
+  table: !type:GroupSelector
+    children:
+    - id: FoodSnackRaisins
+    - id: FoodSnackChocolate
+    - id: FoodSnackCnDs
+    - id: FoodSnackPistachios
+    - id: FoodSnackSus
+    - id: FoodSnackSemki
+    - id: FoodSnackSyndi
+      weight: 0.5
+
+- type: entityTable
+  id: LootVendingMachineSustenance
+  table: !type:GroupSelector
+    children:
+    - id: FoodSnackNutribrick
+    - id: FoodSnackMREBrownie
+    - id: FoodCondimentPacketKetchup
+    - id: FoodTinMRE
+    - id: FoodTinBeans
+    - id: FoodTinPeaches
+    - id: DrinkBeerCan
+      weight: 0.5
+
+## Trash
+
+- type: entityTable
+  id: TrashVendingMachineChang
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: FoodCondimentPacketSoy
+    - id: FoodSnackCookieFortune
+    - id: DrinkRamen
+    - id: DrinkHellRamen
+    - id: FoodSnackChowMein
+    - id: FoodSnackDanDanNoodles
+
+- type: entityTable
+  id: TrashVendingMachineDiscountDans
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: FoodSnackCheesie
+    - id: FoodSnackChips
+    - id: FoodSnackBoritos
+    - id: DrinkEnergyDrinkCan
+    - id: FoodSnackPopcorn
+    - id: FoodSnackEnergy
+    - id: FoodSnackDanDanNoodles
+
+- type: entityTable
+  id: TrashVendingMachineGetmoreChocolate
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: FoodSnackRaisins
+    - id: FoodSnackChocolate
+    - id: FoodSnackCnDs
+    - id: FoodSnackPistachios
+    - id: FoodSnackSus
+    - id: FoodSnackSemki
+    - id: FoodSnackSyndi
+      weight: 0.5
+
+- type: entityTable
+  id: TrashVendingMachineSustenance
+  table: !type:GroupSelector
+    children: # TODO: Trashify
+    - id: FoodSnackNutribrick
+    - id: FoodSnackMREBrownie
+    - id: FoodCondimentPacketKetchup
+    - id: FoodTinMRE
+    - id: FoodTinBeans
+    - id: FoodTinPeaches
+    - id: DrinkBeerCan
+      weight: 0.5
