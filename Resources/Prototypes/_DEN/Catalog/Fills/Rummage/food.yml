@@ -91,14 +91,18 @@
   id: LootVendingMachineSustenance
   table: !type:GroupSelector
     children:
+    - id: DrinkMREFlask
     - id: FoodSnackNutribrick
     - id: FoodSnackMREBrownie
     - id: FoodCondimentPacketKetchup
-    - id: FoodTinMRE
-    - id: FoodTinBeans
-    - id: FoodTinPeaches
-    - id: DrinkBeerCan
+    - !type:GroupSelector
       weight: 0.5
+      children:
+      - id: FoodTinMRE
+      - id: FoodTinBeans
+      - id: FoodTinPeaches
+      - id: DrinkBeerCan
+        weight: 0.5
 
 ## Trash
 
@@ -141,10 +145,14 @@
   id: TrashVendingMachineSustenance
   table: !type:GroupSelector
     children:
+    - id: DrinkMREFlaskEmpty
     - id: FoodPacketMRETrash
     - id: FoodCondimentPacketEmpty
-    - id: FoodTinMRETrash
-    - id: FoodTinBeansTrash
-    - id: FoodTinPeachesTrash
-    - id: DrinkBeerCanEmpty
+    - !type:GroupSelector
       weight: 0.5
+      children:
+      - id: FoodTinMRETrash
+      - id: FoodTinBeansTrash
+      - id: FoodTinPeachesTrash
+      - id: DrinkBeerCanEmpty
+        weight: 0.5

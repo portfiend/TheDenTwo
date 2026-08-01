@@ -8,7 +8,15 @@
       reagents: []
 
 - type: entity
-  parent: [DrinkEmpty, DrinkBeerCan]
+  abstract: true
+  parent: DrinkEmpty
+  id: DrinkCanEmpty
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: [DrinkCanEmpty, DrinkBeerCan]
   id: DrinkBeerCanEmpty
 
 - type: entity
@@ -16,27 +24,31 @@
   id: DrinkCafeLatteEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkChangelingStingCan]
+  parent: [DrinkCanEmpty, DrinkChangelingStingCan]
   id: DrinkChangelingStingCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkColaCan]
+  parent: [DrinkCanEmpty, DrinkColaCan]
   id: DrinkColaCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkDrGibbCan]
+  parent: [DrinkCanEmpty, DrinkDrGibbCan]
   id: DrinkDrGibbCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkEnergyDrinkCan]
+  parent: [DrinkCanEmpty, DrinkEnergyDrinkCan]
   id: DrinkEnergyDrinkEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkFourteenLokoCan]
+  parent: [DrinkCanEmpty, DrinkMREFlask]
+  id: DrinkMREFlaskEmpty
+
+- type: entity
+  parent: [DrinkCanEmpty, DrinkFourteenLokoCan]
   id: DrinkFourteenLokoCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkGrapeCan]
+  parent: [DrinkCanEmpty, DrinkGrapeCan]
   id: DrinkGrapeCanEmpty
 
 - type: entity
@@ -52,47 +64,47 @@
   id: DrinkHotCoffeeEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkIcedTeaCan]
+  parent: [DrinkCanEmpty, DrinkIcedTeaCan]
   id: DrinkIcedTeaCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkLemonLimeCan]
+  parent: [DrinkCanEmpty, DrinkLemonLimeCan]
   id: DrinkLemonLimeCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkLemonLimeCranberryCan]
+  parent: [DrinkCanEmpty, DrinkLemonLimeCranberryCan]
   id: DrinkLemonLimeCranberryCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkPwrGameCan]
+  parent: [DrinkCanEmpty, DrinkPwrGameCan]
   id: DrinkPwrGameCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkRootBeerCan]
+  parent: [DrinkCanEmpty, DrinkRootBeerCan]
   id: DrinkRootBeerCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkShamblersJuiceCan]
+  parent: [DrinkCanEmpty, DrinkShamblersJuiceCan]
   id: DrinkShamblersJuiceCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkSodaWaterCan]
+  parent: [DrinkCanEmpty, DrinkSodaWaterCan]
   id: DrinkSodaWaterCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkSolDryCan]
+  parent: [DrinkCanEmpty, DrinkSolDryCan]
   id: DrinkSolDryCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkSpaceMountainWindCan]
+  parent: [DrinkCanEmpty, DrinkSpaceMountainWindCan]
   id: DrinkSpaceMountainWindCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkSpaceUpCan]
+  parent: [DrinkCanEmpty, DrinkSpaceUpCan]
   id: DrinkSpaceUpCanEmpty
 
 - type: entity
-  parent: [DrinkEmpty, DrinkStarkistCan]
+  parent: [DrinkCanEmpty, DrinkStarkistCan]
   id: DrinkStarkistCanEmpty
 
 - type: entity
