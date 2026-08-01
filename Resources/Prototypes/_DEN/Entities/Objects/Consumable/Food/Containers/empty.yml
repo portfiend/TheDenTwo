@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketEmpty
+  name: empty condiment packet
+  description: This can probably go in the trash.
+  components:
+  - type: Openable
+    opened: true

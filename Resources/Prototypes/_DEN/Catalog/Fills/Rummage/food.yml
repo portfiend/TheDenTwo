@@ -105,48 +105,46 @@
 - type: entityTable
   id: TrashVendingMachineChang
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: FoodCondimentPacketSoy
-    - id: FoodSnackCookieFortune
-    - id: DrinkRamen
-    - id: DrinkHellRamen
-    - id: FoodSnackChowMein
-    - id: FoodSnackDanDanNoodles
+    children:
+    - id: FoodCondimentPacketEmpty
+    - id: FoodCookieFortune
+    - id: FoodPacketCupRamenTrash
+    - id: FoodPacketChowMeinTrash
+    - id: FoodPacketDanDanTrash
 
 - type: entityTable
   id: TrashVendingMachineDiscountDans
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: FoodSnackCheesie
-    - id: FoodSnackChips
-    - id: FoodSnackBoritos
-    - id: DrinkEnergyDrinkCan
-    - id: FoodSnackPopcorn
-    - id: FoodSnackEnergy
-    - id: FoodSnackDanDanNoodles
+    children:
+    - id: FoodPacketCheesieTrash
+    - id: FoodPacketChipsTrash
+    - id: FoodPacketBoritosTrash
+    - id: DrinkEnergyDrinkCanEmpty
+    - id: FoodPacketPopcornTrash
+    - id: FoodPacketEnergyTrash
+    - id: FoodPacketDanDanTrash
 
 - type: entityTable
   id: TrashVendingMachineGetmoreChocolate
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: FoodSnackRaisins
-    - id: FoodSnackChocolate
-    - id: FoodSnackCnDs
-    - id: FoodSnackPistachios
-    - id: FoodSnackSus
-    - id: FoodSnackSemki
-    - id: FoodSnackSyndi
+    children:
+    - id: FoodPacketRaisinsTrash
+    - id: FoodPacketChocolateTrash
+    - id: FoodPacketCnDsTrash
+    - id: FoodPacketPistachioTrash
+    - id: FoodPacketSusTrash
+    - id: FoodPacketSemkiTrash
+    - id: FoodPacketSyndiTrash
       weight: 0.5
 
 - type: entityTable
   id: TrashVendingMachineSustenance
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: FoodSnackNutribrick
-    - id: FoodSnackMREBrownie
-    - id: FoodCondimentPacketKetchup
-    - id: FoodTinMRE
-    - id: FoodTinBeans
-    - id: FoodTinPeaches
-    - id: DrinkBeerCan
+    children:
+    - id: FoodPacketMRETrash
+    - id: FoodCondimentPacketEmpty
+    - id: FoodTinMRETrash
+    - id: FoodTinBeansTrash
+    - id: FoodTinPeachesTrash
+    - id: DrinkBeerCanEmpty
       weight: 0.5

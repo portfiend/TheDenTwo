@@ -137,13 +137,13 @@
 - type: entityTable
   id: TrashVendingMachineDrinksCommon
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkGrapeCan
-    - id: DrinkRootBeerCan
-    - id: DrinkIcedTeaCan
-    - id: DrinkSolDryCan
-    - id: DrinkFourteenLokoCan
-    - id: DrinkChangelingStingCan
+    children:
+    - id: DrinkGrapeCanEmpty
+    - id: DrinkRootBeerCanEmpty
+    - id: DrinkIcedTeaCanEmpty
+    - id: DrinkSolDryCanEmpty
+    - id: DrinkFourteenLokoCanEmpty
+    - id: DrinkChangelingStingCanEmpty
 
 # Loot
 
@@ -258,19 +258,19 @@
 - type: entityTable
   id: TrashVendingMachineBoda
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkSodaWaterCan
+    children:
+    - id: DrinkSodaWaterCanEmpty
       weight: 5
-    - id: DrinkColaCan
+    - id: DrinkColaCanEmpty
 
 - type: entityTable
   id: TrashVendingMachineCola
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkColaCan
+    children:
+    - id: DrinkColaCanEmpty
       weight: 2
-    - id: DrinkLemonLimeCan
-    - id: DrinkLemonLimeCranberryCan
+    - id: DrinkLemonLimeCanEmpty
+    - id: DrinkLemonLimeCranberryCanEmpty
     - &commonTrashDrinks
       !type:NestedSelector
         tableId: TrashVendingMachineDrinksCommon
@@ -279,83 +279,83 @@
 - type: entityTable
   id: TrashVendingMachineDrGibb
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkDrGibbCan
-    - id: DrinkLemonLimeCan
-    - id: DrinkLemonLimeCranberryCan
+    children:
+    - id: DrinkDrGibbCanEmpty
+    - id: DrinkLemonLimeCanEmpty
+    - id: DrinkLemonLimeCranberryCanEmpty
       weight: 3
     - *commonTrashDrinks
 
 - type: entityTable
   id: TrashVendingMachineHotDrinks
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkHotCoffee
-    - id: DrinkCafeLatte
-    - id: DrinkTeacup
-    - id: DrinkGreenTea
-    - id: DrinkHotCoco
+    children:
+    - id: DrinkHotCoffeeEmpty
+    - id: DrinkCafeLatteEmpty
+    - id: DrinkTeacupEmpty
+    - id: DrinkGreenTeaEmpty
+    - id: DrinkHotCocoEmpty
 
 - type: entityTable
   id: TrashVendingMachinePwrGame
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkPwrGameCan
+    children:
+    - id: DrinkPwrGameCanEmpty
       weight: 2
-    - id: DrinkEnergyDrinkCan
+    - id: DrinkEnergyDrinkCanEmpty
       weight: 2
-    - id: DrinkDrGibbCan
+    - id: DrinkDrGibbCanEmpty
       weight: 1.5
     - *commonTrashDrinks
 
 - type: entityTable
   id: TrashVendingMachineShamblersJuice
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkShamblersJuiceCan
+    children:
+    - id: DrinkShamblersJuiceCanEmpty
       weight: 2
-    - id: DrinkLemonLimeCan
-    - id: DrinkLemonLimeCranberryCan
+    - id: DrinkLemonLimeCanEmpty
+    - id: DrinkLemonLimeCranberryCanEmpty
     - *commonTrashDrinks
 
 - type: entityTable
   id: TrashVendingMachineSmite
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkLemonLimeCan
+    children:
+    - id: DrinkLemonLimeCanEmpty
       weight: 4
-    - id: DrinkLemonLimeCranberryCan
+    - id: DrinkLemonLimeCranberryCanEmpty
       weight: 3
-    - id: DrinkColaCan
-    - id: DrinkSolDryCan
-    - id: DrinkStarkistCan
-    - id: DrinkChangelingStingCan
+    - id: DrinkColaCanEmpty
+    - id: DrinkSolDryCanEmpty
+    - id: DrinkStarkistCanEmpty
+    - id: DrinkChangelingStingCanEmpty
 
 - type: entityTable
   id: TrashVendingMachineSoda
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkColaCan
-    - id: DrinkLemonLimeCan
-    - id: DrinkLemonLimeCranberryCan
+    children:
+    - id: DrinkColaCanEmpty
+    - id: DrinkLemonLimeCanEmpty
+    - id: DrinkLemonLimeCranberryCanEmpty
     - *commonTrashDrinks
 
 - type: entityTable
   id: TrashVendingMachineSpaceUp
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkSpaceUpCan
+    children:
+    - id: DrinkSpaceUpCanEmpty
       weight: 3
-    - id: DrinkSpaceMountainWindCan
+    - id: DrinkSpaceMountainWindCanEmpty
       weight: 3
     - *commonTrashDrinks
 
 - type: entityTable
   id: TrashVendingMachineStarkist
   table: !type:GroupSelector
-    children: # TODO: Trashify
-    - id: DrinkStarkistCan
+    children:
+    - id: DrinkStarkistCanEmpty
       weight: 3
-    - id: DrinkLemonLimeCan
-    - id: DrinkLemonLimeCranberryCan
+    - id: DrinkLemonLimeCanEmpty
+    - id: DrinkLemonLimeCranberryCanEmpty
     - *commonTrashDrinks

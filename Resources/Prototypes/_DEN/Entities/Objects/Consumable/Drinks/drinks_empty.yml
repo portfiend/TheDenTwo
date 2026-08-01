@@ -1,0 +1,100 @@
+- type: entity
+  abstract: true
+  id: DrinkEmpty
+  suffix: Empty
+  components:
+  - type: Solution
+    solution:
+      reagents: []
+
+- type: entity
+  parent: [DrinkEmpty. DrinkBeerCan]
+  id: DrinkBeerCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkCafeLatte]
+  id: DrinkCafeLatteEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkChangelingStingCan]
+  id: DrinkChangelingStingCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkColaCan]
+  id: DrinkColaCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkDrGibbCan]
+  id: DrinkDrGibbCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkEnergyDrinkCan]
+  id: DrinkEnergyDrinkEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkFourteenLokoCan]
+  id: DrinkFourteenLokoCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkGrapeCan]
+  id: DrinkGrapeCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkGreenTea]
+  id: DrinkGreenTeaEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkHotCoco]
+  id: DrinkHotCocoEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkHotCoffee]
+  id: DrinkHotCoffeeEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkIcedTeaCan]
+  id: DrinkIcedTeaCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkLemonLimeCan]
+  id: DrinkLemonLimeCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkLemonLimeCranberryCan]
+  id: DrinkLemonLimeCranberryCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkPwrGameCan]
+  id: DrinkPwrGameCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkRootBeerCan]
+  id: DrinkRootBeerCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkShamblersJuiceCan]
+  id: DrinkShamblersJuiceCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkSodaWaterCan]
+  id: DrinkSodaWaterCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkSolDryCan]
+  id: DrinkSolDryCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkSpaceMountainWindCan]
+  id: DrinkSpaceMountainWindCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkSpaceUpCan]
+  id: DrinkSpaceUpCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkStarkistCan]
+  id: DrinkStarkistCanEmpty
+
+- type: entity
+  parent: [DrinkEmpty. DrinkTeacup]
+  id: DrinkTeacupEmpty
