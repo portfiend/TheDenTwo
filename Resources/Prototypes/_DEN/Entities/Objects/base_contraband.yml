@@ -1,0 +1,8 @@
+# mantis only stuff like psionic chemicals and mnemolith weapons
+- type: entity
+  id: BaseMantisContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Mantis ]

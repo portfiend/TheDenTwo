@@ -46,8 +46,7 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
         foreach (var trait in traits)
         {
-            if (!trait.Selectable || trait.AllowedSpecies is not null
-                    && (_profile?.Species is null || !trait.AllowedSpecies.Contains(_profile.Species)))
+            if (!trait.Selectable)
                 continue;
 
             var selector = new EntityTraitSelector(trait);
@@ -73,7 +72,7 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
             var tooManySelected = TotalCost > category.MaxTraitPoints;
             foreach (var selector in _selectors)
-                selector.SetInvalid(tooManySelected);
+                selector.UpdateAppearance(tooManySelected);
         }
         else
             CategoryMaxTraitLabel.Visible = false;

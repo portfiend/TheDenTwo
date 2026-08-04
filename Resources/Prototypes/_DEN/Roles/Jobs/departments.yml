@@ -1,0 +1,7 @@
+- type: department #DEN
+  id: Epistemics
+  name: department-Epistemics
+  description: department-Epistemics-description
+  color: "#d9418d"
+  roles:
+  - Mantis

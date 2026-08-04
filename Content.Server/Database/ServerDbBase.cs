@@ -228,8 +228,8 @@ namespace Content.Server.Database
                 .ToList();
             var flattenedMarkings = appearance.Markings.SelectMany(it => it.Value)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            var hairMarking = flattenedMarkings.FirstOrNull(kvp => kvp.Key == HumanoidVisualLayers.Hair)?.Value.FirstOrDefault();
-            var facialHairMarking = flattenedMarkings.FirstOrNull(kvp => kvp.Key == HumanoidVisualLayers.FacialHair)?.Value.FirstOrDefault();
+            var hairMarking = flattenedMarkings.FirstOrNull(kvp => kvp.Key == HumanoidVisualLayers.Hair)?.Value.FirstOrNull();
+            var facialHairMarking = flattenedMarkings.FirstOrNull(kvp => kvp.Key == HumanoidVisualLayers.FacialHair)?.Value.FirstOrNull();
             profile.Markings =
                 JsonSerializer.SerializeToDocument(legacyMarkings.Select(marking => marking.ToString()).ToList());
             profile.HairName = hairMarking?.MarkingId ?? HairStyles.DefaultHairStyle;
@@ -319,6 +319,43 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
         }
+
+        #endregion
+
+        #region Consent System
+        public async Task<List<ConsentData>> GetConsentData(Guid player, CancellationToken token = default)
+        {
+            await using var db = await GetDb(token);
+
+            var data = db.DbContext.ConsentData.Where(c => c.UserId == player).ToList();
+
+            return data;
+        }
+
+        public async Task SetConsentData(Guid player, string toggleId, bool value)
+        {
+            await using var db = await GetDb();
+
+            var currentConsent = await db.DbContext.ConsentData
+                .SingleOrDefaultAsync(c => c.UserId == player && c.ConsentId == toggleId);
+
+            if (currentConsent == null)
+            {
+                db.DbContext.ConsentData.Add(currentConsent = new ConsentData
+                {
+                    UserId = player,
+                    ConsentId = toggleId,
+                    ConsentValue = value
+                });
+            }
+
+            currentConsent.UserId = player;
+            currentConsent.ConsentId = toggleId;
+            currentConsent.ConsentValue = value;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Bans
@@ -1493,6 +1530,55 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             }
 
             return banNotes;
+        }
+
+        #endregion
+
+        #region Denu Settings
+
+        public async Task<string> LoadDenuSettingsJsonAsync(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            var record = await db.DbContext.DenuSettings
+                .FirstOrDefaultAsync(d => d.PlayerUserId == userId);
+
+            return record?.SettingsJson ?? "{}";
+        }
+
+        public async Task SaveDenuSettingsJsonAsync(Guid userId, string settingsJson)
+        {
+            await using var db = await GetDb();
+
+            var record = await db.DbContext.DenuSettings
+                .FirstOrDefaultAsync(d => d.PlayerUserId == userId);
+
+            if (record == null)
+            {
+                record = new DenuModel.DenuSettings
+                {
+                    PlayerUserId = userId,
+                    SettingsJson = settingsJson
+                };
+
+                db.DbContext.DenuSettings.Add(record);
+            }
+            else
+            {
+                record.SettingsJson = settingsJson;
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task<Dictionary<int, int>> GetProfileSlotToProfileIdMapAsync(Guid userId)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Profile
+                .Where(p => p.Preference.UserId == userId)
+                .Select(p => new { p.Slot, p.Id })
+                .ToDictionaryAsync(p => p.Slot, p => p.Id);
         }
 
         #endregion
