@@ -26,15 +26,9 @@ public abstract partial class SharedToolOrganSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BodyComponent, GetToolOrganEvent>(_body.RelayEvent);
-
-        SubscribeLocalEvent<ToolOrganComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<ToolOrganComponent, OrganGotInsertedEvent>(OnOrganGotInserted);
-        SubscribeLocalEvent<ToolOrganComponent, OrganGotRemovedEvent>(OnOrganRemoved);
-        SubscribeLocalEvent<ToolOrganComponent, BodyRelayedEvent<GetToolOrganEvent>>(OnGetToolOrgan);
-
-        SubscribeLocalEvent<ToolOrganPerformerComponent, ToggleToolInteractionActionEvent>(OnPerformAction);
     }
 
+    [SubscribeLocalEvent]
     private void OnComponentInit(Entity<ToolOrganComponent> ent, ref ComponentInit args)
     {
         ent.Comp.ItemContainer = _container.EnsureContainer<Container>(ent.Owner, ent.Comp.ContainerId);
@@ -51,6 +45,7 @@ public abstract partial class SharedToolOrganSystem : EntitySystem
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnOrganGotInserted(Entity<ToolOrganComponent> ent, ref OrganGotInsertedEvent args)
     {
         _actions.AddAction(args.Target, ref ent.Comp.ToolToggleActionEntity, ent.Comp.ToolToggleAction);
@@ -58,6 +53,7 @@ public abstract partial class SharedToolOrganSystem : EntitySystem
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnOrganRemoved(Entity<ToolOrganComponent> ent, ref OrganGotRemovedEvent args)
     {
         _actions.RemoveAction(args.Target, ent.Comp.ToolToggleActionEntity);
@@ -65,6 +61,7 @@ public abstract partial class SharedToolOrganSystem : EntitySystem
         Dirty(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnPerformAction(Entity<ToolOrganPerformerComponent> ent, ref ToggleToolInteractionActionEvent args)
     {
         if (args.Handled)
@@ -77,6 +74,7 @@ public abstract partial class SharedToolOrganSystem : EntitySystem
             args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnGetToolOrgan(Entity<ToolOrganComponent> ent, ref BodyRelayedEvent<GetToolOrganEvent> args)
     {
         if (args.Args.Handled || args.Args.Action != ent.Comp.ToolToggleActionEntity)
