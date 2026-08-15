@@ -135,7 +135,7 @@
         type: DisposalUnitBoundUserInterface
   - type: Rummageable
     table: !type:NestedSelector
-      tableId: RatKingLoot
+      tableId: RummageableDisposals # DEN: RatKingLoot -> RummageableDisposalChute
   - type: RequireProjectileTarget
 
 - type: entity

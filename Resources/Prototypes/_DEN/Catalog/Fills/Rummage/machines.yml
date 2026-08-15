@@ -3,38 +3,58 @@
   table: !type:GroupSelector
     children:
     # Miscellaneous trash
-    - !type:GroupSelector
+    - !type:NestedSelector
+      tableId: RummageableGenericTrash
       weight: 30
-      children:
-      - !type:NestedSelector
-        tableId: AllBananaPeelsTable
-      - id: CigaretteSpent
-      - id: CigarSpent
-        weight: 0.3
-      - id: FoodFrozenPopsicleTrash
-        weight: 0.75
-      - id: BrokenBottle
-      - id: ShardGlass
     # Spesos
-    - !type:GroupSelector
+    - !type:NestedSelector
+      tableId: RummageableGenericSpesos
       weight: 15
-      children:
-      - id: SpaceCash10
-        weight: 20
-      - id: SpaceCash100
-        weight: 10
-      - id: SpaceCash500
-        weight: 5
-      - id: SpaceCash1000
-        weight: 1
     # Coins
     - !type:NestedSelector
       tableId: TreasureCoinPile
       weight: 10
     # Vermin
+    - !type:NestedSelector
+      tableId: RummageableGenericVermin
+      weight: 3
+
+- type: entityTable
+  id: RummageableDisposals
+  table: !type:GroupSelector
+    children:
+    # Food! (big)
     - !type:GroupSelector
       weight: 3
       children:
-      - id: MobCockroach
-      - id: MobMouse
-      - id: MobMouseDead
+      - !type:NestedSelector
+        tableId: RandomMealTable
+      - id: FoodCheese
+    # Food! (small)
+    - !type:GroupSelector
+      weight: 12
+      children:
+      - !type:NestedSelector
+        tableId: RandomAllSodaTable
+      - !type:NestedSelector
+        tableId: RandomSnackTable
+      - !type:NestedSelector
+        tableId: RandomFoodSingle
+      - id: FoodCheeseSlice
+    # Trash
+    - !type:GroupSelector
+      weight: 25
+      children:
+      - !type:NestedSelector
+        tableId: RummageableGenericTrash
+        weight: 15
+      - !type:NestedSelector
+        tableId: TrashVendingMachineDrinksCommon
+        weight: 5
+      - !type:NestedSelector
+        tableId: GenericTrashItems
+        weight: 5
+    # Vermin
+    - !type:NestedSelector
+      tableId: RummageableGenericVermin
+      weight: 5
