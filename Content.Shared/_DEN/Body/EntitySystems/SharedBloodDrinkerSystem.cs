@@ -78,7 +78,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         Entity<BloodstreamComponent?> target,
         ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (ent.Owner == args.User || !args.CanInteract || !args.CanAccess)
+        if (target.Owner == args.User || !args.CanInteract || !args.CanAccess)
             return;
 
         if (!IsInBloodDrinkingRange(ent, target))
