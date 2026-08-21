@@ -10,8 +10,10 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._DEN.Body.EntitySystems;
@@ -21,9 +23,12 @@ namespace Content.Shared._DEN.Body.EntitySystems;
 /// </summary>
 public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 {
+    [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private BodySystem _body = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private FlavorProfileSystem _flavorProfile = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private ReactiveSystem _reaction = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
@@ -48,7 +53,8 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             || args.Target == null)
             return;
 
-        TryTransferBlood(ent, args.Target.Value, ent.Comp.TransferAmount);
+        TryTransferBlood(ent, args.Target.Value, ent.Comp.TransferAmount, out var ingested);
+        FinishIngestion(ent.Owner, args.Target.Value, ingested);
     }
 
     /// <summary>
@@ -65,8 +71,11 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             ref ent.Comp.Solution))
             return;
 
+        // TODO partial transfers
         _reaction.DoEntityReaction(args.Body, args.Args.Solution, ReactionMethod.Ingestion);
-        _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, args.Args.Solution);
+        var success = _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, args.Args.Solution);
+        if (success)
+            args.Args = args.Args with { Handled = true };
     }
 
     /// <summary>
@@ -146,6 +155,29 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
+    private void FinishIngestion(Entity<BloodDrinkerComponent?> ent, EntityUid target, Solution? ingested)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp) || ingested == null)
+            return;
+
+        if (ProtoMan.TryIndex(ent.Comp.EdibleType, out var edible))
+        {
+            if (ent.Comp.UseIngestSound)
+                _audio.PlayPredicted(edible.UseSound, target, ent);
+
+            var flavors = _flavorProfile.GetLocalizedFlavorsMessage(target, ent, ingested);
+
+            // TODO satiated
+            _popup.PopupEntity(Loc.GetString(edible.Message,
+                ("food", target),
+                ("flavors", flavors),
+                ("satiated", false)),
+                Loc.GetString(edible.OtherMessage),
+                ent,
+                ent);
+        }
+    }
+
     /// <summary>
     ///     Attempt to transfer blood from a target's bloodstream to a blood drinker.
     /// </summary>
@@ -153,8 +185,13 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
     /// <param name="target">The target.</param>
     /// <param name="transferAmount">How much blood to transfer.</param>
     /// <returns>Whether or not blood was successfully transferred.</returns>
-    private bool TryTransferBlood(EntityUid drinker, Entity<BloodstreamComponent?> target, FixedPoint2 transferAmount)
+    private bool TryTransferBlood(EntityUid drinker,
+        Entity<BloodstreamComponent?> target,
+        FixedPoint2 transferAmount,
+        [NotNullWhen(true)] out Solution? ingested)
     {
+        ingested = null;
+
         if (!Resolve(target.Owner, ref target.Comp))
             return false;
 
@@ -165,7 +202,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             return false;
 
         // Remove blood from target
-        var ingested = _solutionContainer.SplitSolution(target.Comp.BloodSolution.Value, transferAmount);
+        ingested = _solutionContainer.SplitSolution(target.Comp.BloodSolution.Value, transferAmount);
         var ev = new TryDrinkBloodEvent(ingested, target);
         RaiseLocalEvent(drinker, ref ev);
 

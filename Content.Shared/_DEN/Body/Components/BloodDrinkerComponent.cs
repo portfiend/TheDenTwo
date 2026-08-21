@@ -1,5 +1,7 @@
 using Content.Shared.FixedPoint;
+using Content.Shared.Nutrition.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DEN.Body.Components;
 
@@ -7,6 +9,7 @@ namespace Content.Shared._DEN.Body.Components;
 ///     Applied to entities that are capable of drinking the blood of other entities via verb.
 /// </summary>
 [RegisterComponent]
+[NetworkedComponent]
 public sealed partial class BloodDrinkerComponent : Component
 {
     /// <summary>
@@ -44,4 +47,31 @@ public sealed partial class BloodDrinkerComponent : Component
     /// </summary>
     [DataField]
     public int VerbPriority = 2;
+
+    /// <summary>
+    ///     Whether or not the drinker and target will get popups for bite attempts.
+    /// </summary>
+    [DataField]
+    public bool UseBitePopups = true;
+
+    /// <summary>
+    ///     Whether or not this entity will make a sound on ingestion.
+    /// </summary>
+    [DataField]
+    public bool UseIngestSound = true;
+
+    /// <summary>
+    ///     Whether or not this entity will get a taste popup for the blood they ingest.
+    /// </summary>
+    [DataField]
+    public bool UseTastePopup = true;
+
+    /// <summary>
+    ///     An edible type associated with the blood feeding action.
+    /// </summary>
+    /// <remarks>
+    ///     This is used to determine ingestion sounds, popup text, and more.
+    /// </remarks>
+    [DataField]
+    public ProtoId<EdiblePrototype> EdibleType = "Drink";
 }
