@@ -19,7 +19,7 @@ public sealed partial class BloodDrinkerComponent : Component
     ///     How long it takes from an awake target.
     /// </summary>
     [DataField]
-    public TimeSpan AwakeTargetDrinkTime = TimeSpan.FromSeconds(10.0f);
+    public TimeSpan AwakeTargetDrinkTime = TimeSpan.FromSeconds(6.0f);
 
     /// <summary>
     ///     How long it takes to drink from an incapacitated target.
