@@ -68,7 +68,7 @@ public abstract partial class SharedBloodstreamSystem
     {
         var reference = ent.Comp.BloodReferenceSolution;
         var names = new List<string>();
-        var protos = reference.GetReagentPrototypes(PrototypeManager).Select(p => p.Key);
+        var protos = reference.GetReagentPrototypes(ProtoMan).Select(p => p.Key);
 
         foreach (var blood in protos)
         {
