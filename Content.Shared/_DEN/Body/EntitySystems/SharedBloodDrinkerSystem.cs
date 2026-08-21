@@ -33,9 +33,40 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 
         // Relays
         SubscribeLocalEvent<BodyComponent, TryDrinkBloodEvent>(_body.RelayEvent);
+    }
 
-        // Subscriptions
-        SubscribeLocalEvent<StomachComponent, BodyRelayedEvent<TryDrinkBloodEvent>>(OnBloodTransferred);
+    /// <summary>
+    ///     Executes a blood drinking attempt after the DoAfter finishes.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    [SubscribeLocalEvent]
+    private void OnDrinkBloodDoAfter(Entity<BloodDrinkerComponent> ent, ref DrinkBloodDoAfterEvent args)
+    {
+        if (args.Handled
+            || args.Cancelled
+            || args.User == args.Target
+            || args.Target == null)
+            return;
+
+        TryTransferBlood(ent, args.Target.Value, ent.Comp.TransferAmount);
+    }
+
+    /// <summary>
+    ///     Ingests blood into the stomach of a blood-drinking entity.
+    /// </summary>
+    /// <param name="ent">The blood drinker's stomach entity.</param>
+    [SubscribeLocalEvent]
+    private void OnBloodTransferred(Entity<StomachComponent> ent, ref BodyRelayedEvent<TryDrinkBloodEvent> args)
+    {
+        if (args.Args.Handled)
+            return;
+        if (!_solutionContainer.ResolveSolution(ent.Owner,
+            StomachSystem.DefaultSolutionName,
+            ref ent.Comp.Solution))
+            return;
+
+        _reaction.DoEntityReaction(args.Body, args.Args.Solution, ReactionMethod.Ingestion);
+        _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, args.Args.Solution);
     }
 
     /// <summary>
@@ -113,24 +144,6 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
-    }
-
-    /// <summary>
-    ///     Ingests blood into the stomach of a blood-drinking entity.
-    /// </summary>
-    /// <param name="ent">The blood drinker's stomach entity.</param>
-    private void OnBloodTransferred(Entity<StomachComponent> ent, ref BodyRelayedEvent<TryDrinkBloodEvent> args)
-    {
-        if (args.Args.Handled)
-            return;
-
-        if (!_solutionContainer.ResolveSolution(ent.Owner,
-            StomachSystem.DefaultSolutionName,
-            ref ent.Comp.Solution))
-            return;
-
-        _reaction.DoEntityReaction(args.Body, args.Args.Solution, ReactionMethod.Ingestion);
-        _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, args.Args.Solution);
     }
 
     /// <summary>
