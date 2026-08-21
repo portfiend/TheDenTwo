@@ -263,7 +263,7 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    FoodJellyAmanita: 1
+    FoodJellyColorful: 1 # DEN: FoodJellyAmanita -> FoodJellyColorful
 
 - type: microwaveMealRecipe
   id: RecipeBurgerMcguffin
@@ -357,7 +357,8 @@
   time: 25
   group: Savory
   reagents:
-    TableSalt: 5
+    TableSalt: 1
+    Blackpepper: 1
     Egg: 12
   solids:
     FoodBreadBun: 1
@@ -519,8 +520,8 @@
   time: 15
   group: Breads
   reagents:
-    TableSalt: 5
-    Blackpepper: 5
+    TableSalt: 1
+    Blackpepper: 1
   solids:
     FoodDough: 1
 
@@ -531,8 +532,8 @@
   time: 15
   group: Moth
   reagents:
-    TableSalt: 5
-    Blackpepper: 5
+    TableSalt: 1
+    Blackpepper: 1
   solids:
     FoodDoughCotton: 1
 
@@ -544,8 +545,8 @@
   time: 15
   group: Secret
   reagents:
-    TableSalt: 5
-    Blackpepper: 5
+    TableSalt: 1
+    Blackpepper: 1
   solids:
     FoodDough: 1
     PartRodMetal1: 1
@@ -591,7 +592,7 @@
   group: Breads
   solids:
     FoodBreadPlainSlice: 1
-    FoodJellyAmanita: 1 #replace with jelly
+    FoodJellyColorful: 1 # DEN: FoodJellyAmanita -> FoodJellyColorful
 
 - type: microwaveMealRecipe
   id: RecipeMoldyBreadSlice
@@ -938,7 +939,7 @@
   time: 10
   group: Savory
   reagents:
-    Water: 5
+    GellingAgent: 5 # DEN: 5u water -> 5u gelling agent
     Vodka: 5
   solids:
     FoodFlyAmanita: 3
@@ -1087,6 +1088,7 @@
   group: Soup
   reagents:
     Water: 5
+    Everyspice: 5 # Frontier
   solids:
     FoodBowlBig: 1
     FoodBungo: 2
@@ -1352,7 +1354,7 @@
   time: 15
   group: Savory
   reagents:
-    TableSalt: 5
+    TableSalt: 2
   solids:
     FoodPotato: 1
 
@@ -1363,7 +1365,7 @@
   time: 15
   group: Savory
   reagents:
-    TableSalt: 5
+    TableSalt: 2
   solids:
     FoodPotato: 1
     FoodCheeseSlice: 1
@@ -1375,7 +1377,7 @@
   time: 15
   group: Savory
   reagents:
-    TableSalt: 5
+    TableSalt: 2
   solids:
     FoodCarrot: 1
 
@@ -1625,6 +1627,8 @@
   result: FoodCakePumpkin
   time: 5
   group: Cake
+  reagents: # Frontier
+    Everyspice: 5 # Frontier
   solids:
     FoodCakePlain: 1
     FoodPumpkin: 1

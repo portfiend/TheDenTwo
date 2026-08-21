@@ -194,8 +194,7 @@
       types:
         Heat : 1.5
   - type: Temperature
-    currentTemperature: 310
-    specificHeat: 42
+    specificHeat: 2500 # 42 -> 2500 (default: 3000)
   - type: TemperatureSpeed
     thresholds:
       293: 1.0
@@ -234,10 +233,7 @@
     footstepSoundCollection:
       collection: FootstepDecapoid
   - type: Vocal
-    sounds:
-      Male: UnisexDecapoid
-      Female: UnisexDecapoid
-      Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
+    emoteSounds: UnisexDecapoid
   - type: SpeechRequiresEquipment
     whitelist:
       tags:

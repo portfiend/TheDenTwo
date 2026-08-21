@@ -1,9 +1,10 @@
 using System.Linq;
 using System.Text;
-using Content.Server.Speech.Prototypes;
 using Content.Shared.Chat;
+using Content.Shared._DEN.Earmuffs;
 using Content.Shared.Ghost;
 using Content.Shared.Players;
+using Content.Shared.Speech.Prototypes;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -68,6 +69,16 @@ public sealed partial class ChatSystem
     {
         foreach (var (session, data) in GetRecipients(source, VoiceRange))
         {
+            // DEN Start: VRChat earmuffs, but on Den!
+            if (session.AttachedEntity is not { Valid: true } playerEntity)
+                continue;
+
+            if (TryComp<EarmuffsComponent>(playerEntity, out var earmuffs)
+                && earmuffs.Running && earmuffs.HearRange < data.Range
+                && (channel == ChatChannel.Local || channel == ChatChannel.Emotes))
+                continue;
+            // DEN End
+
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
@@ -227,25 +238,7 @@ public sealed partial class ChatSystem
     {
     }
 
-    private string ObfuscateMessageReadability(string message, float chance)
-    {
-        var modifiedMessage = new StringBuilder(message);
-
-        for (var i = 0; i < message.Length; i++)
-        {
-            if (char.IsWhiteSpace((modifiedMessage[i])))
-            {
-                continue;
-            }
-
-            if (_random.Prob(1 - chance))
-            {
-                modifiedMessage[i] = '~';
-            }
-        }
-
-        return modifiedMessage.ToString();
-    }
+    // DEN: Move ObfuscateMessageReadability to shared.
 
     public string BuildGibberishString(IReadOnlyList<char> charOptions, int length)
     {

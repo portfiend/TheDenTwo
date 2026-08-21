@@ -1,12 +1,12 @@
 using System.Globalization;
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Ghost;
 using Content.Server.Interaction; // DEN - Use interaction system's range checks
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Shared._DEN.Utility;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -15,12 +15,13 @@ using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Radio;
+using Content.Shared.Speech.EntitySystems;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 
@@ -39,7 +40,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private IChatSanitizationManager _sanitizer = default!;
     [Dependency] private IAdminManager _adminManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
@@ -56,6 +56,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _critLoocEnabled;
     private readonly bool _adminLoocEnabled = true;
 
+    private bool _deadChatEnabled = true;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -63,6 +65,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         Subs.CVar(_configurationManager, CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.CritLoocEnabled, OnCritLoocEnabledChanged, true);
+        Subs.CVar(_configurationManager, CCVars.DeadChatEnabled, OnDeadChatEnabledChanged, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
     }
@@ -93,6 +96,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         _critLoocEnabled = val;
         _chatManager.DispatchServerAnnouncement(
             Loc.GetString(val ? "chat-manager-crit-looc-chat-enabled-message" : "chat-manager-crit-looc-chat-disabled-message"));
+    }
+
+    private void OnDeadChatEnabledChanged(bool val)
+    {
+        if (_deadChatEnabled == val)
+            return;
+
+        _deadChatEnabled = val;
+        _chatManager.DispatchServerAnnouncement(
+            Loc.GetString(val ? "chat-manager-dead-chat-enabled-message" : "chat-manager-dead-chat-disabled-message"));
     }
 
     private void OnGameChange(GameRunLevelChangedEvent ev)
@@ -190,44 +203,64 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
 
-        // Was there an emote in the message? If so, send it.
-        if (player != null && emoteStr != message && emoteStr != null)
+        // DEN: Detailed message system start.
+
+        message = StringUtil.FilterStringTags(message, ChatAllowedTags);
+
+        bool needsRadio = false;
+        RadioChannelPrototype? channel = null;
+        // We want to do this processing before we try to parse it into a complex message.
+        if (checkRadioPrefix)
+        {
+            if (TryProcessRadioMessage(source, message, out var modMessage, out channel))
+            {
+                needsRadio = true;
+                message = modMessage;
+            }
+        }
+
+        var complexMessage = ConvertMessageToComplex(message);
+
+        if (player != null
+            && emoteStr != message
+            && emoteStr != null
+            && desiredType is not InGameICChatType.Subtle)
         {
             SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker);
         }
 
-        // This can happen if the entire string is sanitized out.
-        if (string.IsNullOrEmpty(message))
+        // DEN: Complex message will be empty, rather than a null string. Also eat any message that is only tags.
+        if (complexMessage.Parts.Count == 0
+            || complexMessage.Parts.All(part => part.Item1 is ChatPart.EmoteTag or ChatPart.DialogTag))
             return;
 
-        // This message may have a radio prefix, and should then be whispered to the resolved radio channel
-        if (checkRadioPrefix)
+        // DEN: Complex message parsing.
+        if (needsRadio)
         {
-            if (TryProcessRadioMessage(source, message, out var modMessage, out var channel))
-            {
-                SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker);
-                return;
-            }
+            SendEntityComplexSpeech(source, complexMessage, WhisperWrapper, ChatChannel.Whisper, range, channel, nameOverride, hideLog, ignoreActionBlocker);
+            return;
         }
 
         // Otherwise, send whatever type.
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker);
+                // DEN: Complex Speech and language
+                SendEntityComplexSpeech(source, complexMessage, SpeakWrapper, ChatChannel.Local, range, null, nameOverride, hideLog, ignoreActionBlocker);
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker);
+                // DEN: Complex Speech and language
+                SendEntityComplexSpeech(source, complexMessage, WhisperWrapper, ChatChannel.Whisper, range, null, nameOverride, hideLog, ignoreActionBlocker);
                 break;
             case InGameICChatType.Emote:
-                SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
+                // DEN: Complex Speech.
+                SendEntityComplexEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
-            // DEN Start: add subtle
             case InGameICChatType.Subtle:
                 SendEntitySubtle(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
-            // DEN End
         }
+        // DEN End
     }
 
     /// <inheritdoc />

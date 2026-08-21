@@ -1,6 +1,6 @@
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   abstract: true
   name: lathe
   components:
@@ -23,15 +23,11 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: WiresPanel
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
@@ -142,6 +138,8 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - TentsStatic   #DEN
+    - DenHoloprojectorsStatic # DEN Shared static recipes.
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
@@ -491,6 +489,7 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: BaseLathe
@@ -527,6 +526,7 @@
     - Scarves
     - Carpets
     - Bedsheets
+    - TentsStatic   #DEN
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm
@@ -701,6 +701,7 @@
     - PlasticTilesStatic
     - CarpetTilesStatic
     - PreciousTilesStatic
+    - DenFloorPoolTilesStatic # DEN
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage

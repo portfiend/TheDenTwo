@@ -1,3 +1,5 @@
+using Content.Shared._DEN.Language.Components;
+using Content.Shared._MACRO.Bed.Sleep;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -41,6 +43,7 @@ public sealed partial class SleepingSystem : EntitySystem
     [Dependency] private SharedEmitSoundSystem _emitSound = default!;
     [Dependency] private StatusEffectsSystem _statusEffect = default!;
     [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private EntityQuery<UnconsciousLanguageComponent> _unconsciousLanguageQuery = default!; // DEN: Languages
 
     public static readonly EntProtoId SleepActionId = "ActionSleep";
     public static readonly EntProtoId WakeActionId = "ActionWake";
@@ -164,6 +167,9 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnSpeakAttempt(Entity<SleepingComponent> ent, ref SpeakAttemptEvent args)
     {
+        if (_unconsciousLanguageQuery.HasComp(args.LanguageEnt)) // DEN: Languages that can be spoken while asleep.
+            return;
+
         if (HasComp<AllowNextCritSpeechComponent>(ent))
         {
             RemCompDeferred<AllowNextCritSpeechComponent>(ent);
@@ -287,6 +293,19 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnStatusEffectApplied(Entity<ForcedSleepingStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        // MACRO START: SleepTimeModifier to modify force sleep duration
+        // IF YOU ARE HERE TO ADD MORE TRYCOMPS: dont. make a new event instead.
+        if (TryComp<SleepTimeModifierComponent>(args.Target, out var sleepTimeModifier) &&
+            _statusEffect.TryGetTime(args.Target, StatusEffectForcedSleeping, out var initTime))
+        {
+            var time = initTime.EndEffectTime - initTime.StartEffectTime;
+            _statusEffect.TryUpdateStatusEffectDuration(
+                args.Target,
+                StatusEffectForcedSleeping,
+                time * sleepTimeModifier.Modifier);
+        }
+        // MACRO END
+
         // Applying state check needed so we don't add SleepingComp during
         // entity reset due to the status effect getting inserted
         if (!_gameTiming.ApplyingState)
@@ -341,7 +360,7 @@ public sealed partial class SleepingSystem : EntitySystem
             if (user != null)
             {
                 _audio.PlayPredicted(ent.Comp.WakeAttemptSound, ent, user);
-                _popupSystem.PopupClient(Loc.GetString("wake-other-failure", ("target", Identity.Entity(ent, EntityManager))), ent, user, PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("wake-other-failure", ("target", Identity.Entity(ent, EntityManager))), ent, user, PopupType.SmallCaution);
             }
             return false;
         }
@@ -349,7 +368,7 @@ public sealed partial class SleepingSystem : EntitySystem
         if (user != null)
         {
             _audio.PlayPredicted(ent.Comp.WakeAttemptSound, ent, user);
-            _popupSystem.PopupClient(Loc.GetString("wake-other-success", ("target", Identity.Entity(ent, EntityManager))), ent, user);
+            _popupSystem.PopupEntity(Loc.GetString("wake-other-success", ("target", Identity.Entity(ent, EntityManager))), ent, user);
         }
 
         return RemComp<SleepingComponent>(ent);

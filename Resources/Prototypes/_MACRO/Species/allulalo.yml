@@ -1,7 +1,7 @@
 - type: species
   id: Allulalo
   name: species-name-allulalo
-  roundStart: false
+  roundStart: true
   #randomViable: true
   prototype: MobAllulalo
   defaultSkinTone: "#385878"
@@ -14,6 +14,12 @@
   - Male
   - Female
   - Unsexed
+  defaultSoundsBySex:
+  - UnisexAllulalo
+  - UnisexAllulalo
+  - UnisexAllulalo
+  voices:
+  - UnisexAllulalo
 
 # Developer Notes
 #

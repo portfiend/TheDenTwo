@@ -2,7 +2,7 @@
 # Bun
 
 - type: entity
-  parent: FoodBreadSliceBase
+  parent: [FoodBreadSliceBase, BaseSlicingRefinableFood]
   id: FoodBreadBun
   name: bun
   description: A hamburger bun. Round and convenient to hold.
@@ -11,13 +11,15 @@
     sprite: Objects/Consumable/Food/burger.rsi
     layers:
     - state: bun
-  - type: Butcherable
-    butcherDelay: 1
-    spawned:
-      - id: FoodBreadBunTop
-        amount: 1
-      - id: FoodBreadBunBottom
-        amount: 1
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodBreadBunTop
+    - id: FoodBreadBunBottom
 
 - type: entity
   parent: FoodBreadSliceBase
@@ -132,6 +134,15 @@
         color: "#f70000"
       - state: alpha-filling-inhand-right
         color: "#f70000"
+  - type: Solution # DEN: Update solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 15
+      - ReagentId: Sugar
+        Quantity: 10
+      - ReagentId: GellingAgent
+        Quantity: 5
 
 # Burger
 
@@ -1096,9 +1107,9 @@
       - ReagentId: Vitamin
         Quantity: 11
       - ReagentId: TableSalt
-        Quantity: 5
+        Quantity: 1
       - ReagentId: Blackpepper
-        Quantity: 5
+        Quantity: 1
   - type: Sprite
     state: superbite
   - type: Tag
