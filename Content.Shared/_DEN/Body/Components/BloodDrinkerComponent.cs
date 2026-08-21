@@ -1,10 +1,12 @@
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._DEN.Body.Components;
 
 /// <summary>
 ///     Applied to entities that are capable of drinking the blood of other entities via verb.
 /// </summary>
+[RegisterComponent]
 public sealed partial class BloodDrinkerComponent : Component
 {
     /// <summary>

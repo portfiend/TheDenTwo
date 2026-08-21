@@ -13,12 +13,7 @@ public abstract partial class SharedBloodstreamSystem
 {
     [Dependency] private SharedBloodDrinkerSystem _bloodDrinker = default!;
 
-    private void InitializeBloodDrinkerEvents()
-    {
-        SubscribeLocalEvent<BloodstreamComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<BloodstreamComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
-    }
-
+    [SubscribeLocalEvent]
     private void OnGetVerbs(Entity<BloodstreamComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         var user = args.User;
@@ -27,6 +22,7 @@ public abstract partial class SharedBloodstreamSystem
             _bloodDrinker.AddBloodDrinkerVerbs((user, drinker), ent.AsNullable(), ref args);
     }
 
+    [SubscribeLocalEvent]
     private void OnExamined(Entity<BloodstreamComponent> target, ref ExaminedEvent args)
     {
         if (TryComp<BloodExaminerComponent>(args.Examiner, out var bloodExaminer))
