@@ -10,6 +10,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Popups;
@@ -32,6 +33,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
     [Dependency] private FlavorProfileSystem _flavorProfile = default!;
     [Dependency] private IngestionSystem _ingestion = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private ReactiveSystem _reaction = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
@@ -163,7 +165,9 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp) || !Resolve(target.Owner, ref target.Comp))
             return;
 
-        var ingestTime = ent.Comp.AwakeTargetDrinkTime;
+        var ingestTime = _mobState.IsIncapacitated(target)
+            ? ent.Comp.IncapacitatedTargetDrinkTime
+            : ent.Comp.AwakeTargetDrinkTime;
         var ev = new DrinkBloodDoAfterEvent();
 
         // most of this stuff is just parity with ingestion events
