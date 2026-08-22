@@ -8,12 +8,15 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._DEN.Body.EntitySystems;
@@ -155,16 +158,49 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
+    /// <summary>
+    ///     Logic that runs after a blood drinker finishes drinking from a target.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    /// <param name="target">The target.</param>
+    /// <param name="ingested">The solution ingested.</param>
     private void FinishIngestion(Entity<BloodDrinkerComponent?> ent, EntityUid target, Solution? ingested)
     {
         if (!Resolve(ent.Owner, ref ent.Comp) || ingested == null)
             return;
 
-        if (ProtoMan.TryIndex(ent.Comp.EdibleType, out var edible))
-        {
-            if (ent.Comp.UseIngestSound)
-                _audio.PlayPredicted(edible.UseSound, target, ent);
+        var didSelfPopup = false;
 
+        if (ProtoMan.TryIndex(ent.Comp.EdibleType, out var edible))
+            DoBiteEndPostIngestion(ent, target, ref didSelfPopup, edible, ingested);
+
+        if (ent.Comp.UseBitePopups)
+            DoBiteEndPopups(ent, target, ref didSelfPopup);
+    }
+
+    /// <summary>
+    ///     Attempt to play sound and spawn popup based on the blood-drinking "edible" type.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    /// <param name="target">The target.</param>
+    /// <param name="didSelfPopup">Whether or not a popup has been shown to the drinker.</param>
+    /// <param name="edible">The edible prototype associated with blood drinking.</param>
+    /// <param name="ingested">The solution ingested.</param>
+    private void DoBiteEndPostIngestion(Entity<BloodDrinkerComponent?> ent,
+        EntityUid target,
+        ref bool didSelfPopup,
+        EdiblePrototype edible,
+        Solution? ingested)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        if (ent.Comp.UseIngestSound)
+            _audio.PlayPredicted(edible.UseSound, target, ent);
+
+        // Show a flavor popup to the drinker
+        if (ent.Comp.UseTastePopup && !didSelfPopup)
+        {
             var flavors = _flavorProfile.GetLocalizedFlavorsMessage(target, ent, ingested);
 
             // TODO satiated
@@ -172,9 +208,48 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
                 ("food", target),
                 ("flavors", flavors),
                 ("satiated", false)),
-                Loc.GetString(edible.OtherMessage),
                 ent,
                 ent);
+
+            didSelfPopup = true;
+        }
+    }
+
+    /// <summary>
+    ///     Spawns popups for having finished drinking someone's blood.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    /// <param name="target">The target.</param>
+    /// <param name="didSelfPopup">Whether or not a popup has been shown to the drinker.</param>
+    private void DoBiteEndPopups(Entity<BloodDrinkerComponent?> ent, EntityUid target, ref bool didSelfPopup)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        var userName = Identity.Entity(ent, EntityManager);
+        var targetName = Identity.Entity(target, EntityManager);
+        var args = new (string, object)[]
+        {
+            ("user", userName),
+            ("target", targetName)
+        };
+
+        // Popup for drinker - overriden by the flavor text popup
+        if (ent.Comp.BitePopupEndSelf != null && !didSelfPopup)
+        {
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndSelf, args), ent, ent);
+            didSelfPopup = true;
+        }
+
+        // Popup for target
+        if (ent.Comp.BitePopupEndTarget != null)
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndTarget, args), ent, target);
+
+        // Popup for everyone else
+        if (ent.Comp.BitePopupEndOther != null && ent.Comp.OthersSeeBitePopups)
+        {
+            var recipients = Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent, target);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndOther, args), ent, recipients, recordReplay: true);
         }
     }
 
@@ -229,7 +304,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 /// <summary>
 ///     Raised on an entity that is attempting to drink someone's blood.
 /// </summary>
-/// <param name="Solution">The blood removed from the target.</param>
+/// <param name="Solution">The blood remaining from the target to drink.</param>
 /// <param name="Target">The target entity.</param>
 /// <param name="Handled">Whether or not a system has processed blood ingestion.</param>
 [ByRefEvent]

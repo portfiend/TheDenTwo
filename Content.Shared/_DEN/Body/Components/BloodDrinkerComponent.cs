@@ -49,10 +49,25 @@ public sealed partial class BloodDrinkerComponent : Component
     public int VerbPriority = 2;
 
     /// <summary>
+    ///     An edible type associated with the blood feeding action.
+    /// </summary>
+    /// <remarks>
+    ///     This is used to determine ingestion sounds, popup text, and more.
+    /// </remarks>
+    [DataField]
+    public ProtoId<EdiblePrototype> EdibleType = "Drink";
+
+    /// <summary>
     ///     Whether or not the drinker and target will get popups for bite attempts.
     /// </summary>
     [DataField]
     public bool UseBitePopups = true;
+
+    /// <summary>
+    ///     Whether or not other entities (besides the drinker and target) can see bite popups.
+    /// </summary>
+    [DataField]
+    public bool OthersSeeBitePopups = true;
 
     /// <summary>
     ///     Whether or not this entity will make a sound on ingestion.
@@ -67,11 +82,56 @@ public sealed partial class BloodDrinkerComponent : Component
     public bool UseTastePopup = true;
 
     /// <summary>
-    ///     An edible type associated with the blood feeding action.
+    ///     Locale ID for the bite attempt popup that shows up to the drinker.
     /// </summary>
     /// <remarks>
-    ///     This is used to determine ingestion sounds, popup text, and more.
+    ///     Takes a "user" and "target" parameter.
     /// </remarks>
     [DataField]
-    public ProtoId<EdiblePrototype> EdibleType = "Drink";
+    public LocId? BitePopupStartSelf = "blood-drinker-popup-start-self";
+
+    /// <summary>
+    ///     Locale ID for the bite attempt popup that shows up to other players.
+    /// </summary>
+    /// <remarks>
+    ///     Takes a "user" and "target" parameter.
+    /// </remarks>
+    [DataField]
+    public LocId? BitePopupStartOther = "blood-drinker-popup-start-other";
+
+    /// <summary>
+    ///     Locale ID for the bite attempt popup that shows up to the target.
+    /// </summary>
+    /// <remarks>
+    ///     Takes a "user" and "target" parameter.
+    /// </remarks>
+    [DataField]
+    public LocId? BitePopupStartTarget = "blood-drinker-popup-start-target";
+
+    /// <summary>
+    ///     Locale ID for the bite finished popup that shows up to the drinker.
+    /// </summary>
+    /// <remarks>
+    ///     Takes a "user" and "target" parameter.
+    /// </remarks>
+    [DataField]
+    public LocId? BitePopupEndSelf = "blood-drinker-popup-end-self";
+
+    /// <summary>
+    ///     Locale ID for the bite finished popup that shows up to other players.
+    /// </summary>
+    /// <remarks>
+    ///     Takes a "user" and "target" parameter.
+    /// </remarks>
+    [DataField]
+    public LocId? BitePopupEndOther = "blood-drinker-popup-end-other";
+
+    /// <summary>
+    ///     Locale ID for the bite finished popup that shows up to the target.
+    /// </summary>
+    /// <remarks>
+    ///     Takes a "user" and "target" parameter.
+    /// </remarks>
+    [DataField]
+    public LocId? BitePopupEndTarget = "blood-drinker-popup-end-target";
 }
