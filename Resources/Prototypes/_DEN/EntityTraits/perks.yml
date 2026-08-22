@@ -20,3 +20,16 @@
   - !type:AddComponentTrait
       components:
       - type: BloodExaminer
+
+- type: entityTrait
+  id: BloodDrinker
+  name: trait-blood-drinker-name
+  description: trait-blood-drinker-desc
+  category: Perks
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: BloodExaminer
+  - !type:AddComponentTrait
+      components:
+      - type: BloodDrinker
