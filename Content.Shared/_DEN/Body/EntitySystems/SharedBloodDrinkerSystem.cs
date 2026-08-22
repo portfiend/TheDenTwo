@@ -283,17 +283,21 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         };
 
         if (ent.Comp.BitePopupStartSelf != null)
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartSelf, args), ent, ent);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartSelf, args), ent, ent, PopupType.SmallCaution);
 
         // Popup for target
         if (ent.Comp.BitePopupStartTarget != null)
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartTarget, args), ent, target);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartTarget, args), ent, target, PopupType.SmallCaution);
 
         // Popup for everyone else
         if (ent.Comp.BitePopupStartOther != null && ent.Comp.OthersSeeBitePopups)
         {
             var recipients = Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent, target);
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartOther, args), ent, recipients, recordReplay: true);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartOther, args),
+                ent,
+                recipients,
+                recordReplay: true,
+                PopupType.SmallCaution);
         }
     }
 
@@ -319,19 +323,23 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         // Popup for drinker - overriden by the flavor text popup
         if (ent.Comp.BitePopupEndSelf != null && !didSelfPopup)
         {
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndSelf, args), ent, ent);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndSelf, args), ent, ent, PopupType.SmallCaution);
             didSelfPopup = true;
         }
 
         // Popup for target
         if (ent.Comp.BitePopupEndTarget != null)
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndTarget, args), ent, target);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndTarget, args), ent, target, PopupType.SmallCaution);
 
         // Popup for everyone else
         if (ent.Comp.BitePopupEndOther != null && ent.Comp.OthersSeeBitePopups)
         {
             var recipients = Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent, target);
-            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndOther, args), ent, recipients, recordReplay: true);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupEndOther, args),
+                ent,
+                recipients,
+                recordReplay: true,
+                PopupType.SmallCaution);
         }
     }
 
