@@ -181,8 +181,8 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             DistanceThreshold = IngestionSystem.MaxFeedDistance,
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
-        DoBiteStartPopups(ent, target);
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+            DoBiteStartPopups(ent, target);
     }
 
     /// <summary>
