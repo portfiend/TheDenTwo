@@ -23,7 +23,7 @@
         factor: 1.0
         conditions:
           - !type:MetabolizerTypeCondition
-            type: [ Human ]
+            type: [ Human, BloodDrinker ] # DEN: Add BloodDrinker
             inverted: true
       - !type:EvenHealthChange
         conditions:
@@ -32,6 +32,16 @@
         damage:
           Brute: -3
           Burn: -1.25
+      - !type:SatiateThirst # DEN: Blood drinker metabolism
+        factor: 1.5
+        conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ BloodDrinker ]
+      - !type:SatiateHunger # DEN: Vampire metabolism
+        factor: 1.0
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Vampire ]
     Bloodstream: # Don't inject someone else's blood into yourself! Your own blood won't actually metabolise.
       effects:
       - !type:HealthChange

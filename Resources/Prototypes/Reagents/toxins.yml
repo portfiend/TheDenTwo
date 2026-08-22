@@ -519,7 +519,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox, Detritivore, BloodDrinker ] # DEN: Add Detritivore, BloodDrinker
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -529,12 +529,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant, Detritivore, BloodDrinker ] # DEN: Add Detritivore, BloodDrinker
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Detritivore ] # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant, Detritivore, BloodDrinker ] # DEN: Add Detritivore, BloodDrinker
           inverted: true
         damage:
           types:
