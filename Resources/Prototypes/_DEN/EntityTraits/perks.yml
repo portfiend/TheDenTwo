@@ -1,17 +1,4 @@
 - type: entityTrait
-  id: Detritivore
-  name: trait-detritivore-name
-  description: trait-detritivore-desc
-  category: Perks
-  # requirements:
-  # - !type:PlayerSpeciesRequirement
-  #   species: [Rodentia] # TODO: Rodentia
-  #   inverted: true
-  functions:
-  - !type:AddMetabolizerTrait
-    metabolizerTypes: [Detritivore]
-
-- type: entityTrait
   id: BloodExaminer
   name: trait-blood-examiner-name
   description: trait-blood-examiner-desc
@@ -33,3 +20,33 @@
   - !type:AddComponentTrait
       components:
       - type: BloodDrinker
+  - !type:AddMetabolizerTrait
+    metabolizerTypes: [Detritivore]
+
+- type: entityTrait
+  id: Detritivore
+  name: trait-detritivore-name
+  description: trait-detritivore-desc
+  category: Perks
+  # requirements:
+  # - !type:PlayerSpeciesRequirement
+  #   species: [Rodentia] # TODO: Rodentia
+  #   inverted: true
+  functions:
+  - !type:AddMetabolizerTrait
+    metabolizerTypes: [BloodDrinker]
+
+- type: entityTrait
+  id: Vampire
+  name: trait-vampire-name
+  description: trait-vampire-desc
+  category: Perks
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: BloodExaminer
+  - !type:AddComponentTrait
+      components:
+      - type: BloodDrinker
+  - !type:AddMetabolizerTrait
+    metabolizerTypes: [BloodDrinker, Vampire]
