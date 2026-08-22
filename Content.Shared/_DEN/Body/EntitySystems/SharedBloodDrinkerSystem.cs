@@ -156,6 +156,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
+        DoBiteStartPopups(ent, target);
     }
 
     /// <summary>
@@ -212,6 +213,39 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
                 ent);
 
             didSelfPopup = true;
+        }
+    }
+
+    /// <summary>
+    ///     Spawns popups for attempting to drink someone's blood.
+    /// </summary>
+    /// <param name="ent">The drinker.</param>
+    /// <param name="target">The target.</param>
+    private void DoBiteStartPopups(Entity<BloodDrinkerComponent?> ent, EntityUid target)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return;
+
+        var userName = Identity.Entity(ent, EntityManager);
+        var targetName = Identity.Entity(target, EntityManager);
+        var args = new (string, object)[]
+        {
+            ("user", userName),
+            ("target", targetName)
+        };
+
+        if (ent.Comp.BitePopupStartSelf != null)
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartSelf, args), ent, ent);
+
+        // Popup for target
+        if (ent.Comp.BitePopupStartTarget != null)
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartTarget, args), ent, target);
+
+        // Popup for everyone else
+        if (ent.Comp.BitePopupStartOther != null && ent.Comp.OthersSeeBitePopups)
+        {
+            var recipients = Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent, target);
+            _popup.PopupEntity(Loc.GetString(ent.Comp.BitePopupStartOther, args), ent, recipients, recordReplay: true);
         }
     }
 
