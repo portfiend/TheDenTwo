@@ -33,11 +33,13 @@
         damage:
           Brute: -3
           Burn: -1.25
-      - !type:SatiateThirst # DEN: Blood drinker metabolism
+      - !type:Satiate # DEN: Blood drinker metabolism
+        satiationType: Thirst
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ BloodDrinker ]
-      - !type:SatiateHunger # DEN: Vampire metabolism
+      - !type:Satiate # DEN: Vampire metabolism
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]

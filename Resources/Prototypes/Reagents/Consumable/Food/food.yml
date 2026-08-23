@@ -10,12 +10,14 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions: # DEN: Restores less for vampires
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
           inverted: true
-      - !type:SatiateHunger # DEN: Restores less for vampires
+      - !type:Satiate # DEN: Restores less for vampires
+        satiationType: Hunger
         factor: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
@@ -52,12 +54,14 @@
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        satiationType: Hunger
         conditions: # DEN: Restores less for vampires
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
           inverted: true
-      - !type:SatiateHunger # DEN: Restores less for vampires
+      - !type:Satiate # DEN: Restores less for vampires
+        satiationType: Hunger
         factor: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
@@ -92,19 +96,21 @@
           Brute: -0.4
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions: # DEN: Restores less for vampires
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
           inverted: true
-      - !type:SatiateHunger # DEN: Restores less for vampires
+      - !type:Satiate # DEN: Restores less for vampires
+        satiationType: Hunger
         factor: 0.75
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
+        # macro add start
       - !type:Satiate
         satiationType: Hunger
-        # macro add start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Kodepiia]
@@ -117,11 +123,11 @@
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-#      - !type:ChemVomit
-#        probability: 0.1
-#        conditions:
-#        - !type:MetabolizerTypeCondition
-#          type: [Kodepiia]
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
