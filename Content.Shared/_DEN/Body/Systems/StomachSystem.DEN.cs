@@ -14,9 +14,10 @@ public sealed partial class StomachSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BodyComponent, AddTraitSpecialDigestibleEvent>(_body.RelayEvent);
-        SubscribeLocalEvent<BodyComponent, RemoveTraitSpecialDigestibleEvent>(_body.RelayEvent);
         SubscribeLocalEvent<BodyComponent, AddTraitFilterSpecialDigestibleEvent>(_body.RelayEvent);
+        SubscribeLocalEvent<BodyComponent, AddTraitSpecialDigestibleEvent>(_body.RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetFirstStomachEvent>(_body.RelayEvent);
+        SubscribeLocalEvent<BodyComponent, RemoveTraitSpecialDigestibleEvent>(_body.RelayEvent);
         SubscribeLocalEvent<BodyComponent, ResetTraitSpecialDigestibleEvent>(_body.RelayEvent);
     }
 
@@ -106,6 +107,18 @@ public sealed partial class StomachSystem
         Dirty(ent);
 
         args.Args = args.Args with { Handled = true };
+    }
+
+    /// <summary>
+    ///     Get the first stomach of an entity.
+    /// </summary>
+    [SubscribeLocalEvent]
+    private void OnGetFirstStomach(Entity<StomachComponent> ent, ref BodyRelayedEvent<GetFirstStomachEvent> args)
+    {
+        if (args.Args.Stomach != null)
+            return;
+
+        args.Args = args.Args with { Stomach = ent };
     }
 
     private EntityWhitelist? FilterSpecialDigestible(Entity<StomachComponent> ent, EntityWhitelist newDigestible)
@@ -218,3 +231,9 @@ public record struct ResetTraitSpecialDigestibleEvent(
     EntityWhitelist? SpecialDigestible,
     EntityWhitelist? OrganWhitelist,
     bool Handled = false);
+
+/// <summary>
+///     Helper event to get the first available stomach of an entity.
+/// </summary>
+[ByRefEvent]
+public record struct GetFirstStomachEvent(Entity<StomachComponent>? Stomach = null);
