@@ -21,3 +21,21 @@
 #
 # - /Prototypes/_ForkOne
 # - /Prototypes/Catalog/uplink_catalog.yml
+
+# Upstream (Macrocosm)
+# - /Prototypes/_MACRO
+
+# # Ported content
+# # NOTE: Forks-of-forks should be listed in order, after their upstream (incl. hard-forks)
+# - /Prototypes/_CD
+# - /Prototypes/_DV
+# - /Prototypes/_Misfit
+# - /Prototypes/_NF
+# - /Prototypes/_AS # Downstream of _NF
+
+# DEN
+- /Prototypes/_DEN/
+# - /Prototypes/_DEN/test.yml
+
+# Per-file partials
+# [...]
