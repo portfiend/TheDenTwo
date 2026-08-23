@@ -13,7 +13,3 @@
   id: SpeciesSpecific
   priority: -10
   name: trait-category-species-specific
-
-- type: traitCategory
-  id: Perks
-  name: trait-category-perks
