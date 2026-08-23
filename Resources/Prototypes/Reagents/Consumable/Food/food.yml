@@ -58,7 +58,7 @@
         satiationType: Hunger
         conditions: # DEN: Restores less for vampires
         - !type:MetabolizerTypeCondition
-          type: [ Vampire ]
+          type: [ Kodepiia, Vampire ]
           inverted: true
       - !type:Satiate # DEN: Restores less for vampires
         satiationType: Hunger
@@ -66,11 +66,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
-      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
-        satiationType: Hunger
-        conditions: # macro add
-        - !type:MetabolizerTypeCondition
-          type: [Kodepiia]
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -108,7 +103,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
-        # macro add start
+      # macro add start
       - !type:Satiate
         satiationType: Hunger
         conditions:
@@ -135,7 +130,7 @@
         damage:
           types:
             Poison: 1
-# macro add end
+      # macro add end
   pricePerUnit: 3
 
 - type: reagent
