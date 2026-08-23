@@ -33,12 +33,10 @@
           Brute: -3
           Burn: -1.25
       - !type:SatiateThirst # DEN: Blood drinker metabolism
-        factor: 1.5
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ BloodDrinker ]
       - !type:SatiateHunger # DEN: Vampire metabolism
-        factor: 1.0
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
