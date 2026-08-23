@@ -1,0 +1,7 @@
+- type: entity
+  id: MagazineLightRifleBox
+  components:
+  - !Remove type: BallisticAmmoProvider
+  - type: BallisticAmmoProvider
+    proto: MobMouse
+    capacity: 2

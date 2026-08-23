@@ -34,8 +34,10 @@
 # - /Prototypes/_AS # Downstream of _NF
 
 # DEN
-- /Prototypes/_DEN/
+# - /Prototypes/_DENPARTIAL/
 # - /Prototypes/_DEN/test.yml
+
+- /Prototypes/_DEN/_Partials
 
 # Per-file partials
 # [...]
