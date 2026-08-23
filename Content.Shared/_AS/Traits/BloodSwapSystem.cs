@@ -9,7 +9,7 @@ namespace Content.Shared._AS.Traits;
 /// </summary>
 public sealed partial class BloodSwapSystem : EntitySystem
 {
-    [Dependency] private SharedBloodstreamSystem _bloodSystem = default!;
+    [Dependency] private BloodstreamSystem _bloodSystem = default!;
 
     public override void Initialize()
     {
