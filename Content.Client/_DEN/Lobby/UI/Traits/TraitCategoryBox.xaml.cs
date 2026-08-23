@@ -19,7 +19,6 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
     private HumanoidCharacterProfile? _profile = null;
     private List<EntityTraitSelector> _selectors = new();
-    private TraitCategoryPrototype? _category = null;
 
     public int SelectedTraits => _selectors.Count(s => s.Preference);
     public int TotalCost => _selectors.Where(s => s.Preference).Sum(s => s.Cost);
@@ -51,7 +50,7 @@ public sealed partial class TraitCategoryBox : BoxContainer
                 continue;
 
             var selector = new EntityTraitSelector(trait);
-            selector.SetProfile(_profile);
+            selector.Preference = _profile?.EntityTraitPreferences.Contains(trait.ID) == true;
             selector.PreferenceChanged += p => { OnPreferenceChanged(selector, p); };
 
             _selectors.Add(selector);
@@ -61,36 +60,22 @@ public sealed partial class TraitCategoryBox : BoxContainer
 
     public void SetCategory(TraitCategoryPrototype category)
     {
-        _category = category;
-        UpdateCategory();
-    }
-
-    private void UpdateCategory()
-    {
         CategoryHeaderLabel.Visible = true;
+        CategoryHeaderLabel.Text = Loc.GetString(category.Name);
 
-        if (_category != null)
-            SetLabel(Loc.GetString(_category.Name));
-
-        var invalidCategory = false;
-
-        if (_category is { MaxTraitPoints: >= 0 })
+        if (category is { MaxTraitPoints: >= 0 })
         {
             CategoryMaxTraitLabel.Visible = true;
             CategoryMaxTraitLabel.Text = Loc.GetString("humanoid-profile-editor-trait-count-hint",
                 ("current", TotalCost),
-                ("max", _category.MaxTraitPoints));
+                ("max", category.MaxTraitPoints));
 
-            invalidCategory = invalidCategory || TotalCost > _category.MaxTraitPoints;
+            var tooManySelected = TotalCost > category.MaxTraitPoints;
+            foreach (var selector in _selectors)
+                selector.UpdateAppearance(tooManySelected);
         }
         else
             CategoryMaxTraitLabel.Visible = false;
-
-        foreach (var selector in _selectors)
-        {
-            selector.SetProfile(_profile);
-            selector.UpdateAppearance(invalidCategory);
-        }
     }
 
     private void OnPreferenceChanged(EntityTraitSelector selector, bool toggled)
@@ -98,17 +83,11 @@ public sealed partial class TraitCategoryBox : BoxContainer
         if (selector.PrototypeId is null)
             return;
 
-        // Make sure it doesn't invalidate this trait. Otherwise...
-        if (toggled && selector.WouldFailIfSelected())
-            return;
-
-        // Get the new profile state.
         if (toggled)
             _profile = _profile?.WithEntityTraitPreference(selector.PrototypeId.Value, _prototypeManager);
         else
             _profile = _profile?.WithoutEntityTraitPreference(selector.PrototypeId.Value, _prototypeManager);
 
         OnPreferenceUpdated?.Invoke(_profile);
-        UpdateCategory();
     }
 }
