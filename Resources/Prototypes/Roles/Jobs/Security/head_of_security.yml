@@ -31,7 +31,6 @@
     department: Security
     minTime: 10h
   # End DEN
-  weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain

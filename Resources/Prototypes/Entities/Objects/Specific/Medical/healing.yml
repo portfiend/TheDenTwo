@@ -211,7 +211,7 @@
 - type: entity
   name: blood pack
   description: Contains a groundbreaking universal blood replacement created by Nanotrasen's advanced medical science.
-  parent: BaseHealingItem
+  parent: [ BaseHealingItem, SolutionFood ] #macro, add SolutionFood
   id: Bloodpack
   suffix: Full
   components:
@@ -220,6 +220,7 @@
   - type: Tag
     tags:
     - Bloodpack
+    - KodeEdible # macro add
   - type: Sprite
     state: bloodpack
   - type: Healing
@@ -244,6 +245,15 @@
     count: 10
   - type: StackPrice
     price: 10
+# macro start - kodepiia gogurt
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 15
+# macro end
 
 - type: entity
   parent: Bloodpack
@@ -693,6 +703,20 @@
         id: PillTricordrazine
         amount: 5
 
+-  type: entity
+   name: pill canister
+   parent: PillCanister
+   id: PillCanisterAmbuzol
+   suffix: Ambuzol 15u, 2
+   components:
+   - type: Label
+     localizedLabel: pill-label-ambuzol-15u
+   - type: EntityTableContainerFill
+     containers:
+       storagebase:
+         id: PillAmbuzol
+         amount: 2
+
 - type: entity
   name: pill
   suffix: Bicaridine 20u
@@ -777,7 +801,7 @@
     solution:
       reagents:
       - ReagentId: Ambuzol
-        Quantity: 10
+        Quantity: 15
 
 - type: entity
   name: ambuzol plus pill
@@ -1014,6 +1038,19 @@
     solution:
       reagents:
       - ReagentId: Stimulants
+        Quantity: 15
+
+- type: entity
+  suffix: hivarol
+  parent: PrefilledSyringe
+  id: SyringeHivarol
+  components:
+  - type: Label
+    localizedLabel: reagent-name-hivarol
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Hivarol
         Quantity: 15
 
 # Entity Tables
