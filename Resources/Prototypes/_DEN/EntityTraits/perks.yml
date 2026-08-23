@@ -3,6 +3,12 @@
   name: trait-blood-examiner-name
   description: trait-blood-examiner-desc
   category: Perks
+  requirements:
+  - &maxOneBloodTrait # TODO: Replace with trait group requirement
+    !type:PlayerTraitRequirement
+    traits: [BloodDrinker, BloodExaminer, Vampire]
+    count: !type:RangeCountRequirement
+      max: 1
   functions:
   - !type:AddComponentTrait
       components:
@@ -13,6 +19,8 @@
   name: trait-blood-drinker-name
   description: trait-blood-drinker-desc
   category: Perks
+  requirements:
+  - *maxOneBloodTrait # TODO: Replace with trait group requirement
   functions:
   - !type:AddComponentTrait
       components:
@@ -41,6 +49,8 @@
   name: trait-vampire-name
   description: trait-vampire-desc
   category: Perks
+  requirements:
+  - *maxOneBloodTrait # TODO: Replace with trait group requirement
   functions:
   - !type:AddComponentTrait
       components:
