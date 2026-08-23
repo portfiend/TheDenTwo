@@ -60,3 +60,15 @@
       - type: BloodDrinker
   - !type:AddMetabolizerTrait
     metabolizerTypes: [BloodDrinker, Vampire]
+  - !type:FilterSpecialDigestibleTrait
+    specialDigestible:
+      tags:
+      - Pill
+      - Crayon
+      - Paper
+      - VampireEdible
+  - !type:AddSpecialDigestibleTrait
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - VampireEdible
