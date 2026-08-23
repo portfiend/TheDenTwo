@@ -57,6 +57,8 @@ public sealed partial class TraitCategoryBox : BoxContainer
             _selectors.Add(selector);
             InnerList.AddChild(selector);
         }
+
+        UpdateCategory();
     }
 
     public void SetCategory(TraitCategoryPrototype category)

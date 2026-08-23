@@ -23,51 +23,55 @@ public sealed partial class HumanoidProfileEditor
             return;
         }
 
-        var traitGroups = GetTraitCategories(traits)
-            .OrderBy(p => p.Key == TraitCategoryPrototype.Default ? 0
-                : _prototypeManager.Index<TraitCategoryPrototype>(p.Key).Priority);
+        var traitGroups = GetTraitCategories(traits, out var uncategorized)
+            .OrderBy(p => _prototypeManager.Index<TraitCategoryPrototype>(p.Key).Priority);
 
+        // Uncategorized comes first.
+        if (uncategorized.Count > 0)
+            AddCategoryBox(null, uncategorized);
+
+        // Then, everything else.
         foreach (var (categoryId, traitProtos) in traitGroups)
-        {
-            var categoryBox = GetTraitCategoryBox(categoryId, traitProtos);
-            categoryBox.OnPreferenceUpdated += profile =>
-            {
-                Profile = profile;
-                SetDirty();
-                RefreshTraits();
-            };
-
-            TraitsList.AddChild(categoryBox);
-        }
+            AddCategoryBox(categoryId, traitProtos);
     }
 
-    private TraitCategoryBox GetTraitCategoryBox(string categoryId, List<EntityTraitPrototype> traitProtos)
+    private void AddCategoryBox(string? categoryId, List<EntityTraitPrototype> traitProtos)
     {
-        var category = categoryId == TraitCategoryPrototype.Default
-            ? null
-            : _prototypeManager.Index<TraitCategoryPrototype>(categoryId);
+        var categoryBox = GetTraitCategoryBox(categoryId, traitProtos);
+        categoryBox.OnPreferenceUpdated += profile =>
+        {
+            Profile = profile;
+            SetDirty();
+            RefreshTraits();
+        };
 
+        TraitsList.AddChild(categoryBox);
+    }
+
+    private TraitCategoryBox GetTraitCategoryBox(string? categoryId, List<EntityTraitPrototype> traitProtos)
+    {
         var categoryBox = new TraitCategoryBox(_prototypeManager);
         categoryBox.SetProfile(Profile);
         categoryBox.SetTraits(traitProtos);
 
-        if (category is not null)
+        if (categoryId != null && _prototypeManager.TryIndex<TraitCategoryPrototype>(categoryId, out var category))
             categoryBox.SetCategory(category);
 
         return categoryBox;
     }
 
-    private Dictionary<string, List<EntityTraitPrototype>> GetTraitCategories(List<EntityTraitPrototype> traits)
+    private Dictionary<string, List<EntityTraitPrototype>> GetTraitCategories(
+        List<EntityTraitPrototype> traits,
+        out List<EntityTraitPrototype> uncategorized)
     {
         var traitGroups = new Dictionary<string, List<EntityTraitPrototype>>();
-        var defaultTraits = new List<EntityTraitPrototype>();
-        traitGroups.Add(TraitCategoryPrototype.Default, defaultTraits);
+        uncategorized = new List<EntityTraitPrototype>();
 
         foreach (var trait in traits)
         {
             if (trait.Category == null)
             {
-                defaultTraits.Add(trait);
+                uncategorized.Add(trait);
                 continue;
             }
 
