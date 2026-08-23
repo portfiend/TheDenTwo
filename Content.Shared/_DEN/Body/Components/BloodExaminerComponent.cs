@@ -7,7 +7,8 @@ namespace Content.Shared._DEN.Body.Systems;
 ///     Note that this does not detect all chemicals in the bloodstream - just whatever their
 ///     actual BloodstreamComponent blood is.
 /// </summary>
-[RegisterComponent, Access(typeof(SharedBloodstreamSystem))]
+[RegisterComponent]
+[Access(typeof(BloodstreamSystem))]
 public sealed partial class BloodExaminerComponent : Component
 {
     /// <summary>

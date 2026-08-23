@@ -1,3 +1,4 @@
+using Content.Shared._DEN.Body.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Prototypes;
 using Robust.Shared.GameStates;
@@ -10,6 +11,7 @@ namespace Content.Shared._DEN.Body.Components;
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent]
+[Access(typeof(SharedBloodDrinkerSystem))]
 public sealed partial class BloodDrinkerComponent : Component
 {
     /// <summary>
