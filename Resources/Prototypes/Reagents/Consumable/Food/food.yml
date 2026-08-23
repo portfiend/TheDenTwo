@@ -118,11 +118,11 @@
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit
-        probability: 0.1
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Kodepiia]
+#      - !type:ChemVomit
+#        probability: 0.1
+#        conditions:
+#        - !type:MetabolizerTypeCondition
+#          type: [Kodepiia]
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
