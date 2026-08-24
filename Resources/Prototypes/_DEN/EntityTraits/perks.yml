@@ -71,4 +71,6 @@
     isSpecialDigestibleExclusive: true
     specialDigestible:
       tags:
+      - Pill
+      - Paper
       - VampireEdible
