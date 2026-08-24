@@ -191,9 +191,9 @@ public sealed partial class StomachSystem
 public record struct AddTraitSpecialDigestibleEvent(
     EntityWhitelist? SpecialDigestible,
     EntityWhitelist? OrganWhitelist,
-    bool? WasSpecialDigestibleExclusive,
+    bool? IsSpecialDigestibleExclusive,
     EntityWhitelist? OldSpecialDigestible = null,
-    bool? IsSpecialDigestibleExclusive = null,
+    bool? WasSpecialDigestibleExclusive = null,
     bool Handled = false);
 
 /// <summary>
