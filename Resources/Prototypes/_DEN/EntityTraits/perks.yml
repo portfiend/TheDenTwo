@@ -21,6 +21,10 @@
   category: Perks
   requirements:
   - *maxOneBloodTrait # TODO: Replace with trait group requirement
+  - &bloodDrinkerExcludeSpecies
+    !type:PlayerSpeciesRequirement
+    species: [Skeleton]
+    inverted: true
   functions:
   - !type:AddComponentTrait
       components:
@@ -51,6 +55,7 @@
   category: Perks
   requirements:
   - *maxOneBloodTrait # TODO: Replace with trait group requirement
+  - *bloodDrinkerExcludeSpecies
   functions:
   - !type:AddComponentTrait
       components:
