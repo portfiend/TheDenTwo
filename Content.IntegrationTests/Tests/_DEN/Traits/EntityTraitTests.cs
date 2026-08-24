@@ -9,7 +9,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -17,8 +16,8 @@ using Robust.Shared.Prototypes;
 [TestOf(typeof(EntityTraitPrototype))]
 public sealed class EntityTraitTests : GameTest
 {
-    [SidedDependency(Side.Server)] private IngestionSystem _ingestionSystem = default!;
-    [SidedDependency(Side.Server)] private TraitSystem _traitSystem = default!;
+    [SidedDependency(Side.Server)] private readonly IngestionSystem _ingestionSystem = default!;
+    [SidedDependency(Side.Server)] private readonly TraitSystem _traitSystem = default!;
 
     private static string[] _species = GameDataScrounger.PrototypesOfKind<SpeciesPrototype>();
     private ProtoId<EntityTraitPrototype> _vampireTraitId = "Vampire";
@@ -58,6 +57,7 @@ public sealed class EntityTraitTests : GameTest
     [Test]
     [TestOf(typeof(SpeciesPrototype))]
     [TestCaseSource(nameof(_species))]
+    [RunOnSide(Side.Server)]
     [Description("Ensure that all species will cleanly add and remove the Vampire trait.")]
     public async Task VampireTraitCleanAddRemove(ProtoId<SpeciesPrototype> speciesId)
     {
