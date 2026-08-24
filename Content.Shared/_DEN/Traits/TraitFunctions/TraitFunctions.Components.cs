@@ -133,9 +133,12 @@ public sealed partial class AddSpecialDigestibleTrait : ITraitFunction
         var ev = new AddTraitSpecialDigestibleEvent(SpecialDigestible, OrganWhitelist, IsSpecialDigestibleExclusive);
         entityManager.EventBus.RaiseLocalEvent(owner, ref ev);
 
+        if (!ev.Handled)
+            return;
+
         // These get replaced during the event to represent the "previous" values.
-        PreviousSpecialDigestible = ev.SpecialDigestible;
-        WasSpecialDigestibleExclusive = ev.IsSpecialDigestibleExclusive;
+        PreviousSpecialDigestible = ev.OldSpecialDigestible;
+        WasSpecialDigestibleExclusive = ev.WasSpecialDigestibleExclusive;
     }
 
     public void OnTraitRemoved(EntityUid owner, EntityManager entityManager)
@@ -172,8 +175,11 @@ public sealed partial class FilterSpecialDigestibleTrait : ITraitFunction
         var ev = new AddTraitFilterSpecialDigestibleEvent(SpecialDigestible, OrganWhitelist);
         entityManager.EventBus.RaiseLocalEvent(owner, ref ev);
 
+        if (!ev.Handled)
+            return;
+
         // These get replaced during the event to represent the "previous" values.
-        PreviousSpecialDigestible = ev.SpecialDigestible;
+        PreviousSpecialDigestible = ev.OldSpecialDigestible;
     }
 
     public void OnTraitRemoved(EntityUid owner, EntityManager entityManager)

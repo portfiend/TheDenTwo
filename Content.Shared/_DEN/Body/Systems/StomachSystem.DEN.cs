@@ -31,28 +31,22 @@ public sealed partial class StomachSystem
         if (args.Args.Handled || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent))
             return;
 
+        var oldDigestible = ent.Comp.SpecialDigestible;
+        var wasExclusive = ent.Comp.IsSpecialDigestibleExclusive;
+
         if (args.Args.SpecialDigestible != null)
-        {
-            var oldDigestible = ent.Comp.SpecialDigestible;
-            var newDigestible = MergeSpecialDigestible(ent, args.Args.SpecialDigestible);
-
-            ent.Comp.SpecialDigestible = newDigestible;
-
-            // Store the old whitelist value.
-            args.Args = args.Args with { SpecialDigestible = oldDigestible };
-        }
+            ent.Comp.SpecialDigestible = MergeSpecialDigestible(ent, args.Args.SpecialDigestible);
 
         if (args.Args.IsSpecialDigestibleExclusive != null)
-        {
-            var wasExclusive = ent.Comp.IsSpecialDigestibleExclusive;
             ent.Comp.IsSpecialDigestibleExclusive = args.Args.IsSpecialDigestibleExclusive.Value;
 
-            // Store the old exclusive value.
-            args.Args = args.Args with { IsSpecialDigestibleExclusive = wasExclusive };
-        }
-
         Dirty(ent);
-        args.Args = args.Args with { Handled = true };
+        args.Args = args.Args with
+        {
+            Handled = true,
+            OldSpecialDigestible = oldDigestible,
+            WasSpecialDigestibleExclusive = wasExclusive,
+        };
     }
 
     /// <summary>
@@ -65,8 +59,7 @@ public sealed partial class StomachSystem
         if (args.Args.Handled || _whitelist.IsWhitelistFail(args.Args.OrganWhitelist, ent))
             return;
 
-        if (args.Args.SpecialDigestible != null)
-            ent.Comp.SpecialDigestible = args.Args.SpecialDigestible;
+        ent.Comp.SpecialDigestible = args.Args.SpecialDigestible;
 
         if (args.Args.WasSpecialDigestibleExclusive != null)
             ent.Comp.IsSpecialDigestibleExclusive = args.Args.WasSpecialDigestibleExclusive.Value;
@@ -87,12 +80,12 @@ public sealed partial class StomachSystem
         var oldDigestible = ent.Comp.SpecialDigestible;
 
         ent.Comp.SpecialDigestible = FilterSpecialDigestible(ent, args.Args.SpecialDigestible);
-        Dirty(ent);
 
+        Dirty(ent);
         args.Args = args.Args with
         {
             Handled = true,
-            SpecialDigestible = oldDigestible
+            OldSpecialDigestible = oldDigestible
         };
     }
 
@@ -104,8 +97,8 @@ public sealed partial class StomachSystem
             return;
 
         ent.Comp.SpecialDigestible = args.Args.SpecialDigestible;
-        Dirty(ent);
 
+        Dirty(ent);
         args.Args = args.Args with { Handled = true };
     }
 
@@ -198,7 +191,9 @@ public sealed partial class StomachSystem
 public record struct AddTraitSpecialDigestibleEvent(
     EntityWhitelist? SpecialDigestible,
     EntityWhitelist? OrganWhitelist,
-    bool? IsSpecialDigestibleExclusive,
+    bool? WasSpecialDigestibleExclusive,
+    EntityWhitelist? OldSpecialDigestible = null,
+    bool? IsSpecialDigestibleExclusive = null,
     bool Handled = false);
 
 /// <summary>
@@ -220,6 +215,7 @@ public record struct RemoveTraitSpecialDigestibleEvent(
 public record struct AddTraitFilterSpecialDigestibleEvent(
     EntityWhitelist? SpecialDigestible,
     EntityWhitelist? OrganWhitelist,
+    EntityWhitelist? OldSpecialDigestible = null,
     bool Handled = false);
 
 /// <summary>
