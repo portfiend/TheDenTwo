@@ -12,6 +12,8 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
+namespace Content.IntegrationTests.Tests._DEN.Traits;
+
 [TestFixture]
 [TestOf(typeof(EntityTraitPrototype))]
 public sealed class EntityTraitTests : GameTest
