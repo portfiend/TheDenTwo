@@ -16,6 +16,10 @@
   # - DenHatsCowboy # use the autodrobe instead
   # - DenHatsParty # get a party crate instead
   - DenShoesColor
+  - DenShoesCosmetic
+  - DenShoesJob
+  # - DenShoesJobClown # use the autodrobe instead
+  - DenShoesMisc
   - DenUniformsClothesMate
   - DenUniformsColor
   - DenUniformsCosmetic
@@ -320,3 +324,32 @@
   - ClothingShoesColorRed
   - ClothingShoesColorYellow
   - ClothingShoesColorPurple
+
+- type: latheRecipePack
+  id: DenShoesCosmetic
+  recipes:
+  - ClothingShoesFlippers
+  - ClothingShoesLeather
+  - ClothingShoesSlippers
+  - ClothingShoesTourist
+  - ClothingShoesHighheelBoots
+  - ClothingShoesBootsLaceup
+
+- type: latheRecipePack
+  id: DenShoesJob
+  recipes:
+  - ClothingShoesChef
+  - ClothingShoesBootsWork
+
+- type: latheRecipePack
+  id: DenShoesJobClown
+  recipes:
+  - ClothingShoesClown
+  - ClothingShoesBling
+  - ClothingShoesJester
+  - ClothingShoesClownLarge
+
+- type: latheRecipePack
+  id: DenShoesMisc
+  recipes:
+  - ClothingShoesSkates

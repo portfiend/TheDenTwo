@@ -59,4 +59,93 @@
   id: ClothingShoesColorPurple
   result: ClothingShoesColorPurple
 
+# Job-specific shoes
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesChef
+  result: ClothingShoesChef
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesBootsWork
+  result: ClothingShoesBootsWork
+
+## Clown shoes
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesClown
+  result: ClothingShoesClown
+  materials:
+    Cloth: 100
+    Bananium: 50 # for shits and giggles.
+
+- type: latheRecipe
+  parent: ClothingShoesClown
+  id: ClothingShoesBling
+  result: ClothingShoesBling
+  materials:
+    Cloth: 100
+    Gold: 50
+    Bananium: 50
+
+- type: latheRecipe
+  parent: ClothingShoesClown
+  id: ClothingShoesJester
+  result: ClothingShoesJester
+
+- type: latheRecipe
+  parent: ClothingShoesClown
+  id: ClothingShoesClownLarge
+  result: ClothingShoesClownLarge
+  materials:
+    Cloth: 200
+    Bananium: 100 # for shits and giggles.
+
 # Non-job specific cosmetic shoes
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesFlippers
+  result: ClothingShoesFlippers
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesLeather
+  result: ClothingShoesLeather
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesSlippers
+  result: ClothingShoesSlippers
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesTourist
+  result: ClothingShoesTourist
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesHighheelBoots
+  result: ClothingShoesHighheelBoots
+  materials:
+    Cloth: 100
+    Steel: 50
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesBootsLaceup
+  result: ClothingShoesBootsLaceup
+
+# Misc. shoes
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingShoesSkates
+  result: ClothingShoesSkates
+  materials:
+    Cloth: 100
+    Plastic: 50
