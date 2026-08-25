@@ -82,7 +82,10 @@ public sealed class EntityTraitTests : GameTest
         // Skip over species that do not pass the trait requirements.
         if (!_traitSystem.CanAddTrait(body, vampireTrait)
             || !SharedPlayerRequirementManager.CheckRequirements(context, vampireTrait.Requirements))
+        {
             Assert.Ignore($"{entName} does not pass requirements for {_vampireTraitId} trait.");
+            return;
+        }
 
         // Get the first stomach of this entity.
         var getStomach = new GetFirstStomachEvent();
