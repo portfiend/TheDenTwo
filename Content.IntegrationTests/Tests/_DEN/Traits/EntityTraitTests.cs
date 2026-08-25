@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
 using Content.IntegrationTests.Utility;
-using Content.Server._DEN.Requirements.Managers;
 using Content.Server._DEN.Traits.EntitySystems;
 using Content.Shared._DEN.Body.Components;
 using Content.Shared._DEN.Requirements.Managers;
@@ -82,7 +81,7 @@ public sealed class EntityTraitTests : GameTest
 
         // Skip over species that do not pass the trait requirements.
         if (!_traitSystem.CanAddTrait(body, vampireTrait)
-            || PlayerRequirementManager.CheckRequirements(context, vampireTrait.Requirements))
+            || !SharedPlayerRequirementManager.CheckRequirements(context, vampireTrait.Requirements))
             Assert.Ignore($"{entName} does not pass requirements for {_vampireTraitId} trait.");
 
         // Get the first stomach of this entity.
@@ -145,6 +144,8 @@ public sealed class EntityTraitTests : GameTest
         // Remove the vampire trait.
         var removeSuccess = _traitSystem.TryRemoveTrait(body, _vampireTraitId);
 
+        await Server.WaitRunTicks(1);
+
         // Validate trait removal.
         using (Assert.EnterMultipleScope())
         {
@@ -158,6 +159,5 @@ public sealed class EntityTraitTests : GameTest
             Assert.That(stomach.Comp.IsSpecialDigestibleExclusive, Is.EqualTo(copyStomachComp.IsSpecialDigestibleExclusive),
                 $"{SEntMan.ToPrettyString(stomach)} did not reset fields cleanly: {nameof(StomachComponent.IsSpecialDigestibleExclusive)}");
         }
-
     }
 }
