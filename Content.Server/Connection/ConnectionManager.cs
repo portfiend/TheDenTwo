@@ -50,19 +50,19 @@ namespace Content.Server.Connection
     /// </summary>
     public sealed partial class ConnectionManager : IConnectionManager
     {
-        [Dependency] private readonly IPlayerManager _plyMgr = default!;
-        [Dependency] private readonly IServerNetManager _netMgr = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IHttpClientHolder _http = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private IPlayerManager _plyMgr = default!;
+        [Dependency] private IServerNetManager _netMgr = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
+        [Dependency] private ServerDbEntryManager _serverDbEntry = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IHttpClientHolder _http = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
 
         private GameTicker? _ticker;
 
@@ -132,7 +132,9 @@ namespace Content.Server.Connection
 
         private async Task NetMgrOnConnecting(NetConnectingArgs e)
         {
-            var deny = await ShouldDeny(e);
+            var adminData = await _db.GetAdminDataForAsync(e.UserId); // DEN
+            var deny = await ShouldDeny(e, adminData); // DEN
+            var denDeny = await DenShouldDeny(e, adminData); // DEN
 
             var addr = e.IP.Address;
             var userId = e.UserId;
@@ -141,6 +143,22 @@ namespace Content.Server.Connection
 
             var hwid = e.UserData.GetModernHwid();
             var trust = e.UserData.Trust;
+
+            // DEN start: maintenance mode
+            if (denDeny != null)
+            {
+                var (reason, msg) = denDeny.Value;
+
+                await _db.AddConnectionLogAsync(userId, e.UserName, addr, hwid, trust, reason, serverId);
+
+                var properties = new Dictionary<string, object>();
+                if (reason == ConnectionDenyReason.Full)
+                    properties["delay"] = _cfg.GetCVar(CCVars.GameServerFullReconnectDelay);
+
+                e.Deny(new NetDenyReason(msg, properties));
+                return;
+            }
+            // DEN end
 
             if (deny != null)
             {
@@ -208,7 +226,8 @@ namespace Content.Server.Connection
          * TODO: Break this apart into is constituent steps.
          */
         private async Task<(ConnectionDenyReason, string, List<BanDef>? bansHit)?> ShouldDeny(
-            NetConnectingArgs e)
+            NetConnectingArgs e,
+            Admin? adminData) // DEN - admin data also used elsewhere, pass it into method
         {
             // Check if banned.
             var addr = e.IP.Address;
@@ -241,8 +260,6 @@ namespace Content.Server.Connection
                 _sawmill.Verbose("User {UserId} has temporary bypass, skipping further connection checks", userId);
                 return null;
             }
-
-            var adminData = await _db.GetAdminDataForAsync(e.UserId);
 
             if (_cfg.GetCVar(CCVars.PanicBunkerEnabled) && adminData == null)
             {
