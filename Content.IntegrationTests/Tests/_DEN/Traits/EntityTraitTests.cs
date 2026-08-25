@@ -2,13 +2,17 @@ using System.Collections.Generic;
 using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Fixtures.Attributes;
 using Content.IntegrationTests.Utility;
+using Content.Server._DEN.Requirements.Managers;
 using Content.Server._DEN.Traits.EntitySystems;
 using Content.Shared._DEN.Body.Components;
+using Content.Shared._DEN.Requirements.Managers;
 using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Preferences;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -19,6 +23,7 @@ namespace Content.IntegrationTests.Tests._DEN.Traits;
 public sealed class EntityTraitTests : GameTest
 {
     [SidedDependency(Side.Server)] private readonly IngestionSystem _ingestionSystem = default!;
+    [SidedDependency(Side.Server)] private readonly HumanoidProfileSystem _humanoid = default!;
     [SidedDependency(Side.Server)] private readonly TraitSystem _traitSystem = default!;
 
     private static string[] _species = GameDataScrounger.PrototypesOfKind<SpeciesPrototype>();
@@ -66,9 +71,18 @@ public sealed class EntityTraitTests : GameTest
         var species = SProtoMan.Index<SpeciesPrototype>(speciesId);
         var body = SEntMan.Spawn(species.Prototype);
         var entName = SEntMan.ToPrettyString(body);
+        var profile = new HumanoidCharacterProfile() { Species = speciesId };
+        var context = new PlayerRequirementContext() { Profile = profile };
+        _humanoid.ApplyProfileTo(body, profile);
+
+        // Get the trait's requirements.
+        SProtoMan.TryIndex(_vampireTraitId, out var vampireTrait);
+        Assert.That(vampireTrait, Is.Not.Null,
+            $"Trait {_vampireTraitId} did not resolve to a valid trait!");
 
         // Skip over species that do not pass the trait requirements.
-        if (!_traitSystem.CanAddTrait(body, _vampireTraitId))
+        if (!_traitSystem.CanAddTrait(body, vampireTrait)
+            || PlayerRequirementManager.CheckRequirements(context, vampireTrait.Requirements))
             Assert.Ignore($"{entName} does not pass requirements for {_vampireTraitId} trait.");
 
         // Get the first stomach of this entity.
@@ -100,7 +114,7 @@ public sealed class EntityTraitTests : GameTest
         }
 
         // Add the vampire trait to the dummy.
-        var addedSuccessfully = _traitSystem.TryAddTrait(body, _vampireTraitId, out var traitEnt);
+        var addedSuccessfully = _traitSystem.TryAddTrait(body, vampireTrait, out var traitEnt);
         Assert.That(addedSuccessfully, Is.True,
             $"Could not add {_vampireTraitId} trait to {entName}!");
 
