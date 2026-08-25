@@ -64,8 +64,8 @@ public sealed class EntityTraitTests : GameTest
     [TestOf(typeof(SpeciesPrototype))]
     [TestCaseSource(nameof(_species))]
     [RunOnSide(Side.Server)]
-    [Description("Ensure that all species will cleanly add and remove the Vampire trait.")]
-    public async Task VampireTraitCleanAddRemove(string speciesId)
+    [Description("Ensure that the Vampire trait limits diets and gets cleanly added and removed for all species.")]
+    public async Task AddAndRemoveVampireTrait(string speciesId)
     {
         var species = SProtoMan.Index<SpeciesPrototype>(speciesId);
         var body = SEntMan.Spawn(species.Prototype);
