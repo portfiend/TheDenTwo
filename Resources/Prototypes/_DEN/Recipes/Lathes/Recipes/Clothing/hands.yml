@@ -137,7 +137,7 @@
   result: GoldRingDiamondPrinted
   materials:
     Gold: 25
-    Diamond: 100
+    Diamond: 50
 
 - type: latheRecipe
   parent: BaseHandsRecipe
@@ -145,7 +145,7 @@
   result: SilverRingDiamondPrinted
   materials:
     Silver: 25
-    Diamond: 100
+    Diamond: 50
 
 - type: latheRecipe
   parent: BaseHandsRecipe
@@ -153,7 +153,7 @@
   result: GoldRingGemPrinted
   materials:
     Gold: 25
-    Diamond: 100
+    Diamond: 50
 
 - type: latheRecipe
   parent: BaseHandsRecipe
@@ -161,7 +161,7 @@
   result: SilverRingGemPrinted
   materials:
     Silver: 25
-    Diamond: 100
+    Diamond: 50
 
 # TODO: maybe that feature from frontier that allows lathes to produce items at a lowered sale value?
 # then we replace this with the original prototypes
