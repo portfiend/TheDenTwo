@@ -9,6 +9,13 @@
   materials:
     Glass: 100
 
+- type: latheRecipe
+  abstract: true
+  parent: BaseEyewearRecipe
+  id: BaseEyewearClothRecipe
+  materials:
+    Cloth: 100
+
 # Non-job specific cosmetic eyewear
 
 - type: latheRecipe
@@ -37,12 +44,12 @@
   result: ClothingEyesGlassesCheapSunglasses
 
 - type: latheRecipe
-  parent: BaseEyewearRecipe
+  parent: BaseEyewearClothRecipe
   id: ClothingEyesBlindfold
   result: ClothingEyesBlindfold
 
 - type: latheRecipe
-  parent: BaseEyewearRecipe
+  parent: BaseEyewearClothRecipe
   id: ClothingEyesEyepatch
   result: ClothingEyesEyepatch
 
