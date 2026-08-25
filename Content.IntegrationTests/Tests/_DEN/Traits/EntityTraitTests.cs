@@ -144,7 +144,7 @@ public sealed class EntityTraitTests : GameTest
         // Remove the vampire trait.
         var removeSuccess = _traitSystem.TryRemoveTrait(body, _vampireTraitId);
 
-        await Server.WaitRunTicks(1);
+        Server.RunTicks(10);
 
         // Validate trait removal.
         using (Assert.EnterMultipleScope())
