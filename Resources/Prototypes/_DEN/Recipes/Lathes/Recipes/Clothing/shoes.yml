@@ -140,6 +140,18 @@
   id: ClothingShoesBootsLaceup
   result: ClothingShoesBootsLaceup
 
+## Underwear
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingUnderSocksBee
+  result: ClothingUnderSocksBee
+
+- type: latheRecipe
+  parent: BaseShoesRecipe
+  id: ClothingUnderSocksCoder
+  result: ClothingUnderSocksCoder
+
 # Misc. shoes
 
 - type: latheRecipe

@@ -334,6 +334,8 @@
   - ClothingShoesTourist
   - ClothingShoesHighheelBoots
   - ClothingShoesBootsLaceup
+  - ClothingUnderSocksBee
+  - ClothingUnderSocksCoder
 
 - type: latheRecipePack
   id: DenShoesJob
