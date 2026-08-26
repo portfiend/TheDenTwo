@@ -26,6 +26,7 @@ jobs:
         submodules: 'recursive'
         fetch-depth: 0
         filter: blob:none
+        token: ${{ secrets.BOT_TOKEN }}
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v5
       with:
