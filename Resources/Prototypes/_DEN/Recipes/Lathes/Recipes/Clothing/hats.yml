@@ -109,7 +109,7 @@
   id: ClothingHeadHatPaper # TODO: make this a crafting recipe
   result: ClothingHeadHatPaper
   materials:
-    Paper: 0.25
+    Paper: 25
 
 - type: latheRecipe
   parent: BaseHatRecipe
@@ -156,7 +156,7 @@
   id: ClothingHeadHatXmasCrown
   result: ClothingHeadHatXmasCrown
   materials:
-    Cardboard: 0.50
+    Cardboard: 50
 
 - type: latheRecipe
   parent: BaseHatRecipe
