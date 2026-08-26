@@ -45,10 +45,10 @@ jobs:
         ss14-changelog update -d Resources/Changelog
       env:
         REPO: ${{ github.repository }}
-        BRANCH: stable
+        BRANCH: master
         CHANGELOG_REPO_PATH: Resources/Changelog
-        EXTRA_CATEGORIES: Admin,Maps,Rules
-        GITHUB_TOKEN: ${{ secrets.CL_ACCESS_TOKEN }}
+        EXTRA_CATEGORIES: Den,Admin,Maps,Rules
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
 
     - name: Commit and push changelog changes
       id: changelog
