@@ -55,7 +55,7 @@ jobs:
       id: changelog
       run: |
         git config user.name "TheDen-Bot"
-        git config user.email "thelargetrucksyndicate@gmail.com"
+        git config user.email "186991657+TheDen-Bot@users.noreply.github.com"
         if [ -n "$(git status --porcelain Resources/Changelog)" ]; then
           git add Resources/Changelog
           git commit -m "Update changelog"
