@@ -51,20 +51,21 @@ jobs:
         EXTRA_CATEGORIES: Den,Admin,Maps,Rules
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-    - name: Commit and push changelog changes
-      id: changelog
-      run: |
-        git config user.name "TheDen-Bot"
-        git config user.email "186991657+TheDen-Bot@users.noreply.github.com"
-        if [ -n "$(git status --porcelain Resources/Changelog)" ]; then
-          git add Resources/Changelog
-          git commit -m "Update changelog"
-          git remote set-url origin "https://x-access-token:${BOT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git push --force-with-lease origin "HEAD:${GITHUB_REF_NAME}"
-          echo "committed=true" >> "$GITHUB_OUTPUT"
-        fi
-      env:
-        CL_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
+    # TODO: This is broken
+    # - name: Commit and push changelog changes
+    #   id: changelog
+    #   run: |
+    #     git config user.name "TheDen-Bot"
+    #     git config user.email "186991657+TheDen-Bot@users.noreply.github.com"
+    #     if [ -n "$(git status --porcelain Resources/Changelog)" ]; then
+    #       git add Resources/Changelog
+    #       git commit -m "Update changelog"
+    #       git remote set-url origin "https://x-access-token:${BOT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+    #       git push --force-with-lease origin "HEAD:${GITHUB_REF_NAME}"
+    #       echo "committed=true" >> "$GITHUB_OUTPUT"
+    #     fi
+    #   env:
+    #     CL_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
 
     # - name: Create PR from stable to master
     #   if: steps.changelog.outputs.committed == 'true'
