@@ -15,6 +15,11 @@
   - DenHatsCosmetic
   # - DenHatsCowboy # use the autodrobe instead
   # - DenHatsParty # get a party crate instead
+  - DenOuterJob
+  - DenOuterCoatJob
+  - DenOuterCoatCosmetic
+  - DenOuterWinter
+  - DenOuterWinterColor
   - DenShoesColor
   - DenShoesCosmetic
   - DenShoesJob
@@ -137,6 +142,58 @@
   - ClothingUniformRandomShirt
 
 # Outerwear
+
+- type: latheRecipePack
+  id: DenOuterJob
+  recipes:
+  - ClothingOuterApron
+  - ClothingOuterApronBar
+  - ClothingOuterApronBotanist
+  - ClothingOuterApronChef
+  - ClothingOuterVest
+
+- type: latheRecipePack
+  id: DenOuterCoatJob
+  recipes:
+  - ClothingOuterJacketChef
+  - ClothingOuterHoodieChaplain
+  - ClothingOuterCoatLab
+
+- type: latheRecipePack
+  id: DenOuterCoatCosmetic
+  recipes:
+  - ClothingOuterHoodieBlack
+  - ClothingOuterHoodieGrey
+  - ClothingOuterCoatGentle
+  - ClothingOuterCoatJensen
+  - ClothingOuterCoatTrench
+  # - ClothingOuterCoatPirate # use autodrobe instead
+  - ClothingOuterCoatSpaceAsshole
+  - ClothingOuterCoatExpensive
+
+- type: latheRecipePack
+  id: DenOuterWinter
+  recipes:
+  - ClothingOuterFlannelRed
+  - ClothingOuterFlannelBlue
+  - ClothingOuterFlannelGreen
+  - ClothingOuterCoatBomber
+  - ClothingOuterCoatTrench
+
+- type: latheRecipePack
+  id: DenOuterWinterColor
+  recipes:
+  - ClothingOuterWinterColorBlack
+  - ClothingOuterWinterColorPurple
+  - ClothingOuterWinterColorRed
+  - ClothingOuterWinterColorBlue
+  - ClothingOuterWinterColorBrown
+  - ClothingOuterWinterColorGray
+  - ClothingOuterWinterColorGreen
+  - ClothingOuterWinterColorLightBrown
+  - ClothingOuterWinterColorOrange
+  - ClothingOuterWinterColorWhite
+  - ClothingOuterWinterColorYellow
 
 # Hats
 

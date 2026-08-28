@@ -1,3 +1,5 @@
+# ALPHABETIZE AND DOCUMENT PURPOSE PLEASE
+
 # Clothing - belt slot
 - type: latheCategory
   id: Belts
@@ -17,6 +19,11 @@
 - type: latheCategory
   id: Hands
   name: lathe-category-hands
+
+# Clothing - outerwear slot
+- type: latheCategory
+  id: Outerwear
+  name: lathe-category-outerwear
 
 # Clothing - procedurally-generated clothing
 - type: latheCategory
