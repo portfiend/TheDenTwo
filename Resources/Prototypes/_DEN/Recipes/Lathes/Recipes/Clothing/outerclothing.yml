@@ -84,11 +84,6 @@
 
 - type: latheRecipe
   parent: BaseCoatCosmeticRecipe
-  id: ClothingOuterCoatTrench
-  result: ClothingOuterCoatTrench
-
-- type: latheRecipe
-  parent: BaseCoatCosmeticRecipe
   id: ClothingOuterCoatPirate
   result: ClothingOuterCoatPirate
 

@@ -345,8 +345,8 @@
 
 - type: latheRecipe
   parent: BaseHatRecipe
-  id: ClothingMaskBandMerc
-  result: ClothingMaskBandMerc
+  id: ClothingHeadBandMerc
+  result: ClothingHeadBandMerc
 
 - type: latheRecipe
   parent: BaseHatRecipe

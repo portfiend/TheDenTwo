@@ -2,7 +2,7 @@
   abstract: true
   id: BaseMaskRecipe
   categories:
-  - Mask
+  - Masks
   completetime: 2
   materials:
     Plastic: 100
@@ -85,11 +85,6 @@
   parent: BaseMaskRecipe
   id: ClothingMaskPlague
   result: ClothingMaskPlague
-
-- type: latheRecipe
-  parent: BaseMaskClothRecipe
-  id: ClothingMaskSterile
-  result: ClothingMaskSterile
 
 - type: latheRecipe
   parent: BaseMaskClothRecipe

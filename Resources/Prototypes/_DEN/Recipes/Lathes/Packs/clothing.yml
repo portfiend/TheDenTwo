@@ -247,7 +247,7 @@
   - ClothingHeadBandGrey
   - ClothingHeadBandRed
   - ClothingHeadBandSkull
-  # - ClothingMaskBandMerc
+  # - ClothingHeadBandMerc
   - ClothingHeadBandBrown
 
 - type: latheRecipePack
@@ -348,7 +348,6 @@
   recipes:
   - ClothingMaskJoy
   - ClothingMaskPlague
-  # - ClothingMaskSterile # go to medical instead
   - ClothingMaskNeckGaiter
   - ClothingMaskNeckGaiterRed
   - ClothingMaskItalianMoustache
