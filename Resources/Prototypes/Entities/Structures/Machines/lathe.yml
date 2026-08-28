@@ -528,6 +528,7 @@
     - Carpets
     - Bedsheets
     - TentsStatic   #DEN
+    - DenClothingJob #DEN
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm

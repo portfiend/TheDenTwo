@@ -1,7 +1,21 @@
 - type: latheRecipePack
   parent:
-  # Belts
   - DenBeltsCosmeticJob
+  - DenHandsGlovesJob
+  # - DenMaskJobClown # use autodrobe instead
+  # - DenMaskJobMime # use autodrobe instead
+  - DenNeckCosmeticJob
+  - DenOuterCosmeticJob
+  - DenOuterCoatJob
+  - DenShoesCosmeticJob
+  # - DenShoesJobClown # use the autodrobe instead
+  - DenUniformsCosmeticJob
+  id: DenClothingJob
+
+- type: latheRecipePack
+  parent:
+  - DenClothingJob
+  # Belts
   # Glasses
   - DenEyesGlassesCosmetic
   - DenEyesGlassesGar
@@ -9,7 +23,6 @@
   # Hands
   - DenHandsGlovesColor
   - DenHandsGlovesCosmetic
-  - DenHandsGlovesJob
   - DenHandsRingsDecorated # indecisive...
   - DenHandsRingsSimple
   # Hats
@@ -22,29 +35,21 @@
   # Masks
   - DenMaskAnimal
   # - DenMaskBandana # redundant: DenHatsBandana
-  # - DenMaskJobClown # use autodrobe instead
-  # - DenMaskJobMime # use autodrobe instead
   # Neck
-  - DenNeckCosmeticJob
   - Scarves
   - Ties
   # Outerwear
-  - DenOuterCosmeticJob
-  - DenOuterCoatJob
   - DenOuterCoatCosmetic
   - DenOuterWinter
   - DenOuterWinterColor
   # Shoes
   - DenShoesColor
   - DenShoesCosmetic
-  - DenShoesCosmeticJob
-  # - DenShoesJobClown # use the autodrobe instead
   - DenShoesMisc
   # Uniforms
   - DenUniformsClothesMate
   - DenUniformsColor
   - DenUniformsCosmetic
-  - DenUniformsCosmeticJob
   - DenUniformsDresses
   - DenUniformsRandom
   id: DenAutotailorStatic
