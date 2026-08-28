@@ -24,6 +24,10 @@
   # - DenMaskBandana # redundant: DenHatsBandana
   - DenMaskJobClown
   - DenMaskJobMime
+  # Neck
+  - DenNeckJob
+  - Scarves
+  - Ties
   # Outerwear
   - DenOuterJob
   - DenOuterCoatJob
@@ -384,6 +388,11 @@
 # endregion Mask
 
 # region Neck
+
+- type: latheRecipePack
+  id: DenNeckJob
+  recipes:
+  - ClothingNeckStoleChaplain
 
 # endregion Neck
 
