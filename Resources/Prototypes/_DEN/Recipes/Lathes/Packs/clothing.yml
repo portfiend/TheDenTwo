@@ -14,7 +14,7 @@
 
 - type: latheRecipePack
   parent:
-  - DenClothingJob
+  # - DenClothingJob # ehh. i'll leave it to the uniform printer sorry
   # Belts
   # Glasses
   - DenEyesGlassesCosmetic
