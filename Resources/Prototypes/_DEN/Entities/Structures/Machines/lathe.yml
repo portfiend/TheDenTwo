@@ -2,7 +2,7 @@
   parent: BaseLathe
   id: Autotailor
   name: autotailor
-  description: Produces new, non-job specific clothing and accessories with the press of a button.
+  description: Produces fashion-worthy apparel at the press of a button - now with less contraband!
   components:
   - type: Transform
     noRot: false
@@ -25,9 +25,9 @@
   #   emagStaticPacks:
   #   - DenAutotailorEmagStatic
   - type: MaterialStorage
-    whitelist: &StandardMaterialWhitelist
+    whitelist:
       tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+      - Sheet
+      - RawMaterial
+      - Ingot
   - type: OreSiloClient
