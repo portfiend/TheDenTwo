@@ -93,6 +93,11 @@
   result: ClothingOuterCoatPirate
 
 - type: latheRecipe
+  parent: BaseOuterwearRecipe
+  id: ClothingOuterPlagueSuit
+  result: ClothingOuterPlagueSuit
+
+- type: latheRecipe
   parent: BaseCoatRecipe # for durathread cost
   id: ClothingOuterCoatSpaceAsshole
   result: ClothingOuterCoatSpaceAsshole
