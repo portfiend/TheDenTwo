@@ -15,48 +15,84 @@
 - type: latheRecipePack
   parent:
   # - DenClothingJob # ehh. i'll leave it to the uniform printer sorry
-  # Belts
-  # Glasses
+  - DenAutotailorStaticBelt
+  - DenAutotailorStaticGlasses
+  - DenAutotailorStaticHands
+  - DenAutotailorStaticHats
+  - DenAutotailorStaticMasks
+  - DenAutotailorStaticNeck
+  - DenAutotailorStaticOuterwear
+  - DenAutotailorStaticShoes
+  - DenAutotailorStaticUniforms
+  id: DenAutotailorStatic
+
+- type: latheRecipePack
+  id: DenAutotailorEmagStatic
+  recipes: []
+
+- type: latheRecipePack
+  id: DenAutotailorStaticBelt
+  recipes: []
+
+- type: latheRecipePack
+  parent:
   - DenEyesGlassesCosmetic
   - DenEyesGlassesGar
   - DenEyesMiscellaneous
-  # Hands
+  id: DenAutotailorStaticGlasses
+
+- type: latheRecipePack
+  parent:
   - DenHandsGlovesColor
   - DenHandsGlovesCosmetic
   - DenHandsRingsDecorated # indecisive...
   - DenHandsRingsSimple
-  # Hats
+  id: DenAutotailorStaticHands
+
+- type: latheRecipePack
+  parent:
   - DenHatsColorSoft
   # - DenHatsAnimal # maintenance loot
   - DenHatsBandana
   - DenHatsCosmetic
   # - DenHatsCowboy # use the autodrobe instead
   # - DenHatsParty # get a party crate instead
-  # Masks
+  id: DenAutotailorStaticHats
+
+- type: latheRecipePack
+  parent:
   - DenMaskAnimal
   # - DenMaskBandana # redundant: DenHatsBandana
-  # Neck
+  id: DenAutotailorStaticMasks
+
+- type: latheRecipePack
+  parent:
   - Scarves
   - Ties
-  # Outerwear
+  id: DenAutotailorStaticNeck
+
+- type: latheRecipePack
+  parent:
   - DenOuterCoatCosmetic
   - DenOuterWinter
   - DenOuterWinterColor
-  # Shoes
+  id: DenAutotailorStaticOuterwear
+
+- type: latheRecipePack
+  parent:
   - DenShoesColor
   - DenShoesCosmetic
   - DenShoesMisc
-  # Uniforms
+  id: DenAutotailorStaticShoes
+
+- type: latheRecipePack
+  parent:
   - DenUniformsClothesMate
   - DenUniformsColor
   - DenUniformsCosmetic
   - DenUniformsDresses
   - DenUniformsRandom
-  id: DenAutotailorStatic
-
-- type: latheRecipePack
-  id: DenAutotailorEmagStatic
-  recipes: []
+  id: DenAutotailorStaticUniforms
 
 # region Uniforms
 
