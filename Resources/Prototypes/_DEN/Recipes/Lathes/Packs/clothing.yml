@@ -37,7 +37,7 @@
   id: DenAutotailorEmagStatic
   recipes: []
 
-# Uniforms
+# region Uniforms
 
 - type: latheRecipePack
   id: DenUniformsColor
@@ -141,7 +141,9 @@
   - ClothingUniformRandomShorts
   - ClothingUniformRandomShirt
 
-# Outerwear
+# endregion Uniforms
+
+# region Outerwear
 
 - type: latheRecipePack
   id: DenOuterJob
@@ -195,7 +197,9 @@
   - ClothingOuterWinterColorWhite
   - ClothingOuterWinterColorYellow
 
-# Hats
+# endregion Outerwear
+
+# region Hats
 
 - type: latheRecipePack
   id: DenHatsColorSoft
@@ -285,7 +289,9 @@
   - ClothingHeadHatCowboyWhite
   - ClothingHeadHatCowboyBountyHunter
 
-# Eyes
+# endregion Hats
+
+# region Eyes
 
 - type: latheRecipePack
   id: DenEyesGlassesCosmetic
@@ -309,11 +315,17 @@
   - ClothingEyesBlindfold
   - ClothingEyesEyepatch
 
-# Mask
+# endregion Eyes
 
-# Neck
+# region Mask
 
-# Belt
+# endregion Mask
+
+# region Neck
+
+# endregion Neck
+
+# region Belt
 
 - type: latheRecipePack
   id: DenBeltsCosmeticJob
@@ -321,7 +333,9 @@
   - ClothingBeltSuspendersRed
   - ClothingBeltSuspendersBlack
 
-# Hands
+# endregion Belt
+
+# region Hands
 
 - type: latheRecipePack
   id: DenHandsGlovesColor
@@ -367,7 +381,9 @@
   - GoldRingGem
   - SilverRingGem
 
-# Shoes
+# endregion Hands
+
+# region Shoes
 
 - type: latheRecipePack
   id: DenShoesColor
@@ -412,3 +428,5 @@
   id: DenShoesMisc
   recipes:
   - ClothingShoesSkates
+
+# endregion Shoes
