@@ -70,3 +70,39 @@
     count: !type:RangeCountRequirement
       min: 2
       max: 8
+
+- type: entityTrait
+  id: DebugGroupedTraitA
+  name: trait-debug-grouped-trait-a-name
+  characterEditorSelectable: &groupedTraitEnabled false
+  requirements:
+  - &groupedTraitRequirement
+    !type:PlayerTraitRequirement
+    traits:
+    - DebugGroupedTraitA
+    - DebugGroupedTraitB
+    - DebugGroupedTraitC
+    - DebugGroupedTraitD
+    count: !type:RangeCountRequirement
+      max: 2
+
+- type: entityTrait
+  id: DebugGroupedTraitB
+  name: trait-debug-grouped-trait-b-name
+  characterEditorSelectable: *groupedTraitEnabled
+  requirements:
+  - *groupedTraitRequirement
+
+- type: entityTrait
+  id: DebugGroupedTraitC
+  name: trait-debug-grouped-trait-c-name
+  characterEditorSelectable: *groupedTraitEnabled
+  requirements:
+  - *groupedTraitRequirement
+
+- type: entityTrait
+  id: DebugGroupedTraitD
+  name: trait-debug-grouped-trait-d-name
+  characterEditorSelectable: *groupedTraitEnabled
+  requirements:
+  - *groupedTraitRequirement
