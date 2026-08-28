@@ -22,14 +22,14 @@
   # Masks
   - DenMaskAnimal
   # - DenMaskBandana # redundant: DenHatsBandana
-  - DenMaskJobClown
-  - DenMaskJobMime
+  # - DenMaskJobClown # use autodrobe instead
+  # - DenMaskJobMime # use autodrobe instead
   # Neck
-  - DenNeckJob
+  - DenNeckCosmeticJob
   - Scarves
   - Ties
   # Outerwear
-  - DenOuterJob
+  - DenOuterCosmeticJob
   - DenOuterCoatJob
   - DenOuterCoatCosmetic
   - DenOuterWinter
@@ -37,7 +37,7 @@
   # Shoes
   - DenShoesColor
   - DenShoesCosmetic
-  - DenShoesJob
+  - DenShoesCosmeticJob
   # - DenShoesJobClown # use the autodrobe instead
   - DenShoesMisc
   # Uniforms
@@ -162,7 +162,7 @@
 # region Outerwear
 
 - type: latheRecipePack
-  id: DenOuterJob
+  id: DenOuterCosmeticJob
   recipes:
   - ClothingOuterApron
   - ClothingOuterApronBar
@@ -390,7 +390,7 @@
 # region Neck
 
 - type: latheRecipePack
-  id: DenNeckJob
+  id: DenNeckCosmeticJob
   recipes:
   - ClothingNeckStoleChaplain
 
@@ -482,7 +482,7 @@
   - ClothingUnderSocksCoder
 
 - type: latheRecipePack
-  id: DenShoesJob
+  id: DenShoesCosmeticJob
   recipes:
   - ClothingShoesChef
   - ClothingShoesBootsWork
