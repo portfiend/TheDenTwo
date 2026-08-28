@@ -20,6 +20,11 @@
   id: Hands
   name: lathe-category-hands
 
+# Clothing - mask slot
+- type: latheCategory
+  id: Masks
+  name: lathe-category-masks
+
 # Clothing - outerwear slot
 - type: latheCategory
   id: Outerwear

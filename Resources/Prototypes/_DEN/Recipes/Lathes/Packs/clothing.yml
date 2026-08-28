@@ -15,6 +15,7 @@
   - DenHatsCosmetic
   # - DenHatsCowboy # use the autodrobe instead
   # - DenHatsParty # get a party crate instead
+  # - DenMaskBandana # redundant: DenHatsBandana
   - DenOuterJob
   - DenOuterCoatJob
   - DenOuterCoatCosmetic
@@ -318,6 +319,19 @@
 # endregion Eyes
 
 # region Mask
+
+- type: latheRecipePack
+  id: DenMaskBandana
+  recipes:
+  - ClothingMaskBandBlack
+  - ClothingMaskBandBlue
+  - ClothingMaskBandGold
+  - ClothingMaskBandGreen
+  - ClothingMaskBandGrey
+  - ClothingMaskBandRed
+  - ClothingMaskBandSkull
+  # - ClothingMaskBandMerc
+  - ClothingMaskBandBrown
 
 # endregion Mask
 

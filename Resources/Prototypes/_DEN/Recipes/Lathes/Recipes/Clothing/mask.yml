@@ -1,0 +1,112 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseMaskRecipe
+  categories:
+  - Mask
+  completetime: 2
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseMaskRecipe
+  id: BaseBandanaRecipe
+  materials:
+    Cloth: 100
+
+# Job-specific masks
+
+## Clown masks
+
+- type: latheRecipe
+  parent: BaseMaskRecipe
+  id: ClothingMaskClown
+  result: ClothingMaskClown
+  materials:
+    Cloth: 100
+    Plastic: 100
+
+- type: latheRecipe
+  parent: ClothingMaskClown
+  id: ClothingMaskClownBanana
+  result: ClothingMaskClownBanana
+  materials:
+    Bananium: 50
+    Cloth: 50
+    Plastic: 100
+
+- type: latheRecipe
+  parent: ClothingMaskClown
+  id: ClothingMaskClownSecurity
+  result: ClothingMaskClownSecurity
+
+## Mime masks
+
+- type: latheRecipe
+  parent: BaseMaskRecipe
+  id: ClothingMaskMime
+  result: ClothingMaskMime
+
+# Non-job specific cosmetic masks
+
+- type: latheRecipe
+  parent: BaseMaskRecipe
+  id: ClothingMaskJoy
+  result: ClothingMaskJoy
+
+- type: latheRecipe
+  parent: BaseMaskRecipe
+  id: ClothingMaskPlague
+  result: ClothingMaskPlague
+
+- type: latheRecipe
+  parent: BaseMaskRecipe
+  id: ClothingMaskSterile
+  result: ClothingMaskSterile
+
+# Bandanas
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandBlack
+  result: ClothingMaskBandBlack
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandBlue
+  result: ClothingMaskBandBlue
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandGold
+  result: ClothingMaskBandGold
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandGreen
+  result: ClothingMaskBandGreen
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandGrey
+  result: ClothingMaskBandGrey
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandRed
+  result: ClothingMaskBandRed
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandSkull
+  result: ClothingMaskBandSkull
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandMerc
+  result: ClothingMaskBandMerc
+
+- type: latheRecipe
+  parent: BaseBandanaRecipe
+  id: ClothingMaskBandBrown
+  result: ClothingMaskBandBrown
