@@ -1,31 +1,42 @@
 - type: latheRecipePack
   parent:
+  # Belts
   - DenBeltsCosmeticJob
+  # Glasses
   - DenEyesGlassesCosmetic
   - DenEyesGlassesGar
   - DenEyesMiscellaneous
+  # Hands
   - DenHandsGlovesColor
   - DenHandsGlovesCosmetic
   - DenHandsGlovesJob
   - DenHandsRingsDecorated # indecisive...
   - DenHandsRingsSimple
+  # Hats
   - DenHatsColorSoft
   # - DenHatsAnimal # maintenance loot
   - DenHatsBandana
   - DenHatsCosmetic
   # - DenHatsCowboy # use the autodrobe instead
   # - DenHatsParty # get a party crate instead
+  # Masks
+  - DenMaskAnimal
   # - DenMaskBandana # redundant: DenHatsBandana
+  - DenMaskJobClown
+  - DenMaskJobMime
+  # Outerwear
   - DenOuterJob
   - DenOuterCoatJob
   - DenOuterCoatCosmetic
   - DenOuterWinter
   - DenOuterWinterColor
+  # Shoes
   - DenShoesColor
   - DenShoesCosmetic
   - DenShoesJob
   # - DenShoesJobClown # use the autodrobe instead
   - DenShoesMisc
+  # Uniforms
   - DenUniformsClothesMate
   - DenUniformsColor
   - DenUniformsCosmetic
@@ -320,6 +331,43 @@
 # endregion Eyes
 
 # region Mask
+
+- type: latheRecipePack
+  id: DenMaskAnimal
+  recipes:
+  - ClothingMaskBat
+  - ClothingMaskBee
+  - ClothingMaskBear
+  - ClothingMaskFox
+  - ClothingMaskRat
+  - ClothingMaskRaven
+  - ClothingMaskJackal
+
+- type: latheRecipePack
+  id: DenMaskCosmetic
+  recipes:
+  - ClothingMaskJoy
+  - ClothingMaskPlague
+  # - ClothingMaskSterile # go to medical instead
+  - ClothingMaskNeckGaiter
+  - ClothingMaskNeckGaiterRed
+  - ClothingMaskItalianMoustache
+
+- type: latheRecipePack
+  id: DenMaskJobClown
+  recipes:
+  - ClothingMaskClown
+  - ClothingMaskClownBanana
+  - ClothingMaskClownSecurity
+  - ClothingMaskBlushingClown
+
+- type: latheRecipePack
+  id: DenMaskJobMime
+  recipes:
+  - ClothingMaskMime
+  - ClothingMaskBlushingMime
+  - ClothingMaskSadMime
+  - ClothingMaskScaredMime
 
 - type: latheRecipePack
   id: DenMaskBandana
