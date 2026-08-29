@@ -83,7 +83,7 @@ public sealed class EntityTraitTests : GameTest
         if (!_traitSystem.CanAddTrait(body, vampireTrait)
             || !SharedPlayerRequirementManager.CheckRequirements(context, vampireTrait.Requirements))
         {
-            Assert.Ignore($"{entName} does not pass requirements for {_vampireTraitId} trait.");
+            // Assert.Ignore($"{entName} does not pass requirements for {_vampireTraitId} trait.");
             return;
         }
 
