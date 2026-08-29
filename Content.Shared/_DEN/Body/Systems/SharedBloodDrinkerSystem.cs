@@ -146,7 +146,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 
         verb = new()
         {
-            Icon = null,
+            Icon = ent.Comp.VerbIcon,
             Text = Loc.GetString(ent.Comp.VerbLocId),
             Priority = ent.Comp.VerbPriority,
             Act = () => { StartDrinkBlood(ent, target); }

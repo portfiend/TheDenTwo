@@ -3,6 +3,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._DEN.Body.Components;
 
@@ -45,11 +46,16 @@ public sealed partial class BloodDrinkerComponent : Component
     public LocId VerbLocId = "blood-drinker-bite-verb";
 
     /// <summary>
+    ///     The icon used for the "bite" verb.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier VerbIcon = new SpriteSpecifier.Texture(new("/Textures/_DEN/Interface/VerbIcons/vampire-bite.svg.192dpi.png"));
+
+    /// <summary>
     ///     The priority of the ingestion verb.
     /// </summary>
     [DataField]
     public int VerbPriority = 2;
-
     /// <summary>
     ///     An edible type associated with the blood feeding action.
     /// </summary>
