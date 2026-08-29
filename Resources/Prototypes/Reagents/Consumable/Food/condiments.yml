@@ -134,7 +134,7 @@
         factor: 0.5
         conditions: # macro add
         - !type:MetabolizerTypeCondition
-          type: [Kodepiia]
+          type: [Kodepiia, Vampire] # DEN: Add vampire
           inverted: true
       - !type:Satiate
         satiationType: Thirst
@@ -211,7 +211,7 @@
         factor: 6.0 #Stronger than cookedramen
         conditions: # macro add
         - !type:MetabolizerTypeCondition
-          type: [Kodepiia]
+          type: [Kodepiia, Vampire] # DEN: Add vampire
           inverted: true
   footstepSound:
     collection: FootstepSlime

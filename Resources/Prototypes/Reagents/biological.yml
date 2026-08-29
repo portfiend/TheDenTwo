@@ -35,11 +35,13 @@
           Burn: -1.25
       - !type:Satiate # DEN: Blood drinker metabolism
         satiationType: Thirst
+        factor: 3 # average rate
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ BloodDrinker ]
+        - !type:MetabolizerTypeCondition
+          type: [ BloodDrinker ]
       - !type:Satiate # DEN: Vampire metabolism
         satiationType: Hunger
+        factor: 3 # average rate
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
