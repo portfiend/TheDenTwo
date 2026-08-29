@@ -18,7 +18,7 @@
           inverted: true
       - !type:Satiate # DEN: Restores less for vampires
         satiationType: Hunger
-        factor: 0.5
+        factor: 0.5 # 33%
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
@@ -62,7 +62,7 @@
           inverted: true
       - !type:Satiate # DEN: Restores less for vampires
         satiationType: Hunger
-        factor: 0.5
+        factor: 0.5 # 33%
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
@@ -99,7 +99,7 @@
           inverted: true
       - !type:Satiate # DEN: Restores less for vampires
         satiationType: Hunger
-        factor: 0.75
+        factor: 0.75 #50%
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vampire ]
