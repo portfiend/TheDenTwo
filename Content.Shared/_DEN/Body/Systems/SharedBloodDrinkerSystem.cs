@@ -211,6 +211,9 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 
         if (ent.Comp.UseBitePopups)
             DoBiteEndPopups(ent, target, ref didSelfPopup);
+
+        // Add the "bite marks" examine text.
+        EnsureComp<BloodDrinkerVictimComponent>(target);
     }
 
     /// <summary>

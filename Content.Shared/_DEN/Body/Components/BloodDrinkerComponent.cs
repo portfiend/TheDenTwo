@@ -56,6 +56,7 @@ public sealed partial class BloodDrinkerComponent : Component
     /// </summary>
     [DataField]
     public int VerbPriority = 2;
+
     /// <summary>
     ///     An edible type associated with the blood feeding action.
     /// </summary>
