@@ -26,12 +26,13 @@
     species: [Skeleton]
     inverted: true
   functions:
-  - !type:AddComponentTrait
+  - &bloodDrinkerComponents
+    !type:AddComponentTrait
       components:
       - type: BloodExaminer
-  - !type:AddComponentTrait
-      components:
       - type: BloodDrinker
+        transferAmount: 20.0
+        awakeTargetDrinkTime: 6.0
   - !type:AddMetabolizerTrait
     metabolizerTypes: [Detritivore]
 
@@ -58,12 +59,7 @@
   - *maxOneBloodTrait # TODO: Replace with trait group requirement
   - *bloodDrinkerExcludeSpecies
   functions:
-  - !type:AddComponentTrait
-      components:
-      - type: BloodExaminer
-  - !type:AddComponentTrait
-      components:
-      - type: BloodDrinker
+  - *bloodDrinkerComponents
   - !type:AddMetabolizerTrait
     metabolizerTypes: [BloodDrinker, Vampire]
   - !type:FilterSpecialDigestibleTrait
