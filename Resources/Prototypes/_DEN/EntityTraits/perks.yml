@@ -53,6 +53,7 @@
   name: trait-vampire-name
   description: trait-vampire-desc
   category: Perks
+  cost: 2 # TODO: Temporary cost
   requirements:
   - *maxOneBloodTrait # TODO: Replace with trait group requirement
   - *bloodDrinkerExcludeSpecies
