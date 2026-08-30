@@ -40,6 +40,7 @@ public abstract partial class SharedBloodDrinkerSystem
         {
             Icon = ent.Comp.VerbIcon,
             Text = Loc.GetString(ent.Comp.VerbLocId),
+            Message = Loc.GetString(ent.Comp.VerbTooltipLocId),
             Priority = ent.Comp.VerbPriority,
             Act = () => { StartConcealBiteMarks(ent.AsNullable()); }
         };

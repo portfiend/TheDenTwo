@@ -46,6 +46,12 @@ public sealed partial class BloodDrinkerComponent : Component
     public LocId VerbLocId = "blood-drinker-bite-verb";
 
     /// <summary>
+    ///     The localization ID to use for the "bite" verb's tooltip.
+    /// </summary>
+    [DataField("verbTooltip")]
+    public LocId VerbTooltipLocId = "blood-drinker-bite-verb-tooltip";
+
+    /// <summary>
     ///     The icon used for the "bite" verb.
     /// </summary>
     [DataField]

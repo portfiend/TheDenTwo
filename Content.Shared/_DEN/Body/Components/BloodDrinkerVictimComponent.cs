@@ -27,6 +27,12 @@ public sealed partial class BloodDrinkerVictimComponent : Component
     public LocId VerbLocId = "blood-drinker-victim-conceal-verb";
 
     /// <summary>
+    ///     The localization ID to use for the "conceal" verb's tooltip.
+    /// </summary>
+    [DataField("verbTooltip")]
+    public LocId VerbTooltipLocId = "blood-drinker-victim-conceal-verb-tooltip";
+
+    /// <summary>
     ///     The icon used for the "conceal" verb.
     /// </summary>
     [DataField]
