@@ -34,7 +34,7 @@
         transferAmount: 20.0
         awakeTargetDrinkTime: 6.0
   - !type:AddMetabolizerTrait
-    metabolizerTypes: [Detritivore]
+    metabolizerTypes: [BloodDrinker]
 
 - type: entityTrait
   id: Detritivore
@@ -47,7 +47,7 @@
   #   inverted: true
   functions:
   - !type:AddMetabolizerTrait
-    metabolizerTypes: [BloodDrinker]
+    metabolizerTypes: [Detritivore]
 
 - type: entityTrait
   id: Vampire
