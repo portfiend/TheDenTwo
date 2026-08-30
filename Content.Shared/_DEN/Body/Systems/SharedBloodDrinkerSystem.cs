@@ -89,24 +89,24 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 
         // holy moly
         var stomachSolnEnt = ent.Comp.Solution.Value;
-        var remaining = args.Args.RemainingSolution;
-        var processed = args.Args.ProcessedSolution;
+        var remainingBloodSoln = args.Args.RemainingSolution;
+        var processedSoln = args.Args.ProcessedSolution;
         var stomachSoln = stomachSolnEnt.Comp.Solution;
 
         // how much blood we can transfer to the stomach
         var available = stomachSoln.AvailableVolume;
-        var remainingVol = remaining.Volume;
+        var remainingVol = remainingBloodSoln.Volume;
         var transferAmount = FixedPoint2.Min(remainingVol, available);
 
         // create a new solution representing the blood to transfer
-        var ingestSoln = remaining.SplitSolution(transferAmount);
+        var ingestSoln = remainingBloodSoln.SplitSolution(transferAmount);
 
         // ingestion reaction
         _reaction.DoEntityReaction(args.Body, ingestSoln, ReactionMethod.Ingestion);
 
         // transfer solutions
         _solutionContainer.AddSolution(stomachSolnEnt, ingestSoln);
-        processed.AddSolution(ingestSoln, ProtoMan);
+        processedSoln.AddSolution(ingestSoln, ProtoMan);
     }
 
     /// <summary>
