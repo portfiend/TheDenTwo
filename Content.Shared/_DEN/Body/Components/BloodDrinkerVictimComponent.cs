@@ -1,4 +1,5 @@
 using Content.Shared._DEN.Body.EntitySystems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -41,7 +42,7 @@ public sealed partial class BloodDrinkerVictimComponent : Component
     ///     How long it takes to execute the "conceal" verb.
     /// </summary>
     [DataField]
-    public TimeSpan ConcealTime = TimeSpan.FromSeconds(2.0f);
+    public TimeSpan ConcealTime = TimeSpan.FromSeconds(3.0f);
 
     /// <summary>
     ///     The popup text that appears when you start the "conceal" verb.
@@ -54,4 +55,13 @@ public sealed partial class BloodDrinkerVictimComponent : Component
     /// </summary>
     [DataField]
     public LocId ConcealPopupEnd = "blood-drinker-victim-conceal-end-popup";
+
+    /// <summary>
+    ///     The sound effect played when you conceal your bite marks.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? ConcealSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg")
+    {
+        Params = AudioParams.Default.AddVolume(-3.0f)
+    };
 }

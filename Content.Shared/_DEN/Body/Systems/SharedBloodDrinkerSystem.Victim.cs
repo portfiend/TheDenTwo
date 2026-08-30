@@ -36,7 +36,7 @@ public abstract partial class SharedBloodDrinkerSystem
         if (args.User != ent.Owner)
             return;
 
-        var verb = new Verb()
+        var verb = new AlternativeVerb()
         {
             Icon = ent.Comp.VerbIcon,
             Text = Loc.GetString(ent.Comp.VerbLocId),
@@ -59,6 +59,10 @@ public abstract partial class SharedBloodDrinkerSystem
 
         RemCompDeferred(ent.Owner, ent.Comp);
 
+        // Play sound.
+        _audio.PlayPredicted(ent.Comp.ConcealSound, ent, ent);
+
+        // Do popup.
         var msg = Loc.GetString(ent.Comp.ConcealPopupEnd);
         _popup.PopupEntity(msg, ent, ent);
 
