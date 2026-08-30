@@ -76,3 +76,5 @@
       - Pill
       - Paper
       - VampireEdible
+      # note: Crayon isn't added here is because some "special diet"
+      # species can eat crayons, and some can't
