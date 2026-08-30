@@ -169,7 +169,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
         if (!Resolve(ent.Owner, ref ent.Comp) || !Resolve(target.Owner, ref target.Comp))
             return;
 
-        if (!IsInBloodDrinkingRange(ent, target))
+        if (!IsInBloodDrinkingRange(ent, target) || !_ingestion.HasMouthAvailable(ent, target))
             return;
 
         var ingestTime = _mobState.IsIncapacitated(target)
