@@ -42,6 +42,7 @@ public abstract partial class SharedBloodDrinkerSystem
             Text = Loc.GetString(ent.Comp.VerbLocId),
             Message = Loc.GetString(ent.Comp.VerbTooltipLocId),
             Priority = ent.Comp.VerbPriority,
+            DoContactInteraction = args.User != ent.Owner, // leaves fingerprints if target != performer
             Act = () => { StartConcealBiteMarks(ent.AsNullable()); }
         };
 

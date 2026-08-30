@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -31,6 +32,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
     [Dependency] private BodySystem _body = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private FlavorProfileSystem _flavorProfile = default!;
+    [Dependency] private ForensicsSystem _forensics = default!;
     [Dependency] private IngestionSystem _ingestion = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private MobStateSystem _mobState = default!;
@@ -150,6 +152,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
             Text = Loc.GetString(ent.Comp.VerbLocId),
             Message = Loc.GetString(ent.Comp.VerbTooltipLocId),
             Priority = ent.Comp.VerbPriority,
+            DoContactInteraction = false, // does not leave fingerprints
             Act = () => { StartDrinkBlood(ent, target); }
         };
 
@@ -218,6 +221,9 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
 
         // Add the "bite marks" examine text.
         EnsureComp<BloodDrinkerVictimComponent>(target);
+
+        // Leave DNA evidence on the target.
+        _forensics.TransferDna(ent, target);
     }
 
     /// <summary>
