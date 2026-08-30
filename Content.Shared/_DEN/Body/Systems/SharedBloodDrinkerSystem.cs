@@ -11,6 +11,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
@@ -35,6 +36,7 @@ public abstract partial class SharedBloodDrinkerSystem : EntitySystem
     [Dependency] private ForensicsSystem _forensics = default!;
     [Dependency] private IngestionSystem _ingestion = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private ReactiveSystem _reaction = default!;

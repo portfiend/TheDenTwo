@@ -12,6 +12,12 @@ blood-drinker-popup-end-target = {$user} takes a sip of your blood!
 blood-drinker-victim-conceal-verb = Conceal bite marks
 blood-drinker-victim-conceal-verb-tooltip = Hide this mob's bite marks from examination.
 
-blood-drinker-victim-conceal-start-popup = You begin concealing your bite marks...
-blood-drinker-victim-conceal-end-popup = You conceal your bite marks.
+blood-drinker-victim-conceal-self-start-popup = You begin concealing your bite marks...
+blood-drinker-victim-conceal-self-end-popup = You conceal your bite marks.
+
+blood-drinker-victim-conceal-performer-start-popup = You begin concealing {$target}'s bite marks...
+blood-drinker-victim-conceal-performer-end-popup = You conceal {$target}'s bite marks.
+blood-drinker-victim-conceal-target-start-popup = {$user} is concealing your bite marks!
+blood-drinker-victim-conceal-target-end-popup = {$user} conceals your bite marks.
+
 blood-drinker-victim-examine-tooltip = [color=red]{CAPITALIZE(SUBJECT($victim))} {CONJUGATE-HAVE($victim)} bite marks on {POSS-ADJ($victim)} neck.[/color]

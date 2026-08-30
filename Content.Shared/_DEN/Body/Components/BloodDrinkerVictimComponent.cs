@@ -51,23 +51,47 @@ public sealed partial class BloodDrinkerVictimComponent : Component
     public TimeSpan ConcealTime = TimeSpan.FromSeconds(3.0f);
 
     /// <summary>
-    ///     The popup text that appears when you start the "conceal" verb.
-    /// </summary>
-    [DataField]
-    public LocId ConcealPopupStart = "blood-drinker-victim-conceal-start-popup";
-
-    /// <summary>
-    ///     The popup text that appears when you finish the "conceal" verb.
-    /// </summary>
-    [DataField]
-    public LocId ConcealPopupEnd = "blood-drinker-victim-conceal-end-popup";
-
-    /// <summary>
-    ///     The sound effect played when you conceal your bite marks.
+    ///     The sound effect played when the bite marks are concealed.
     /// </summary>
     [DataField]
     public SoundSpecifier? ConcealSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg")
     {
         Params = AudioParams.Default.AddVolume(-3.0f)
     };
+
+    /// <summary>
+    ///     The popup text that appears when you begin concealing your own bite marks.
+    /// </summary>
+    [DataField]
+    public LocId SelfConcealPopupStart = "blood-drinker-victim-conceal-self-start-popup";
+
+    /// <summary>
+    ///     The popup text that appears when you finish concealing your own bite marks.
+    /// </summary>
+    [DataField]
+    public LocId SelfConcealPopupEnd = "blood-drinker-victim-conceal-self-end-popup";
+
+    /// <summary>
+    ///     The popup text that appears when you begin concealing some else's bite marks.
+    /// </summary>
+    [DataField]
+    public LocId PerformerConcealPopupStart = "blood-drinker-victim-conceal-performer-start-popup";
+
+    /// <summary>
+    ///     The popup text that appears when you finish concealing some else's bite marks.
+    /// </summary>
+    [DataField]
+    public LocId PerformerConcealPopupEnd = "blood-drinker-victim-conceal-performer-end-popup";
+
+    /// <summary>
+    ///     The popup text that appears when someone begins concealing your bite marks.
+    /// </summary>
+    [DataField]
+    public LocId TargetConcealPopupStart = "blood-drinker-victim-conceal-target-start-popup";
+
+    /// <summary>
+    ///     The popup text that appears when someone finishes concealing your bite marks.
+    /// </summary>
+    [DataField]
+    public LocId TargetConcealPopupEnd = "blood-drinker-victim-conceal-target-end-popup";
 }
