@@ -43,6 +43,8 @@ public abstract partial class SharedBloodDrinkerSystem
             Priority = ent.Comp.VerbPriority,
             Act = () => { StartConcealBiteMarks(ent.AsNullable()); }
         };
+
+        args.Verbs.Add(verb);
     }
 
     /// <summary>
