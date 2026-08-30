@@ -149,8 +149,12 @@ public sealed partial class AddSpecialDigestibleTrait : ITraitFunction
 }
 
 /// <summary>
-///     A trait that adds special digestion types to an entity's organs.
+///     A trait that filters the SpecialDigestible parameters of an entity's stomach to a certain whitelist.
 /// </summary>
+/// <remarks>
+///     For example: one could filter the digestible tag list to just Pill and Crayon, and have mobs with
+///     unrelated specialized diets (cloth, fruit, meat) filter their extra tags out.
+/// </remarks>
 [UsedImplicitly]
 public sealed partial class FilterSpecialDigestibleTrait : ITraitFunction
 {
