@@ -87,11 +87,13 @@ public abstract partial class SharedBloodDrinkerSystem
             return;
 
         var ev = new ConcealBiteWoundsDoAfterEvent();
+        var isSelf = performer == ent.Owner;
+        var delay = isSelf ? ent.Comp.ConcealTimeSelf : ent.Comp.ConcealTimeOther;
 
         // these parameters are largely arbitrary
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user: performer,
-            delay: ent.Comp.ConcealTime,
+            delay: delay,
             @event: ev,
             eventTarget: ent,
             target: ent)

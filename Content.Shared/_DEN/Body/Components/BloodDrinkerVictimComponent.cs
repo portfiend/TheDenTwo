@@ -45,10 +45,16 @@ public sealed partial class BloodDrinkerVictimComponent : Component
     public int VerbPriority = -1;
 
     /// <summary>
-    ///     How long it takes to execute the "conceal" verb.
+    ///     How long it takes to conceal your own bite marks.
     /// </summary>
     [DataField]
-    public TimeSpan ConcealTime = TimeSpan.FromSeconds(3.0f);
+    public TimeSpan ConcealTimeSelf = TimeSpan.FromSeconds(3.0f);
+
+    /// <summary>
+    ///     How long it takes for someone else to conceal your bite marks.
+    /// </summary>
+    [DataField]
+    public TimeSpan ConcealTimeOther = TimeSpan.FromSeconds(8.0f);
 
     /// <summary>
     ///     The sound effect played when the bite marks are concealed.
