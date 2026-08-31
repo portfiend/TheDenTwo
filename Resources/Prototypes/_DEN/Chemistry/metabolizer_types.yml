@@ -1,5 +1,16 @@
+# Capable of drinking blood safely.
+- type: metabolizerType
+  id: BloodDrinker
+  name: metabolizer-type-blood-drinker
+
 # Hardy digestion for trash eaters and decomposers.
 # Can consume gastrotoxin, trash, and mold safely, and derive nutrition from doing so.
 - type: metabolizerType
   id: Detritivore
   name: metabolizer-type-detritivore
+
+# Capable of deriving hunger from blood.
+# Other sources of food satiate less hunger, however.
+- type: metabolizerType
+  id: Vampire
+  name: metabolizer-type-vampire

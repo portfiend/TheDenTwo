@@ -1,4 +1,42 @@
 - type: entityTrait
+  id: BloodExaminer
+  name: trait-blood-examiner-name
+  description: trait-blood-examiner-desc
+  category: Perks
+  requirements:
+  - &maxOneBloodTrait # TODO: Replace with trait group requirement
+    !type:PlayerTraitRequirement
+    traits: [BloodDrinker, BloodExaminer, Vampire]
+    count: !type:RangeCountRequirement
+      max: 1
+  functions:
+  - !type:AddComponentTrait
+      components:
+      - type: BloodExaminer
+
+- type: entityTrait
+  id: BloodDrinker
+  name: trait-blood-drinker-name
+  description: trait-blood-drinker-desc
+  category: Perks
+  requirements:
+  - *maxOneBloodTrait # TODO: Replace with trait group requirement
+  - &bloodDrinkerExcludeSpecies
+    !type:PlayerSpeciesRequirement
+    species: [Skeleton]
+    inverted: true
+  functions:
+  - &bloodDrinkerComponents
+    !type:AddComponentTrait
+      components:
+      - type: BloodExaminer
+      - type: BloodDrinker
+        transferAmount: 20.0
+        awakeTargetDrinkTime: 6.0
+  - !type:AddMetabolizerTrait
+    metabolizerTypes: [BloodDrinker]
+
+- type: entityTrait
   id: Detritivore
   name: trait-detritivore-name
   description: trait-detritivore-desc
@@ -10,3 +48,33 @@
   functions:
   - !type:AddMetabolizerTrait
     metabolizerTypes: [Detritivore]
+
+- type: entityTrait
+  id: Vampire
+  name: trait-vampire-name
+  description: trait-vampire-desc
+  category: Perks
+  cost: 2 # TODO: Temporary cost
+  requirements:
+  - *maxOneBloodTrait # TODO: Replace with trait group requirement
+  - *bloodDrinkerExcludeSpecies
+  functions:
+  - *bloodDrinkerComponents
+  - !type:AddMetabolizerTrait
+    metabolizerTypes: [BloodDrinker, Vampire]
+  - !type:FilterSpecialDigestibleTrait
+    specialDigestible:
+      tags:
+      - Pill
+      - Crayon
+      - Paper
+      - VampireEdible
+  - !type:AddSpecialDigestibleTrait
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - Pill
+      - Paper
+      - VampireEdible
+      # note: Crayon isn't added here is because some "special diet"
+      # species can eat crayons, and some can't

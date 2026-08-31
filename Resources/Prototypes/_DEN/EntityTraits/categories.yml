@@ -2,6 +2,7 @@
   id: Perks
   name: trait-category-perks
   priority: -8
+  maxTraitPoints: 2
 
 - type: traitCategory
   id: SpeciesMorphs
