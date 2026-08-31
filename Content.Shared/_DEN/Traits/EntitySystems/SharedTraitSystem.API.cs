@@ -79,9 +79,12 @@ public abstract partial class SharedTraitSystem
     [PublicAPI]
     public bool TryRemoveTrait(EntityUid target, ProtoId<EntityTraitPrototype> trait)
     {
-        if (!TryGetTraitEntity(target, trait, out var traitEntity) || Deleted(traitEntity.Value))
+        if (!TryGetTraitEntity(target, trait, out var traitEntity)
+            || traitEntity == null
+            || Deleted(traitEntity.Value))
             return false;
 
+        RemCompDeferred<TraitComponent>(traitEntity.Value);
         PredictedQueueDel(traitEntity);
         return true;
     }

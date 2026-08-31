@@ -228,7 +228,7 @@
         satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition # macro add
-          type: [Kodepiia]
+          type: [Kodepiia, Vampire] # DEN: Add vampire
           inverted: true
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment

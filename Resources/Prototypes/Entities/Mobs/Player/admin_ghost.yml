@@ -112,6 +112,8 @@
     damageCoefficient: 0
   - type: GluedImmune
   - type: LubedImmune
+  - type: BloodExaminer # DEN: Allow AGhosts to examine blood types
+    examineText: blood-examiner-component-examine-generic
 
 - type: entity
   abstract: true
