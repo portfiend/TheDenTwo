@@ -17,7 +17,7 @@
 
 - type: guideEntry
   id: Kodepiia
-  name: Kodepiia
+  name: species-name-kodepiia
   text: "/ServerInfo/_MACRO/Guidebook/Mobs/Kodepiia.xml"
 
 - type: guideEntry
