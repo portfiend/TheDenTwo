@@ -4,9 +4,9 @@
   Nanotrasen employs a variety of sapient species.
 
   <Box>
-    <GuideEntityEmbed Entity="AppearanceArachnid" Caption="Arachnid"/>
     <GuideEntityEmbed Entity="AppearanceAllulalo" Caption="Allulalo"/>
     <GuideEntityEmbed Entity="AppearanceApid" Caption="Apid"/>
+    <GuideEntityEmbed Entity="AppearanceArachnid" Caption="Arachnid"/>
     <GuideEntityEmbed Entity="AppearanceDecapoid" Caption="Decapoid"/>
   </Box>
   <Box>
