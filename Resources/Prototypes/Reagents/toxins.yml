@@ -522,7 +522,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Arachnid, Kodepiia, Detritivore ] #Macro, add Kodepiia, # DEN: Add Detritivore
+          type: [ Animal, Vox, Arachnid, Kodepiia, Detritivore, BloodDrinker ] #Macro, add Kodepiia, # DEN: Add Detritivore
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -532,12 +532,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Arachnid, Kodepiia, Detritivore ] #Macro, add Kodepiia, # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant, Arachnid, Kodepiia, Detritivore, BloodDrinker ] #Macro, add Kodepiia, # DEN: Add Detritivore, BloodDrinker
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant, Arachnid, Kodepiia, Detritivore ] #Macro, add Kodepiia, # DEN: Add Detritivore
+          type: [ Animal, Vox, Plant, Arachnid, Kodepiia, Detritivore, BloodDrinker ] #Macro, add Kodepiia, # DEN: Add Detritivore, BloodDrinker
           inverted: true
         damage:
           types:

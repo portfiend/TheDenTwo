@@ -6,6 +6,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Body.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(StomachSystem))]
+[AutoGenerateComponentState] // DEN: Network fields
 public sealed partial class StomachComponent : Component
 {
     /// <summary>
@@ -18,11 +19,13 @@ public sealed partial class StomachComponent : Component
     ///     A whitelist for what special-digestible-required foods this stomach is capable of eating.
     /// </summary>
     [DataField]
+    [AutoNetworkedField] // DEN: Network fields
     public EntityWhitelist? SpecialDigestible = null;
 
     /// <summary>
     /// Controls whitelist behavior. If true, this stomach can digest <i>only</i> food that passes the whitelist. If false, it can digest normal food <i>and</i> any food that passes the whitelist.
     /// </summary>
     [DataField]
+    [AutoNetworkedField] // DEN: Network fields
     public bool IsSpecialDigestibleExclusive = true;
 }
