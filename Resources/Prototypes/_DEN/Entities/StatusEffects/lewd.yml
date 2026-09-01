@@ -4,7 +4,7 @@
   name: mild aphrodisiac effect
   components:
   - type: IntervalPopupMessageStatusEffect
-    interval: [10, 90]
+    interval: [5, 30]
     visualType: Medium
     recipients: Local
     messages:
@@ -24,7 +24,7 @@
   name: mild aphrodisiac overdose
   components:
   - type: IntervalPopupMessageStatusEffect
-    interval: [5, 30]
+    interval: [2, 10]
     visualType: MediumCaution
     recipients: Local
     messages:
