@@ -17,6 +17,8 @@
   - type: ExpiryPopupMessageStatusEffect
     messages:
     - reagent-effect-aphrodisiac-mildexpired1
+  - type: ExaminableStatusEffect
+    messageId: status-effect-examine-mild-aphrodisiac
 
 - type: entity
   parent: MobStatusEffectBase
