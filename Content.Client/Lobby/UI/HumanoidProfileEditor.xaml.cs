@@ -206,22 +206,26 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
-                OnSkinColorOnValueChanged();
+                // OnSkinColorOnValueChanged(); // DEN: Refactor color sliders
             };
 
             #region Skin
 
-            Skin.OnValueChanged += _ =>
-            {
-                OnSkinColorOnValueChanged();
-            };
+            // DEN: Turn skin color selector into its own control
+            // Skin.OnValueChanged += _ =>
+            // {
+            //     OnSkinColorOnValueChanged();
+            // };
 
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
-            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
-            _rgbSkinColorSelector.OnColorChanged += _ =>
-            {
-                OnSkinColorOnValueChanged();
-            };
+            // RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            // _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
+            // _rgbSkinColorSelector.OnColorChanged += _ =>
+            // {
+            //     OnSkinColorOnValueChanged();
+            // };
+
+            SkinColorSelector.OnColorChanged += _ => { DenOnSkinColorValueChanged(); };
+            // End DEN
 
             #endregion
 
@@ -380,7 +384,8 @@ namespace Content.Client.Lobby.UI
             UpdateSexControls();
             UpdateVoiceControls();
             UpdateGenderControls();
-            UpdateSkinColor();
+            // UpdateSkinColor(); // DEN: Obsolete
+            DenUpdateSkinColor(); // DEN: Refactor skin color sliders
             UpdateSpawnPriorityControls();
             UpdateAgeEdit();
             UpdateEyePickers();
@@ -398,6 +403,7 @@ namespace Content.Client.Lobby.UI
             if (Profile != null)
             {
                 PreferenceUnavailableButton.SelectId((int)Profile.PreferenceUnavailable);
+                DenSetSkinColoration(Profile.Species); // DEN: Refactor skin color sliders
             }
         }
 
