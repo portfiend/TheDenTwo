@@ -553,6 +553,9 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Animal, Arachnid, Detritivore ] # DEN: Add Detritivore
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ] # DEN: Don't kill detritivore Kodepiiae
+          inverted: true
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
