@@ -32,3 +32,6 @@ lobby-state-background-plushpuddle-artist = Wolfio
 
 lobby-state-background-thatcoolbar-title = That Cool Bar
 lobby-state-background-thatcoolbar-artist = WallflowerGhost
+
+lobby-state-background-adenofflowers-title = A Den of Flowers
+lobby-state-background-adenofflowers-artist = Jess of neuSysttem

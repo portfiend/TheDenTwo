@@ -115,4 +115,9 @@
   copyright: "wolfio on discord" #Den
   source: "https://github.com/TheOneTrueWolfio"
 
+- files: ["A_Den_of_Flowers.png"]
+  license: "CC-BY-NC-ND-4.0"
+  copyright: "neuPanda or jessica_gsdg on discord" #Den
+  source: "https://github.com/neuPanda"
+
 # END DEN NAMESPACE
