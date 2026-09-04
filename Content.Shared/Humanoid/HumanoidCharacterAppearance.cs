@@ -175,9 +175,14 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
         if (proto.TryIndex(species, out var speciesProto))
         {
-            var coloration = proto.Index(speciesProto.SkinColoration);
+            // Begin DEN: Validate both strategies
+            // var strategy = proto.Index(speciesProto.SkinColoration).Strategy;
             var organs = markingManager.GetOrgans(species);
-            skinColor = coloration.Strategy.EnsureVerified(skinColor);
+            // skinColor = strategy.EnsureVerified(skinColor);
+
+            var skinStrategy = proto.Index(speciesProto.SkinColoration);
+            skinColor = skinStrategy.VerifyColor(skinColor, out _);
+            // End DEN
 
             foreach (var (organ, _) in appearance.Markings)
             {

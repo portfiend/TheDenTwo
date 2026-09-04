@@ -2,7 +2,7 @@
   id: Marathon
   mapName: 'Marathon Station'
   mapPath: /Maps/marathon.yml
-  minPlayers: 45
+  minPlayers: 30 # DEN: 45 -> 30
   stations:
     Marathon:
       stationProto: StandardNanotrasenStation

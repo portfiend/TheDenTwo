@@ -314,6 +314,7 @@ namespace Content.Server.Database
 
             ModelBan.OnModelCreating(modelBuilder);
             ModelCustomVoteLog.OnModelCreating(modelBuilder);
+            ModelLanguageSelection.OnModelCreating(modelBuilder); // DEN: Languages
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
@@ -362,6 +363,7 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
+        public List<Language> Languages { get; } = new(); // DEN Languages
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 

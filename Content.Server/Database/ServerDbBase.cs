@@ -51,6 +51,7 @@ namespace Content.Server.Database
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
+                .Include(p => p.Profiles).ThenInclude(h => h.Languages) // DEN: Languages
                 .AsSplitQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
         }
@@ -108,6 +109,7 @@ namespace Content.Server.Database
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
+                .Include(p => p.Languages) // DEN: Languages
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -262,6 +264,17 @@ namespace Content.Server.Database
             profile.Traits.AddRange(
                 humanoid.EntityTraitPreferences
                         .Select(t => new Trait { TraitName = t })
+            ); // DEN
+            
+            profile.Languages.Clear(); // DEN
+            profile.Languages.AddRange(
+                humanoid.LanguagePreferences.Select(l => new Language
+                {
+                    LanguageEntryName = l.Key,
+                    FluencyName = l.Value.Fluency,
+                    Primary = l.Value.Primary,
+                    Speaks = l.Value.Speaks.ToString()
+                })
             ); // DEN
 
             profile.Loadouts.Clear();

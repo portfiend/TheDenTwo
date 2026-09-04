@@ -29,7 +29,7 @@
 - type: entity
   parent: BasePlant
   id: PomegranatePlants
-  name: pomegranate plant
+  name: pomegranate tree
   components:
   - type: Sprite
     sprite: _DEN/Objects/Specific/Hydroponics/pomegranate.rsi

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Afk;
 using Content.Server.Database;
+using Content.Shared._DEN.Language;
 using Content.Shared._DEN.Traits.Prototypes;
 using Content.Shared.Body;
 using Content.Shared.CCVar;
@@ -98,6 +99,15 @@ namespace Content.Server.Preferences.Managers
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             // var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName)); // DEN
             var traits = profile.Traits.Select(t => new ProtoId<EntityTraitPrototype>(t.TraitName)); // DEN
+            var languages = profile.Languages.ToDictionary(
+                l => new ProtoId<LanguageEntryPrototype>(l.LanguageEntryName),
+                l =>
+                {
+                    var speaks = SpokenState.None;
+                    if (Enum.TryParse<SpokenState>(l.Speaks, true, out var speaksVal))
+                        speaks = speaksVal;
+                    return new LanguagePreference(new ProtoId<LanguageFluencyPrototype>(l.FluencyName), speaks, l.Primary);
+                }); // DEN
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -197,7 +207,8 @@ namespace Content.Server.Preferences.Managers
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                languages // DEN
             );
         }
 

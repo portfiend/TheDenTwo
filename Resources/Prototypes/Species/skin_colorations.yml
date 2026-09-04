@@ -40,7 +40,10 @@
 
 - type: skinColoration
   id: HumanToned
+  toggleButtonText: skin-coloration-prototype-toggle-human-toned-text # DEN: Provide label text
   strategy: !type:HumanTonedSkinColoration {}
+  altStrategy: !type:ClampedHsvColoration # DEN: Allow humanoid species to pick RGB skin tones
+    value: [0, 1]
   realisticColors: true
 
 - type: skinColoration

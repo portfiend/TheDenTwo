@@ -55,3 +55,9 @@
   background: /Textures/LobbyScreens/plushpuddle.webp
   title: lobby-state-background-plushpuddle-title
   artist: lobby-state-background-plushpuddle-artist
+
+- type: lobbyBackground
+  id: ADenOfFlowers
+  background: /Textures/LobbyScreens/A_Den_of_Flowers.png
+  title: lobby-state-background-adenofflowers-title
+  artist: lobby-state-background-adenofflowers-artist

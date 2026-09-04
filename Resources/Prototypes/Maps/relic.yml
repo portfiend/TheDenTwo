@@ -4,8 +4,8 @@
   mapPath: /Maps/relic.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 15
-  maxPlayers: 35
+  minPlayers: 10 # DEN: 15 -> 10
+  maxPlayers: 45 # DEN: 35 -> 45
   stations:
     Relic:
       stationProto: StandardNanotrasenStation
