@@ -2,7 +2,7 @@
   id: Elkridge
   mapName: 'Elkridge Depot'
   mapPath: /Maps/elkridge.yml
-  minPlayers: 25
+  minPlayers: 10 # DEN: 25 -> 10
   maxPlayers: 44
   stations:
     Elkridge:

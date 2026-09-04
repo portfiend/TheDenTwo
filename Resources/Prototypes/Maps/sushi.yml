@@ -2,7 +2,7 @@
   id: Sushi
   mapName: 'Sushi Station'
   mapPath: /Maps/sushi.yml
-  minPlayers: 45
+  minPlayers: 25 # DEN: 45 -> 25
   maxPlayers: 70
   stations:
     Sushi:
