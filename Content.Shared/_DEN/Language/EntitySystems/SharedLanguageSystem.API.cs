@@ -184,6 +184,42 @@ public abstract partial class SharedLanguageSystem
 
         return !errored;
     }
+    
+    /// <summary>
+    ///     Removes ALL languages from an entity, regardless of source. This may cause odd behavior with
+    ///     translators or other sources of language.
+    /// </summary>
+    /// <param name="target">The entity to remove the language from.</param>
+    /// <returns>If all the languages were successfully removed.</returns>
+    [PublicAPI]
+    public bool TryRemoveLanguages(EntityUid target)
+    {
+        if (!TryComp<LanguageCommunicatorComponent>(target, out var communicator))
+            return false;
+
+        if (!TryGetLanguageEntities(target, out var languageEntities))
+            return false;
+
+        var errored = false;
+        foreach (var languageEntity in languageEntities)
+        {
+            if (Deleted(languageEntity))
+            {
+                errored = true;
+                continue;
+            }
+
+            if (communicator.CurrentLanguage is not null && communicator.CurrentLanguage.Value.Equals(languageEntity))
+            {
+                communicator.CurrentLanguage = null;
+                Dirty<LanguageCommunicatorComponent>((target, communicator));
+            }
+
+            PredictedQueueDel(languageEntity);
+        }
+
+        return !errored;
+    }
     #endregion
 
     #region Get Methods
@@ -194,7 +230,7 @@ public abstract partial class SharedLanguageSystem
     [PublicAPI]
     public ProtoId<LanguagePrototype> GetDefaultLanguage()
     {
-        return _defaultLanguage;
+        return DefaultLanguage;
     }
 
     /// <summary>
@@ -227,7 +263,7 @@ public abstract partial class SharedLanguageSystem
         {
             if (forceDefault)
             {
-                InsertLanguageAndChildren(target, _defaultLanguage, DefaultLanguageFluency, true, out _);
+                InsertLanguageAndChildren(target, DefaultLanguage, DefaultLanguageFluency, true, out _);
                 communicator = EnsureComp<LanguageCommunicatorComponent>(target); // Should already exist here.
             }
             else
@@ -244,7 +280,7 @@ public abstract partial class SharedLanguageSystem
                     return null;
 
                 InsertLanguageAndChildren(target,
-                    _defaultLanguage,
+                    DefaultLanguage,
                     DefaultLanguageFluency,
                     true,
                     out _);

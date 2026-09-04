@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._DEN.Language;
 using Content.Shared.CCVar;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
@@ -197,7 +198,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 // new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences), // DEN
                 new HashSet<ProtoId<EntityTraitPrototype>>(other.EntityTraitPreferences), // DEN
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                new Dictionary<ProtoId<LanguageEntryPrototype>, LanguagePreference>(other.LanguagePreferences)) // DEN
         {
         }
 
@@ -634,6 +636,7 @@ namespace Content.Shared.Preferences
             if (!_entityTraitPreferences.SequenceEqual(other._entityTraitPreferences)) return false; // den
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (!_languagePreferences.SequenceEqual(other._languagePreferences)) return false; // DEN
             return Appearance.Equals(other.Appearance);
         }
 
@@ -804,6 +807,8 @@ namespace Content.Shared.Preferences
             _entityTraitPreferences.Clear(); // DEN
             _entityTraitPreferences.UnionWith(GetValidEntityTraits(traits, prototypeManager)); // DEN
 
+            _languagePreferences = EnsureValidLanguages(_languagePreferences, context, prototypeManager); // DEN
+
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
 
@@ -912,6 +917,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);
             hashCode.Add((int)PreferenceUnavailable);
+            hashCode.Add(_languagePreferences); // DEN
             return hashCode.ToHashCode();
         }
 

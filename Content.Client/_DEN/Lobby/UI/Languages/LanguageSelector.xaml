@@ -1,0 +1,22 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:controls="clr-namespace:Content.Client._DEN.UserInterface.Controls"
+              Orientation="Vertical">
+
+    <Label Name="LanguageNameLabel"
+           Margin="0 10 0 0" />
+    
+    <BoxContainer Orientation="Horizontal">
+        <Label Name="LanguageFluencyLabel"
+               FontColorOverride="Gray" SetWidth="90"/>
+        
+        <controls:LockableSlider Name="FluencySlider" Rounded="True" SetWidth="250" Margin="10"/>
+        
+        <OptionButton Name="SpeaksOptionButton" 
+                      ToolTip="{Loc 'language-selector-options-tooltip'}" SetWidth="120"/>
+        
+        <CheckBox Name="PrimaryButton" 
+                  Text="{Loc 'language-selector-primary-text'}" 
+                  ToolTip="{Loc 'language-selector-primary-tooltip'}" Margin="5"/>
+    </BoxContainer>
+
+</BoxContainer>
