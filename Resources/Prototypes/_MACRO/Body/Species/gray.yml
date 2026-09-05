@@ -165,6 +165,10 @@
       reagents:
       - ReagentId: GrayBlood
         Quantity: 600
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-gray
+  # End DEN
 
 
 - type: entity

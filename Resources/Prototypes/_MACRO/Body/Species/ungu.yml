@@ -264,6 +264,10 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_ungu
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-ungu
+  # End DEN
 
 - type: entity
   parent: OrganBase

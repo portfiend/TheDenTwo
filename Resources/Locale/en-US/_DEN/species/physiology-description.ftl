@@ -17,6 +17,17 @@ physiology-description-species-base-slime = slime
 physiology-description-species-base-vox = vox
 physiology-description-species-base-vulpkanin = vulpkanin
 
+## macrocosm species
+physiology-description-species-base-allulalo = allulalo
+physiology-description-species-base-ant = ant
+physiology-description-species-base-apid = apid
+physiology-description-species-base-decapoid = decapoid
+physiology-description-species-base-gastropoid = gastropoid
+physiology-description-species-base-gray = gray
+physiology-description-species-base-kodepiia = kodepiia
+physiology-description-species-base-ovinia = ovinia
+physiology-description-species-base-ungu = ungu
+
 ## den species
 # TODO
 

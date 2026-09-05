@@ -258,6 +258,10 @@
   - type: BlockInjection
     failurePopup: block-injection-decapoid
   - type: CanWieldOneHanded
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-decapoid
+  # End DEN
 
 - type: entity # For testing purposes.
   save: false

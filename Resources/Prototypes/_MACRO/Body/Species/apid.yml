@@ -262,6 +262,10 @@
   - type: NoSlip
   - type: CanMoveInAir
   - type: CanWieldOneHanded
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-apid
+  # End DEN
 
 - type: entity
   parent: OrganBase

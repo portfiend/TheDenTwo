@@ -163,10 +163,13 @@
     - CanPilot
     - FootstepSound
     - AnomalyHost
-
   - type: NpcFactionMember
     factions:
     - AnimalFriend
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-ovinia
+  # End DEN
 
 - type: entity
   parent: OrganBase

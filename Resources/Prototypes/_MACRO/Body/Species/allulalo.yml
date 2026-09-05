@@ -225,6 +225,10 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5
   - type: UnableToWield
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-allulalo
+  # End DEN
 
 - type: entity
   id: SolutionVenomAllulalo

@@ -226,6 +226,10 @@
         32:
           sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
           state: inhand_right
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-ant
+  # End DEN
 
 - type: entity
   abstract: true

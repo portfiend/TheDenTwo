@@ -150,6 +150,10 @@
     breathVolume: 1 # Twice as much - makes kodes sensitive to waste gases
     updateIntervalMultiplier: 0.5 # Twice as fast
     gaspEmoteCooldown: 4 # Twice as frequent
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-kodepiia
+  # End DEN
 
 - type: entity
   parent: OrganBaseOrganic

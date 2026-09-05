@@ -204,6 +204,10 @@
     damageModifierSet: Gastropoid
   - type: TypingIndicator
     proto: Gastropoid
+  # DEN start
+  - type: PhysiologyDescription
+    baseLabel: physiology-description-species-base-gastropoid
+  # End DEN
 
 - type: entity
   parent: OrganBase
